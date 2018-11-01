@@ -1,0 +1,19 @@
+:- c.
+typedef char *psz;
+:- prolog.
+
+:- public sreverse/2:system(psz = 'Sreverse'(psz)).
+
+sreverse(Psz, Psz) :-
+    make_prolog_string(Psz, String),
+    list_text(List, String),
+    reverse(List, List1),
+    list_text(List1, String1),
+    make_c_string(Psz, -1, String1, _).
+
+reverse(List, RList) :-
+    reverse(List, [], RList).
+
+reverse([], X, X).
+reverse([H|T], Aux, RList) :-
+    reverse(T, [H|Aux], RList).

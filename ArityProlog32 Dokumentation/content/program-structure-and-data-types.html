@@ -1,0 +1,584 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:og="http://ogp.me/ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:sioct="http://rdfs.org/sioc/types#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta charset="utf-8">
+<meta name="HandheldFriendly" content="true">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="http://peter-gabel.com/sites/default/files/photos1%20tight-307_0.jpg" type="image/jpeg">
+<meta name="MobileOptimized" content="width">
+<link rel="up" href="arityprolog32-language.html">
+<link rel="canonical" href="program-structure-and-data-types.html">
+<link rel="shortlink" href="/node/25">
+<link rel="prev" href="arityprolog32-language.html">
+<link rel="next" href="program-control.html">
+  <title>Program structure and data types | Peter Gabel</title>
+  <style type="text/css" media="all">
+@import url("http://peter-gabel.com/modules/system/system.base.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.menus.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.messages.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.theme.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/modules/book/book.css?np0twq");
+@import url("http://peter-gabel.com/modules/comment/comment.css?np0twq");
+@import url("http://peter-gabel.com/modules/field/theme/field.css?np0twq");
+@import url("http://peter-gabel.com/modules/node/node.css?np0twq");
+@import url("http://peter-gabel.com/modules/search/search.css?np0twq");
+@import url("http://peter-gabel.com/modules/user/user.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/modules/ckeditor/css/ckeditor.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/sites/all/modules/ctools/css/ctools.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/skeleton.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/style.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/buttons.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/layout.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/color/colors.css?np0twq");
+</style>
+  <script type="text/javascript" src="http://peter-gabel.com/misc/jquery.js?v=1.4.4"></script>
+<script type="text/javascript" src="http://peter-gabel.com/misc/jquery.once.js?v=1.2"></script>
+<script type="text/javascript" src="http://peter-gabel.com/misc/drupal.js?np0twq"></script>
+<script type="text/javascript" src="http://peter-gabel.com/sites/all/themes/skeletontheme/js/jquery.mobilemenu.js?np0twq"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery(document).ready(function($) { 
+	
+	$("#navigation .content > ul").mobileMenu({
+		prependTo: "#navigation",
+		combine: false,
+        switchWidth: 760,
+        topOptionText: Drupal.settings.skeletontheme['topoptiontext']
+	});
+	
+	});
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","skeletontheme":{"topoptiontext":"Select a page"},"ajaxPageState":{"theme":"skeletontheme","theme_token":"VuWnJsikoVAfgTVp6OeplM2WNzyJY9nxTviv9d1Mb1c","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/themes\/skeletontheme\/js\/jquery.mobilemenu.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/book\/book.css":1,"modules\/comment\/comment.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/themes\/skeletontheme\/css\/skeleton.css":1,"sites\/all\/themes\/skeletontheme\/css\/style.css":1,"sites\/all\/themes\/skeletontheme\/css\/buttons.css":1,"sites\/all\/themes\/skeletontheme\/css\/layout.css":1,"sites\/all\/themes\/skeletontheme\/color\/colors.css":1}}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-first page-node page-node- page-node-25 node-type-book">
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="wrap">
+    <div class="container">
+        
+                
+        <div class="clear"></div>
+        
+        <!-- #header -->
+                <div id="header" class="sixteen columns clearfix">   
+                
+            <div class="inner">
+    
+                                
+                                <div id="name-and-slogan">
+                
+                                        <div id="site-name">
+                    <a href="/" title="Home" rel="home">Peter Gabel</a>
+                    </div>
+                                        
+                                        <div id="site-slogan">
+                    Interdisciplinary investigations into applied cognitive science                    </div>
+                                    
+                </div>
+                            </div>
+        </div><!-- /#header -->
+        
+                
+        <div class="clear"></div>
+        
+        <!-- #navigation -->
+        <div id="navigation" class="sixteen columns clearfix">
+        
+            <div class="menu-header">
+                            				<div class="content">
+				<ul class="menu"><li class="first leaf"><a href="/">Home</a></li>
+<li class="leaf"><a href="/blog" title="">Blog</a></li>
+<li class="expanded"><a href="/content/notebooks">Notebooks</a><ul class="menu"><li class="first leaf"><a href="/content/annotated-references">Annotated References</a></li>
+<li class="leaf"><a href="arityprolog32.html">Arity/Prolog32</a></li>
+<li class="leaf"><a href="/content/cognitive-science">Cognitive Science</a></li>
+<li class="leaf"><a href="/content/natural-language-processing">Natural Language Processing</a></li>
+<li class="leaf"><a href="/content/ontologies-and-logics">Ontologies and Logics</a></li>
+<li class="leaf"><a href="/content/rich-data-machine-learning">Rich Data &amp; Machine Learning</a></li>
+<li class="last leaf"><a href="/content/software-development">Software Development</a></li>
+</ul></li>
+<li class="leaf"><a href="/content/selected-publications">Selected publications</a></li>
+<li class="leaf"><a href="/content/about-me">About me</a></li>
+<li class="leaf"><a href="/contact" title="">Contact me</a></li>
+<li class="last leaf"><a href="/content/join-my-team">Join my team</a></li>
+</ul>                </div>
+                        </div>
+            
+        </div><!-- /#navigation -->
+        
+                <!-- #sidebar-first -->
+        <div id="sidebar-first" class="five columns">
+              <div class="region region-sidebar-first">
+    <div id="block-block-6" class="block block-block">
+
+    
+  <div class="content">
+    
+Welcome Guest. <a href="/user">Login</a>/<a href="/user/register">Register</a>.
+        
+  </div>
+</div>
+<div id="block-blog-recent" class="block block-blog">
+
+    <h2>Recent blog posts</h2>
+  
+  <div class="content">
+    <div class="item-list"><ul><li class="first"><a href="/content/defeating-janitorial-challenges-big-data">Defeating the Janitorial Challenges of Big Data</a></li>
+<li><a href="/content/business-and-life-lessons-freshman-physics-problem">Business and life lessons from a freshman physics problem</a></li>
+<li><a href="/content/wee-bit-about-we">A wee bit about &quot;we&quot;</a></li>
+<li><a href="/content/category-theory">Category Theory</a></li>
+<li><a href="/content/how-many-monitors-are-enough">How many monitors are enough?</a></li>
+<li><a href="/content/words-words-words">Words, words, words!</a></li>
+<li><a href="/content/some-thoughts-about-javascript">Some thoughts about JavaScript</a></li>
+<li><a href="/content/eico-460">Eico 460</a></li>
+<li><a href="/content/raspberry-pi">Raspberry Pi</a></li>
+<li class="last"><a href="/content/arduino">Arduino</a></li>
+</ul></div><div class="more-link"><a href="/blog" title="Read the latest blog entries.">More</a></div>  </div>
+</div>
+<div id="block-book-navigation" class="block block-book">
+
+    <h2>Notebooks</h2>
+  
+  <div class="content">
+      <div id="book-block-menu-67" class="book-block-menu">
+    <ul class="menu"><li class="first last leaf"><a href="/content/annotated-references">Annotated References</a></li>
+</ul>  </div>
+  <div id="book-block-menu-12" class="book-block-menu">
+    <ul class="menu"><li class="first last expanded active-trail"><a href="arityprolog32.html" class="active-trail">Arity/Prolog32</a><ul class="menu"><li class="first leaf"><a href="installing-arityprolog32.html">Installing Arity/Prolog32</a></li>
+<li class="collapsed"><a href="writing-arityprolog32-applications.html">Writing Arity/Prolog32 Applications</a></li>
+<li class="expanded active-trail"><a href="arityprolog32-language.html" class="active-trail">The Arity/Prolog32 Language</a><ul class="menu"><li class="first leaf active-trail"><a href="program-structure-and-data-types.html" class="active-trail active">Program structure and data types</a></li>
+<li class="leaf"><a href="program-control.html">Program control</a></li>
+<li class="leaf"><a href="unify-terms.html">Unify terms</a></li>
+<li class="leaf"><a href="classify-compare-and-sort-terms.html">Classify, compare and sort terms</a></li>
+<li class="leaf"><a href="term-structure-conversions.html">Term structure conversions</a></li>
+<li class="leaf"><a href="arithmetic-and-arithmetic-expressions.html">Arithmetic and arithmetic expressions</a></li>
+<li class="leaf"><a href="text-predicates.html">Text predicates</a></li>
+<li class="collapsed"><a href="input-and-output-predicates.html">Input and output predicates</a></li>
+<li class="collapsed"><a href="database-predicates.html">Database predicates</a></li>
+<li class="leaf"><a href="dll-and-visibility-predicates.html">DLL and visibility predicates</a></li>
+<li class="leaf"><a href="system-function-predicates.html">System function predicates</a></li>
+<li class="leaf"><a href="definite-clause-grammars.html">Definite Clause Grammars</a></li>
+<li class="leaf"><a href="source-code-processing-directives.html">Source code processing directives</a></li>
+<li class="leaf"><a href="prolog-compiler-directives.html">Prolog compiler directives</a></li>
+<li class="leaf"><a href="embedded-c-declarations.html">Embedded C declarations</a></li>
+<li class="leaf"><a href="c-expressions-within-prolog-clauses.html">C expressions within Prolog clauses</a></li>
+<li class="last leaf"><a href="prolog-c-data-type-conversion.html">Prolog / C data type conversion</a></li>
+</ul></li>
+<li class="collapsed"><a href="arityprolog32-warning-and-error-messages.html">Arity/Prolog32 Warning and Error Messages</a></li>
+<li class="leaf"><a href="list-all-arityprolog32-predicates.html">List of all Arity/Prolog32 predicates</a></li>
+<li class="leaf"><a href="glossary.html">Glossary</a></li>
+<li class="last leaf"><a href="suggested-readings.html">Suggested Readings</a></li>
+</ul></li>
+</ul>  </div>
+  <div id="book-block-menu-15" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/cognitive-science">Cognitive Science</a></li>
+</ul>  </div>
+  <div id="book-block-menu-8" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/natural-language-processing">Natural Language Processing</a></li>
+</ul>  </div>
+  <div id="book-block-menu-14" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/ontologies-and-logics">Ontologies and Logics</a></li>
+</ul>  </div>
+  <div id="book-block-menu-13" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/rich-data-machine-learning">Rich Data &amp; Machine Learning</a></li>
+</ul>  </div>
+  <div id="book-block-menu-11" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/software-development">Software Development</a></li>
+</ul>  </div>
+  </div>
+</div>
+<div id="block-search-form" class="block block-search">
+
+    <h2>Search</h2>
+  
+  <div class="content">
+    <form action="/content/program-structure-and-data-types" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text">
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit"></div><input type="hidden" name="form_build_id" value="form-IyI79wODcrEs-qPv-mksnkDfoBtiyHRl_bQoamW8Sak">
+<input type="hidden" name="form_id" value="search_block_form">
+</div>
+</div></form>  </div>
+</div>
+  </div>
+        </div><!-- /#sidebar-first -->
+                
+                <div id="content" class="eleven columns">
+		        
+                    
+                            <div id="breadcrumb"><h2 class="element-invisible">You are here</h2><div class="breadcrumb"><a href="/">Home</a><span class="sep">»</span><a href="arityprolog32.html">Arity/Prolog32</a><span class="sep">»</span><a href="arityprolog32-language.html">The Arity/Prolog32 Language</a><span class="sep">»</span>Program structure and data types</div></div>
+                        
+            <div id="main">
+            
+                                
+                                
+                                <h1 class="title" id="page-title">
+                  Program structure and data types                </h1>
+                                
+                                
+                                <div class="tabs">
+                                  </div>
+                                
+                                
+                                
+                  <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div id="node-25" class="node node-book clearfix" about="/content/program-structure-and-data-types" typeof="sioc:Item foaf:Document">
+
+      <span property="dc:title" content="Program structure and data types" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>
+      <div class="meta submitted">
+            <span property="dc:date dc:created" content="2013-03-30T06:52:22-04:00" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" about="/user/2" typeof="sioc:UserAccount" property="foaf:name" datatype="">Peter Gabel</span> on Sat, 03/30/2013 - 06:52</span>    </div>
+  
+  <div class="content clearfix">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p><strong><em>This chapter provides a refresher on the structure of Arity/Prolog32 programs and unification. It also provides detail on the data types supported by Arity/Prolog32.</em></strong></p>
+<p> </p>
+<h2>Program structure</h2>
+<p>Arity/Prolog32 program development uses conventions and methods that are common to those used for many programming languages, especially 'C'.</p>
+<ul><li>Prolog program source files may contain directives, comments, and predicate definitions.  Good practice for all programming activities encourages modularity, the use of consistent naming and indentation conventions, and sufficient use of comments.  We suggest the use of include files for macro definitions and common directives.</li>
+<li>The Arity/Prolog32 interpreter should be used for experimentation, development and debugging.  We suggest that as you complete areas of functionality of your programs you create or extend your own dynamically linked libraries.  These may be loaded and used as extensions to your interpreted code.  When development has completed, you can create a finished application by compiling a main module which uses these DLLs.</li>
+<li>The Arity/Prolog32 alint utility can often find typos and other bugs, similar to 'lint' utilities for other languages.  It runs quickly and will save you time.</li>
+<li>Comment liberally.  Prolog adopts the same conventions as 'C' and many other languages.  A block comment may span multiple lines and appears as <strong> /* this is a  comment */ </strong>. A percent character (%) is used to comment out the remainder of the line in which it appears.</li>
+<li>While you may have more than one predicate that has the same name but different arities, it is generally not a good idea because you may find your programs to be harder to debug.</li>
+<li>Prolog predicates should have all clauses defined together.  It is not recommended to intermingle clauses from different predicates.  Some Prolog implementations enforce this as a restriction.</li>
+<li>Recall that a Prolog clause or directive is just a Prolog term, but made easier to read with the operator definitions include those for ':-'/1 and ':-'/2.  Because the various predicates for reading Prolog clauses into the interpreter and compiler (such as consult/1) use the Arity/Prolog32 read/1 and read/2 predicates, that the same convention of providing a terminating period (.) followed by some white space (such as a &lt;cr&gt;) is used.  The period-whitespace is not part of the Prolog term but is used just as a terminator.</li>
+</ul><p> </p>
+<h2>Unification</h2>
+<p>Arity/Prolog32 data types have been extended beyond that typically available within other Prolog implementations. Unification, which we first review, is the same operation in Arity/Prolog32 as in other mainstream Prolog implementations.</p>
+<p>In conventional programming languages, the basic computational step is the assignment of values to variables. Prolog uses a much more general type of assignment known as <strong>unification</strong>. Unification may <strong>succeed </strong>or <strong>fail</strong>. If successful, then the two terms that are unified become the same equivalent term. This process is explained in more detail below.</p>
+<p>We start with a quick summary of some of the vocabulary used to describe Prolog data structures. More detail about these data structures is provided later.</p>
+<h3>Term</h3>
+<p class="rteindent1">Prolog programs are built from and manipulate terms. A term is any Prolog data object, including variables</p>
+<h3>Atomic</h3>
+<p class="rteindent1">A term that is one of the basic data types: a number, a text string, etc.</p>
+<h3>Structure</h3>
+<p class="rteindent1">A term that consists of a type (a functor) and one or more arguments, each of which is a term.</p>
+<h3>List</h3>
+<p class="rteindent1">A list is a structure which provides a convenient way to represent an ordered sequence of terms.</p>
+<h3>Unbound (or uninstantiated or free) variable</h3>
+<p class="rteindent1">An unbound variable is a “placeholder” for a value but does not yet contain a value.</p>
+<h3>Bound (or instantiated) variable</h3>
+<p class="rteindent1">A bound variable is a variable that has been unified with a structure or atomic value.</p>
+<h3>Ground Term</h3>
+<p class="rteindent1">A ground term is a term that has no parts (sub terms) that are unbound variables.</p>
+<p>Unification is a more general operation than conventional assignment found in most programming languages. Unbound variables may become bound to values and also to other unbound variables.  Unification is also defined as a recursive operation on terms that are complex data structures.</p>
+<p>We call the event of an unbound variable becoming bound to a term "<strong>instantiation</strong>."</p>
+<p>Not all data structures can unify with one another, and it is important to note which data structures can and cannot unify. The following is a list of the effects of unification on combinations of data types.</p>
+<h3>variable with variable</h3>
+<p class="rteindent1">Unbound variables always unify with other unbound variables, becoming in effect the same unbound variable. Later, if one becomes instantiated, the other also becomes instantiated to the same value.</p>
+<h3>atomic or structure with variable</h3>
+<p>The variable becomes instantiated with the value of the atomic or the structure. This is analogous to conventional assignment.</p>
+<h3>atomic with atomic</h3>
+<p class="rteindent1">The values of the atomics must match by having the same internal representation. For example, unifying the two terms that are each the integer 3 always succeeds. However, unifying the integer 3 with the atom 'Oscar' fails.</p>
+<h3>structure with structure</h3>
+<p class="rteindent1">The functors of both structures must match, that is, they must have the same name and arity. In addition, each argument must unify. If structures contain substructures, then the unification process is recursive.</p>
+<p> </p>
+<h2>Prolog data structures</h2>
+<p>Arity/Prolog32 provides the ability to build and manipulate complex data structures composed from simpler data types.</p>
+<h3>Unbound variables</h3>
+<p>A variable may become instantiated to any other term. In addition, variables may be unified with other variables. When one variable becomes instantiated, the other also becomes instantiated.</p>
+<p>A variable name can be any sequence of alphanumeric characters that begins with a capital letter or an underscore (_), or it can be a single underscore (_) to represent an anonymous variable.  </p>
+<p>Some examples of variable names are:</p>
+<pre>
+BinaryTree1
+X
+_
+_0041</pre><p> </p>
+<p>You can use the anonymous variable (_) in your code whenever you do not need to unify that variable with any other terms.  This arises frequently when you need to unify only some but not all subterms of a term or only some arguments of a predicate. In the following example, the term takes 5 arguments. Only the third and fifth arguments are explicitly named and the first, second, and fourth arguments are distinct anonymous variables. Y and Z are named.</p>
+<pre>
+find(_,_,Y,_,Z)</pre><p> </p>
+<h3>Atoms and Strings</h3>
+<p>In most Prolog implementations, atoms and strings (if they are supported at all) are distinct data types.  In Arity/Prolog32 they are not.</p>
+<p>Atoms (or equivalently in Arity/Prolog32, strings) are textual values. They can contain letters, digits, or symbols. In your code, if they begin with an upper-case letter, or a digit, then they must be enclosed in <strong>single quotes</strong> or in <strong>dollar signs</strong>. Also in your code, if you use a single quote as an apostrophe inside of the single quotes, it is written as two apostrophes.</p>
+<p>Some examples of atoms are:</p>
+<pre>
+tennis
+'23'
+'Paris'
+-&gt;
+'Mary''s'
+$Mary's$</pre><p> </p>
+<p>An empty atom is written either as two sequential single quotes or two sequential dollar signs:</p>
+<pre>
+''
+$$</pre><p> </p>
+<p>Atoms always unify with atoms that are the exactly the same. This matching is case sensitive.</p>
+<p>Most Arity/Prolog32 evaluable predicates that take atoms as arguments are not affected by character set issues, others assume the ASCII character set. It is possible to write Arity/Prolog32 applications that process text in different character sets.</p>
+<p>The maximum length of an atom is 512K bytes.  Atoms are stored on the global stack and so the practical maximum length may be less, depending on your application and on your environment settings.  Practically speaking, individual atoms of thousands or even tens of thousands of bytes in length may be reasonably processed, particularly if your program employs a repeat-fail style of work. There is no limit to the number of atoms that your program may have.</p>
+<p>Arity/Prolog32 also supports another style of encoding text: character lists. Refer to the discussion below on lists for more detail.</p>
+<p> </p>
+<h3>Integers and Floating-point numbers</h3>
+<p>Arity/Prolog32 has an integrated approach to the processing of integer and floating point numbers.  Whenever a numeric result of a read or a computation (including  the is/2 predicate and embedded C calls) is returned to Prolog, it is checked to see if it can be <u>exactly</u> represented as a signed 32-bit integer. If so, it is represented internally as an integer, if not, it is represented internally as a IEEE double precision (64-bit) float. The implications of this are the following:</p>
+<ul><li> Less space is consumed on the stacks and in the database.</li>
+<li> Calculations using the is/2 predicate and other arithmetic predicates is consistent with expectations.</li>
+<li> Unification of numbers is more consistent (but be wary of matching two floats because two floats that appear to be the same when written may have different low precision bits).</li>
+<li> The float/1 predicate succeeds for arguments that are numbers that cannot be represented as a signed 32-bit integer.</li>
+<li> The integer/1 predicate succeeds for arguments that are numbers that can be represented as a signed 32-bit integer.</li>
+<li> The number/1 predicate succeeds for any numeric argument.</li>
+<li> The float_text/3 predicate now will accept integers as well as floats as its first argument.</li>
+<li> The write and display predicates output a number as an integer whenever that number is may be represented as a signed 32-bit integer and otherwise will output a number in general floating point format.</li>
+</ul><p>Integers are positive and negative whole numbers with a range between -2,147,483,648 and 2,147,483,647 (a 32-bit signed integer). Some examples of integers are:</p>
+<pre>
+299
+234567
+-889
+0</pre><p> </p>
+<p>Integers always unify with integers of the same value.</p>
+<p>ASCII characters are also integers when input using the read/1 or similar predicates (i.e., those used for Prolog term input from textual sources). A convenient notation for the integer ASCII value of a character is that character prefaced by a <strong>single backquote</strong> character (`). For example, the following two terms are equivalent:</p>
+<pre>
+`a
+97</pre><p> </p>
+<p>Floating-point numbers allow Prolog to perform arithmetic on fractions. Floating-point numbers have a range of -1.7e308 to 1.7e308. Floating-point numbers have 15 decimal places of accuracy.</p>
+<p>A floating-point number must follow a specific format when input using the read/1 or similar predicates. This format is: an optional sign followed by at least one digit followed by a decimal point followed by at least one digit optionally followed by the exponent. The exponent is in the form E (or e) followed by an optional sign followed by an integer in the range -308 to 308.</p>
+<p>Some examples of floating-point numbers are:</p>
+<pre>
+0.5
+55.3
+-83.0E21
+2134.2
+122.345e25</pre><p> </p>
+<p>The following terms are <u>not </u>accepted as floating-point numbers:</p>
+<pre>
+5.
+.5
+-17.23E-1000</pre><p> </p>
+<p>Floating point numbers unify with other floating point numbers.<strong> However, be aware floating-point operations are inexact and attempting to unify two seemingly identical numbers may not succeed</strong>. You should never rely on exact comparison of floating point numbers for any program, regardless of programming language; Unification of floating point numbers is no exception.</p>
+<p> </p>
+<h3>Database references</h3>
+<p>Database references (or <strong>“database refs</strong>”) serve as unique identifiers for terms stored in the database. Everything stored in the database is assigned its own unique database reference by the system; you should not attempt to invent your own database references. These values are displayed as a tilde (~) followed by eight hexadecimal digits, such as:</p>
+<pre>
+~00255515
+~00035D18</pre><p> </p>
+<p>Database references always unify with themselves.</p>
+<p> </p>
+<h3>Structures</h3>
+<p>Structures are general purpose data types that may be used to group or express a relationship between terms. A structure is composed of an object (the functor) and its arguments. The number of arguments must be between 1 and 255 (a "structure" with 0 arguments is an atom).</p>
+<p>The following is an example of a Prolog data structure:</p>
+<pre>
+book(plants, publisher(green_house))</pre><p> </p>
+<p>Structures may be unified with other structures. They unify if the functors of the structures match and if each of the respective arguments unify. For example, the following structures unify:</p>
+<pre>
+book(Author, Title)
+book(james, $The lonely tree$)</pre><p> </p>
+<p>The following do not unify because the atom charles does not unify with the atom chuck:</p>
+<pre>
+name(jones, charles)
+name(jones, chuck)</pre><p> </p>
+<p>The number of arguments for a structure is often called its "<strong>arity</strong>."  The name of a structure and its arity together are known as the "<strong>functor</strong>." A common notation for a functor is "<strong>name/arity</strong>."  For example, the functor associated with the binary operation of addition is '+'/2.</p>
+<p>Structures may be complex, having sub-structures, etc.  The outermost functor is frequently called the "<strong>principal functor</strong>."  Database key and hash table keys may be structures but only the principal functor is significant.</p>
+<p>In general, structures are represented in prefix Polish notation. That is, the functor is listed first, followed by its arguments. However, as a notational convenience, <strong>operators </strong>may be defined such that Prolog will accept a term if it is not in prefix Polish form. For example, the functor :-/2 is declared as an infix operator, so the clause:</p>
+<p>:- (animal(X), human(X)).</p>
+<p>is accepted by the Prolog read predicate when it is in the form</p>
+<pre>
+animal(X) :- human(X).</pre><p> </p>
+<p>Arithmetic expressions are examples of structures in which operator definitions are commonly used. For example, the structure +(3,2) is usually written as</p>
+<pre>
+3 + 2</pre><p> </p>
+<p>Two special operators are defined in Arity/Prolog32 that each take a single argument.  The following pairs are equivalent:</p>
+<pre>
+'[!!]'(X)
+[! X !]
+
+'{}'(X)
+{ X }</pre><p> </p>
+<p>For additional information about operators refer to the chapter on Arity/Prolog32 input and output predicates.</p>
+<p> </p>
+<h3>Lists and list notation</h3>
+<p>Lists are a specific type of Prolog data structure that is commonly used to represent an ordered sequence of terms. Any Prolog term (for example, variables, structures, or other lists) may be elements in a list. List notation is a convenient way to write a list. In list notation, each element of the list is separated by a comma, and the entire set of elements is placed inside brackets ([]). For example, the list of elements a, b and c is written in list notation as:</p>
+<pre>
+[a, b, c]</pre><p> </p>
+<p>The notation that we use for lists is merely a convenience (a "syntactic sugar") for less terse representations of the equivalent Prolog terms.  A list is built from a "cons functor" which is '.'(Head, Tail). The empty list which is also used to signify an empty list is the atom '[]'. For convenience, Arity/Prolog32 code may also represent the empty list as an opening square bracket '[' followed by white space followed by as closing square bracket ']'.</p>
+<p>The list  above consisting of the elements a, b and c could have been written as</p>
+<pre>
+'.'(a,'.'(b,'.'(c,[])))</pre><p> </p>
+<p>The list with one element, a, would be written as [a] in list notation, but without using list notation it is written as</p>
+<pre>
+'.'(a,[])</pre><p> </p>
+<p>As you can see, list notation is both more convenient to write as well as read.</p>
+<p>There is also a notation for indicating the head of the list and the tail of the list. You use a vertical bar (|) to separate the head from the tail. Thus, using head / tail list notation, the list [a, b, c, d] is represented as any of the following:</p>
+<pre>
+[a|[b ,c, d]]
+[a,b|[c, d]]
+[a,b,c|[d]]</pre><p> </p>
+<p>Most often you will see code that uses variables within list notation that is used to unify one or more leading elements from the rest (the tail).  For example the following can be unified with a list to bind H1 to the first element, H2 to the second element, and T to the remaining:</p>
+<pre>
+[H1,H2|T]</pre><p> </p>
+<p>Character lists are a common form of lists that have their own notation. A character list is a list of integers corresponding to the ASCII values of a sequence of characters. Character lists are enclosed in double quotes. The following three lists are equivalent:</p>
+<pre>
+"abc" 
+[97, 98, 99]
+'.'(97, '.'(98, '.'(99,[])))</pre><p> </p>
+</div></div></div>  <div id="book-navigation-12" class="book-navigation">
+    
+        <div class="page-links clearfix">
+              <a href="arityprolog32-language.html" class="page-previous" title="Go to previous page">‹ The Arity/Prolog32 Language</a>
+                    <a href="arityprolog32-language.html" class="page-up" title="Go to parent page">up</a>
+                    <a href="program-control.html" class="page-next" title="Go to next page">Program control ›</a>
+          </div>
+    
+  </div>
+  </div>
+
+      <div class="link-wrapper">
+      <ul class="links inline"><li class="comment_forbidden first last"><span><a href="/user/login?destination=node/25%23comment-form">Log in</a> or <a href="/user/register?destination=node/25%23comment-form">register</a> to post comments</span></li>
+</ul>    </div>
+  
+  
+</div>
+  </div>
+</div>
+  </div>
+                                
+            </div>
+        
+        </div><!-- /#content -->
+        
+                
+        <div class="clear"></div>
+        
+                <!-- #featured -->
+        <div id="featured" class="sixteen columns clearfix">
+            
+                        <div class="one_half">
+              <div class="region region-featured-left">
+    <div id="block-block-2" class="block block-block">
+
+    
+  <div class="content">
+    <div class="cta clearfix" style="height:145px">
+<h3>Headspace Sprockets</h3>
+
+<p><img class="alignleft" alt="" src="/sites/default/files/small_iStock_000017030156_Small_1.jpg" style="height:48px; width:48px">Learn more about my company.
+</p>
+<div class="clear"></div>
+<br>
+<div class="button small right"><a class="button white" href="http://www.headspacesprockets.com" target="_blank">Visit Headspace Sprockets</a></div>
+</div>
+<p>  </div>
+</div>
+  </div>
+            </div>
+            
+            <div class="one_half last">
+              <div class="region region-featured-right">
+    <div id="block-block-1" class="block block-block">
+
+    
+  <div class="content">
+    <div class="cta clearfix" style="height:145px">
+<h3>GitHub</h3>
+<p><img class="alignleft" src="/sites/all/themes/skeletontheme/mockup/arrow.png" alt="">I have shared some projects on GitHub. Arity/Prolog32 distributions are <a href="installing-arityprolog32.html"><b>available here</b></a> in this site's Arity/Prolog32 notebook.</p>
+<div class="clear"></div>
+<div class="button small right"><a class="button white" href="https://github.com/Peter-Gabel" target="_blank">Fork me on GitHub</a></div>
+</div>  </div>
+</div>
+  </div>
+            </div>
+                        
+        </div><!-- /#featured -->
+                
+	</div>
+        
+	<div id="footer">
+        <div class="container">
+        	<div class="sixteen columns clearfix">
+        
+                <div class="one_third">
+                  <div class="region region-footer-first">
+    <div id="block-block-3" class="block block-block">
+
+    <h2>Privacy and Terms of Use</h2>
+  
+  <div class="content">
+    <p><a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/" rel="license"><img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/us/88x31.png" style="border-width:0"></a><br>
+<strong>©&nbsp;2017&nbsp;Peter L. Gabel</strong>. Except where designated as licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/" target="_blank" rel="license"><strong>Creative Commons Attribution-NonCommercial-NoDerivs 3.0 United States License</strong></a>, Peter L. Gabel reserves all rights associated with the materials on this site. Your use is subject to 
+<strong>
+<a href="/content/privacy-and-terms-use" target="_blank">Additional terms of use</a></strong></p>  </div>
+</div>
+  </div>
+                </div>
+                
+                <div class="one_third">
+                  <div class="region region-footer-second">
+    <div id="block-block-4" class="block block-block">
+
+    
+  <div class="content">
+    <p><a href="http://www.linkedin.com/pub/peter-gabel/0/18/428" target="_blank"><img alt="View Peter Gabel's profile on LinkedIn" src="http://www.linkedin.com/img/webpromo/btn_viewmy_160x33.png" style="height:33px; width:160px"></a></p>
+  </div>
+</div>
+<div id="block-user-login" class="block block-user">
+
+    <h2>User login</h2>
+  
+  <div class="content">
+    <form action="/content/program-structure-and-data-types?destination=node/25" method="post" id="user-login-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name">Username <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-name" name="name" value="" size="15" maxlength="60" class="form-text required">
+</div>
+<div class="form-item form-type-password form-item-pass">
+  <label for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" id="edit-pass" name="pass" size="15" maxlength="128" class="form-text required">
+</div>
+<div class="item-list"><ul><li class="first"><a href="/user/register" title="Create a new user account.">Create new account</a></li>
+<li class="last"><a href="/user/password" title="Request new password via e-mail.">Request new password</a></li>
+</ul></div><input type="hidden" name="form_build_id" value="form-yvcVUqGxT3i83QUA_jTVICYUq0tCbh_i8_cjR4H19LE">
+<input type="hidden" name="form_id" value="user_login_block">
+<div class="form-item form-type-textfield form-item-captcha-questions-answer-given">
+  <label for="edit-captcha-questions-answer-given">What is the name of my company? Hint: you can find it below. <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-captcha-questions-answer-given" name="captcha_questions_answer_given" value="" size="60" maxlength="128" class="form-text required">
+<div class="description">Please answer the question. (We&#039;re keeping spam bots out!)</div>
+</div>
+<div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--2" name="op" value="Log in" class="form-submit"></div></div></form>  </div>
+</div>
+  </div>
+                </div>
+                
+                <div class="one_third last">
+                  <div class="region region-footer-third">
+    <div id="block-block-5" class="block block-block">
+
+    
+  <div class="content">
+    <p><em>The power of the unaided mind is highly overrated. Without external aids, memory, thought, and reasoning are all constrained. But human intelligence is highly flexible and adaptive, superb at inventing procedures and objects that overcome its own limits. The real powers come from devising external aids that enhance cognitive abilities. How have we increased memory, thought, and reasoning? By the inventions of external aids: It is things that make us smart.</em></p>
+<p>-- Donald Norman, <strong><a href="http://www.amazon.com/Things-That-Make-Smart-Attributes/dp/0201626950/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1368737063&amp;sr=1-1" target="_blank">Things that make us smart</a></strong></p>
+  </div>
+</div>
+  </div>
+                </div>
+        
+                <div class="clear"></div>
+                
+                                
+                <div class="clear"></div>
+                
+                <div id="credits">
+				<!--
+				&copy;
+                2018                                 Peter Gabel<br/>
+                				-->
+                Original theme by <a href="http://www.drupalizing.com" target="_blank">Drupalizing</a>, a project of <a href="http://www.morethanthemes.com" target="_blank">More than (just) Themes</a>. Original design by <a href="http://www.simplethemes.com/" target="_blank">Simple Themes</a>.
+                </div>
+        	</div>
+        </div>
+    </div>
+    
+</div> <!-- /#wrap -->  </body>
+</html>

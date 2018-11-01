@@ -1,0 +1,160 @@
+Uri: http://peter-gabel.com/content/arityprolog32
+File Name: content\arityprolog32.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/installing-arityprolog32
+File Name: content\installing-arityprolog32.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/writing-arityprolog32-applications
+File Name: content\writing-arityprolog32-applications.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/arityprolog32-language
+File Name: content\arityprolog32-language.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/arityprolog32-warning-and-error-messages
+File Name: content\arityprolog32-warning-and-error-messages.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/list-all-arityprolog32-predicates
+File Name: content\list-all-arityprolog32-predicates.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/glossary
+File Name: content\glossary.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/suggested-readings
+File Name: content\suggested-readings.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/sites/default/files/ArityProlog32/ArityProlog32.zip
+File Name: sites\default\files\ArityProlog32\ArityProlog32.zip
+Content Type: application/zip
+
+Uri: http://peter-gabel.com/content/arityprolog32-interpreter
+File Name: content\arityprolog32-interpreter.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/debugging-arityprolog32-code
+File Name: content\debugging-arityprolog32-code.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/arityprolog32-alint-utility
+File Name: content\arityprolog32-alint-utility.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/compiling-and-linking-overview
+File Name: content\compiling-and-linking-overview.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/arityprolog32-compiler-options
+File Name: content\arityprolog32-compiler-options.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/linking-executables
+File Name: content\linking-executables.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/building-dlls
+File Name: content\building-dlls.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/environment-files
+File Name: content\environment-files.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/initializing-your-application
+File Name: content\initializing-your-application.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/recipes-and-examples
+File Name: content\recipes-and-examples.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/program-structure-and-data-types
+File Name: content\program-structure-and-data-types.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/program-control
+File Name: content\program-control.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/unify-terms
+File Name: content\unify-terms.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/classify-compare-and-sort-terms
+File Name: content\classify-compare-and-sort-terms.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/term-structure-conversions
+File Name: content\term-structure-conversions.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/arithmetic-and-arithmetic-expressions
+File Name: content\arithmetic-and-arithmetic-expressions.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/text-predicates
+File Name: content\text-predicates.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/input-and-output-predicates
+File Name: content\input-and-output-predicates.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/database-predicates
+File Name: content\database-predicates.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/dll-and-visibility-predicates
+File Name: content\dll-and-visibility-predicates.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/system-function-predicates
+File Name: content\system-function-predicates.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/definite-clause-grammars
+File Name: content\definite-clause-grammars.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/source-code-processing-directives
+File Name: content\source-code-processing-directives.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/prolog-compiler-directives
+File Name: content\prolog-compiler-directives.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/embedded-c-declarations
+File Name: content\embedded-c-declarations.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/c-expressions-within-prolog-clauses
+File Name: content\c-expressions-within-prolog-clauses.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/prolog-c-data-type-conversion
+File Name: content\prolog-c-data-type-conversion.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/file-error-messages
+File Name: content\file-error-messages.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/syntax-error-messages
+File Name: content\syntax-error-messages.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/system-error-messages
+File Name: content\system-error-messages.html
+Content Type: text/html
+
+Uri: http://peter-gabel.com/content/arityprolog32-compiler-error-messages
+File Name: content\arityprolog32-compiler-error-messages.html
+Content Type: text/html
+

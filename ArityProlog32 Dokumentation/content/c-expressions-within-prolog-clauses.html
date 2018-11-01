@@ -1,0 +1,662 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:og="http://ogp.me/ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:sioct="http://rdfs.org/sioc/types#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta charset="utf-8">
+<meta name="HandheldFriendly" content="true">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="http://peter-gabel.com/sites/default/files/photos1%20tight-307_0.jpg" type="image/jpeg">
+<meta name="MobileOptimized" content="width">
+<link rel="up" href="arityprolog32-language.html">
+<link rel="canonical" href="c-expressions-within-prolog-clauses.html">
+<link rel="shortlink" href="/node/57">
+<link rel="prev" href="embedded-c-declarations.html">
+<link rel="next" href="prolog-c-data-type-conversion.html">
+  <title>C expressions within Prolog clauses | Peter Gabel</title>
+  <style type="text/css" media="all">
+@import url("http://peter-gabel.com/modules/system/system.base.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.menus.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.messages.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.theme.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/modules/book/book.css?np0twq");
+@import url("http://peter-gabel.com/modules/comment/comment.css?np0twq");
+@import url("http://peter-gabel.com/modules/field/theme/field.css?np0twq");
+@import url("http://peter-gabel.com/modules/node/node.css?np0twq");
+@import url("http://peter-gabel.com/modules/search/search.css?np0twq");
+@import url("http://peter-gabel.com/modules/user/user.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/modules/ckeditor/css/ckeditor.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/sites/all/modules/ctools/css/ctools.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/skeleton.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/style.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/buttons.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/layout.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/color/colors.css?np0twq");
+</style>
+  <script type="text/javascript" src="http://peter-gabel.com/misc/jquery.js?v=1.4.4"></script>
+<script type="text/javascript" src="http://peter-gabel.com/misc/jquery.once.js?v=1.2"></script>
+<script type="text/javascript" src="http://peter-gabel.com/misc/drupal.js?np0twq"></script>
+<script type="text/javascript" src="http://peter-gabel.com/sites/all/themes/skeletontheme/js/jquery.mobilemenu.js?np0twq"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery(document).ready(function($) { 
+	
+	$("#navigation .content > ul").mobileMenu({
+		prependTo: "#navigation",
+		combine: false,
+        switchWidth: 760,
+        topOptionText: Drupal.settings.skeletontheme['topoptiontext']
+	});
+	
+	});
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","skeletontheme":{"topoptiontext":"Select a page"},"ajaxPageState":{"theme":"skeletontheme","theme_token":"RlUMrpcUfjbPHS4AuRalWm9ZP_qDP0e7ltIz9XFPW94","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/themes\/skeletontheme\/js\/jquery.mobilemenu.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/book\/book.css":1,"modules\/comment\/comment.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/themes\/skeletontheme\/css\/skeleton.css":1,"sites\/all\/themes\/skeletontheme\/css\/style.css":1,"sites\/all\/themes\/skeletontheme\/css\/buttons.css":1,"sites\/all\/themes\/skeletontheme\/css\/layout.css":1,"sites\/all\/themes\/skeletontheme\/color\/colors.css":1}}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-first page-node page-node- page-node-57 node-type-book">
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="wrap">
+    <div class="container">
+        
+                
+        <div class="clear"></div>
+        
+        <!-- #header -->
+                <div id="header" class="sixteen columns clearfix">   
+                
+            <div class="inner">
+    
+                                
+                                <div id="name-and-slogan">
+                
+                                        <div id="site-name">
+                    <a href="/" title="Home" rel="home">Peter Gabel</a>
+                    </div>
+                                        
+                                        <div id="site-slogan">
+                    Interdisciplinary investigations into applied cognitive science                    </div>
+                                    
+                </div>
+                            </div>
+        </div><!-- /#header -->
+        
+                
+        <div class="clear"></div>
+        
+        <!-- #navigation -->
+        <div id="navigation" class="sixteen columns clearfix">
+        
+            <div class="menu-header">
+                            				<div class="content">
+				<ul class="menu"><li class="first leaf"><a href="/">Home</a></li>
+<li class="leaf"><a href="/blog" title="">Blog</a></li>
+<li class="expanded"><a href="/content/notebooks">Notebooks</a><ul class="menu"><li class="first leaf"><a href="/content/annotated-references">Annotated References</a></li>
+<li class="leaf"><a href="arityprolog32.html">Arity/Prolog32</a></li>
+<li class="leaf"><a href="/content/cognitive-science">Cognitive Science</a></li>
+<li class="leaf"><a href="/content/natural-language-processing">Natural Language Processing</a></li>
+<li class="leaf"><a href="/content/ontologies-and-logics">Ontologies and Logics</a></li>
+<li class="leaf"><a href="/content/rich-data-machine-learning">Rich Data &amp; Machine Learning</a></li>
+<li class="last leaf"><a href="/content/software-development">Software Development</a></li>
+</ul></li>
+<li class="leaf"><a href="/content/selected-publications">Selected publications</a></li>
+<li class="leaf"><a href="/content/about-me">About me</a></li>
+<li class="leaf"><a href="/contact" title="">Contact me</a></li>
+<li class="last leaf"><a href="/content/join-my-team">Join my team</a></li>
+</ul>                </div>
+                        </div>
+            
+        </div><!-- /#navigation -->
+        
+                <!-- #sidebar-first -->
+        <div id="sidebar-first" class="five columns">
+              <div class="region region-sidebar-first">
+    <div id="block-block-6" class="block block-block">
+
+    
+  <div class="content">
+    
+Welcome Guest. <a href="/user">Login</a>/<a href="/user/register">Register</a>.
+        
+  </div>
+</div>
+<div id="block-blog-recent" class="block block-blog">
+
+    <h2>Recent blog posts</h2>
+  
+  <div class="content">
+    <div class="item-list"><ul><li class="first"><a href="/content/defeating-janitorial-challenges-big-data">Defeating the Janitorial Challenges of Big Data</a></li>
+<li><a href="/content/business-and-life-lessons-freshman-physics-problem">Business and life lessons from a freshman physics problem</a></li>
+<li><a href="/content/wee-bit-about-we">A wee bit about &quot;we&quot;</a></li>
+<li><a href="/content/category-theory">Category Theory</a></li>
+<li><a href="/content/how-many-monitors-are-enough">How many monitors are enough?</a></li>
+<li><a href="/content/words-words-words">Words, words, words!</a></li>
+<li><a href="/content/some-thoughts-about-javascript">Some thoughts about JavaScript</a></li>
+<li><a href="/content/eico-460">Eico 460</a></li>
+<li><a href="/content/raspberry-pi">Raspberry Pi</a></li>
+<li class="last"><a href="/content/arduino">Arduino</a></li>
+</ul></div><div class="more-link"><a href="/blog" title="Read the latest blog entries.">More</a></div>  </div>
+</div>
+<div id="block-book-navigation" class="block block-book">
+
+    <h2>Notebooks</h2>
+  
+  <div class="content">
+      <div id="book-block-menu-67" class="book-block-menu">
+    <ul class="menu"><li class="first last leaf"><a href="/content/annotated-references">Annotated References</a></li>
+</ul>  </div>
+  <div id="book-block-menu-12" class="book-block-menu">
+    <ul class="menu"><li class="first last expanded active-trail"><a href="arityprolog32.html" class="active-trail">Arity/Prolog32</a><ul class="menu"><li class="first leaf"><a href="installing-arityprolog32.html">Installing Arity/Prolog32</a></li>
+<li class="collapsed"><a href="writing-arityprolog32-applications.html">Writing Arity/Prolog32 Applications</a></li>
+<li class="expanded active-trail"><a href="arityprolog32-language.html" class="active-trail">The Arity/Prolog32 Language</a><ul class="menu"><li class="first leaf"><a href="program-structure-and-data-types.html">Program structure and data types</a></li>
+<li class="leaf"><a href="program-control.html">Program control</a></li>
+<li class="leaf"><a href="unify-terms.html">Unify terms</a></li>
+<li class="leaf"><a href="classify-compare-and-sort-terms.html">Classify, compare and sort terms</a></li>
+<li class="leaf"><a href="term-structure-conversions.html">Term structure conversions</a></li>
+<li class="leaf"><a href="arithmetic-and-arithmetic-expressions.html">Arithmetic and arithmetic expressions</a></li>
+<li class="leaf"><a href="text-predicates.html">Text predicates</a></li>
+<li class="collapsed"><a href="input-and-output-predicates.html">Input and output predicates</a></li>
+<li class="collapsed"><a href="database-predicates.html">Database predicates</a></li>
+<li class="leaf"><a href="dll-and-visibility-predicates.html">DLL and visibility predicates</a></li>
+<li class="leaf"><a href="system-function-predicates.html">System function predicates</a></li>
+<li class="leaf"><a href="definite-clause-grammars.html">Definite Clause Grammars</a></li>
+<li class="leaf"><a href="source-code-processing-directives.html">Source code processing directives</a></li>
+<li class="leaf"><a href="prolog-compiler-directives.html">Prolog compiler directives</a></li>
+<li class="leaf"><a href="embedded-c-declarations.html">Embedded C declarations</a></li>
+<li class="leaf active-trail"><a href="c-expressions-within-prolog-clauses.html" class="active-trail active">C expressions within Prolog clauses</a></li>
+<li class="last leaf"><a href="prolog-c-data-type-conversion.html">Prolog / C data type conversion</a></li>
+</ul></li>
+<li class="collapsed"><a href="arityprolog32-warning-and-error-messages.html">Arity/Prolog32 Warning and Error Messages</a></li>
+<li class="leaf"><a href="list-all-arityprolog32-predicates.html">List of all Arity/Prolog32 predicates</a></li>
+<li class="leaf"><a href="glossary.html">Glossary</a></li>
+<li class="last leaf"><a href="suggested-readings.html">Suggested Readings</a></li>
+</ul></li>
+</ul>  </div>
+  <div id="book-block-menu-15" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/cognitive-science">Cognitive Science</a></li>
+</ul>  </div>
+  <div id="book-block-menu-8" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/natural-language-processing">Natural Language Processing</a></li>
+</ul>  </div>
+  <div id="book-block-menu-14" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/ontologies-and-logics">Ontologies and Logics</a></li>
+</ul>  </div>
+  <div id="book-block-menu-13" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/rich-data-machine-learning">Rich Data &amp; Machine Learning</a></li>
+</ul>  </div>
+  <div id="book-block-menu-11" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/software-development">Software Development</a></li>
+</ul>  </div>
+  </div>
+</div>
+<div id="block-search-form" class="block block-search">
+
+    <h2>Search</h2>
+  
+  <div class="content">
+    <form action="/content/c-expressions-within-prolog-clauses" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text">
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit"></div><input type="hidden" name="form_build_id" value="form-i_bVH25SejY8f2R2U2omA3TKzlhU2GLZgBbM65_J6cw">
+<input type="hidden" name="form_id" value="search_block_form">
+</div>
+</div></form>  </div>
+</div>
+  </div>
+        </div><!-- /#sidebar-first -->
+                
+                <div id="content" class="eleven columns">
+		        
+                    
+                            <div id="breadcrumb"><h2 class="element-invisible">You are here</h2><div class="breadcrumb"><a href="/">Home</a><span class="sep">»</span><a href="arityprolog32.html">Arity/Prolog32</a><span class="sep">»</span><a href="arityprolog32-language.html">The Arity/Prolog32 Language</a><span class="sep">»</span>C expressions within Prolog clauses</div></div>
+                        
+            <div id="main">
+            
+                                
+                                
+                                <h1 class="title" id="page-title">
+                  C expressions within Prolog clauses                </h1>
+                                
+                                
+                                <div class="tabs">
+                                  </div>
+                                
+                                
+                                
+                  <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div id="node-57" class="node node-book clearfix" about="/content/c-expressions-within-prolog-clauses" typeof="sioc:Item foaf:Document">
+
+      <span property="dc:title" content="C expressions within Prolog clauses" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>
+      <div class="meta submitted">
+            <span property="dc:date dc:created" content="2013-04-02T13:02:32-04:00" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" about="/user/2" typeof="sioc:UserAccount" property="foaf:name" datatype="">Peter Gabel</span> on Tue, 04/02/2013 - 13:02</span>    </div>
+  
+  <div class="content clearfix">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><div>
+<h2>C expressions</h2>
+<p>Arity/Prolog32 extends the notion of a Prolog goal to include a very special form of evaluable predicate.  A C expression may only be used in compiled code and it typically requires the declaration of C data and functions.  A C expression is denoted by enclosing it in curly braces ( <strong>{</strong> ...  <strong>}</strong> ). Note that this is an entirely different  use of curly braces than is used for DCGs. There is no ambiguity because the principal functor of a DCG is '<strong>--&gt;</strong>' and not the neck of ordinary Prolog rules ('<strong>:-</strong>').</p>
+<p>A simple example of a C expression that calls a function that creates a C string from a Prolog atom, complete with declarations follows:</p>
+<pre>
+... various Prolog declarations ...
+
+:- c.
+extern unsigned long ulNRlips;
+extern char achNRtime[10];
+#prolog
+
+nrevbch(Length, Iters) :-
+    do_nrev(Length, Iters, Lips, Time),
+    float_text(Time, TimeAtom, fixed(2)),
+    {
+    Lips:long,
+    ulNRlips = Lips;
+    'MakeCString'(achNRtime, sizeof(achNRtime), &amp;TimeAtom)
+    }.
+
+... additional Prolog code ...
+</pre><p> </p>
+<h2>Declaring variables within embedded C expressions</h2>
+<p>There are three types of variables used in C expressions embedded within Prolog clauses:</p>
+<h3>Global C variables</h3>
+<p class="rteindent1">A global C variable declaration appears within the :- c specifier and the :- prolog specifier.</p>
+<h3>Local C variables</h3>
+<p class="rteindent1">A local C variable declaration appears within an embedded C expression.</p>
+<h3>Prolog variables</h3>
+<p class="rteindent1">Prolog variables may appear throughout your Prolog program. Prolog variables appearing within an embedded C expression may or may not be declared. If Prolog variables appearing in an embedded C expression are not declared, they are assumed to be signed long integers.</p>
+<p>When a variable is declared within an embedded C expression, it must be declared as one of the simple data types listed in table 15.1 or it can be declared as a type defined using a typedef declaration. A declaration within an embedded C expression has one of the following formats:</p>
+<pre>
+variable:type
+(variable1, variable2, ... variableN):type</pre><p>Any number of declarations can appear within an embedded C expression. For example, the following declares the variables x and Y as long integers and the value z as a double:</p>
+<pre>
+{ (x,Y):long,
+z:double,
+z = x * Y }</pre><p>Note: both C and Prolog variables can be declared in this way. All C variables local to the expression must be declared either as global C variables or local C variables. If Prolog variables used in an expression are not declared, they are assumed to be signed long integers.</p>
+<p>Two predefined data types are allowed in embedded C expressions that apply only to Prolog variables: '#ref" and '#atom'.  Variables declared with these types need to be atoms or database reference numbers, when used within embedded C expressions. Atoms will be converted into short values and database reference numbers will convert to long integers.The following is an example use of these types:</p>
+<pre>
+X :-
+    Atom1 = 'atom',
+    recordz(Atom1,Atom1,Ref1),
+    {
+        (Atom1,Atom2):'#atom',
+        (Ref1,Ref2):'#ref',
+        C_atom:short,
+        C_ref:long,
+        C_atom = Atom1,
+        Atom2 is C_atom,
+        C_ref = Ref1,
+        Ref2 is C_ref
+    },
+    instance(Ref2, Atom2).</pre><p> </p>
+<h2>Assignment expressions</h2>
+<p>There are two formats of assignment expressions within embedded C expressions.  The is expression is used for unifying Prolog variables with the results of an expression, the = expression is used for assigning values to C variables or C storage locations:</p>
+<pre>
+{ Prolog variable is expression }
+{ lvalue = expression }</pre><p>An <strong>lvalue </strong>is a variable or expression which refers to a particular memory location.  Prolog variables may appear in an lvalue expression when they are valid pointers to C storage locations. For instance, the following are all valid expressions:</p>
+<pre>
+X is (array .. [1] .. [3])
+a = (*lptr) = l1*12
+X is &amp;(array [1] .. [3])
+(*X) = a*12</pre><p>Note: The = operator used within embedded C expressions is used to assign a value to a C variable and is not equivalent to the =/2 predicate used to unify Prolog terms.  Also, note in the second example that it is possible to assign more than one value in a statement.</p>
+<p>Prolog variables used on the right-hand side of an expression or used in lvalue expressions must be instantiated to a value or can be cast into a value that corresponds to the variables given type.  If not, a run-time error will occur.</p>
+<p>When the intermediate result of an expression involves two or more data types, data type conversion is performed according to the C language convention. All values in the expression will be converted to the value with the largest range of values as shown in table 15.1.  Thus, if an expression involves a long, a short and a char, then all of the values will be converted to longs before the expression is calculated.</p>
+<p> </p>
+<p> </p>
+<h2>Elements of an expression</h2>
+<p>An embedded C expression can be made up of any of a number of elements.  The expression can include both Prolog and C variables. Names of C objects may appear as strings or valid Prolog atoms. The following is a list of elements that can be included in a valid expression.</p>
+<h3>Constants</h3>
+<p class="rteindent1">Any numeric constant value.</p>
+<h3>Prolog variables</h3>
+<p class="rteindent1">Any valid Prolog variable.</p>
+<h3>C variables</h3>
+<p class="rteindent1">Any C variable declared with a C declaration.</p>
+<h3>Unary operators</h3>
+<p class="rteindent1">Any of: +  -  \  not  *  sizeof(Arg) &amp;.  The unary operators may appear as:</p>
+<pre>
+Unary_op Expression
+Unary_op(Expression)</pre><h3>Binary operators</h3>
+<p class="rteindent1">Any of: +  -  *  /  mod  &lt;&lt;  &gt;&gt;  /\  \/  \+/  and  or.  The binary operators may appear as:</p>
+<pre>
+Expression Operator Expression
+Operator(Expression, Expression)</pre><h3>Relational operators</h3>
+<p class="rteindent1">Any of: &gt;  &lt;  &gt;=  =&lt;  =:=  =\=</p>
+<h3>Assignment expression</h3>
+<p class="rteindent1">An expression involving either the is operator to assign a value to a Prolog variable, or the = operator that assigns a value to a C lvalue.</p>
+<h3>Cast expression</h3>
+<p class="rteindent1">Casting a variable or expression to a defined Type has the following format:</p>
+<h3>Type(Expression)</h3>
+<p class="rteindent1">where Type is any of the simple data types in table 15.1 or a type name defined through the use of a typedef declaration.</p>
+<h3>Function call</h3>
+<p>A call to a C function has the following format:</p>
+<pre>
+name(Arg1,...,Argn)
+name(void)</pre><p>When calling a C function using a pointer, you must use the funcall functor:</p>
+<pre>
+funcall(Name,Arg1,Arg2,...)</pre><p>For example, the C function call (*fpointer)(3,4,5) should be specified as:</p>
+<pre>
+{...,funcall(*fpointer,3,4,5),...}</pre><h3>Array element</h3>
+<p class="rteindent1">An element of an array is specified using a double dot (..) to separate array elements from the array name.</p>
+<p>For example, the C array element array1[3][5] is specified as:</p>
+<pre>
+array1..[3]..[5]</pre><h3>Structure or union member</h3>
+<p class="rteindent1">A member of a structure or union is specified using a double dot (..), instead of the C convention of a single dot.</p>
+<p>For example:</p>
+<pre>
+date..yearweight..ounces</pre><h3>Pointer to a structure or union member</h3>
+<p class="rteindent1">A pointer to a structure or union member is specified with an arrow (-&gt;) as it is in C.</p>
+<p>For example:</p>
+<pre>
+(date -&gt; year)
+(weight -&gt; ounces)</pre><p>Note: Because the -&gt; operator has a high precedence it is usually necessary to enclose these expressions in parenthesis.</p>
+<p> </p>
+<h2>Control constructs</h2>
+<p>Several control constructs are supported by the embedded C compiler for controlling execution based on test expressions. In all cases, a test expression is assumed to be true if it evaluates to a non-zero value and false if it evaluates to a value of zero.  The supported control constructs are:</p>
+<h3>ifthenelse(Test, ExpTrue, ExpFail)</h3>
+<p class="rteindent1">If Test is true, then ExpTrue is evaluated and the result is returned, otherwise ExpFail is evaluated and returned.  ExpTrue and ExpFail must have values of the same type.</p>
+<h3>case(Test,[Val1  -&gt; Expr1, ..., Valn  -&gt; Exprn])</h3>
+<h3>case(Test,[Val1  -&gt; Expr1, ..., Valn  -&gt; Exprn | ExprDefault ])</h3>
+<p class="rteindent1">Test is evaluated and a short value is returned and compared with each value (Val1 thru Valn). If one of the values is the same, then the corresponding expression is evaluated and the result is returned as a long. If no value matches then ExprDefault is evaluated if it is specified, otherwise the value 0 is returned.</p>
+<h3>do_while(Exp,Test)</h3>
+<p class="rteindent1">Exp is evaluated until Test evaluates as false.  Exp is evaluated before the first evaluation of Test.</p>
+<h3>while_do(Test,Exp)</h3>
+<p class="rteindent1">As long as Test evaluates to true, Exp will be evaluated.</p>
+<h3>do_until(Exp,Test)</h3>
+<p>Exp is evaluated until Test is evaluated as true.  Exp is evaluated before the first evaluation of Test.</p>
+<h3>until_do(Test,Exp)</h3>
+<p class="rteindent1">As long as Test is evaluates to false, Exp will be evaluated.</p>
+<p>An expression can contain any valid combination of the elements described above. Note that C string constants are not allowed in embedded C expressions.</p>
+<p> </p>
+<h2>Operators</h2>
+<p>Arity/Prolog32 includes a full set of operators for use in embedded C expressions, which closely correspond to the operators found in the C language. Table 15.2 shows the Arity/Prolog32 representation of comparable C operators.</p>
+<p> </p>
+<table border="1" cellpadding="1" cellspacing="1" style="width:500px"><tbody><tr><td>
+<h3>Operator</h3>
+</td>
+<td>
+<h3>C</h3>
+</td>
+<td>
+<h3>Arity/Prolog32</h3>
+</td>
+</tr><tr><td>sequential evaluation</td>
+<td>,</td>
+<td>,</td>
+</tr><tr><td>logical not</td>
+<td>! X</td>
+<td>not X</td>
+</tr><tr><td>pointer to structure or union member</td>
+<td>-&gt;</td>
+<td>-&gt;</td>
+</tr><tr><td>logical and</td>
+<td>X &amp;&amp; Y</td>
+<td>X and Y</td>
+</tr><tr><td>logical or</td>
+<td>X || Y</td>
+<td>X or Y</td>
+</tr><tr><td>bitwise or</td>
+<td>X | Y</td>
+<td>X \ / Y</td>
+</tr><tr><td>bitwise exclusive or</td>
+<td>X ^ Y</td>
+<td>X \+/ Y</td>
+</tr><tr><td>bitwise and</td>
+<td>X &amp; Y</td>
+<td>X / \ Y</td>
+</tr><tr><td>assignment</td>
+<td>X = Y</td>
+<td>X = Y</td>
+</tr><tr><td>equality</td>
+<td>X == Y</td>
+<td>X =:= Y</td>
+</tr><tr><td>not equality</td>
+<td>X != Y</td>
+<td>X =\= Y</td>
+</tr><tr><td>greater than or equal</td>
+<td>X &gt;= Y</td>
+<td>X &gt;= Y</td>
+</tr><tr><td>less than or equal</td>
+<td>X &lt;= Y</td>
+<td>X =&lt; Y</td>
+</tr><tr><td>greater than</td>
+<td>X &gt; Y</td>
+<td>X &gt; Y</td>
+</tr><tr><td>less than</td>
+<td>X &lt; Y</td>
+<td>X &lt; Y</td>
+</tr><tr><td>right shift</td>
+<td>&gt;&gt; </td>
+<td>&gt;&gt; </td>
+</tr><tr><td>left shift</td>
+<td>&lt;&lt; </td>
+<td>&lt;&lt; </td>
+</tr><tr><td>unary minus</td>
+<td>- X</td>
+<td>-X</td>
+</tr><tr><td>remainder</td>
+<td>X % Y</td>
+<td>X mod Y</td>
+</tr><tr><td>bitwise negation</td>
+<td>~X</td>
+<td>\(X)</td>
+</tr><tr><td>address of</td>
+<td>&amp;X</td>
+<td>&amp;X</td>
+</tr><tr><td>indirection</td>
+<td>*X</td>
+<td>*X</td>
+</tr><tr><td>membership</td>
+<td>X.Y</td>
+<td>X..Y</td>
+</tr><tr><td>type cast</td>
+<td>(Type) X</td>
+<td>Type(X)</td>
+</tr><tr><td>size of object</td>
+<td>sizeof(X)</td>
+<td>sizeof(X)</td>
+</tr></tbody></table><p> </p>
+<p> </p>
+<p>Note that the precedence of the following operators differ between Prolog and C: logical not, = (assignment) , -&gt; (pointer to structure/union member).</p>
+<p> </p>
+<h2>Failing from an embedded C expression</h2>
+<p>The APC$SUCCFAIL function is provided to allow you to fail from an embedded C expression.  The definition of this predicate would be:</p>
+<pre>
+int far pascal APC$SUCCFAIL(int value);</pre><p>It is not necessary to provide this function declaration in your code as it is already built into the compiler.  If the integer argument value is non-zero, then the function returns the value, otherwise the embedded C section which contains the function call will fail. For example, if you had a boolean C variable data_exists defined to mean that there is data if the variable is set to true, then you could assign either 'it exists' or 'it is missing' to a Prolog variable with the following predicate:</p>
+<pre>
+any_c_data('it exists') :-   
+    { 'APC$SUCCFAIL'(data_exists) },
+    !.
+any_c_data('it is missing').</pre><p> </p>
+<h2>Compiled Arithmetic and the arith directive</h2>
+<p>Unlike the Prolog is/2 predicate that is always interpreted (in case a variable in the expression is actually an expression), the embedded C is expression actually performs compiled arithmetic.  This is possible because the types of all of the variables in the expression are known.  You can use compiled arithmetic instead of the is/2 predicate by replacing each occurrence of the is/2 predicate with an embedded C expression where each variable is typed and the expression is provided.  For instance, you would replace the following goals:</p>
+<pre>
+Var is (3*Float1) mod(4*Long1)
+Var is integer(Long1 mod Long2)</pre><p>with the following expressions:</p>
+<pre>
+{ (Var,Float1):double, Long1:long; Var is (3*Float1) mod (4*Long1) }
+{ Var is Long1 mod Long2 }</pre><p>Note: In the first expression the variable Var needs to be declared as a double, otherwise it would be assumed to be a long and the result of the expression would have been cast to a long. </p>
+<p>In the second expression, all of the Prolog variables are assumed to be C long values by default.  When all of the variables in an is/2 goal (including the result) are the same integer type, you can specify that compiled arithmetic be used in place of the is/2 goal.   The arith directiveindicates what type of compiled arithmetic is substituted for is/2 goals within Prolog predicates.  The format for this directive is</p>
+<pre>
+:-arith(Type)</pre><p>where Type can be one of the following:</p>
+<h3>interp</h3>
+<p class="rteindent1">All is expressions outside of embedded C expressions are interpreted. This is the default action if no arith declaration is specified.</p>
+<h3>double</h3>
+<p class="rteindent1">All is expressions outside of embedded C expressions are compiled. Constants and variables within the expressions are assumed to be double precision floats.</p>
+<h3>long</h3>
+<p class="rteindent1">All is expressions outside of embedded C expressions are compiled. Constants and variables within the expressions are assumed to be long integers.</p>
+<h3>short</h3>
+<p class="rteindent1">All is expressions outside of embedded C expressions are compiled. Constants and variables within the expression are assumed to be short integers.</p>
+<p>More than one arith directive may appear within the Prolog code. An arith directive applies to all clauses that follow it up to the next arith directive. Note, however, that arith directive cannot be placed within a clause.</p>
+<p> </p>
+</div>
+</div></div></div>  <div id="book-navigation-12" class="book-navigation">
+    
+        <div class="page-links clearfix">
+              <a href="embedded-c-declarations.html" class="page-previous" title="Go to previous page">‹ Embedded C declarations</a>
+                    <a href="arityprolog32-language.html" class="page-up" title="Go to parent page">up</a>
+                    <a href="prolog-c-data-type-conversion.html" class="page-next" title="Go to next page">Prolog / C data type conversion ›</a>
+          </div>
+    
+  </div>
+  </div>
+
+      <div class="link-wrapper">
+      <ul class="links inline"><li class="comment_forbidden first last"><span><a href="/user/login?destination=node/57%23comment-form">Log in</a> or <a href="/user/register?destination=node/57%23comment-form">register</a> to post comments</span></li>
+</ul>    </div>
+  
+  
+</div>
+  </div>
+</div>
+  </div>
+                                
+            </div>
+        
+        </div><!-- /#content -->
+        
+                
+        <div class="clear"></div>
+        
+                <!-- #featured -->
+        <div id="featured" class="sixteen columns clearfix">
+            
+                        <div class="one_half">
+              <div class="region region-featured-left">
+    <div id="block-block-2" class="block block-block">
+
+    
+  <div class="content">
+    <div class="cta clearfix" style="height:145px">
+<h3>Headspace Sprockets</h3>
+
+<p><img class="alignleft" alt="" src="/sites/default/files/small_iStock_000017030156_Small_1.jpg" style="height:48px; width:48px">Learn more about my company.
+</p>
+<div class="clear"></div>
+<br>
+<div class="button small right"><a class="button white" href="http://www.headspacesprockets.com" target="_blank">Visit Headspace Sprockets</a></div>
+</div>
+<p>  </div>
+</div>
+  </div>
+            </div>
+            
+            <div class="one_half last">
+              <div class="region region-featured-right">
+    <div id="block-block-1" class="block block-block">
+
+    
+  <div class="content">
+    <div class="cta clearfix" style="height:145px">
+<h3>GitHub</h3>
+<p><img class="alignleft" src="/sites/all/themes/skeletontheme/mockup/arrow.png" alt="">I have shared some projects on GitHub. Arity/Prolog32 distributions are <a href="installing-arityprolog32.html"><b>available here</b></a> in this site's Arity/Prolog32 notebook.</p>
+<div class="clear"></div>
+<div class="button small right"><a class="button white" href="https://github.com/Peter-Gabel" target="_blank">Fork me on GitHub</a></div>
+</div>  </div>
+</div>
+  </div>
+            </div>
+                        
+        </div><!-- /#featured -->
+                
+	</div>
+        
+	<div id="footer">
+        <div class="container">
+        	<div class="sixteen columns clearfix">
+        
+                <div class="one_third">
+                  <div class="region region-footer-first">
+    <div id="block-block-3" class="block block-block">
+
+    <h2>Privacy and Terms of Use</h2>
+  
+  <div class="content">
+    <p><a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/" rel="license"><img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/us/88x31.png" style="border-width:0"></a><br>
+<strong>©&nbsp;2017&nbsp;Peter L. Gabel</strong>. Except where designated as licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/" target="_blank" rel="license"><strong>Creative Commons Attribution-NonCommercial-NoDerivs 3.0 United States License</strong></a>, Peter L. Gabel reserves all rights associated with the materials on this site. Your use is subject to 
+<strong>
+<a href="/content/privacy-and-terms-use" target="_blank">Additional terms of use</a></strong></p>  </div>
+</div>
+  </div>
+                </div>
+                
+                <div class="one_third">
+                  <div class="region region-footer-second">
+    <div id="block-block-4" class="block block-block">
+
+    
+  <div class="content">
+    <p><a href="http://www.linkedin.com/pub/peter-gabel/0/18/428" target="_blank"><img alt="View Peter Gabel's profile on LinkedIn" src="http://www.linkedin.com/img/webpromo/btn_viewmy_160x33.png" style="height:33px; width:160px"></a></p>
+  </div>
+</div>
+<div id="block-user-login" class="block block-user">
+
+    <h2>User login</h2>
+  
+  <div class="content">
+    <form action="/content/c-expressions-within-prolog-clauses?destination=node/57" method="post" id="user-login-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name">Username <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-name" name="name" value="" size="15" maxlength="60" class="form-text required">
+</div>
+<div class="form-item form-type-password form-item-pass">
+  <label for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" id="edit-pass" name="pass" size="15" maxlength="128" class="form-text required">
+</div>
+<div class="item-list"><ul><li class="first"><a href="/user/register" title="Create a new user account.">Create new account</a></li>
+<li class="last"><a href="/user/password" title="Request new password via e-mail.">Request new password</a></li>
+</ul></div><input type="hidden" name="form_build_id" value="form-SH1HL2XYWF9-AYha1zAe1rhvlcHi7t7yjroYKYswb38">
+<input type="hidden" name="form_id" value="user_login_block">
+<div class="form-item form-type-textfield form-item-captcha-questions-answer-given">
+  <label for="edit-captcha-questions-answer-given">What is the name of my company? Hint: you can find it below. <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-captcha-questions-answer-given" name="captcha_questions_answer_given" value="" size="60" maxlength="128" class="form-text required">
+<div class="description">Please answer the question. (We&#039;re keeping spam bots out!)</div>
+</div>
+<div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--2" name="op" value="Log in" class="form-submit"></div></div></form>  </div>
+</div>
+  </div>
+                </div>
+                
+                <div class="one_third last">
+                  <div class="region region-footer-third">
+    <div id="block-block-5" class="block block-block">
+
+    
+  <div class="content">
+    <p><em>The power of the unaided mind is highly overrated. Without external aids, memory, thought, and reasoning are all constrained. But human intelligence is highly flexible and adaptive, superb at inventing procedures and objects that overcome its own limits. The real powers come from devising external aids that enhance cognitive abilities. How have we increased memory, thought, and reasoning? By the inventions of external aids: It is things that make us smart.</em></p>
+<p>-- Donald Norman, <strong><a href="http://www.amazon.com/Things-That-Make-Smart-Attributes/dp/0201626950/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1368737063&amp;sr=1-1" target="_blank">Things that make us smart</a></strong></p>
+  </div>
+</div>
+  </div>
+                </div>
+        
+                <div class="clear"></div>
+                
+                                
+                <div class="clear"></div>
+                
+                <div id="credits">
+				<!--
+				&copy;
+                2018                                 Peter Gabel<br/>
+                				-->
+                Original theme by <a href="http://www.drupalizing.com" target="_blank">Drupalizing</a>, a project of <a href="http://www.morethanthemes.com" target="_blank">More than (just) Themes</a>. Original design by <a href="http://www.simplethemes.com/" target="_blank">Simple Themes</a>.
+                </div>
+        	</div>
+        </div>
+    </div>
+    
+</div> <!-- /#wrap -->  </body>
+</html>

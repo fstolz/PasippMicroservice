@@ -1,0 +1,547 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:og="http://ogp.me/ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:sioct="http://rdfs.org/sioc/types#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta charset="utf-8">
+<meta name="HandheldFriendly" content="true">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="http://peter-gabel.com/sites/default/files/photos1%20tight-307_0.jpg" type="image/jpeg">
+<meta name="MobileOptimized" content="width">
+<link rel="up" href="arityprolog32-language.html">
+<link rel="canonical" href="text-predicates.html">
+<link rel="shortlink" href="/node/31">
+<link rel="prev" href="arithmetic-and-arithmetic-expressions.html">
+<link rel="next" href="input-and-output-predicates.html">
+  <title>Text predicates | Peter Gabel</title>
+  <style type="text/css" media="all">
+@import url("http://peter-gabel.com/modules/system/system.base.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.menus.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.messages.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.theme.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/modules/book/book.css?np0twq");
+@import url("http://peter-gabel.com/modules/comment/comment.css?np0twq");
+@import url("http://peter-gabel.com/modules/field/theme/field.css?np0twq");
+@import url("http://peter-gabel.com/modules/node/node.css?np0twq");
+@import url("http://peter-gabel.com/modules/search/search.css?np0twq");
+@import url("http://peter-gabel.com/modules/user/user.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/modules/ckeditor/css/ckeditor.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/sites/all/modules/ctools/css/ctools.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/skeleton.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/style.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/buttons.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/layout.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/color/colors.css?np0twq");
+</style>
+  <script type="text/javascript" src="http://peter-gabel.com/misc/jquery.js?v=1.4.4"></script>
+<script type="text/javascript" src="http://peter-gabel.com/misc/jquery.once.js?v=1.2"></script>
+<script type="text/javascript" src="http://peter-gabel.com/misc/drupal.js?np0twq"></script>
+<script type="text/javascript" src="http://peter-gabel.com/sites/all/themes/skeletontheme/js/jquery.mobilemenu.js?np0twq"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery(document).ready(function($) { 
+	
+	$("#navigation .content > ul").mobileMenu({
+		prependTo: "#navigation",
+		combine: false,
+        switchWidth: 760,
+        topOptionText: Drupal.settings.skeletontheme['topoptiontext']
+	});
+	
+	});
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","skeletontheme":{"topoptiontext":"Select a page"},"ajaxPageState":{"theme":"skeletontheme","theme_token":"PSbkYMH-HU1CXcQ69fTEcOU_jU9SuwwiaFVKvmH3r54","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/themes\/skeletontheme\/js\/jquery.mobilemenu.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/book\/book.css":1,"modules\/comment\/comment.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/themes\/skeletontheme\/css\/skeleton.css":1,"sites\/all\/themes\/skeletontheme\/css\/style.css":1,"sites\/all\/themes\/skeletontheme\/css\/buttons.css":1,"sites\/all\/themes\/skeletontheme\/css\/layout.css":1,"sites\/all\/themes\/skeletontheme\/color\/colors.css":1}}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-first page-node page-node- page-node-31 node-type-book">
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="wrap">
+    <div class="container">
+        
+                
+        <div class="clear"></div>
+        
+        <!-- #header -->
+                <div id="header" class="sixteen columns clearfix">   
+                
+            <div class="inner">
+    
+                                
+                                <div id="name-and-slogan">
+                
+                                        <div id="site-name">
+                    <a href="/" title="Home" rel="home">Peter Gabel</a>
+                    </div>
+                                        
+                                        <div id="site-slogan">
+                    Interdisciplinary investigations into applied cognitive science                    </div>
+                                    
+                </div>
+                            </div>
+        </div><!-- /#header -->
+        
+                
+        <div class="clear"></div>
+        
+        <!-- #navigation -->
+        <div id="navigation" class="sixteen columns clearfix">
+        
+            <div class="menu-header">
+                            				<div class="content">
+				<ul class="menu"><li class="first leaf"><a href="/">Home</a></li>
+<li class="leaf"><a href="/blog" title="">Blog</a></li>
+<li class="expanded"><a href="/content/notebooks">Notebooks</a><ul class="menu"><li class="first leaf"><a href="/content/annotated-references">Annotated References</a></li>
+<li class="leaf"><a href="arityprolog32.html">Arity/Prolog32</a></li>
+<li class="leaf"><a href="/content/cognitive-science">Cognitive Science</a></li>
+<li class="leaf"><a href="/content/natural-language-processing">Natural Language Processing</a></li>
+<li class="leaf"><a href="/content/ontologies-and-logics">Ontologies and Logics</a></li>
+<li class="leaf"><a href="/content/rich-data-machine-learning">Rich Data &amp; Machine Learning</a></li>
+<li class="last leaf"><a href="/content/software-development">Software Development</a></li>
+</ul></li>
+<li class="leaf"><a href="/content/selected-publications">Selected publications</a></li>
+<li class="leaf"><a href="/content/about-me">About me</a></li>
+<li class="leaf"><a href="/contact" title="">Contact me</a></li>
+<li class="last leaf"><a href="/content/join-my-team">Join my team</a></li>
+</ul>                </div>
+                        </div>
+            
+        </div><!-- /#navigation -->
+        
+                <!-- #sidebar-first -->
+        <div id="sidebar-first" class="five columns">
+              <div class="region region-sidebar-first">
+    <div id="block-block-6" class="block block-block">
+
+    
+  <div class="content">
+    
+Welcome Guest. <a href="/user">Login</a>/<a href="/user/register">Register</a>.
+        
+  </div>
+</div>
+<div id="block-blog-recent" class="block block-blog">
+
+    <h2>Recent blog posts</h2>
+  
+  <div class="content">
+    <div class="item-list"><ul><li class="first"><a href="/content/defeating-janitorial-challenges-big-data">Defeating the Janitorial Challenges of Big Data</a></li>
+<li><a href="/content/business-and-life-lessons-freshman-physics-problem">Business and life lessons from a freshman physics problem</a></li>
+<li><a href="/content/wee-bit-about-we">A wee bit about &quot;we&quot;</a></li>
+<li><a href="/content/category-theory">Category Theory</a></li>
+<li><a href="/content/how-many-monitors-are-enough">How many monitors are enough?</a></li>
+<li><a href="/content/words-words-words">Words, words, words!</a></li>
+<li><a href="/content/some-thoughts-about-javascript">Some thoughts about JavaScript</a></li>
+<li><a href="/content/eico-460">Eico 460</a></li>
+<li><a href="/content/raspberry-pi">Raspberry Pi</a></li>
+<li class="last"><a href="/content/arduino">Arduino</a></li>
+</ul></div><div class="more-link"><a href="/blog" title="Read the latest blog entries.">More</a></div>  </div>
+</div>
+<div id="block-book-navigation" class="block block-book">
+
+    <h2>Notebooks</h2>
+  
+  <div class="content">
+      <div id="book-block-menu-67" class="book-block-menu">
+    <ul class="menu"><li class="first last leaf"><a href="/content/annotated-references">Annotated References</a></li>
+</ul>  </div>
+  <div id="book-block-menu-12" class="book-block-menu">
+    <ul class="menu"><li class="first last expanded active-trail"><a href="arityprolog32.html" class="active-trail">Arity/Prolog32</a><ul class="menu"><li class="first leaf"><a href="installing-arityprolog32.html">Installing Arity/Prolog32</a></li>
+<li class="collapsed"><a href="writing-arityprolog32-applications.html">Writing Arity/Prolog32 Applications</a></li>
+<li class="expanded active-trail"><a href="arityprolog32-language.html" class="active-trail">The Arity/Prolog32 Language</a><ul class="menu"><li class="first leaf"><a href="program-structure-and-data-types.html">Program structure and data types</a></li>
+<li class="leaf"><a href="program-control.html">Program control</a></li>
+<li class="leaf"><a href="unify-terms.html">Unify terms</a></li>
+<li class="leaf"><a href="classify-compare-and-sort-terms.html">Classify, compare and sort terms</a></li>
+<li class="leaf"><a href="term-structure-conversions.html">Term structure conversions</a></li>
+<li class="leaf"><a href="arithmetic-and-arithmetic-expressions.html">Arithmetic and arithmetic expressions</a></li>
+<li class="leaf active-trail"><a href="text-predicates.html" class="active-trail active">Text predicates</a></li>
+<li class="collapsed"><a href="input-and-output-predicates.html">Input and output predicates</a></li>
+<li class="collapsed"><a href="database-predicates.html">Database predicates</a></li>
+<li class="leaf"><a href="dll-and-visibility-predicates.html">DLL and visibility predicates</a></li>
+<li class="leaf"><a href="system-function-predicates.html">System function predicates</a></li>
+<li class="leaf"><a href="definite-clause-grammars.html">Definite Clause Grammars</a></li>
+<li class="leaf"><a href="source-code-processing-directives.html">Source code processing directives</a></li>
+<li class="leaf"><a href="prolog-compiler-directives.html">Prolog compiler directives</a></li>
+<li class="leaf"><a href="embedded-c-declarations.html">Embedded C declarations</a></li>
+<li class="leaf"><a href="c-expressions-within-prolog-clauses.html">C expressions within Prolog clauses</a></li>
+<li class="last leaf"><a href="prolog-c-data-type-conversion.html">Prolog / C data type conversion</a></li>
+</ul></li>
+<li class="collapsed"><a href="arityprolog32-warning-and-error-messages.html">Arity/Prolog32 Warning and Error Messages</a></li>
+<li class="leaf"><a href="list-all-arityprolog32-predicates.html">List of all Arity/Prolog32 predicates</a></li>
+<li class="leaf"><a href="glossary.html">Glossary</a></li>
+<li class="last leaf"><a href="suggested-readings.html">Suggested Readings</a></li>
+</ul></li>
+</ul>  </div>
+  <div id="book-block-menu-15" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/cognitive-science">Cognitive Science</a></li>
+</ul>  </div>
+  <div id="book-block-menu-8" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/natural-language-processing">Natural Language Processing</a></li>
+</ul>  </div>
+  <div id="book-block-menu-14" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/ontologies-and-logics">Ontologies and Logics</a></li>
+</ul>  </div>
+  <div id="book-block-menu-13" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/rich-data-machine-learning">Rich Data &amp; Machine Learning</a></li>
+</ul>  </div>
+  <div id="book-block-menu-11" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/software-development">Software Development</a></li>
+</ul>  </div>
+  </div>
+</div>
+<div id="block-search-form" class="block block-search">
+
+    <h2>Search</h2>
+  
+  <div class="content">
+    <form action="/content/text-predicates" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text">
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit"></div><input type="hidden" name="form_build_id" value="form-Oa8v_mKtBglLA1w9nATDP4LVjr3UuKsl7kK5_5UYSdI">
+<input type="hidden" name="form_id" value="search_block_form">
+</div>
+</div></form>  </div>
+</div>
+  </div>
+        </div><!-- /#sidebar-first -->
+                
+                <div id="content" class="eleven columns">
+		        
+                    
+                            <div id="breadcrumb"><h2 class="element-invisible">You are here</h2><div class="breadcrumb"><a href="/">Home</a><span class="sep">»</span><a href="arityprolog32.html">Arity/Prolog32</a><span class="sep">»</span><a href="arityprolog32-language.html">The Arity/Prolog32 Language</a><span class="sep">»</span>Text predicates</div></div>
+                        
+            <div id="main">
+            
+                                
+                                
+                                <h1 class="title" id="page-title">
+                  Text predicates                </h1>
+                                
+                                
+                                <div class="tabs">
+                                  </div>
+                                
+                                
+                                
+                  <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div id="node-31" class="node node-book clearfix" about="/content/text-predicates" typeof="sioc:Item foaf:Document">
+
+      <span property="dc:title" content="Text predicates" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>
+      <div class="meta submitted">
+            <span property="dc:date dc:created" content="2013-03-30T17:48:06-04:00" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" about="/user/2" typeof="sioc:UserAccount" property="foaf:name" datatype="">Peter Gabel</span> on Sat, 03/30/2013 - 17:48</span>    </div>
+  
+  <div class="content clearfix">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Some of the names of the Arity/Prolog32 text predicates are inconsistent. This is because of history - some predicate names have been inherited from the traditional names of predicates used by the originators of the Prolog language, other predicate names are hold-overs from the 16-bit versions of Arity/Prolog which treated atoms and strings as distinct data types. In general, "string", "atom" and "text" are synonymous. Strings are denoted using single-quotes and dollar signs.</p>
+<p>Remember that characters (denoted by a back quote) and character lists (denoted by using double-quotes) are integers and integer lists, respectively.</p>
+<h2>Searching Text</h2>
+<p>The predicates in this section have been developed for the manipulation of atoms as strings of text.  . </p>
+<h3>string_search(+SubText, +Text, -Location)</h3>
+<h3>string_search(+Case, +SubText, +Text, -Location)</h3>
+<p class="rteindent1">The string_search/3 and string_search/4 predicates search a piece of text for the occurrence of another piece of text. The string_search/3 predicate is case-sensitive.  The string_search/4 predicate allows you to specify whether the search is to be case-sensitive or not. The predicates return all Location results through backtracking.</p>
+<p>The arguments to the predicates are:</p>
+<ul><li> The Case argument is an integer indicating whether or not the search should be case-sensitive. If you supply 0 as the Case argument, then the search is case-sensitive (this is the default provided by string_search/3). If you supply 1 as the Case argument, then the search is not case-sensitive.</li>
+<li> SubText is the atom that you are searching for, such as a key word. If you are searching for a single character in a string or atom, you can specify the ASCII code for the character. For example, to search for the character k, you can use either 100 or `k or 'k' as the SubText argument.</li>
+<li> The Text argument  is the atom that is being searched.</li>
+<li> The Location argument returns the starting point of the subtext. The starting point is zero-based; the first character in a string is at location 0, the second at 1, and so on. The Location is updated to the right for subsequent matches upon backtracking.</li>
+</ul><p> </p>
+<p>In the following example you are searching for the letter 'b' in the string 'abracadabra'. Note that the characters are always counted from zero:</p>
+<pre>
+?- string_search(b, 'abracadabra', X).
+X = 1 -&gt;;
+X = 8 -&gt;;
+no</pre><p> </p>
+<p>The following example succeeds because the search is not case-sensitive:</p>
+<pre>
+?- string_search(1, doe, 'John Doe', X).
+X = 5 -&gt;;
+no</pre><p> </p>
+<h2>Substring, length and concatenation predicates</h2>
+<h3>substring(+Text, +N, +Length, -SubText)</h3>
+<p>The substring/4 predicate is used to extract a piece of text from another piece of text.</p>
+<p> </p>
+<p>The substring predicate takes four arguments:</p>
+<ul><li> The Text argument is the atom that contains the subtext.</li>
+<li> The N argument specifies the starting location of the subtext. The first character of a piece of text is at location 0.</li>
+<li> The Length argument specifies the length of the subtext, in characters.</li>
+<li> SubText is the variable to which the resulting subtext is returned as a string. </li>
+</ul><p> </p>
+<p>For example, to extract the subtext, 'cde', from the atom, 'abcdefg', you would use substring as follows:</p>
+<pre>
+?- substring('abcdefg', 2, 3, X).
+X = 'cde'
+yes</pre><p> </p>
+<h3>nth_char(+N, +Text, -Char)</h3>
+<p class="rteindent1">The nth_char/3 predicate returns the ASCII code of the character at a certain offset from the beginning of a piece of text.. The first character is at offset 0.</p>
+<p>The nth_char/3 predicate takes the following arguments:</p>
+<ul><li> N is the offset.</li>
+<li> Text is the atom. </li>
+<li> Char is unified with the extracted character.</li>
+</ul><p> </p>
+<h3>string_length(+String, -Length)</h3>
+<p class="rteindent1">The string_length/2  predicate returns the length of a piece of text.</p>
+<p> </p>
+<h3>concat(+[Text1,Text2, ...], -Result)</h3>
+<h3>concat(+Text1, +Text2, -Result)</h3>
+<p class="rteindent1">The concat/2 and concat/3 predicates are used to concatenate text.  The items for concatenation may be atoms or byte integers (ascii characters).</p>
+<p> </p>
+<h2>Text conversion predicates</h2>
+<h3>string_upper(+Text1, -Text2)</h3>
+<h3>string_lower(+Text1, -Text2)</h3>
+<p class="rteindent1">The string_upper/2 and string_lower/2  predicates are used to convert all of the alphabetic characters (a...z and A...Z) in a piece of text to their upper case or lower case equivalents.</p>
+<p> </p>
+<h3>name(?AtomOrInt,  ?List)</h3>
+<p class="rteindent1">The name/2 predicate is used to convert an atom or integer into a list of ASCII character codes and vice versa. </p>
+<p>The predicate name/2 has rather odd behavior in overlaying atom and integer conversion and is maintained for historical reasons. You may wish to consider using list_text/2, int_text/2, float_text/3.</p>
+<p>For example:</p>
+<pre>
+?- name(quiche,L).
+L = [113,117,105,99,104,101]
+yes
+
+?- name(X,[114]).
+X = r
+yes
+
+
+?- name(quiche,"quiche").
+yes</pre><p> </p>
+<h3>list_text(?List, ?Atom)</h3>
+<p class="rteindent1">The list_text/2 predicate converts a list of ASCII characters to an atom, or converts an atom to a list of characters.</p>
+<p>The following examples illustrate two uses of list_text/2.</p>
+<pre>
+?- list_text("one",X).
+X = 'one'
+yes
+
+?- list_text("the restless", 'the restless').
+yes</pre><p> </p>
+<h3>string_term(?Atom, ?Term)</h3>
+<h3>string_termq(?Atom, ?Term)</h3>
+<p class="rteindent1">The string_term/2  and string_termq/2 predicates convert a piece of text to a Prolog term or a Prolog term to a string. They bear strong resemblance to the input and output predicates read/1, write/1 and writeq/1.</p>
+<p>If the first argument is instantiated, both string_term/2  and string_termq/2 attempt to interpret its content using the same mechanisms as used by the read/1 predicate. The resulting term is unified with the second term.  Both predicates are subject to the same syntax error handling as read/1 and syntaxerrors/2.</p>
+<p>If the first argument is not instantiated, string_term/2  and string_termq/2 create text using the same mechanisms as write/1 and writeq/1, respectively.  The resultant text is unified with the first argument.</p>
+<p>In the following example, string_term/2 is used to convert the string 'put(7)' to a single term:</p>
+<pre>
+?- string_term('put(7)',X).
+X = put(7)
+yes</pre><p> </p>
+<p>The following examples illustrate the difference between string_term/2  and string_termq/2:</p>
+<pre>
+?- string_term(String, a - 'b + c' - d).
+String = 'a - b + c - d'
+yes
+
+?- string_termq(String, a - 'b + c' - d).
+String = 'a - ''b + c'' = d'
+yes</pre><p> </p>
+<h3>int_text(?Integer, ?Atom)</h3>
+<p class="rteindent1">The int_text/2 predicate converts integers to an atom  representing the value and vice versa. An integer can be in the range of -2,147,483,648 to 2,147,483,647.</p>
+<p> </p>
+<h3>float_text(?Float, ?Atom, ?Format)</h3>
+<p class="rteindent1">The float_text/2 predicate converts a floating-point number to an atom according to the specified textual format, or it converts an atom to a floating-point number.</p>
+<p>The Float and the Atom arguments should not be both instantiated because, in general, low significance bits in floating point numbers may differ.  Values that appear to match may in fact be different.</p>
+<p>If Float is instantiated to a floating-point number the Format argument can be one of the following:</p>
+<h4>general</h4>
+<p class="rteindent1">Trailing zeros are suppressed.</p>
+<h4>fixed(N)</h4>
+<p class="rteindent1">N gives the number of decimal places (0 - 15).</p>
+<h4>scientific(N)</h4>
+<p class="rteindent1">Exponent scientific notation where N gives the number of decimal places. N can be from -308 to 308.</p>
+<p> </p>
+<p>If Atom is instantiated the Format argument is ignored. The predicate returns the floating-point number for that Atom. For example:</p>
+<pre>
+?- float_text(X,$1.5E26$,_).
+X = 1.5E26
+yes</pre><p> </p>
+<h3>varnames(+Term)</h3>
+<p class="rteindent1">The varnames predicate replaces each variable in a Term with a  special internal term that represents a printable variable name. The Arity/Prolog32 term output predicates (such as write/1) recognize this term and will only write the specified name.  Each unique variable in a Term is assigned a different name, starting with A and continuing through the alphabet.</p>
+<p>If your program needs to output any terms that may contain variables, it may be useful to use the varnames/1 predicate first, so that names are used instead of the Arity/Prolog32 representation of a variable (an underscore followed by a four digit hexadecimal number).  </p>
+<p>For example:</p>
+<pre>
+?- X = x(_,B,C,_,B,_), write(X), nl, varnames(X), write(X).
+x(_013C,_0148,_015C,_0168,_0148,_016C)
+x(A,B,C,D,B,E)
+yes</pre><p>Note: The varnames/1 predicate unifies the variables of the specified term so that they are no longer variables. If you want the term to continue to contain variables, you should fail after using the varnames/1 predicate so that the variables will become unbound. For example, you could use the following predicate to write a term containing variables and leave them unbound:</p>
+<pre>
+var_write(Term) :- varnames(Term),   write(Term), fail.
+var_write(Term).</pre><p> </p>
+<h2>Deprecated predicates</h2>
+<h3>atom_string(?Atom, ?String)</h3>
+<p class="rteindent1">The atom_string/2 predicate is deprecated and existed only for compatibility with older versions of Arity/Prolog.</p>
+<p>The atom_string/2 predicate is defined as:</p>
+<pre>
+  atom_string(S, S) :- atom(S).</pre><p> </p>
+</div></div></div>  <div id="book-navigation-12" class="book-navigation">
+    
+        <div class="page-links clearfix">
+              <a href="arithmetic-and-arithmetic-expressions.html" class="page-previous" title="Go to previous page">‹ Arithmetic and arithmetic expressions</a>
+                    <a href="arityprolog32-language.html" class="page-up" title="Go to parent page">up</a>
+                    <a href="input-and-output-predicates.html" class="page-next" title="Go to next page">Input and output predicates ›</a>
+          </div>
+    
+  </div>
+  </div>
+
+      <div class="link-wrapper">
+      <ul class="links inline"><li class="comment_forbidden first last"><span><a href="/user/login?destination=node/31%23comment-form">Log in</a> or <a href="/user/register?destination=node/31%23comment-form">register</a> to post comments</span></li>
+</ul>    </div>
+  
+  
+</div>
+  </div>
+</div>
+  </div>
+                                
+            </div>
+        
+        </div><!-- /#content -->
+        
+                
+        <div class="clear"></div>
+        
+                <!-- #featured -->
+        <div id="featured" class="sixteen columns clearfix">
+            
+                        <div class="one_half">
+              <div class="region region-featured-left">
+    <div id="block-block-2" class="block block-block">
+
+    
+  <div class="content">
+    <div class="cta clearfix" style="height:145px">
+<h3>Headspace Sprockets</h3>
+
+<p><img class="alignleft" alt="" src="/sites/default/files/small_iStock_000017030156_Small_1.jpg" style="height:48px; width:48px">Learn more about my company.
+</p>
+<div class="clear"></div>
+<br>
+<div class="button small right"><a class="button white" href="http://www.headspacesprockets.com" target="_blank">Visit Headspace Sprockets</a></div>
+</div>
+<p>  </div>
+</div>
+  </div>
+            </div>
+            
+            <div class="one_half last">
+              <div class="region region-featured-right">
+    <div id="block-block-1" class="block block-block">
+
+    
+  <div class="content">
+    <div class="cta clearfix" style="height:145px">
+<h3>GitHub</h3>
+<p><img class="alignleft" src="/sites/all/themes/skeletontheme/mockup/arrow.png" alt="">I have shared some projects on GitHub. Arity/Prolog32 distributions are <a href="installing-arityprolog32.html"><b>available here</b></a> in this site's Arity/Prolog32 notebook.</p>
+<div class="clear"></div>
+<div class="button small right"><a class="button white" href="https://github.com/Peter-Gabel" target="_blank">Fork me on GitHub</a></div>
+</div>  </div>
+</div>
+  </div>
+            </div>
+                        
+        </div><!-- /#featured -->
+                
+	</div>
+        
+	<div id="footer">
+        <div class="container">
+        	<div class="sixteen columns clearfix">
+        
+                <div class="one_third">
+                  <div class="region region-footer-first">
+    <div id="block-block-3" class="block block-block">
+
+    <h2>Privacy and Terms of Use</h2>
+  
+  <div class="content">
+    <p><a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/" rel="license"><img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/us/88x31.png" style="border-width:0"></a><br>
+<strong>©&nbsp;2017&nbsp;Peter L. Gabel</strong>. Except where designated as licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/" target="_blank" rel="license"><strong>Creative Commons Attribution-NonCommercial-NoDerivs 3.0 United States License</strong></a>, Peter L. Gabel reserves all rights associated with the materials on this site. Your use is subject to 
+<strong>
+<a href="/content/privacy-and-terms-use" target="_blank">Additional terms of use</a></strong></p>  </div>
+</div>
+  </div>
+                </div>
+                
+                <div class="one_third">
+                  <div class="region region-footer-second">
+    <div id="block-block-4" class="block block-block">
+
+    
+  <div class="content">
+    <p><a href="http://www.linkedin.com/pub/peter-gabel/0/18/428" target="_blank"><img alt="View Peter Gabel's profile on LinkedIn" src="http://www.linkedin.com/img/webpromo/btn_viewmy_160x33.png" style="height:33px; width:160px"></a></p>
+  </div>
+</div>
+<div id="block-user-login" class="block block-user">
+
+    <h2>User login</h2>
+  
+  <div class="content">
+    <form action="/content/text-predicates?destination=node/31" method="post" id="user-login-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name">Username <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-name" name="name" value="" size="15" maxlength="60" class="form-text required">
+</div>
+<div class="form-item form-type-password form-item-pass">
+  <label for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" id="edit-pass" name="pass" size="15" maxlength="128" class="form-text required">
+</div>
+<div class="item-list"><ul><li class="first"><a href="/user/register" title="Create a new user account.">Create new account</a></li>
+<li class="last"><a href="/user/password" title="Request new password via e-mail.">Request new password</a></li>
+</ul></div><input type="hidden" name="form_build_id" value="form-eHLY4Ta_FdXhaUF4Rgmt8RKgEmvceUSdyhFOCTSFHCI">
+<input type="hidden" name="form_id" value="user_login_block">
+<div class="form-item form-type-textfield form-item-captcha-questions-answer-given">
+  <label for="edit-captcha-questions-answer-given">What is the name of my company? Hint: you can find it below. <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-captcha-questions-answer-given" name="captcha_questions_answer_given" value="" size="60" maxlength="128" class="form-text required">
+<div class="description">Please answer the question. (We&#039;re keeping spam bots out!)</div>
+</div>
+<div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--2" name="op" value="Log in" class="form-submit"></div></div></form>  </div>
+</div>
+  </div>
+                </div>
+                
+                <div class="one_third last">
+                  <div class="region region-footer-third">
+    <div id="block-block-5" class="block block-block">
+
+    
+  <div class="content">
+    <p><em>The power of the unaided mind is highly overrated. Without external aids, memory, thought, and reasoning are all constrained. But human intelligence is highly flexible and adaptive, superb at inventing procedures and objects that overcome its own limits. The real powers come from devising external aids that enhance cognitive abilities. How have we increased memory, thought, and reasoning? By the inventions of external aids: It is things that make us smart.</em></p>
+<p>-- Donald Norman, <strong><a href="http://www.amazon.com/Things-That-Make-Smart-Attributes/dp/0201626950/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1368737063&amp;sr=1-1" target="_blank">Things that make us smart</a></strong></p>
+  </div>
+</div>
+  </div>
+                </div>
+        
+                <div class="clear"></div>
+                
+                                
+                <div class="clear"></div>
+                
+                <div id="credits">
+				<!--
+				&copy;
+                2018                                 Peter Gabel<br/>
+                				-->
+                Original theme by <a href="http://www.drupalizing.com" target="_blank">Drupalizing</a>, a project of <a href="http://www.morethanthemes.com" target="_blank">More than (just) Themes</a>. Original design by <a href="http://www.simplethemes.com/" target="_blank">Simple Themes</a>.
+                </div>
+        	</div>
+        </div>
+    </div>
+    
+</div> <!-- /#wrap -->  </body>
+</html>

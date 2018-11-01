@@ -1,0 +1,628 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:og="http://ogp.me/ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:sioct="http://rdfs.org/sioc/types#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta charset="utf-8">
+<meta name="HandheldFriendly" content="true">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="http://peter-gabel.com/sites/default/files/photos1%20tight-307_0.jpg" type="image/jpeg">
+<meta name="MobileOptimized" content="width">
+<link rel="up" href="arityprolog32-language.html">
+<link rel="canonical" href="definite-clause-grammars.html">
+<link rel="shortlink" href="/node/36">
+<link rel="prev" href="system-function-predicates.html">
+<link rel="next" href="source-code-processing-directives.html">
+  <title>Definite Clause Grammars | Peter Gabel</title>
+  <style type="text/css" media="all">
+@import url("http://peter-gabel.com/modules/system/system.base.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.menus.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.messages.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.theme.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/modules/book/book.css?np0twq");
+@import url("http://peter-gabel.com/modules/comment/comment.css?np0twq");
+@import url("http://peter-gabel.com/modules/field/theme/field.css?np0twq");
+@import url("http://peter-gabel.com/modules/node/node.css?np0twq");
+@import url("http://peter-gabel.com/modules/search/search.css?np0twq");
+@import url("http://peter-gabel.com/modules/user/user.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/modules/ckeditor/css/ckeditor.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/sites/all/modules/ctools/css/ctools.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/skeleton.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/style.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/buttons.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/layout.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/color/colors.css?np0twq");
+</style>
+  <script type="text/javascript" src="http://peter-gabel.com/misc/jquery.js?v=1.4.4"></script>
+<script type="text/javascript" src="http://peter-gabel.com/misc/jquery.once.js?v=1.2"></script>
+<script type="text/javascript" src="http://peter-gabel.com/misc/drupal.js?np0twq"></script>
+<script type="text/javascript" src="http://peter-gabel.com/sites/all/themes/skeletontheme/js/jquery.mobilemenu.js?np0twq"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery(document).ready(function($) { 
+	
+	$("#navigation .content > ul").mobileMenu({
+		prependTo: "#navigation",
+		combine: false,
+        switchWidth: 760,
+        topOptionText: Drupal.settings.skeletontheme['topoptiontext']
+	});
+	
+	});
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","skeletontheme":{"topoptiontext":"Select a page"},"ajaxPageState":{"theme":"skeletontheme","theme_token":"TpY7s-MnJ0bYP4SHhNHAzdIF6bmEluCfbvRVsSS6oIw","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/themes\/skeletontheme\/js\/jquery.mobilemenu.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/book\/book.css":1,"modules\/comment\/comment.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/themes\/skeletontheme\/css\/skeleton.css":1,"sites\/all\/themes\/skeletontheme\/css\/style.css":1,"sites\/all\/themes\/skeletontheme\/css\/buttons.css":1,"sites\/all\/themes\/skeletontheme\/css\/layout.css":1,"sites\/all\/themes\/skeletontheme\/color\/colors.css":1}}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-first page-node page-node- page-node-36 node-type-book">
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="wrap">
+    <div class="container">
+        
+                
+        <div class="clear"></div>
+        
+        <!-- #header -->
+                <div id="header" class="sixteen columns clearfix">   
+                
+            <div class="inner">
+    
+                                
+                                <div id="name-and-slogan">
+                
+                                        <div id="site-name">
+                    <a href="/" title="Home" rel="home">Peter Gabel</a>
+                    </div>
+                                        
+                                        <div id="site-slogan">
+                    Interdisciplinary investigations into applied cognitive science                    </div>
+                                    
+                </div>
+                            </div>
+        </div><!-- /#header -->
+        
+                
+        <div class="clear"></div>
+        
+        <!-- #navigation -->
+        <div id="navigation" class="sixteen columns clearfix">
+        
+            <div class="menu-header">
+                            				<div class="content">
+				<ul class="menu"><li class="first leaf"><a href="/">Home</a></li>
+<li class="leaf"><a href="/blog" title="">Blog</a></li>
+<li class="expanded"><a href="/content/notebooks">Notebooks</a><ul class="menu"><li class="first leaf"><a href="/content/annotated-references">Annotated References</a></li>
+<li class="leaf"><a href="arityprolog32.html">Arity/Prolog32</a></li>
+<li class="leaf"><a href="/content/cognitive-science">Cognitive Science</a></li>
+<li class="leaf"><a href="/content/natural-language-processing">Natural Language Processing</a></li>
+<li class="leaf"><a href="/content/ontologies-and-logics">Ontologies and Logics</a></li>
+<li class="leaf"><a href="/content/rich-data-machine-learning">Rich Data &amp; Machine Learning</a></li>
+<li class="last leaf"><a href="/content/software-development">Software Development</a></li>
+</ul></li>
+<li class="leaf"><a href="/content/selected-publications">Selected publications</a></li>
+<li class="leaf"><a href="/content/about-me">About me</a></li>
+<li class="leaf"><a href="/contact" title="">Contact me</a></li>
+<li class="last leaf"><a href="/content/join-my-team">Join my team</a></li>
+</ul>                </div>
+                        </div>
+            
+        </div><!-- /#navigation -->
+        
+                <!-- #sidebar-first -->
+        <div id="sidebar-first" class="five columns">
+              <div class="region region-sidebar-first">
+    <div id="block-block-6" class="block block-block">
+
+    
+  <div class="content">
+    
+Welcome Guest. <a href="/user">Login</a>/<a href="/user/register">Register</a>.
+        
+  </div>
+</div>
+<div id="block-blog-recent" class="block block-blog">
+
+    <h2>Recent blog posts</h2>
+  
+  <div class="content">
+    <div class="item-list"><ul><li class="first"><a href="/content/defeating-janitorial-challenges-big-data">Defeating the Janitorial Challenges of Big Data</a></li>
+<li><a href="/content/business-and-life-lessons-freshman-physics-problem">Business and life lessons from a freshman physics problem</a></li>
+<li><a href="/content/wee-bit-about-we">A wee bit about &quot;we&quot;</a></li>
+<li><a href="/content/category-theory">Category Theory</a></li>
+<li><a href="/content/how-many-monitors-are-enough">How many monitors are enough?</a></li>
+<li><a href="/content/words-words-words">Words, words, words!</a></li>
+<li><a href="/content/some-thoughts-about-javascript">Some thoughts about JavaScript</a></li>
+<li><a href="/content/eico-460">Eico 460</a></li>
+<li><a href="/content/raspberry-pi">Raspberry Pi</a></li>
+<li class="last"><a href="/content/arduino">Arduino</a></li>
+</ul></div><div class="more-link"><a href="/blog" title="Read the latest blog entries.">More</a></div>  </div>
+</div>
+<div id="block-book-navigation" class="block block-book">
+
+    <h2>Notebooks</h2>
+  
+  <div class="content">
+      <div id="book-block-menu-67" class="book-block-menu">
+    <ul class="menu"><li class="first last leaf"><a href="/content/annotated-references">Annotated References</a></li>
+</ul>  </div>
+  <div id="book-block-menu-12" class="book-block-menu">
+    <ul class="menu"><li class="first last expanded active-trail"><a href="arityprolog32.html" class="active-trail">Arity/Prolog32</a><ul class="menu"><li class="first leaf"><a href="installing-arityprolog32.html">Installing Arity/Prolog32</a></li>
+<li class="collapsed"><a href="writing-arityprolog32-applications.html">Writing Arity/Prolog32 Applications</a></li>
+<li class="expanded active-trail"><a href="arityprolog32-language.html" class="active-trail">The Arity/Prolog32 Language</a><ul class="menu"><li class="first leaf"><a href="program-structure-and-data-types.html">Program structure and data types</a></li>
+<li class="leaf"><a href="program-control.html">Program control</a></li>
+<li class="leaf"><a href="unify-terms.html">Unify terms</a></li>
+<li class="leaf"><a href="classify-compare-and-sort-terms.html">Classify, compare and sort terms</a></li>
+<li class="leaf"><a href="term-structure-conversions.html">Term structure conversions</a></li>
+<li class="leaf"><a href="arithmetic-and-arithmetic-expressions.html">Arithmetic and arithmetic expressions</a></li>
+<li class="leaf"><a href="text-predicates.html">Text predicates</a></li>
+<li class="collapsed"><a href="input-and-output-predicates.html">Input and output predicates</a></li>
+<li class="collapsed"><a href="database-predicates.html">Database predicates</a></li>
+<li class="leaf"><a href="dll-and-visibility-predicates.html">DLL and visibility predicates</a></li>
+<li class="leaf"><a href="system-function-predicates.html">System function predicates</a></li>
+<li class="leaf active-trail"><a href="definite-clause-grammars.html" class="active-trail active">Definite Clause Grammars</a></li>
+<li class="leaf"><a href="source-code-processing-directives.html">Source code processing directives</a></li>
+<li class="leaf"><a href="prolog-compiler-directives.html">Prolog compiler directives</a></li>
+<li class="leaf"><a href="embedded-c-declarations.html">Embedded C declarations</a></li>
+<li class="leaf"><a href="c-expressions-within-prolog-clauses.html">C expressions within Prolog clauses</a></li>
+<li class="last leaf"><a href="prolog-c-data-type-conversion.html">Prolog / C data type conversion</a></li>
+</ul></li>
+<li class="collapsed"><a href="arityprolog32-warning-and-error-messages.html">Arity/Prolog32 Warning and Error Messages</a></li>
+<li class="leaf"><a href="list-all-arityprolog32-predicates.html">List of all Arity/Prolog32 predicates</a></li>
+<li class="leaf"><a href="glossary.html">Glossary</a></li>
+<li class="last leaf"><a href="suggested-readings.html">Suggested Readings</a></li>
+</ul></li>
+</ul>  </div>
+  <div id="book-block-menu-15" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/cognitive-science">Cognitive Science</a></li>
+</ul>  </div>
+  <div id="book-block-menu-8" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/natural-language-processing">Natural Language Processing</a></li>
+</ul>  </div>
+  <div id="book-block-menu-14" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/ontologies-and-logics">Ontologies and Logics</a></li>
+</ul>  </div>
+  <div id="book-block-menu-13" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/rich-data-machine-learning">Rich Data &amp; Machine Learning</a></li>
+</ul>  </div>
+  <div id="book-block-menu-11" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/software-development">Software Development</a></li>
+</ul>  </div>
+  </div>
+</div>
+<div id="block-search-form" class="block block-search">
+
+    <h2>Search</h2>
+  
+  <div class="content">
+    <form action="/content/definite-clause-grammars" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text">
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit"></div><input type="hidden" name="form_build_id" value="form-rKSeyYLraTlAYLZ5a96EmfEAPs8DvgXaKx8IIJIVcGc">
+<input type="hidden" name="form_id" value="search_block_form">
+</div>
+</div></form>  </div>
+</div>
+  </div>
+        </div><!-- /#sidebar-first -->
+                
+                <div id="content" class="eleven columns">
+		        
+                    
+                            <div id="breadcrumb"><h2 class="element-invisible">You are here</h2><div class="breadcrumb"><a href="/">Home</a><span class="sep">»</span><a href="arityprolog32.html">Arity/Prolog32</a><span class="sep">»</span><a href="arityprolog32-language.html">The Arity/Prolog32 Language</a><span class="sep">»</span>Definite Clause Grammars</div></div>
+                        
+            <div id="main">
+            
+                                
+                                
+                                <h1 class="title" id="page-title">
+                  Definite Clause Grammars                </h1>
+                                
+                                
+                                <div class="tabs">
+                                  </div>
+                                
+                                
+                                
+                  <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div id="node-36" class="node node-book clearfix" about="/content/definite-clause-grammars" typeof="sioc:Item foaf:Document">
+
+      <span property="dc:title" content="Definite Clause Grammars" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>
+      <div class="meta submitted">
+            <span property="dc:date dc:created" content="2013-03-31T08:29:16-04:00" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" about="/user/2" typeof="sioc:UserAccount" property="foaf:name" datatype="">Peter Gabel</span> on Sun, 03/31/2013 - 08:29</span>    </div>
+  
+  <div class="content clearfix">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Much of the research done to date on building efficient natural language systems has concluded that logical inference is a powerful means by which language can be parsed and generated. Definite clause logic, the subset of logic on which Prolog is based, has proven highly useful for building parsers and generators. In fact, Prolog was developed by A. Colmerauer specifically to address natural language technology.</p>
+<p>Although other logic-based techniques (often implemented in Prolog) have proven more useful for deep natural language processing, definite clause grammars remain a powerful technique for small grammars, for shallow processing, and for processing artificial grammars.</p>
+<p>This chapter describes a Prolog grammar formalism called "definite clause grammars" and describes how that formalism is used with Prolog.</p>
+<p> </p>
+<h2>Understanding language structure</h2>
+<p>Definite clause grammar (DCG) notation is a syntactic sugar that extends ordinary Prolog syntax. DCG's are a particular class of grammars useful for building natural language systems. DCG's make efficient use of the full power of Prolog as a general purpose programming language. DCG's are useful in two specific ways: they serve as a description of a language and as a description of a process for analyzing that language.</p>
+<p>In order to fully understand a language, whether a natural language or a programming language, you have to understand its grammar. The structure of a language relies on sequences of words ordered according to specific rules. These rules oversee tense, gender, voice, case, agreement, and sentence structure. These rules also apply to the descriptions, limitations, and qualifications of words and phrases.</p>
+<p> </p>
+<h2>Context-free grammars</h2>
+<p>There are many classes of grammars; each has its own notation.  A familiar class of grammar is known as context-free grammar. Programming languages are often specified in context-free grammars, generally in the BNF (Backus-Naur form) notation.</p>
+<p>The following example shows a simplistic context-free grammar in BNF that accepts the sentence "the musician plays the violin."</p>
+<pre>
+&lt;sentence&gt; ::= &lt;noun_phrase&gt; &lt;verb_phrase&gt;
+&lt;noun_phrase&gt; ::= &lt;determiner&gt; &lt;noun&gt;
+&lt;verb_phrase&gt; ::= &lt;verb&gt; &lt;noun_phrase&gt;
+&lt;determiner&gt; ::= the
+&lt;noun&gt; ::= musician | violin
+&lt;verb&gt; ::= plays</pre><p> </p>
+<p>In grammars, terminal symbols are a short hand for words found in sentences; nonterminal symbols are a shorthand for phrases of the language. The terminals for the example above include the following: the, musician, plays, and violin. The nonterminals include the following: sentence, noun-phrase, verb-phrase, determiner, noun, and verb.</p>
+<p>Context-free grammars allow you to analyze a sentence (or string) generating a parse tree. The parse tree shows the phrase structure for a sentence and the hierarchical relationships between those phrases. A parser, on the other hand, is a program that builds parse trees.</p>
+<p> </p>
+<h2>Definite clause grammars</h2>
+<p>Based on the work of Colmerauer and Kowalski, a formalism known as definite clause grammar expresses context-free rules as logic statements. DCG's are more powerful as a class of grammars than context-free grammars are. The notation used for DCG's is syntactic sugar on top of Prolog.</p>
+<p>A simple DCG rule can break a sentence down into a noun phrase and a verb phrase. This DCG rule looks like the following:</p>
+<pre>
+sentence --&gt; noun_phrase, verb_phrase.</pre><p> </p>
+<p>In order to read a rule in a definite clause grammar, you read the --&gt; symbol to mean "can take the form" and the comma to mean "followed by". You can read the rule in the example above to mean "A sentence can take the form of a noun-phrase followed by a verb-phrase."</p>
+<p>The definite clause grammar rule above is equivalent to the following Prolog clause:</p>
+<pre>
+sentence(S0, S) --&gt; noun_phrase(S0, S1), verb_phrase(S1, S).</pre><p> </p>
+<p>You can read the clause as "A sentence extends from S0 to S if there is a noun phrase from S0 to S1 and a verb phrase from S1 to S."</p>
+<p>A DCG for a grammar that accepts the sentence "the musician plays the violin" looks like the following:</p>
+<pre>
+sentence --&gt; noun_phrase, verb_phrase.
+
+noun_phrase --&gt; determiner, noun.
+
+verb_phrase --&gt; verb, noun_phrase.
+
+determiner --&gt; [the].
+
+noun --&gt; [musician].
+noun --&gt; [violin].
+
+verb --&gt; [plays].</pre><p> </p>
+<h2>DCG'S and natural language parsers</h2>
+<p>Many programming languages are not well suited for transforming grammars into natural language parsers and generators. Prolog, however, is a particularly convenient language for doing this.</p>
+<p>Programs written in DCG notation are transformed into Prolog using the expand_term/2 predicate (described in detail later in this chapter). This transformation occurs automatically when a program written in DCG notation is compiled or consulted. Prolog translates each DCG rule into a clause that it can understand. The --&gt; operator is transformed into a neck (:-). Prolog then translates nonterminals into predicates with two additional arguments.  The first argument it adds is the list of words you passed into the nonterminal (referred to as input tokens). The final argument is the list left over when it has finished (referred to as output tokens).</p>
+<p>Sequences of tokens are lists. The empty token is equivalent to the empty list. The empty list is written as the symbol []. </p>
+<p>Whatever the first phrase (the noun phrase in the example below) leaves behind, the second phrase (the verb phrase) takes as its input. The whole phrase must equal the subphrases to the right of the main functor --&gt; in order for the sentence to parse.</p>
+<p>The Prolog equivalent to the definite clause grammar that accepts the sentence "the musician plays the violin" is:</p>
+<pre>
+sentence(S0,S) :- noun_phrase(S0,S1), verb_phrase(S1,S).
+
+noun_phrase(S0,S) :- determiner(S0,S1), noun(S1,S).
+
+verb_phrase(S0,S) :- verb(S0,S1), noun_phrase(S1,S).
+
+determiner([the|S],S).
+
+noun([musician|S],S).
+noun([violin|S],S).
+
+verb([plays|S],S).</pre><p> </p>
+<h2>DCG syntax</h2>
+<p>DCG syntax is similar to Prolog syntax. The following lists some specific rules when using DCG's:</p>
+<ul><li>Nonterminal symbols are written as any Prolog atom or structure that is not a list.</li>
+<li>Terminals are written as any Prolog term. To distinguish terminals from nonterminals, a sequence of terminals is written as a Prolog list; an empty sequence is written as the empty list []. Sequences of terminals that are character lists are placed inside of double quotes.</li>
+<li>The left hand side of a grammar rule contains only the nonterminals, optionally followed by a sequence of terminals written as a list. </li>
+<li>The right hand side of a grammar rule may contain nonterminals and terminals. </li>
+<li>Alternatives may be stated explicitly in the right hand side of a grammar rule, using the disjunction operator (;) or the vertical bar (|).</li>
+<li>Extra tests are included in the right hand side of a grammar rule. These are enclosed in curly brackets ({ ... }). The DCG translation process does not change whatever is enclosed inside curly brackets.</li>
+<li>The cut symbol may be included in the right hand side of a grammar rule. It is not necessary to enclose the cut inside the curly brackets.</li>
+</ul><p> </p>
+<h2>Calling your DCG</h2>
+<p>Once you have written your DCG, you call it in Prolog with the predicate that performs the top-level processing in your grammar. For example, you can call the sentence predicate in the following way:</p>
+<p>sentence([the,musician,plays,the,violin], []).</p>
+<p> </p>
+<h2>Adding additional arguments</h2>
+<p>You can add any number of arguments to nonterminals you are defining while you are using DCG's. You might want to add extra arguments, for example, to signal number agreement. Otherwise a sentence may parse, but it may not be grammatically correct. For example, both of the following examples are grammatically incorrect:</p>
+<pre>
+The musicians plays the violin.
+The musician play the violin.</pre><p> </p>
+<p>In the simple example below, you add the extra argument Number which may be instantiated to either the value singular or plural to ensure number agreement. You also add an argument for semantic type to nouns and noun phrases to differentiate a person from a thing. In this example, you want to differentiate between the noun "musician" (person) and the noun "violin" (thing) in order for the sentence to read "the musician plays the violin." If you had not made this distinction, the sentence "the violin plays the musician" could have parsed.</p>
+<pre>
+sentence --&gt;
+    noun_phrase(Number, person),
+    verb_phrase(Number).
+
+noun_phrase(Number, Type) --&gt;
+    determiner,     
+    noun(Number, Type).
+
+verb_phrase(Number) --&gt;
+    verb(Number),   
+    noun_phrase(Number, thing).
+
+determiner --&gt; [the].
+
+noun(singular, person) --&gt; [musician].
+noun(plural, person) --&gt; [musicians].
+noun(singular, thing) --&gt; [violin].
+
+verb(singular) --&gt; [plays].
+verb(plural) --&gt; [play].</pre><p> </p>
+<p>You can also add additional arguments to see a result of an evaluation that occurs while the parse is taking place.  A good example is a simple grammar to parse and evaluate simple arithmetic expressions (involving numbers 0 through 9).  In this example, "Z" is the additional argument.</p>
+<pre>
+expr(Z) --&gt; term(X), [`+], expr(Y), {Z is X+Y}.
+expr(Z) --&gt; term(X), [`-], expr(Y), {Z is X-Y}.
+expr(Z) --&gt; term(Z).
+
+term(Z) --&gt; number(X), [`*], term(Y), {Z is X*Y}.
+term(Z) --&gt; number(X), [`/], term(Y), {Z is X/Y}.
+term(Z) --&gt; number(Z).
+
+
+number(C) --&gt; [`+], number(C).
+number(C) --&gt; [`-], number(X),{C is -X}.
+number(X) --&gt; [C], {`0 =&lt; C, C =&lt; `9, X is C - `0}.</pre><p> </p>
+<p>The following example uses this grammar to perform a calculation:</p>
+<pre>
+?- expr(Z, "-2+3*5+1", []).
+Z=14
+yes</pre><p> </p>
+<p>The following is the parse tree that is "pretty printed" for the sentence "the musician plays the violin."</p>
+<pre>
+sentence(   
+ noun_phrase(     
+  determiner(the),      
+  noun(musician)
+ ),
+ verb_phrase(
+  verb(plays),
+  noun_phrase(
+   determiner(the),
+   noun(violin)
+  )
+ )
+).</pre><p> </p>
+<p>In order to return a parse tree, you add an extra argument to each predicate. This indicates that you want to see an entire parse tree built from the trees of the sub-phrases. If Prolog can find a noun-phrase followed by a verb-phrase, the two parse trees can be combined to form one larger parse tree that uses the functor sentence to make the tree for the entire sentence.</p>
+<pre>
+sentence(sentence(NP,VP) --&gt;
+    noun_phrase(NP, Number, person),
+    verb_phrase(VP, Number).
+
+noun_phrase(noun_phrase(Det, Noun), Number, Type) --&gt;
+    determiner(Det),
+    noun(Noun, Number, Type).
+
+verb_phrase(verb_phrase(Verb, NP), Number) --&gt;
+    verb(Verb, Number),   
+    noun_phrase(NP, Number, thing).
+
+determiner(determiner(the)) --&gt; [the].
+
+noun(noun(musician), singular, person) --&gt; [musician].
+noun(noun(musician), plural, person) --&gt; [musicians].
+noun(noun(violin), singular, thing) --&gt; [violin].
+
+verb(verb(play), singular) --&gt; [plays].
+verb(verb(play), plural) --&gt; [play].</pre><p> </p>
+<p>This of course is merely a toy example, but it provides a flavor of how DCGs may be used.</p>
+<p> </p>
+<h2>Transforming DCGs into Prolog</h2>
+<p>As mentioned earlier in this chapter, programs written in DCG notation are transformed into Prolog by the expand_term/2 predicate. </p>
+<h3>expand_term(+T1,-T2)</h3>
+<p class="rteindent1">If the first term (T1) is a Prolog term, then Prolog returns the unchanged term in the value for T2. If T1 is a DCG term, Prolog returns the equivalent Prolog term in T2.</p>
+<p>The expand_term/2 predicate is used automatically by the compiler, consult, and reconsult. It is also used by the interpreter at the top level. This predicate is not used by the read predicate.</p>
+<p> </p>
+<h2>A sample program using DCG'S</h2>
+<p>The following is a classic example used to illustrate the capabilities of definite clause grammars. This example is taken from Pereira and Warren, "Journal Of Artificial Intelligence" [1978]. This example uses arguments to build up structures that represent phrases.</p>
+<p>Using the definite clause grammar formalism, you can write a grammar that accepts the following two sentences:</p>
+<pre>
+John loves Mary.
+Every man that lives loves a woman.</pre><p> </p>
+<p>The program generates a term that expresses the logic of the accepted sentences. The program below includes the DCG to parse both of these sentences.</p>
+<pre>
+:- op(910,xfy,&amp;).
+:- op(920,xfy,=&gt;).
+:- op(930,xfy,:).
+
+sentence(P) --&gt; noun_phrase(X,P1,P), verb_phrase(X,P1).
+
+noun_phrase(X,P1,P) --&gt;
+    determiner(X,P2,P1,P),
+    noun(X,P3),
+    rel_clause(X,P3,P2).
+noun_phrase(X,P,P) --&gt; name(X).
+
+rel_clause(X,P1,P1&amp;P2) --&gt; [that],   verb_phrase(X,P2).
+rel_clause(_,P,P) --&gt; [].
+
+verb_phrase(X,P) --&gt;
+    trans_verb(X,Y,P1),
+    noun_phrase(Y,P1,P).
+verb_phrase(X,P) --&gt;
+    intrans_verb(X,P).
+
+trans_verb(X,Y,loves(X,Y)) --&gt; [loves].
+
+intrans_verb(X,lives(X)) --&gt; [lives].
+
+determiner(X,P1,P2, all(X):P1=&gt;P2) --&gt;     [every].
+determiner(X,P1,P2, exists(X):P1&amp;P2) --&gt;   [a].
+
+noun(X,man(X)) --&gt; [man].
+noun(X,woman(X)) --&gt; [woman].
+
+name(john) --&gt; [john].
+name(mary) --&gt; [mary].</pre><p> </p>
+<p>By supplying phrases to the sentence predicate, you can discover the logic connected with the phrases:</p>
+<pre>
+?- sentence(X,[john,loves,mary],[]).
+X = loves(john,mary)
+yes
+
+?- sentence(X,[every,man,that,lives,loves,a,woman],[]).
+X = all(A) : (man(A) &amp; lives(A)) =&gt; exists(B) : woman(B) &amp; loves(A,B)
+yes</pre><p> </p>
+<p>In this example DCG, the last argument in the phrase specifies the meaning of the phrase. The meaning of the phrase can also depend on other factors, provided by other arguments in the program. For example, the verb lives represents lives(X) where X stands for a person who lives. The verb lives does not mean anything outside of the context of someone who lives. In other words, neither the verb lives nor the value of X is of much use without the context in which both are used.  As a result, the definition in this program says that for any X, when the verb is applied to X, the actual meaning is lives(X).</p>
+<p> </p>
+</div></div></div>  <div id="book-navigation-12" class="book-navigation">
+    
+        <div class="page-links clearfix">
+              <a href="system-function-predicates.html" class="page-previous" title="Go to previous page">‹ System function predicates</a>
+                    <a href="arityprolog32-language.html" class="page-up" title="Go to parent page">up</a>
+                    <a href="source-code-processing-directives.html" class="page-next" title="Go to next page">Source code processing directives ›</a>
+          </div>
+    
+  </div>
+  </div>
+
+      <div class="link-wrapper">
+      <ul class="links inline"><li class="comment_forbidden first last"><span><a href="/user/login?destination=node/36%23comment-form">Log in</a> or <a href="/user/register?destination=node/36%23comment-form">register</a> to post comments</span></li>
+</ul>    </div>
+  
+  
+</div>
+  </div>
+</div>
+  </div>
+                                
+            </div>
+        
+        </div><!-- /#content -->
+        
+                
+        <div class="clear"></div>
+        
+                <!-- #featured -->
+        <div id="featured" class="sixteen columns clearfix">
+            
+                        <div class="one_half">
+              <div class="region region-featured-left">
+    <div id="block-block-2" class="block block-block">
+
+    
+  <div class="content">
+    <div class="cta clearfix" style="height:145px">
+<h3>Headspace Sprockets</h3>
+
+<p><img class="alignleft" alt="" src="/sites/default/files/small_iStock_000017030156_Small_1.jpg" style="height:48px; width:48px">Learn more about my company.
+</p>
+<div class="clear"></div>
+<br>
+<div class="button small right"><a class="button white" href="http://www.headspacesprockets.com" target="_blank">Visit Headspace Sprockets</a></div>
+</div>
+<p>  </div>
+</div>
+  </div>
+            </div>
+            
+            <div class="one_half last">
+              <div class="region region-featured-right">
+    <div id="block-block-1" class="block block-block">
+
+    
+  <div class="content">
+    <div class="cta clearfix" style="height:145px">
+<h3>GitHub</h3>
+<p><img class="alignleft" src="/sites/all/themes/skeletontheme/mockup/arrow.png" alt="">I have shared some projects on GitHub. Arity/Prolog32 distributions are <a href="installing-arityprolog32.html"><b>available here</b></a> in this site's Arity/Prolog32 notebook.</p>
+<div class="clear"></div>
+<div class="button small right"><a class="button white" href="https://github.com/Peter-Gabel" target="_blank">Fork me on GitHub</a></div>
+</div>  </div>
+</div>
+  </div>
+            </div>
+                        
+        </div><!-- /#featured -->
+                
+	</div>
+        
+	<div id="footer">
+        <div class="container">
+        	<div class="sixteen columns clearfix">
+        
+                <div class="one_third">
+                  <div class="region region-footer-first">
+    <div id="block-block-3" class="block block-block">
+
+    <h2>Privacy and Terms of Use</h2>
+  
+  <div class="content">
+    <p><a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/" rel="license"><img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/us/88x31.png" style="border-width:0"></a><br>
+<strong>©&nbsp;2017&nbsp;Peter L. Gabel</strong>. Except where designated as licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/" target="_blank" rel="license"><strong>Creative Commons Attribution-NonCommercial-NoDerivs 3.0 United States License</strong></a>, Peter L. Gabel reserves all rights associated with the materials on this site. Your use is subject to 
+<strong>
+<a href="/content/privacy-and-terms-use" target="_blank">Additional terms of use</a></strong></p>  </div>
+</div>
+  </div>
+                </div>
+                
+                <div class="one_third">
+                  <div class="region region-footer-second">
+    <div id="block-block-4" class="block block-block">
+
+    
+  <div class="content">
+    <p><a href="http://www.linkedin.com/pub/peter-gabel/0/18/428" target="_blank"><img alt="View Peter Gabel's profile on LinkedIn" src="http://www.linkedin.com/img/webpromo/btn_viewmy_160x33.png" style="height:33px; width:160px"></a></p>
+  </div>
+</div>
+<div id="block-user-login" class="block block-user">
+
+    <h2>User login</h2>
+  
+  <div class="content">
+    <form action="/content/definite-clause-grammars?destination=node/36" method="post" id="user-login-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name">Username <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-name" name="name" value="" size="15" maxlength="60" class="form-text required">
+</div>
+<div class="form-item form-type-password form-item-pass">
+  <label for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" id="edit-pass" name="pass" size="15" maxlength="128" class="form-text required">
+</div>
+<div class="item-list"><ul><li class="first"><a href="/user/register" title="Create a new user account.">Create new account</a></li>
+<li class="last"><a href="/user/password" title="Request new password via e-mail.">Request new password</a></li>
+</ul></div><input type="hidden" name="form_build_id" value="form-fAuE9r8JZE3tjLB3DagESDptQqxKUaMDF1QSbuMpG6I">
+<input type="hidden" name="form_id" value="user_login_block">
+<div class="form-item form-type-textfield form-item-captcha-questions-answer-given">
+  <label for="edit-captcha-questions-answer-given">What is the name of my company? Hint: you can find it below. <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-captcha-questions-answer-given" name="captcha_questions_answer_given" value="" size="60" maxlength="128" class="form-text required">
+<div class="description">Please answer the question. (We&#039;re keeping spam bots out!)</div>
+</div>
+<div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--2" name="op" value="Log in" class="form-submit"></div></div></form>  </div>
+</div>
+  </div>
+                </div>
+                
+                <div class="one_third last">
+                  <div class="region region-footer-third">
+    <div id="block-block-5" class="block block-block">
+
+    
+  <div class="content">
+    <p><em>The power of the unaided mind is highly overrated. Without external aids, memory, thought, and reasoning are all constrained. But human intelligence is highly flexible and adaptive, superb at inventing procedures and objects that overcome its own limits. The real powers come from devising external aids that enhance cognitive abilities. How have we increased memory, thought, and reasoning? By the inventions of external aids: It is things that make us smart.</em></p>
+<p>-- Donald Norman, <strong><a href="http://www.amazon.com/Things-That-Make-Smart-Attributes/dp/0201626950/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1368737063&amp;sr=1-1" target="_blank">Things that make us smart</a></strong></p>
+  </div>
+</div>
+  </div>
+                </div>
+        
+                <div class="clear"></div>
+                
+                                
+                <div class="clear"></div>
+                
+                <div id="credits">
+				<!--
+				&copy;
+                2018                                 Peter Gabel<br/>
+                				-->
+                Original theme by <a href="http://www.drupalizing.com" target="_blank">Drupalizing</a>, a project of <a href="http://www.morethanthemes.com" target="_blank">More than (just) Themes</a>. Original design by <a href="http://www.simplethemes.com/" target="_blank">Simple Themes</a>.
+                </div>
+        	</div>
+        </div>
+    </div>
+    
+</div> <!-- /#wrap -->  </body>
+</html>

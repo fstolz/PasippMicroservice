@@ -1,0 +1,41 @@
+	/--------\
+	|	 |
+	|  Args  |
+	|	 |
+	|--------|
+	|  ret	 |
+	|  addr  |
+	|--------|
+	|   bp	 |	    This is the base pointer of the Caller
+	|--------|
+	|   si	 |
+	|--------|
+	|   di	 |
+	|--------|
+	|   ds	 |
+	|--------|
+	|argsize |
+	|--------|
+	|retcell |
+	|--------|
+	|rettype |
+	|--------|
+	| retptr |
+	| to plm |
+	|--------|
+	| codseg |
+	|--------|
+	| local  |
+	|--------|
+	| global |
+	|--------|
+
+	mov ax,dgroup
+	mov ds,ax			;Map to dgroup
+	call dword ptr es:[bp+2]	;Execute generated code
+	pop es				;Prolog global stack
+	pop ds				;Prolog local stack
+	add bp,6			;Advance
+	pop ds:[xxxx]			;Reset the thunk
+	mov bx,ds:[yyyy]
+	retf

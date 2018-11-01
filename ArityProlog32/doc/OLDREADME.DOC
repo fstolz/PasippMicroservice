@@ -1,0 +1,1374 @@
+README.DOC
+ARITY/Prolog32 Version 1.1
+September 1995
+Copyright 1993-1995 (c) Arity Corporation
+-----------------------------------------
+
+Contents
+
+PART 1
+1.0 INTRODUCTION
+1.1 Differences between ARITY/PROLOG32 V1.1 and ARITY/PROLOG32 1.0
+1.2 Differences between ARITY/PROLOG V6.1 and ARITY/PROLOG32
+2.0 NEW DATABASE FEATURES
+2.1 Database Workspaces
+2.2 Database partitions
+2.3 Safe saving of databases
+2.4 New database statistics
+3.0 ENCODING AND DECODING PROLOG TERMS
+4.0 EXTENDED PROCESSING OF IS/2 AND ARITHMETIC COMPARISON PREDICATES
+5.0 EXTENDED COUNTER PREDICATES
+6.0 CONVERTING 16 BIT CODE TO ARITY/PROLOG32
+6.1 Converting Prolog code
+6.2 Converting embedded C code
+6.3 Converting C code
+6.4 Converting MAKE files (compiling and linking)
+7.0 COMPILER DECLARATIONS AND EMBEDDED 'C'
+7.1 Win32 Prolog Predicate Extrn Declarations
+7.2 Modifying WINNT.H (WIN32)
+7.3 OS/2 Declarations
+7.4 pdefined in C preprocessor
+8.0 STARTUP CODE
+9.0 PROLOG THREAD ROUTINES
+10.0 CROSS-COMPILING
+11.0 LINKING
+11.1 LINKING WITH WIN32
+11.2 LINKING WITH OS/2
+12.0 ENVIRONMENT FILES
+13.0 DYNAMIC LINK LIBRARIES (DLL's) AND ARITY/PROLOG32
+13.1 New DLL predicates
+13.2 Building your own DLL's
+13.3 New predicates for managing visible predicates
+
+PART 2
+CORRECTIONS TO THE ARITY/PROLOG COMPILER AND INTERPRETER MANUAL
+
+
+=============================================================================
+				    PART 1
+=============================================================================
+
+
+1.0 INTRODUCTION
+----------------
+
+This document provides information not available in the printed documentation.
+Differences between Arity/Prolog32 Version 1.1 and other versions are
+summarized and specific topics relating to new features and system
+dependencies are provided.
+
+Even if you are not upgrading from Arity/Prolog V6.1 you should review the
+section on the differences between ARITY/PROLOG V6.1 and ARITY/PROLOG32.
+Information is provided that is more recent than the printed documentation.
+
+
+
+1.1 Differences between ARITY/PROLOG32 V1.1 and ARITY/PROLOG32 1.0
+------------------------------------------------------------------
+
+Arity/Prolog32 now supports the WIN32 environments: Windows NT and
+Windows 95 (trademarks of Microsoft Corporation). There are differences in
+startup and linkage conventions that are discussed in this document.
+
+There are some database extensions to Arity/Prolog32 from version 1.0
+including support for multiple concurrent database access (workspaces) and
+support for program controlled partitioning of a database for better
+locality of reference (partitions). Refer to the discussions below for
+details.
+
+Support for static linking of the Arity library has been dropped. Instead
+use ARITY32.DLL.
+
+
+
+1.2 Differences between ARITY/PROLOG V6.1 and ARITY/PROLOG32
+------------------------------------------------------------
+
+The language differences that are introduced in Arity/Prolog32 in general
+will not force you to change ported code.  There are some new evaluable
+predicates in Arity/Prolog32 but the semantics of several existing predicates
+has been changed.
+
+The runtime environment of Arity/Prolog32 is markedly different from
+Arity/Prolog V6.1 in large part because of the removal of the 64K segment
+size limitation.
+
+To summarize these differences:
+
+First, the 64K limitation on stack sizes is removed. You may still set stack
+sizes using an environment file although the default size of 1Mbyte for local
+and global should be appropriate for most applications.
+
+Second, text and numeric support has been greatly improved and the arithmetic
+and counter predicates have been extended.
+
+Third, the internal database facility is far more flexible in Arity/Prolog32.
+Now databases are entirely portable between Arity/Prolog32 applications
+including the Arity/Prolog32 interpreter.
+
+Fourth, various compiler directives and embedded C have been changed to
+reflect the 32-bit flat addressing model and the new 32-bit calling
+conventions.  There is no longer any "far prolog"; everything is near in
+the 32-bit model.
+
+Below these differences are discussed in detail.
+
+
+New text handling:
+------------------
+
+The atom and string data types are now the same.  We generally now refer to
+textual objects as "atoms" but have retained all of the 16-bit text
+predicates unchanged for compatibility.  For example:
+
+1. Quotes (') and dollar signs ($) are now synonymous in the reader.  No
+changes are necessary on your part to code you are porting.
+
+2. The string/1 and atom/1 predicates both succeed when the argument is
+instantiated to a textual object.
+
+3. The atom_string/2 predicate is now defined as:
+
+	atom_string(S,S) :- string(S).
+
+Beyond these considerations are the following:
+
+1. There is no preset limit on the number of atoms available to you.
+
+2. The size of atoms is only limited by practical considerations imposed
+by the size of the global stack or a database page. The actual system
+imposed size limitation on string size is well in excess of 1 Mbyte.
+
+3. Functor names are atoms and the above comments apply equally.
+
+
+
+New numeric handling:
+---------------------
+
+Arity/Prolog32 has a more consistent processing of numbers.  Whenever a
+numeric result of a read or a computation (including embedded C calls) is
+returned to Prolog, it is checked to see if it can be exactly represented as
+a signed 32-bit integer, if so, it is represented internally as an integer,
+if not, it is represented internally as a IEEE double precision (64-bit)
+float.	The implications of this are the following:
+
+1. Less space is consumed on the stacks and in the database.
+
+2. Unification of numbers is more consistent (but be wary of matching two
+floats because two floats that appear to be the same when written may have
+different low precision bits).
+
+3. The float/1 predicate succeeds for arguments that are numbers that cannot
+be represented as a signed 32-bit integer.  The semantics of integer/1 and
+number/1 are the same as in Arity/Prolog 6.1.
+
+4. The float_text/3 predicate now will accept integers as well as floats
+as its first argument.
+
+5. The write and display predicates output a number as an integer whenever
+that number is representable as a signed 32-bit integer and otherwise will
+output a number in general floating point format.
+
+
+
+Extended internal database support:
+-----------------------------------
+
+A number of new internal database predicates are provided which are discussed
+later in this document. In addition, the internal database is extended in
+several very significant ways:
+
+1. All internal databases are portable to any Arity/Prolog32 application,
+including the Arity/Prolog32 interpreter.  There never are any "atom table
+conflicts" as there can be in the 16-bit versions.
+
+2. Compiled code is independent of any database.  You no longer specify an
+IDB file when you compile code.  This streamlines development and allows you
+to maintain object code libraries and DLLs for multiple independent
+applications.
+
+3. Applications may be designed to run and may be deployed without any IDB
+file, even if those applications use database predicates.  A new environment
+file variable has been provided to specify the load behavior at startup for
+the application's internal database:
+
+   DBMODE=maybe	    Load database if present (DEFAULT)
+   DBMODE=never	    Never load database
+   DBMODE=always    Always load database - fail startup if not found
+
+The IDB file name that is used at startup defaults to the name of the
+application with the .IDB extension.  This name may be overridden by the
+DATABASE environment file variable.  Thus, the default startup behavior
+for an application foo.exe is to search for a file foo.idb which is restored
+if found, or if not found, to start the application with an unnamed empty
+database.
+
+4.  If an application has not loaded a database at startup or called either
+save/1 or restore/1 then no .IDB file name is known to the application.	If no
+.IDB file name is known then a call to save/0 will fail. In this case,
+the database file name returned by statistics/2 will be the empty atom ('').
+
+5. An application may at any time reinitialize the internal database to be
+unnamed and empty by calling restore(0) i.e., restore/1 with the argument
+instantiated to the integer 0.	A database that is unnamed may be
+reinitialized by a call to restore/0.
+
+6. Support for working with multiple databases (workspaces), control over
+physical locality of terms stored in large databases (partitions), and
+recovery from system failures that occur during saves (safe saves) are now
+provided.
+
+
+
+
+2.0 NEW DATABASE FEATURES
+-------------------------
+
+2.1 Database Workspaces
+-----------------------
+
+With database workspaces an application can access up to four databases
+at the same time.
+
+Each Prolog thread now has associated with it a current workspace number.
+When the thread is created this number is 0, but it can be changed to
+0, 1, 2, or 3, by means of the new predicate workspace/2.  This predicate
+uses the query/set convention common to many Prolog predicates:
+
+    workspace(OldWorkspaceNumber, NewWorkspaceNumber)
+
+so to merely query the current workspace number you use
+    workspace(X, X)
+and to simply set the workspace number to N you use
+    workspace(_, N)
+
+Each thread keeps track of the current data world and the current
+partition for each workspace.  Therefore, if the following is
+executed:
+
+    ?- workspace(_, 0),
+       create_world(bar),
+       data_world(_, bar),
+       dbPartition(_, 20),
+       workspace(_, 1),
+       data_world(W1, W1),
+       dbPartition(P1, P1),
+       workspace(_, 0),
+       data_world(W2, W2),
+       dbPartition(P2, P2),
+       write((W1,P1)-(W2,P2)).
+
+the output will be:
+    (main,0)-(bar,20)
+
+All database predicates will now be local to the current workspace,
+including save and restore.
+
+Prior to 1.0.95 you may have noticed that all database references end
+with the hexadecimal digits 0,4,8,or C.  This will no longer be the case.
+Database refs now refer to a specific term in a specific workspace.  As
+a result you will now see all possible hexadecimal digits as the last
+digit for a database reference.
+
+However all database references that are part of terms stored in a
+database are assumed to refer to other terms in the SAME database.  You
+CANNOT store a ref from one database in another database.  This requirement
+is necessary in order to ensure that a database can be used in any
+workspace.  If you absolutely must store a "foreign" database ref in
+a database you must convert it to a long integer and store the integer.
+Then, when you subsequently use the ref, you must guarantee that the
+database that it refers to is being used in the same workspace as
+when the ref was stored.
+
+When using multiple workspaces be aware that all of the active workspaces
+use the same cache and overflow file.  This may affect your setting for
+the MAXPAGES environment parameter.
+
+
+2.2 Database partitions
+-----------------------
+
+A database partition is a set of page tables set aside for the purpose
+of storing data that is physically separate from other data.
+
+A database can have up to 256 partitions, numbered from 0 to 255.
+Arity is reserving partitions 226 through 255 for our use.  Therefore
+user programs can use partitions 0 through 225.  All old databases
+(i.e. databases that were created prior to 1.0.80) store all of their
+data in partition 0.  Old databases are distinguished from from new
+databases by means of a different database signature.  When an old
+database is restored it will be converted to the new database
+format and when it is saved it will have the new signature.
+
+Each Prolog thread now has associated with it a current partition.  When
+PrologInitThread is first called the current partition will be set to 0.
+When a database is restored, the current partition for all active
+Prolog threads will be set to 0.
+
+The current partition can be queried and changed with the new predicate
+dbPartition/2.	This is a get/set style of predicate and has the syntax:
+	dbPartition(-/+OldPartition, +NewPartition)
+The other new predicate that has been introduced is refPartition/2.  This
+is used to query which partition a database ref is stored in.  Its form
+is:
+	refPartition(+Ref, -/+Partition)
+
+All new keys, hash tables, b-trees, and orphans will be created in the
+calling thread's current partition.  All data stored under an existing
+key, hash table, or b-tree, or recorded after an existing orphan (using
+record_after/3), will be stored in the same partition as the existing
+key, hash table, b-tree, or orphan.
+
+
+2.3 Safe saving of databases
+----------------------------
+
+Arity/Prolog32 now provides the ability to perform safe saves. This is
+a form of save that is resistant to system crashes.  With safe saves the
+database file will either be completely saved or not saved at all.  There
+can be no inconsistent middle ground.  Moreover, in the event of a crash
+the user of the program need not do anything special - the next restore
+operation will either roll the database back to its pre-save state or
+continue the save to completion.
+
+As far as efficiency is concerned, a safe save is about twice as expensive
+as an unsafe save.  This is because each page that must be saved is
+written twice.
+
+A system flag controls whether or not saves are safe.  The flag number
+is 11.	Thus:
+    sysflag(11, Old, on)	turns safe saving on
+    sysflag(11, Old, off)	turns safe saving off
+where the variable Old will be bound to the old state of the flag.
+
+In this release we have added these predicates to the default visible set:
+    sysflag/3, workspace/2, dbPartition/2.
+
+
+Safe Save Implementation
+------------------------
+
+During safe saves the pages that would normally be written directly to
+the database file are instead written to a temporary file.  This file
+is named the same as the database file, but has the extension "IDF".
+
+The IDF file is initially created and marked as "invalid".  After the
+safe save is complete the IDF is marked as "valid". Then each page of the
+IDF file is written to its appropriate place in the database file.  If
+this operation is successful the IDF file is deleted.
+
+On a restore operation (regardless of the state of sysflag 11) the system
+looks for an IDF file corresponding to the IDB file that it is restoring.
+If it finds one it checks to see if it is valid.  If not, the IDF file is
+deleted and the restore proceeds.  This is the "rollback" case.  In this
+case the save did not reliably complete and we know that we have not
+written to the IDB file during the save.
+
+If the IDF file is valid we complete the save by writing the pages to
+the IDB file.  If we complete this operation we delete the IDF file.  Note
+that if this operation is terminated due to a crash, the IDF file will be
+found next time and still be valid so we will try again.
+
+
+2.4 New database statistics
+---------------------------
+
+The statistics/2 predicate has been extended to provide more statistics
+about the database system:
+
+    statistics(database, DBStats)
+    statistics(edb, ExtendedDBStats)
+    statistics(cache, CacheStats)
+
+where:
+
+    DBStats = database(0,MaxCachePages,CurrentCachePages,DatabaseName)
+	(* note that DatabaseName is now dependent on the current
+	    workspace)
+    ExtendedDBStats = s(WorkSpaceNo,OverflowFileName,OverFlowFileSize,
+			    CacheHits,CacheMisses)
+	(* note that the overflow statistics are dependent on the
+	    current workspace)
+    CacheStats = s(MaxCachePages,CurrentCachePages,CacheHits,CacheMisses)
+	(* statistics(cache,X) has the side effect of setting
+	    CacheHits and CacheMisses to 0)
+
+if the first argument to statistics/2 is a variable it will backtrack
+through stacks, database, local, global, trail, garbage, version, edb,
+but not cache.
+
+
+
+3.0 ENCODING AND DECODING PROLOG TERMS
+--------------------------------------
+
+Five predicates are introduced for the encoding and decoding of Prolog terms
+using the same mechanism as is used for the internal database. The predicates
+are defined below:
+
+1) dbsLen(+Term, -/+Len)
+
+Returns the byte length of the string that would be created
+using term2dbs/2 or term2dbcs/4. This predicate is provided as a convenient
+way of determining length of the encoded term more efficiently than actually
+creating it in advance.  This is typically used to find out what size buffer
+is needed for using term2dbcs/4.
+
+2) term2dbs(+Term, -/+DBString)
+
+This predicate encodes Term as the Prolog string DBString. Term may be
+unbound.
+
+3) term2dbcs(+Term, +Ptr, +MaxLen, -/+ActLen)
+
+This predicate encodes Term as a C string at Ptr. If the length of the
+encoded string is larger than MaxLen then the predicate fails doing no work.
+The actual length written is returned in ActLen.  Note that the string that
+is created is not null terminated and may contain embedded nulls.
+
+4) dbs2term(+DBString, -/+Term)
+
+This predicate decodes the Prolog string DBString as Term.
+
+5) dbcs2term(+Ptr, -/+Term)
+
+This predicate decodes the C string at Ptr as Term.
+
+6) dbsMaxSize(-Max)
+
+Returns the maximum size of a term that can be stored in the database.
+
+7) dbsFits(+N)
+
+Succeeds if N is less that or equal to the value returned by dbsMaxSize/1.
+Therefore to see if a term can fit in the database do:
+
+    dbsLen(Term, N), dbsFits(N)
+
+
+4.0 EXTENDED PROCESSING OF IS/2 AND ARITHMETIC COMPARISON PREDICATES
+--------------------------------------------------------------------
+
+Arity/Prolog32 now allows evaluated arithmetic expressions to include:
+
+1. The logical functions not/1, and/2, and or/2 whose value is 0 or 1 based
+on the logical interpretations of their arguments 0 or non-zero.
+
+2. The comparison functions =:=, =\=, >=, =<, <, and > whose value is 0 or 1
+based on the value of the comparison.
+
+3. The functions min/N and max/N where the arity N may be between 1 and 255
+inclusive and where the result is the maximum or minimum value of the
+evaluated sub-expressions.
+
+4. The function ifthenelse/3 whose value is the value of the 2nd argument's
+expression or the 3rd argument's expression based on the value of the 1st
+argument's expression being non-zero or 0.
+
+
+
+For example, the following expression may now be constructed:
+
+    A is ifthenelse((min((B+C),D,E) > 50 and F =\= 0), 50, -50).
+
+The resulting value for A will be 50 if the values B+C, D, E are all greater
+than 50 and the value F is not 0, otherwise the result will be -50.
+
+
+
+5.0 EXTENDED COUNTER PREDICATES
+-------------------------------
+
+Arity/Prolog32 provides additional counters (numbered from 32 to 63) for the
+ctr_set/2, ctr_is/2, ctr_inc/2, and ctr_dec/2 predicates.  The counters
+numbered 0 to 31 are process-wide (that is, every thread sees the same
+counters and the application is responsible for any synchronization that may
+need to be enforced).  The counters numbered from 32 to 63 are allocated for
+each thread separately.
+
+
+
+
+6.0 CONVERTING 16 BIT CODE TO ARITY/PROLOG32
+--------------------------------------------
+
+6.1 Converting Prolog code
+--------------------------
+
+As a very high level of compatibility was maintained between Arity/Prolog
+version 6.1 and Arity/Prolog32, you will have little to change if your
+application uses on Prolog code.
+
+    * If you use save/0, then you need to be sure that the database has a
+	name, otherwise, this predicate will now fail.
+
+    * Do not attempt to restore databases created by Arity/Prolog version
+	 6.1 as they are not compatible with databases created by
+	 Arity/Prolog32.  Databases created by Arity/Prolog32 version 1.0
+	 can be restored by Arity/Prolog32 version 1.1.
+
+    - Examine code that differentiates between strings and atoms using
+	the metalogical predicates atom/1 or string/1 and combine where
+	appropriate.
+
+    - Examine code that differentiates between integers and floats using
+	the metalogical predicates integer/1 or float/1 and combine where
+	appropriate.
+
+    - Convert any arith(short) declarations to arith(long) for
+	better performance.
+
+    - Although the compiler will ignore them, you may wish to remove "far"
+	suffixes from your extrn and public declarations as they are no
+	longer needed.
+
+    * Remember that when the operator directive (op) is used in compiled
+	code the operators are not available at runtime.  You need to add
+	op/3 predicates to your code to modify operators at runtime.
+
+
+
+
+6.2 Converting embedded C code
+------------------------------
+
+Because C calling conventions are different and the fact that C is a
+typed language, previously requiring the use of the far modifier, you
+will find that this is where you need to make the most modifications
+
+    * Remove all 'near' or 'far' modifiers from any declarations and type
+	definitions (as well as 'include' files)
+
+    * The supported calling convention for C calling Arity/Prolog32 code is
+	_System in OS/2 and __stdcall in Win32.  So, for example, if you
+	have:
+
+	    :- public foo/2:system(int = foo(int)).
+
+	Then in OS/2 you declare it as:
+
+	    int _System foo(int);
+
+	and in Win32 you declare it as:
+
+	    int __stdcall foo(int);
+
+
+    * Since atoms are now represented as strings and do not have an integer
+	representation, embedded C code that used the '#atom' type needs to
+	be converted to use either the MakePrologString or MakeCString
+	functions.
+
+    * Remove any names(pascal) or model declarations that you may have.
+
+    * Remember the current restriction on embedded C expressions that
+	comparison and control operators are currently not implemented.
+
+    - Be aware that the 'int' type is now a synonym for 'long', where
+	previously, it was 'short.
+
+    - Because it is more efficient to use long values than short values in
+	a 32-bit system, you probably want to use longs except in cases
+	where space is an issue.
+
+    - If you were previously using library routines that worked with far data,
+	such as _fmalloc or _fstrcpy, then you probably need to convert these
+	names.
+
+6.3 Converting C code
+---------------------
+
+We leave most of this discussion to your C manuals with the
+following notes:
+
+    * When linking with external C code, you must have C startup code that
+	initializes Prolog. You should modify or use either STARTUP.C or
+	APISTART.C.
+
+    * If you were using PrologInitThread, then you must change your code
+	to match the new calling convention of this routine. Specifically,
+	you no longer allocate your stacks, rather you pass a structure
+	that either contains values for the stacks (or 0 which will use
+	the default environment settings). Don't forget to set the value
+	cbData in the structure to sizeof(INITTHREAD)
+
+    * Similarly, If you were using PrologEndThread, your code no longer
+	needs to deallocate stacks as it is no longer allocating them.
+
+
+
+6.4 Converting MAKE files (compiling and linking)
+-------------------------------------------------
+
+Most likely, you will be using a new set of C tools, perhaps even a
+new make utility with Arity/Prolog32. It is important to remember to
+change your make file rules to use the new tools. For instance, be sure
+to use link386 and icc for OS/2, link and cl for Win32.
+
+    * Segment headers such as code.obj and the clone.exe utility are not used
+	in Arity/Prolog32.  Remove any references to clone.exe from your make
+	and remove any segment header references from your link command lines.
+
+    * All Prolog modules must be recompiled with the Arity/Prolog32 compiler
+	and the resulting object files will not be comparable with previous
+	files.
+
+    * Arity library and object file names have changed to avoid confusion.
+	You need to change your link statements to use the following new
+	names: api32.obj, api32.lib, arity32i.lib
+
+
+
+
+
+7.0 COMPILER DECLARATIONS AND EMBEDDED 'C'
+------------------------------------------
+
+Arity/Prolog32 supports the IBM C SET/2 (TM - IBM) compiler 32-bit calling
+conventions on OS/2 and the Microsoft Visual C compiler (TM - Microsoft)
+calling conventions on Windows NT and Windows 95.
+
+Most 'C' modules that are used with Prolog will include the file
+APCTYPE.H.  Any module that includes this file must define either
+the TARG_OS2 symbol for OS/2 or TARG_WIN32 for Win32.
+
+The supported calling convention for C calling Arity/Prolog32 code is
+_System in OS/2 and __stdcall in Win32.  So, for example, if you
+have:
+
+    :- public foo/2:system(int = foo(int)).
+
+Then in OS/2 you declare it from C as:
+
+    int _System foo(int);
+
+and in Win32 you declare it from C as:
+
+    int __stdcall foo(int);
+
+If you have included APCTYPE.H, then in either environment you can
+declare it from C as:
+
+    int SYSAPI foo(int);
+
+
+
+7.1 Win32 Prolog Predicate Extrn Declarations
+---------------------------------------------
+
+In the Win32 environments predicates that are external to a source
+module and defined in a different DLL must be declared differently
+than predicates that are external to a source module and defined in the
+same DLL or EXE:
+
+    Normal extrn declaration:
+
+	:- extrn name/arity.
+
+    When defined in a different DLL:
+
+	:- extrn name/arity:import.
+
+The extrn declaration tells the compiler that the predicate is defined
+in a different module.	In OS/2 it does not matter whether or not
+that module is in another DLL as the calling module, or in the same
+DLL (or .EXE).
+
+In Win32 this does matter.  To signal that the calling module and called
+modules are in different DLL's you use the :import.
+
+To simplify keeping track of which predicates are defined in which modules,
+and which modules are part of which DLL's, we suggest placing a
+"module database" in an include file.
+
+    Include file X.INC:
+
+	:- dllmodule(dll1, [mod1,mod2,mod3]).
+	:- dllmodule(dll2, [mod4,mod5]).
+	/* i.e. modules mod1, mod2, and mod3 will be placed in dll1,
+	   modules mod4 and mod5 will be placed in dll2
+	*/
+
+    Now consider source file MOD1.ARI
+
+	:-include('x.inc').
+	:-extrn foo/3:module(mod2).
+	:-extrn bar/4:module(mod5).
+	/* The first extrn will be translated into a normal extrn,
+	    since mod1 and mod2 are in the same DLL.  The
+	    second extrn will be translated into an import extrn
+	    since mod1 and mod5 are in different DLLs.
+	*/
+
+
+
+7.2 Modifying WINNT.H (WIN32)
+-----------------------------
+
+Because we do not support the _asm construct in our embedded C compiler
+you must modify the WINNT.H file to allow our compiler to read it.
+Search for the text that appears below and make the following change:
+
+
+			    Add this here
+			    ||	||  ||	||  ||	||
+			    \/	\/  \/	\/  \/	\/
+#if !defined (__cplusplus) && !defined (__ARITY__)
+
+#pragma warning(disable:4035)               // re-enable below
+
+__inline DWORDLONG
+NTAPI
+Int64ShllMod32 (
+    DWORDLONG Value,
+    DWORD ShiftCount
+    )
+{
+    _asm    {
+        mov     ecx, ShiftCount
+        mov     eax, dword ptr [Value]
+        mov     edx, dword ptr [Value+4]
+        shld    edx, eax, cl
+        shl     eax, cl
+    }
+
+
+
+Then to include WINDOWS.H, do something like this:
+
+    :- c.
+    #define __ARITY__		    // To skip _asm blocks
+    #define _MSC_VER 900	    // To look like
+    #define _M_IX86 400 	    //	  Microsoft C
+    // The next line is optional.  It will speed up the compile.
+    #define WIN32_LEAN_AND_MEAN
+    #include <windows.h>
+    :- prolog.
+
+
+
+
+7.3 OS/2 Declarations
+---------------------
+
+In the OS/2 environment
+
+    :- extrn name/arity:import.
+
+is the same as
+
+    :- extrn name/arity.
+
+
+
+
+7.4 pdefined in C preprocessor
+------------------------------
+
+We have provided a way to check for Prolog symbol definitions in the
+C preprocessor - instead of using "defined", use "pdefined".
+
+    :- c.
+    #if pdefined(symbol)
+	....
+    #endif
+    :- prolog
+
+This succeeds if "symbol" is defined using a :- define directive or
+a -D command line parameter.
+
+This is typically use to "shadow" Prolog symbols for C, e.g.:
+
+    #if pdefined(XXX_YYY)
+    #define XXX_YYY
+    #endif
+
+This will define the C symbol XXX_YYY if the Prolog symbol 'XXX_YYY'
+is defined.
+
+
+
+
+8.0 STARTUP CODE
+----------------
+
+If you are not going to be using any C code in your program, then you can
+use the default startup code in the runtime library.  If your program is
+an EXE file then exactly one module must contain the following declaration:
+
+    :- public main/0.
+
+If you are using C code in your program then you must provide startup code
+written in C.  This will define the main function which C will call
+after initializing its runtime environment.  You must define the symbol
+LOAD_ARITY in this module, so that the default startup code will not be
+linked in from the library.  This is done in C as follows:
+
+    int LOAD_ARITY = -1;
+
+Two examples of startup code are provided:  STARTUP.C and APISTART.C.
+APISTART.C is for relinking the interpreter:  it provides for the
+"restart-on-error" behavior of the interpreter, i.e., if an error
+occurs then it prints an error message and restarts.
+
+When compiling these files you must define either the symbol TARG_OS2
+or the symbol TARG_WIN32
+
+STARTUP.C can optionally provide support for the abort/1 predicate and
+for control-C / control-break handling.  To include this support you
+must define the symbol RESTART_PROCESSING.	This can be done
+by compiling as follows:
+
+    cl -c -DTARG_WIN32 -DRESTART_PROCESSING startup.c
+or
+    icc -c -DTARG_OS2 -DRESTART_PROCESSING startup.c
+
+When linking with C modules the linker will search C libraries in addition
+to Arity libraries.  To avoid error messages about duplicate symbols, be
+sure to use the /NOE switch when linking with C in OS/2.
+
+
+
+9.0 PROLOG THREAD ROUTINES
+--------------------------
+
+The PrologInitThread and PrologEndThread routines perform their own stack
+allocation and deallocation (unlike their 16-bit counterparts).
+Therefore, the calling convention for PrologInitThread has changed:
+
+DLLIMP int SYSAPI PrologInitThread (int flags, INITTHREAD *ini);
+
+where flags is either 0 or IT_FILLAREA (this flag "paints" the Prolog
+stacks with a known pattern so that stack usage statistics may
+be computed),
+
+and ini is a structure of the form:
+
+typedef struct {
+    int cbData; 			/* Size of data structure */
+    unsigned long ulLocalSize;		/* Size of local in kilobyte */
+    unsigned long ulGlobalSize; 	/* Size of global in kilobyts */
+    unsigned long ulGlobalAlarm;	/* Garbage collection threshold */
+    unsigned long ulLocalAlarm;		/* Garbage collection threshold */
+} INITTHREAD;
+
+If ini is NULL then PrologInitThread will use the process defaults for
+all the parameters.  These process defaults may be set with an environment
+file.
+
+
+
+10.0 CROSS-COMPILING
+--------------------
+
+The OS/2 hosted compiler may be used to generate code for the Win32
+environment and vice-versa.  The compiler command line parameter -T
+controls the target environment:
+
+    -Tos2   Target OS/2
+    -Twin32 Target Windows NT and Win95
+
+The default is the environment under which the compiler is hosted.
+
+
+
+11.0 LINKING
+------------
+
+For single module console applications, you can use the -link
+switch with the compiler:
+
+    apc32 source -link
+
+and that will run the linker.
+
+
+11.1 LINKING WITH WIN32
+-----------------------
+
+The linker is link.exe, supplied with MSVC20.  The syntax:
+
+link /out:out.exe /map:map.map obj1 ... objn lib1 ... libn /opt1 ... /optn
+
+Some useful options:
+
+    /SUBSYSTEM:CONSOLE - build a console based application.
+    /ENTRY:entry	 Use entry as a starting place.  You should
+	    use /ENTRY:main when linking a console application without
+	    any C modules.  You should use /ENTRY:_ArityDllStartup when
+	    linking DLL's that do not use C.
+    /DLL	       - build a DLL
+
+
+This version does not automatically search ARITY32I.LIB: you must include
+it on the link line.
+
+
+11.2 LINKING WITH OS/2
+----------------------
+
+The linker is LINK386.EXE.  The syntax:
+
+
+LINK386 obj1 obj2 ... objn, out.exe, map.map/MAP, lib1 lib2 libn /opt1 /opt2;
+
+The library ARITY32I.LIB will be included by default so you do not need
+to include it with the linker.	Similarly libraries required by C files
+will also be included by default.
+
+
+
+
+12.0 ENVIRONMENT FILES
+----------------------
+
+
+MINPAGES=	    Minimum number of 4 kilobyte pages, default = 4
+MAXPAGES=	    Maximum number of 4 kilobyte pages, default = 1024
+OVERFLOW=	    Overflow file name
+DATABASE=	    Database file name (default is "application name".IDB)
+LOCAL=		    Local stack size in kilobytes, default = 1024
+GLOBAL=		    Global stack size in kilobytes, default = 1024
+LALARM= 	    Local alarm level in bytes for gc, default = 2048
+GALARM= 	    Global alarm level in bytes for gc, default = 2048
+BUFSIZE=	    IO buffer size in bytes, default = 2048
+OPDEFSIZE=	    Operator space size in kilobytes, default = 3
+DBMODE= 	    Database loading type, choices are never, always, maybe
+		    default = maybe
+
+
+The following environment file variables are unchanged from version 6.1.
+
+VANILLA=
+KBDRIVER=
+FILES=
+
+
+The following environment file variables are not used:
+
+MINAVAIL=
+MAXTHREADS=
+EMS=
+XMS=
+
+
+
+
+13.0 DYNAMIC LINK LIBRARIES (DLL's) AND ARITY/PROLOG32
+------------------------------------------------------
+
+
+>>> Your program's startup code (for DLL's)
+
+If you are creating a DLL without C then you cannot have any initialization
+or termination processing.  In this case do NOT issue the
+    :- public main/0.
+declaration from any of the modules.  Just link the modules together with
+a module definition file listing the names of the predicates you wish to
+export.  Your module definition file will look something like this:
+
+(For Win32)
+
+LIBRARY YourLibName
+DESCRIPTION 'Anything you want'
+
+EXPORTS
+    abc_3	CONSTANT
+    bcd_4	CONSTANT
+
+
+(For OS/2)
+
+LIBRARY YourLibName
+DESCRIPTION 'Anything you want'
+CODE LOADONCALL
+DATA LOADONCALL MULTIPLE NONSHARED
+
+EXPORTS
+    abc_3
+    bcd_4
+
+
+When choosing symbols to export, remember that a Prolog predicate named, say,
+xyz/5, i.e. named xyz and with arity 5, uses the symbol xyz_5 as an
+entrypoint.  In Win32, the CONSTANT keyword should be placed after Prolog
+exports, because they behave more like data exports than code exports.
+
+An application that uses a DLL with Prolog entrypoints must make sure that
+initprolog has been called before calling any of the Prolog entrypoints.
+
+
+
+13.1 New DLL predicates
+-----------------------
+
+dll_load(+Name, -/+Handle, -/+NewFlag)
+
+    This predicate run-time loads a DLL.  The operating system handle
+    is returned as an integer in Handle.  The NewFlag variable will
+    be 1 if this was the first time dll_load was called for this
+    DLL, otherwise it will be 0.
+
+dll_free(+NameOrHandle)
+
+    This frees a DLL that was loaded using dll_load/3.	The name must
+    exactly match the name used when the DLL was loaded.
+
+    If NameOrHandle is an integer, then this predicate unloads the DLL
+    of that handle.  This is used when the DLL was loaded by some means
+    other than dll_load/3.
+
+dll_handle(?DllName, ?DllHandle)
+
+    Translates between Names and Handles.
+
+dll_address(+NameOrHandle, +Item, -/+Address)
+
+    This predicate looks up addresses of exported items in a DLL.  You
+    can specify the DLL by name or handle.  Item is either:
+
+	(a) An integer:  look up the address by ordinal.
+
+	(b) A predicate specification Func/Arity:  look up the name
+		corresponding to the Prolog predicate.
+
+	(c) An atom:  look up the entrypoint by name.
+
+    The address is returned as an integer in the Address variable.
+
+dll_visi(+NameOrHandle, +Enable)
+
+    As we will see below, DLL's can be built to automatically manage
+    their own visible definitions - adding them when the DLL is loaded
+    and removing them when the DLL is unloaded.  This predicate allows
+    additional control over the process.  It can be used when the DLL
+    is not built to autoload or it can be used to remove the visible
+    definitions associated with a DLL without unloading the DLL.
+
+    NameOrHandle is as in dll_address/3.  Enable is 1 to add the
+    visible definitions or 0 to remove them.
+
+    In order for this predicate to work the DLL must export its
+    visible table definitions (see below).
+
+
+13.2 Building your own DLL's
+----------------------------
+
+You can write your own DLL's using Arity/Prolog.  This section is
+a guide.
+
+(a) Exported names
+
+    Remember that a Prolog predicate can have two names:
+
+	:- public pred/3:system(det=predname(int,int,int)).
+
+    The name pred_3 is used by Prolog calls.  The name predname
+    is used by C code.
+
+    Then in your .DEF file you can have:
+
+    ;; OS/2
+    EXPORTS
+	predname
+	pred_3
+
+    or
+
+    ;; Win32
+    EXPORTS
+	predname
+	pred_3	    CONSTANT
+
+(Note: using CONSTANT with Prolog names saves some space in your DLL).
+
+
+(b) Prolog Initialization and Termination
+
+    Every Prolog program must call initprolog during initialization
+    and endprolog prior to termination.  (Multiple threaded programs
+    call PrologInitProcess and PrologEndProcess for process initialization
+    and termination and PrologInitThread and PrologEndThread for thread
+    initialization and termination.)  These calls manage the memory
+    areas use to execute Prolog code.  We call these areas the Prolog
+    stacks.
+
+    Initialization and termination of Prolog can be done either by the
+    executable module or by a DLL.  It is usually done by the executable.
+
+(c) DLL Initialization and Termination and visible autoloading
+
+    It is now possible to have visible declarations in DLLs.  These
+    declarations will be added when the DLL is loaded (either at
+    run-time or load-time) and will be removed when the DLL is unloaded.
+    Furthermore they may be added and removed by the predicate dll_visi/2.
+
+    In order for this to work, the DLL's must be built as follows:
+
+    (i)     In the DEF file use a LIBRARY statement of the form:
+	    LIBRARY dllname INITINSTANCE TERMINSTANCE
+
+	    (this is only required for OS/2).
+
+    (ii)    If your DLL does not use any 'C' code, link with the module
+	    STARTDLL.OBJ to enable visible autoloading.
+
+	    For Win32 specify /ENTRY:_ArityDllStartup /DLL to the linker.
+
+
+    (iii)   If your DLL does use 'C', compile and link in the module
+	    INITDLL.C.	You must compile with -DTARG_OS2 for OS/2, or
+	    -DTARG_WIN32 for Win32.
+
+	    You can change INITDLL.C to do other initialization
+	    tasks.  To enable visible autoloading you must call
+		    DllVisibles(1),
+	    at initialization time and call
+		    DllVisibles(0).
+	    at termination time.
+	    Please don't do one without the other.  If you do it may lead
+	    to a protection fault.
+
+	    Note that you cannot execute any Prolog code at initialization
+	    time because you cannot be sure that PrologInitProcess
+	    has been called.
+
+    (iv)    Note that you do not need to export any names that are
+	    visible - you only need to export a name if it is going to
+	    be called by compiled code.
+
+    (v)     If you wish to use the dll_visi/2 predicate with this DLL
+	    you must have an export as follows:
+
+		;(OS/2)
+		EXPORTS
+			VISITABLE = visihdr_start
+
+		;(Win32)
+		EXPORTS
+			VISITABLE = visihdr_start CONSTANT
+
+
+
+(d) "Visible only" DLL's
+
+    Note that the predicates declared visible in a DLL need not be
+    defined in a DLL.  Therefore, it is possible to have a DLL
+    that is comprised solely of visible declarations of predicates
+    defined elsewhere (either in ARITY32.DLL or in other DLL's).
+
+    One possible use for this is for easy debugging:  have the
+    additional visibles necessary for debugging in a separate DLL.
+
+
+
+13.3 New predicates for managing visible predicates
+---------------------------------------------------
+
+evalAddress(+Goal, -/+Address)
+
+    This predicate allows you to look up the address of a predicate
+    in the visible table.  Addresses have the form
+		    [Type|Offset]
+    where Type is 1 for Prolog predicates, 2 for eval predicates,
+    and 3 for evalpost predicates.  This address can be used by
+    the call/2 predicate.
+
+    If the goal is not visible or if the definition has been disabled
+    then the returned address is [0|0].
+
+record_visi(Goal, Type, Offset)
+
+    Allows direct access as to what is stored in the visible table
+    for a certain predicate.  Type and Offset are as in evalAddress/2.
+
+    A use for this predicate might be to make visible a predicate that
+    was defined in a DLL but not declared visible:
+
+	dll_address(mydll, foo/3, Address),
+	record_visi(foo(_,_,_), 1, Address)
+
+    Another use is to remove a visible definition.  To do this,
+    set Type = 0:
+
+	record_visi(foo(_,_,_), 0, 0).
+
+
+system(F/A, -OldDisableFlag, +NewDisableFlag)
+
+    This predicate allows you to disable a visible definition.
+    This is different than removing the definition with record_visi/3
+    because it can later be reinstated.
+
+    Typically you do
+
+	system(F/A, OldFlag, on)
+
+    to disable, then later do
+
+	system(F/A, _, OldFlag)
+
+    to restore to its former state.
+
+
+
+call(+Address,+Goal)
+
+    The call/2 predicate inplements indirect call.  This is useful
+    for runtime loaded DLL's.
+
+    Goal is a Prolog goal.
+    Address is the structure of the form
+	[Code|Address32]
+    where Address32 is the 32-bit address of the predicate
+    and Code corresponds to the type of the predicate. Valid types are:
+
+	1-Prolog
+	2-Eval
+	3-Evalpost
+
+
+
+
+=============================================================================
+				    PART 2
+=============================================================================
+
+
+CORRECTIONS TO THE ARITY/PROLOG COMPILER AND INTERPRETER MANUAL
+---------------------------------------------------------------
+
+This section contains a number of enhancements to Arity/Prolog version 6.1
+and Arity/Prolog32 added after the manual was sent for printing and are
+presented in page order.
+
+
+page 53: Add the following section to "Turning the Debugger On and Off"
+--------
+
+    notrace(-File)
+    nodebug(-File)
+
+	These predicates turn off the debugger and if debugger output has
+	also been routed to a file, the filename is retuned. Otherwise File
+	remains a variable.
+
+page 96: Add the following to section 4.3
+-------
+
+    Sepcifying arithmetic processing
+
+	By default all arithmetic in a prolog program is interpreted by the
+	is/2 predicate so that any variables contained within the expression
+	could be unified with an expression. However, if all of the varaibles
+	were guaranteed to be bound to numeric values when the call is made,
+	you could spcify that the expression is compiled rathered than
+	interpreted. In order to do so, you must specify a data type that
+	all of the inputs will be cast to.  This data type can be either
+	short integers, long integers or doubles (floating-point numbers).
+	The method to use for handling the is/2 predicate can be specified
+	with the arith directive (see page 382) or the H family of compiler
+	switches:
+
+	    -Hi     Arithmetic is handled by the is/2 predicate (interpreted).
+	    -Hs     Arithmetic is compiled, inputs are cast to shorts.
+	    -Hl     Arithmetic is compiled, inputs are cast to longs.
+	    -Hd     Arithmetic is compiled, inputs are cast to doubles.
+
+
+    Specifying link parameters
+
+	The link option is used to specify that upon successful compilation
+	of your source, the compiler will attempt to link your application
+	by calling the LINK.EXE program. You may specify in a string a
+	number of parameters that will be passed to the linker or none at
+	all. For instance, the following are valid:
+
+	    c:> apc myapp -link
+
+	    c:> apc myapp -link"/MAP /NOE /NON"
+
+page 99: Add the following to section 4.6
+--------
+
+    The /NOE linker switch should be used when linking Arity/Prolog. A
+    number of symbols are intentionally multiply defined. Using the /NOE
+    switch will prevent the linker from reporting L2044 messages resulting
+    from these multiple symbols.
+
+page 151: Add the following sections to "6.4 Bit Predicates"
+---------
+
+    bit_lit(+Bit,+Integer)
+
+	Succeeds if the specified Bit has the value 1 in Integer. For
+	example:
+
+	    ?- bit_lit(0,4).
+
+	    no
+	    ?- bit_lit(0,5).
+
+	    yes
+	    ?-
+
+    bit_unlit(+Bit,+Integer)
+
+	Succeeds if the specified Bit has the value 0 in Integer.
+
+	    ?- bit_unlit(0,5).
+
+	    no
+	    ?- bit_unlit(0,4).
+
+	    yes
+	    ?-
+
+page 365: Add the following note
+---------
+
+    Note: when using C Input/Output routines with Prolog you may need to
+    do one or both of the following:
+
+	Set the environment variable KBDRIVER to NO so that C input
+	routines will not conflict with Arity/Prolog's keyboard driver.
+
+	Use the flushall() routine prior to using the printf() routine
+	to avoid problems between C and Prolog buffered I/O routines.
+
+
+page 373: Add the following section
+---------
+
+    Specifying structure packing
+
+	The #pragma pack is now supported to specify that structures should
+	be packed on 1, 2 or 4 byte boundaries.  This may be useful to save
+	space or conform to pre-existing conventions. This pragma has two
+	formats:
+
+
+	    #pragma pack()
+	    #pragma pack([ 1 | 2 | 4 ])
+
+	If a constant is provided, then subsequent structures will be packed
+	accoriding to that value in a method similar to that used by
+	Microsoft C. If no constant is provided, then the compiler reverts
+	to the default structure packing.
+
+Page 382: Add the following to the discussion of arith directive arguments
+---------
+
+    double
+    All is expressions outside of embedded C expressions are compiled.
+    Constants and variables within the expressions are assumed to be
+    doubles.
+
+Page 384: The discussion of the make_c_string should include:
+---------
+
+    The MaxLen argument should be specified as the size of the buffer,
+    not the number of characters to copy. If the buffer is not filled
+    with the string, then a zero is placed after string in the buffer.

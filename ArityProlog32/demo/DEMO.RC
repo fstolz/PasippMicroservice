@@ -1,0 +1,25 @@
+#include "windows.h"
+#include "demo.h"
+
+#include "demo.dlg"
+
+DemoMenu MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+	MENUITEM "A&bout...", IDM_ABOUT
+    END
+    POPUP "&Demos"
+    BEGIN
+	MENUITEM "&NREV...", IDM_NREV
+	MENUITEM "&ZEBRA", IDM_ZEBRA
+	MENUITEM "&Dynamic...", IDM_DYNAMIC
+    END
+    POPUP "D&atabase"
+    BEGIN
+	MENUITEM "&Start Torture test",IDM_STARTTORTURE
+	MENUITEM "Sto&p Torture test",IDM_ENDTORTURE,GRAYED
+    END
+END
+
+LION ICON lion.ico

@@ -1,0 +1,617 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:og="http://ogp.me/ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:sioct="http://rdfs.org/sioc/types#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta charset="utf-8">
+<meta name="HandheldFriendly" content="true">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="http://peter-gabel.com/sites/default/files/photos1%20tight-307_0.jpg" type="image/jpeg">
+<meta name="MobileOptimized" content="width">
+<link rel="up" href="arityprolog32-language.html">
+<link rel="canonical" href="source-code-processing-directives.html">
+<link rel="shortlink" href="/node/59">
+<link rel="prev" href="definite-clause-grammars.html">
+<link rel="next" href="prolog-compiler-directives.html">
+  <title>Source code processing directives | Peter Gabel</title>
+  <style type="text/css" media="all">
+@import url("http://peter-gabel.com/modules/system/system.base.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.menus.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.messages.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.theme.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/modules/book/book.css?np0twq");
+@import url("http://peter-gabel.com/modules/comment/comment.css?np0twq");
+@import url("http://peter-gabel.com/modules/field/theme/field.css?np0twq");
+@import url("http://peter-gabel.com/modules/node/node.css?np0twq");
+@import url("http://peter-gabel.com/modules/search/search.css?np0twq");
+@import url("http://peter-gabel.com/modules/user/user.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/modules/ckeditor/css/ckeditor.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/sites/all/modules/ctools/css/ctools.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/skeleton.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/style.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/buttons.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/layout.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/color/colors.css?np0twq");
+</style>
+  <script type="text/javascript" src="http://peter-gabel.com/misc/jquery.js?v=1.4.4"></script>
+<script type="text/javascript" src="http://peter-gabel.com/misc/jquery.once.js?v=1.2"></script>
+<script type="text/javascript" src="http://peter-gabel.com/misc/drupal.js?np0twq"></script>
+<script type="text/javascript" src="http://peter-gabel.com/sites/all/themes/skeletontheme/js/jquery.mobilemenu.js?np0twq"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery(document).ready(function($) { 
+	
+	$("#navigation .content > ul").mobileMenu({
+		prependTo: "#navigation",
+		combine: false,
+        switchWidth: 760,
+        topOptionText: Drupal.settings.skeletontheme['topoptiontext']
+	});
+	
+	});
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","skeletontheme":{"topoptiontext":"Select a page"},"ajaxPageState":{"theme":"skeletontheme","theme_token":"oUPKA88ogPPZrzH2ZWveFtbm9Dal_CldQhyaLdIDS98","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/themes\/skeletontheme\/js\/jquery.mobilemenu.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/book\/book.css":1,"modules\/comment\/comment.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/themes\/skeletontheme\/css\/skeleton.css":1,"sites\/all\/themes\/skeletontheme\/css\/style.css":1,"sites\/all\/themes\/skeletontheme\/css\/buttons.css":1,"sites\/all\/themes\/skeletontheme\/css\/layout.css":1,"sites\/all\/themes\/skeletontheme\/color\/colors.css":1}}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-first page-node page-node- page-node-59 node-type-book">
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="wrap">
+    <div class="container">
+        
+                
+        <div class="clear"></div>
+        
+        <!-- #header -->
+                <div id="header" class="sixteen columns clearfix">   
+                
+            <div class="inner">
+    
+                                
+                                <div id="name-and-slogan">
+                
+                                        <div id="site-name">
+                    <a href="/" title="Home" rel="home">Peter Gabel</a>
+                    </div>
+                                        
+                                        <div id="site-slogan">
+                    Interdisciplinary investigations into applied cognitive science                    </div>
+                                    
+                </div>
+                            </div>
+        </div><!-- /#header -->
+        
+                
+        <div class="clear"></div>
+        
+        <!-- #navigation -->
+        <div id="navigation" class="sixteen columns clearfix">
+        
+            <div class="menu-header">
+                            				<div class="content">
+				<ul class="menu"><li class="first leaf"><a href="/">Home</a></li>
+<li class="leaf"><a href="/blog" title="">Blog</a></li>
+<li class="expanded"><a href="/content/notebooks">Notebooks</a><ul class="menu"><li class="first leaf"><a href="/content/annotated-references">Annotated References</a></li>
+<li class="leaf"><a href="arityprolog32.html">Arity/Prolog32</a></li>
+<li class="leaf"><a href="/content/cognitive-science">Cognitive Science</a></li>
+<li class="leaf"><a href="/content/natural-language-processing">Natural Language Processing</a></li>
+<li class="leaf"><a href="/content/ontologies-and-logics">Ontologies and Logics</a></li>
+<li class="leaf"><a href="/content/rich-data-machine-learning">Rich Data &amp; Machine Learning</a></li>
+<li class="last leaf"><a href="/content/software-development">Software Development</a></li>
+</ul></li>
+<li class="leaf"><a href="/content/selected-publications">Selected publications</a></li>
+<li class="leaf"><a href="/content/about-me">About me</a></li>
+<li class="leaf"><a href="/contact" title="">Contact me</a></li>
+<li class="last leaf"><a href="/content/join-my-team">Join my team</a></li>
+</ul>                </div>
+                        </div>
+            
+        </div><!-- /#navigation -->
+        
+                <!-- #sidebar-first -->
+        <div id="sidebar-first" class="five columns">
+              <div class="region region-sidebar-first">
+    <div id="block-block-6" class="block block-block">
+
+    
+  <div class="content">
+    
+Welcome Guest. <a href="/user">Login</a>/<a href="/user/register">Register</a>.
+        
+  </div>
+</div>
+<div id="block-blog-recent" class="block block-blog">
+
+    <h2>Recent blog posts</h2>
+  
+  <div class="content">
+    <div class="item-list"><ul><li class="first"><a href="/content/defeating-janitorial-challenges-big-data">Defeating the Janitorial Challenges of Big Data</a></li>
+<li><a href="/content/business-and-life-lessons-freshman-physics-problem">Business and life lessons from a freshman physics problem</a></li>
+<li><a href="/content/wee-bit-about-we">A wee bit about &quot;we&quot;</a></li>
+<li><a href="/content/category-theory">Category Theory</a></li>
+<li><a href="/content/how-many-monitors-are-enough">How many monitors are enough?</a></li>
+<li><a href="/content/words-words-words">Words, words, words!</a></li>
+<li><a href="/content/some-thoughts-about-javascript">Some thoughts about JavaScript</a></li>
+<li><a href="/content/eico-460">Eico 460</a></li>
+<li><a href="/content/raspberry-pi">Raspberry Pi</a></li>
+<li class="last"><a href="/content/arduino">Arduino</a></li>
+</ul></div><div class="more-link"><a href="/blog" title="Read the latest blog entries.">More</a></div>  </div>
+</div>
+<div id="block-book-navigation" class="block block-book">
+
+    <h2>Notebooks</h2>
+  
+  <div class="content">
+      <div id="book-block-menu-67" class="book-block-menu">
+    <ul class="menu"><li class="first last leaf"><a href="/content/annotated-references">Annotated References</a></li>
+</ul>  </div>
+  <div id="book-block-menu-12" class="book-block-menu">
+    <ul class="menu"><li class="first last expanded active-trail"><a href="arityprolog32.html" class="active-trail">Arity/Prolog32</a><ul class="menu"><li class="first leaf"><a href="installing-arityprolog32.html">Installing Arity/Prolog32</a></li>
+<li class="collapsed"><a href="writing-arityprolog32-applications.html">Writing Arity/Prolog32 Applications</a></li>
+<li class="expanded active-trail"><a href="arityprolog32-language.html" class="active-trail">The Arity/Prolog32 Language</a><ul class="menu"><li class="first leaf"><a href="program-structure-and-data-types.html">Program structure and data types</a></li>
+<li class="leaf"><a href="program-control.html">Program control</a></li>
+<li class="leaf"><a href="unify-terms.html">Unify terms</a></li>
+<li class="leaf"><a href="classify-compare-and-sort-terms.html">Classify, compare and sort terms</a></li>
+<li class="leaf"><a href="term-structure-conversions.html">Term structure conversions</a></li>
+<li class="leaf"><a href="arithmetic-and-arithmetic-expressions.html">Arithmetic and arithmetic expressions</a></li>
+<li class="leaf"><a href="text-predicates.html">Text predicates</a></li>
+<li class="collapsed"><a href="input-and-output-predicates.html">Input and output predicates</a></li>
+<li class="collapsed"><a href="database-predicates.html">Database predicates</a></li>
+<li class="leaf"><a href="dll-and-visibility-predicates.html">DLL and visibility predicates</a></li>
+<li class="leaf"><a href="system-function-predicates.html">System function predicates</a></li>
+<li class="leaf"><a href="definite-clause-grammars.html">Definite Clause Grammars</a></li>
+<li class="leaf active-trail"><a href="source-code-processing-directives.html" class="active-trail active">Source code processing directives</a></li>
+<li class="leaf"><a href="prolog-compiler-directives.html">Prolog compiler directives</a></li>
+<li class="leaf"><a href="embedded-c-declarations.html">Embedded C declarations</a></li>
+<li class="leaf"><a href="c-expressions-within-prolog-clauses.html">C expressions within Prolog clauses</a></li>
+<li class="last leaf"><a href="prolog-c-data-type-conversion.html">Prolog / C data type conversion</a></li>
+</ul></li>
+<li class="collapsed"><a href="arityprolog32-warning-and-error-messages.html">Arity/Prolog32 Warning and Error Messages</a></li>
+<li class="leaf"><a href="list-all-arityprolog32-predicates.html">List of all Arity/Prolog32 predicates</a></li>
+<li class="leaf"><a href="glossary.html">Glossary</a></li>
+<li class="last leaf"><a href="suggested-readings.html">Suggested Readings</a></li>
+</ul></li>
+</ul>  </div>
+  <div id="book-block-menu-15" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/cognitive-science">Cognitive Science</a></li>
+</ul>  </div>
+  <div id="book-block-menu-8" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/natural-language-processing">Natural Language Processing</a></li>
+</ul>  </div>
+  <div id="book-block-menu-14" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/ontologies-and-logics">Ontologies and Logics</a></li>
+</ul>  </div>
+  <div id="book-block-menu-13" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/rich-data-machine-learning">Rich Data &amp; Machine Learning</a></li>
+</ul>  </div>
+  <div id="book-block-menu-11" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/software-development">Software Development</a></li>
+</ul>  </div>
+  </div>
+</div>
+<div id="block-search-form" class="block block-search">
+
+    <h2>Search</h2>
+  
+  <div class="content">
+    <form action="/content/source-code-processing-directives" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text">
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit"></div><input type="hidden" name="form_build_id" value="form-cAoNe0bl-ff-_QsF2-v1FAnn3QI_4_g6A_-G692cYXg">
+<input type="hidden" name="form_id" value="search_block_form">
+</div>
+</div></form>  </div>
+</div>
+  </div>
+        </div><!-- /#sidebar-first -->
+                
+                <div id="content" class="eleven columns">
+		        
+                    
+                            <div id="breadcrumb"><h2 class="element-invisible">You are here</h2><div class="breadcrumb"><a href="/">Home</a><span class="sep">»</span><a href="arityprolog32.html">Arity/Prolog32</a><span class="sep">»</span><a href="arityprolog32-language.html">The Arity/Prolog32 Language</a><span class="sep">»</span>Source code processing directives</div></div>
+                        
+            <div id="main">
+            
+                                
+                                
+                                <h1 class="title" id="page-title">
+                  Source code processing directives                </h1>
+                                
+                                
+                                <div class="tabs">
+                                  </div>
+                                
+                                
+                                
+                  <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div id="node-59" class="node node-book clearfix" about="/content/source-code-processing-directives" typeof="sioc:Item foaf:Document">
+
+      <span property="dc:title" content="Source code processing directives" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>
+      <div class="meta submitted">
+            <span property="dc:date dc:created" content="2013-04-02T13:43:14-04:00" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" about="/user/2" typeof="sioc:UserAccount" property="foaf:name" datatype="">Peter Gabel</span> on Tue, 04/02/2013 - 13:43</span>    </div>
+  
+  <div class="content clearfix">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Arity/Prolog32 provides directives that are accepted by consult/1, reconsult/1 and the compiler for file inclusion, macro expansion, conditional processing, and operator definition.</p>
+<p> </p>
+<h2>Include directives</h2>
+<pre>
+:- include(File).</pre><p>Input is continued from the specified File if found along the INCLUDE path and will return to the current file when done.  The File argument is specified as the textual name of the file and may contain the path name. For example:</p>
+<pre>
+:- include('c:\PROLOG\myApp.inc').
+:- include('myOtherApp.inc').</pre><p>Using include files is often very helpful in complex applications that contain multiple source modules, particularly if you are creating DLLs.  You should consider creating a single master include file that contains all of the compiler directives and source code processing directives. If this single include file is too large or complex, then you should consider having a single include file that loads other include files.</p>
+<p>As an example of the style we advocate, suppose we are building a DLL with multiple modules called 'kneedeep'.  A single source code module might be structured as follows:</p>
+<pre>
+% ****************************************************************************
+%
+%    KDTest.ARI
+%            === Code for testing my structures
+%
+%    Revision Log at End of File --
+%     Initial Rev: Jan 24, 2013 [PLG]
+%
+%    Copyright (C) 2013 Headspace Sprockets, LLC.  -- COMPANY CONFIDENTIAL
+%
+%    All rights reserved. This document may not be copied in any
+%    form, whatsoever, without the express written permission of
+%    Headspace Sprockets, LLC.
+%
+% ****************************************************************************
+
+:- define const_MODULE = kdTest.
+:- define const_DLL = kneedeep.
+:- include('kneedeep.inc').
+
+%* kdt_Test(+Type1, +Type2):det.
+%* kdt_Type2ID(+, -/+):det.
+
+%%%% my code goes here %%%%</pre><p> </p>
+<p>The file KneeDeepVis.ari is used to ensure that all extrn predicates from all of the modules in the DLL will be made visible.  In full, it looks like this:</p>
+<pre>
+% ***************************************************************************
+%
+%    KneeDeep:(KneeDeepVis.ARi) -- Visibility
+%
+%     Initial Rev: Jan 24, 2013 [PLG]
+%
+%    Copyright (C) 2013 Headspace Sprockets, LLC.  -- COMPANY CONFIDENTIAL
+%
+%    All rights reserved. This document may not be copied in any
+%    form, whatsoever, without the express written permission of
+%    Headspace Sprockets, LLC.
+%%
+% ***************************************************************************
+
+:- define const_DLL = kneedeep.
+:- define const_MODULE = kneedeep.
+:- define const_VISIBLES.
+:- include('kneedeep.Inc').
+
+</pre><p> </p>
+<p>The file 'kneedeep.inc' contains the directives needed to build the DLL.  In part, it would look like this:</p>
+<pre>
+% operators
+:- op(1200, xfx, ':=').
+:- op(800, xfy, '&amp;').
+
+% interpreted code I want to directly call.  Defined in kdInterp.ari
+:- extrn atdl_create/1:interp.
+:- extrn atdl_close/0:interp.
+:- extrn atdl_handle/1:interp.
+
+% ***************************************************************************
+% KDTest.ARI
+% ***************************************************************************
+
+:- define preds_KNEEDEEP_KDTEST = (
+    kdu_Test/2,                  %* kdu_Test(+Type1, +Type2):det.
+    kdu_Type2ID/2                %* kdu_Type2ID(+, -/+):det.
+
+).
+
+%%%% other module defines of all preds go here
+
+% ***************************************************************************
+% Here are the dllmodule, module, and visible directives
+% ***************************************************************************
+
+:- dllmodule(
+    kneedeep,
+    [
+    kneedeep,
+     kdtest, kdatdl, avmTree, json
+    ]
+).
+
+:- extrn preds_KNEEDEEP_KDTEST            :module(kdTest).
+:- extrn preds_KNEEDEEP_KDATDL            :module(kdatdl).
+:- extrn preds_KNEEDEEP_AVMTREE           :module(avmtree).
+:- extrn preds_KNEEDEEP_JSON              :module(json).
+
+:- if( (defined(const_VISIBLES)) ).
+:- visible preds_KNEEDEEP_KDTEST.
+:- visible preds_KNEEDEEP_KDATDL.
+:- visible preds_KNEEDEEP_AVMTREE.
+:- visible preds_KNEEDEEP_JSON.
+:- endif.</pre><p> </p>
+<p> </p>
+<h2>Macro definition directives</h2>
+<h3>:- define Macro = Define.</h3>
+<p class="rteindent1">Any term unifying with Macro read later in the file will be replaced with the term Define.</p>
+<p>Macros are often used to create symbolic values, for example:</p>
+<pre>
+:- define sizeof_CHAR        = 1.
+:- define sizeof_SHORT       = 2.
+:- define sizeof_LONG        = 4.
+:- define sizeof_DOUBLE      = 8.</pre><p> </p>
+<p>Some useful extensions to common control constructs can be created using macros, for example:</p>
+<pre>
+:- define for_each(Var, List, Do) = ( l_Member(List,Var), Do, fail ; true).
+:- define foreach(Var, List, Do)  = ( l_Member(List,Var), Do, fail ; true).
+:- define ifnot(A,B)              = ifthenelse(A, true, B).
+:- define if(A,B)                 = ifthen(A, B).
+:- define if(A,B,C)               = ifthenelse(A, B, C).
+:- define ifbool(A,Ret)           = ifthenelse(A,Ret=bTRUE,Ret=bFALSE).
+:- define try_once(X)             = if(X, true).
+:- define on_fail(X)              = (true; X, fail).</pre><p> </p>
+<h3>:- define Macro is Define.</h3>
+<p class="rteindent1">Any term unifying with Macro will be replaced with the value resulting from the evaluation of the arithmetic expression Define.</p>
+<p>This format for define directives could be used to do some common calculations, for example:</p>
+<pre>
+:- define circleArea(Radius) is pi*Radius*Radius.</pre><p>This is used as, for example:</p>
+<pre>
+?- X = circleArea(2).
+X = 12.566370614
+yes
+</pre><p> </p>
+<h3>:- define FunctorMacro/ArityMacro =.. Functor(ArgMacro1, ..., ArgMacroN).</h3>
+<p class="rteindent1">The univ macro define is a short hand that can be used to assign to macros the functor, arity and argument positions of a term.</p>
+<p>For example, if you were to define an employee record with the following define:</p>
+<pre>
+:- define empFUNCTOR/empARITY =.. emp(empLAST,empFIRST,empSALARY,empPHONE,empSTART).</pre><p>This define is a short hand for the following macro definitions:</p>
+<pre>
+:- define( empFUNCTOR = emp ).
+:- define( empARITY = 5 ).
+:- define( empLAST = 1 ).
+:- define( empFIRST = 2 ).
+:- define( empSALARY = 3 ).
+:- define( empPHONE = 4 ).
+:- define( empSTART = 5).</pre><p>You can now use these macros in your program to test that you have the correct structure or examine an argument. For example, you could write a general predicate to return information from either a company or an employee record:</p>
+<pre>
+get_info(Record, Attribute, Value) :-
+    functor(Record, Functor, _),
+    attribute_arg(Attribute, Functor, Arg),
+    arg(Arg, Record, Value).
+
+% Employee Attributes
+attribute_arg('first name', empFUNCTOR, empFIRST) :- !.
+attribute_arg('last name', empFUNCTOR, empLAST) :- !.
+attribute_arg('salary', empFUNCTOR, empSALARY) :- !.
+attribute_arg('phone number', empFUNCTOR, empPHONE) :- !.
+
+% Company Attributes
+attribute_arg('revenues', compFUNCTOR, compREVENUE) :- !.
+attribute_arg('profits', compFUNCTOR, compPROFITS) :- !.
+attribute_arg('phone number', compFUNCTOR, compPHONE) :- !.</pre><p> </p>
+<p>Notice that the same attribute 'phone number' will return different arguments depending on whether the record was for an employee or for a company.  You would find this mechanism extremely convenient if you occasionally need to add a new argument, for instance if you started a pension fund and wished to add an argument to employee records to keep track of their contributions.</p>
+<p>In addition, there is the builtin macro =..(Functor, Arity, Args) that can be used to create a structure.  When encountered in your program, this macro will be replaced with the structure specified by the Functor, Arity and Args.  For example, you could have the following predicate to add a new employee record when you only have the employees first and last names:</p>
+<pre>
+add_employee(Last,First) :-
+    recordb(employees, Last,
+        =..(empFUNCTOR, empARITY, [empLAST=Last, empFIRST=First])).</pre><p>The =../3 macro will create the employee structure when this clause is read. Arguments that are not supplied will be variables.</p>
+<p> </p>
+<h2>Conditional directives</h2>
+<p>Conditional directives can be used to enable or suppress the compilation or consultation of parts of a source file based on the success or failure of a provided goal, respectively. Conditional directives in Arity/Prolog32 are analogous to conditional directives in C.</p>
+<h3>:- if(Goal).</h3>
+<h3>:- elif(Goal).</h3>
+<h3>:- endif.</h3>
+<h3>:- else.</h3>
+<p>Each if/1 directive must be matched by an endif/0 directive but there is no limit to the depth of nesting allowed.  Each if/1 directive may be followed by any number of elif/1 directives, but at most only one else/0 directive is allowed, appearing as the last alternative before its associated endif/0.</p>
+<p>The Goal used in if/1 and elif/1 directives are composed of conjunctions, disjunctions, and the following predicates:</p>
+<h4>not(G)</h4>
+<p class="rteindent1">succeeds if G fails</p>
+<h4>defined(Term)</h4>
+<p class="rteindent1">succeeds if Term has been defined as a macro</p>
+<h4>X = Y</h4>
+<p class="rteindent1">succeeds  if X and Y unify</p>
+<h4>X \= Y</h4>
+<p class="rteindent1">succeeds if X and Y do not unify.</p>
+<h4>X =:= Y</h4>
+<p class="rteindent1">succeeds if X and Y evaluate to the same value</p>
+<h4>X =/= Y</h4>
+<p class="rteindent1">succeeds if X and Y do not evaluate to the same value</p>
+<h4>X &lt; Y</h4>
+<p class="rteindent1">succeeds if X evaluates to a value less than the evaluated value of Y</p>
+<h4>X &gt; Y</h4>
+<p class="rteindent1">succeeds if X evaluates to a value greater than the evaluated value of Y</p>
+<h4>X =&lt; Y</h4>
+<p class="rteindent1">succeeds if X evaluates to a value less than or equal to the evaluated value of Y</p>
+<h4>X &gt;= Y</h4>
+<p class="rteindent1">succeeds if X evaluates to a value greater than or equal to the evaluated value of Y</p>
+<p> </p>
+<h2>Operator directives</h2>
+<p>The op/3 predicate specifies the position, precedence, and associativity of an operator. It is common for the op/3 predicate to be called within your executing code to change the set of operator definitions in force dynamically.  You may also invoke the operator as a directive in your compiled and consulted code.</p>
+<h3>:- op(P ,A, O).</h3>
+<p class="rteindent1">The operator O with precedence P and associativity A is defined taking effect immediately.</p>
+<p>The use of the op/3 predicate as a directive within <u>compliled</u> code applies to the source module that it appears within (from the point it appears) and also will be used in the initialization phase of program execution . This use of the op/3 directive in one compiled module does not affect other module compilation; For consistency and good program documentation practice it is common to place op/3 directives in include files.</p>
+<p>The use of the op/3 predicate as a directive within <u>consulted</u> code applies to the source module that it appears within (from the point it appears) and also from that point forward in the currently executing program.</p>
+<p>Two variants of the op/3 directive may be used within compiled code but not within consulted code. These variants correspond to the duration that the directive is in effect:</p>
+<h3>:- op(P, A, O) : compiletime.</h3>
+<p class="rteindent1">The operator is in effect only during the duration of the compilation of the module.</p>
+<h3>:- op(P, A, O) : runtime.</h3>
+<p class="rteindent1">The operator is in effect only at during program execution.</p>
+<p>The compiletime and runtime variants of the op/3 directive are not recommended. They are expected to be deprecated in the future.</p>
+<p> </p>
+</div></div></div>  <div id="book-navigation-12" class="book-navigation">
+    
+        <div class="page-links clearfix">
+              <a href="definite-clause-grammars.html" class="page-previous" title="Go to previous page">‹ Definite Clause Grammars</a>
+                    <a href="arityprolog32-language.html" class="page-up" title="Go to parent page">up</a>
+                    <a href="prolog-compiler-directives.html" class="page-next" title="Go to next page">Prolog compiler directives ›</a>
+          </div>
+    
+  </div>
+  </div>
+
+      <div class="link-wrapper">
+      <ul class="links inline"><li class="comment_forbidden first last"><span><a href="/user/login?destination=node/59%23comment-form">Log in</a> or <a href="/user/register?destination=node/59%23comment-form">register</a> to post comments</span></li>
+</ul>    </div>
+  
+  
+</div>
+  </div>
+</div>
+  </div>
+                                
+            </div>
+        
+        </div><!-- /#content -->
+        
+                
+        <div class="clear"></div>
+        
+                <!-- #featured -->
+        <div id="featured" class="sixteen columns clearfix">
+            
+                        <div class="one_half">
+              <div class="region region-featured-left">
+    <div id="block-block-2" class="block block-block">
+
+    
+  <div class="content">
+    <div class="cta clearfix" style="height:145px">
+<h3>Headspace Sprockets</h3>
+
+<p><img class="alignleft" alt="" src="/sites/default/files/small_iStock_000017030156_Small_1.jpg" style="height:48px; width:48px">Learn more about my company.
+</p>
+<div class="clear"></div>
+<br>
+<div class="button small right"><a class="button white" href="http://www.headspacesprockets.com" target="_blank">Visit Headspace Sprockets</a></div>
+</div>
+<p>  </div>
+</div>
+  </div>
+            </div>
+            
+            <div class="one_half last">
+              <div class="region region-featured-right">
+    <div id="block-block-1" class="block block-block">
+
+    
+  <div class="content">
+    <div class="cta clearfix" style="height:145px">
+<h3>GitHub</h3>
+<p><img class="alignleft" src="/sites/all/themes/skeletontheme/mockup/arrow.png" alt="">I have shared some projects on GitHub. Arity/Prolog32 distributions are <a href="installing-arityprolog32.html"><b>available here</b></a> in this site's Arity/Prolog32 notebook.</p>
+<div class="clear"></div>
+<div class="button small right"><a class="button white" href="https://github.com/Peter-Gabel" target="_blank">Fork me on GitHub</a></div>
+</div>  </div>
+</div>
+  </div>
+            </div>
+                        
+        </div><!-- /#featured -->
+                
+	</div>
+        
+	<div id="footer">
+        <div class="container">
+        	<div class="sixteen columns clearfix">
+        
+                <div class="one_third">
+                  <div class="region region-footer-first">
+    <div id="block-block-3" class="block block-block">
+
+    <h2>Privacy and Terms of Use</h2>
+  
+  <div class="content">
+    <p><a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/" rel="license"><img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/us/88x31.png" style="border-width:0"></a><br>
+<strong>©&nbsp;2017&nbsp;Peter L. Gabel</strong>. Except where designated as licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/" target="_blank" rel="license"><strong>Creative Commons Attribution-NonCommercial-NoDerivs 3.0 United States License</strong></a>, Peter L. Gabel reserves all rights associated with the materials on this site. Your use is subject to 
+<strong>
+<a href="/content/privacy-and-terms-use" target="_blank">Additional terms of use</a></strong></p>  </div>
+</div>
+  </div>
+                </div>
+                
+                <div class="one_third">
+                  <div class="region region-footer-second">
+    <div id="block-block-4" class="block block-block">
+
+    
+  <div class="content">
+    <p><a href="http://www.linkedin.com/pub/peter-gabel/0/18/428" target="_blank"><img alt="View Peter Gabel's profile on LinkedIn" src="http://www.linkedin.com/img/webpromo/btn_viewmy_160x33.png" style="height:33px; width:160px"></a></p>
+  </div>
+</div>
+<div id="block-user-login" class="block block-user">
+
+    <h2>User login</h2>
+  
+  <div class="content">
+    <form action="/content/source-code-processing-directives?destination=node/59" method="post" id="user-login-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name">Username <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-name" name="name" value="" size="15" maxlength="60" class="form-text required">
+</div>
+<div class="form-item form-type-password form-item-pass">
+  <label for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" id="edit-pass" name="pass" size="15" maxlength="128" class="form-text required">
+</div>
+<div class="item-list"><ul><li class="first"><a href="/user/register" title="Create a new user account.">Create new account</a></li>
+<li class="last"><a href="/user/password" title="Request new password via e-mail.">Request new password</a></li>
+</ul></div><input type="hidden" name="form_build_id" value="form-5J5kYPeRnTlvOITRGC44z_T3zCNqOPwLMCZIM55PFjk">
+<input type="hidden" name="form_id" value="user_login_block">
+<div class="form-item form-type-textfield form-item-captcha-questions-answer-given">
+  <label for="edit-captcha-questions-answer-given">What is the name of my company? Hint: you can find it below. <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-captcha-questions-answer-given" name="captcha_questions_answer_given" value="" size="60" maxlength="128" class="form-text required">
+<div class="description">Please answer the question. (We&#039;re keeping spam bots out!)</div>
+</div>
+<div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--2" name="op" value="Log in" class="form-submit"></div></div></form>  </div>
+</div>
+  </div>
+                </div>
+                
+                <div class="one_third last">
+                  <div class="region region-footer-third">
+    <div id="block-block-5" class="block block-block">
+
+    
+  <div class="content">
+    <p><em>The power of the unaided mind is highly overrated. Without external aids, memory, thought, and reasoning are all constrained. But human intelligence is highly flexible and adaptive, superb at inventing procedures and objects that overcome its own limits. The real powers come from devising external aids that enhance cognitive abilities. How have we increased memory, thought, and reasoning? By the inventions of external aids: It is things that make us smart.</em></p>
+<p>-- Donald Norman, <strong><a href="http://www.amazon.com/Things-That-Make-Smart-Attributes/dp/0201626950/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1368737063&amp;sr=1-1" target="_blank">Things that make us smart</a></strong></p>
+  </div>
+</div>
+  </div>
+                </div>
+        
+                <div class="clear"></div>
+                
+                                
+                <div class="clear"></div>
+                
+                <div id="credits">
+				<!--
+				&copy;
+                2018                                 Peter Gabel<br/>
+                				-->
+                Original theme by <a href="http://www.drupalizing.com" target="_blank">Drupalizing</a>, a project of <a href="http://www.morethanthemes.com" target="_blank">More than (just) Themes</a>. Original design by <a href="http://www.simplethemes.com/" target="_blank">Simple Themes</a>.
+                </div>
+        	</div>
+        </div>
+    </div>
+    
+</div> <!-- /#wrap -->  </body>
+</html>

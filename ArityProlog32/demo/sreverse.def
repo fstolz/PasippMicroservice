@@ -1,0 +1,5 @@
+LIBRARY SREVERSE
+DESCRIPTION 'Example DLL written in Arity/Prolog'
+
+EXPORTS
+    Sreverse

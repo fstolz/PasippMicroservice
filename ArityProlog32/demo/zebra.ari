@@ -1,0 +1,179 @@
+:- public zebra/0:system(det='Zebra'(void)).
+
+:- extrn abstime/1.
+
+:- c.
+typedef char *pchar;
+extern char achZtime[10];
+extern char achZhouse1[80], achZhouse2[80], achZhouse3[80],
+	    achZhouse4[80], achZhouse5[80];
+#prolog
+
+/*------------------------------------------------------------------*/
+/*  A PROLOG program to solve the "5 houses" problem                */
+/*  using a "verify and choose" method.                             */
+/*								    */
+/*  By Lewis Baxter                                     	    */
+/*------------------------------------------------------------------*/
+
+/* The problem:
+
+    There are five houses, each of a different color and inhabited by
+    men of different nationalities, with different pets, drinks and cigarettes.
+
+    1.	The Englishman lives in the red house.
+    2.	The Spaniard owns the dog.
+    3.	Coffee is drunk in the green house.
+    4.	The Ukrainian drinks tea.
+    5.	The green house is immediately to the right of the ivory house.
+    6.	The Winston smoker owns snails.
+    7.	Kools are smoked in the yellow house.
+    8.	Milk is drunk in the middle house.
+    9.	The Norwegian lives in the first house on the left.
+    10. The Chesterfields smoker lives next to the man with the fox.
+    11. Kools are smoked next to the house where the horse is kept.
+    12. The Lucky Strike smoker drinks orange juice.
+    13. The Japanese smokes Parliaments.
+    14. The Norwegian lives next to the blue house.
+
+    THE PROBLEM: Who owns the Zebra?  Who drinks water?
+*/
+
+zebra :-
+    abstime(Before),
+    solve(Solution),
+    abstime(After),
+    Time is After-Before,
+    float_text(Time, String, fixed(2)),
+    {	'MakeCString'(achZtime, sizeof(achZtime), &String)  },
+    write_solution(Solution).
+
+solve([Colours,Drinks,Nationalities,Cigarettes,Pets]) :-
+	constraints(Colours,Drinks,Nationalities,Cigarettes,Pets),
+	candidate(Colours,Drinks,Nationalities,Cigarettes,Pets),
+	member(water:_, Drinks),
+	member(zebra:_, Pets).
+
+/*  A candidate solution is any of the (5!)**5 ways
+    of distributing 5 colours (C), 5 drinks (D),
+    5 nationalities (N), 5 cigarettes (S), and 5 pets (P)
+    amongst 5 houses.                                               */
+
+candidate(L1, L2, L3, L4, L5) :-
+	perm(L1),
+	perm(L2),
+	perm(L3),
+	perm(L4),
+	perm(L5).
+
+perm([_:A,_:B,_:C,_:D,_:E]) :-
+	permutation([A,B,C,D,E], [1,2,3,4,5]). 
+
+
+/*  The following constraints are placed on colours (C),
+    drinks (D), nationalities (N), cigarettes (S),
+    and pets (P).                                                   */
+
+constraints(C, D, N, S, P)  :- 
+% The Englishman lives in the red house
+	member(englishman:H1, N),
+	member(red:H1, C),
+% The Spaniard owns the dog
+	member(spaniard:H2, N),
+	member(dog:H2, P),
+% The Norwegian lives in the first house on the left
+	member(norwegian:1, N),
+% Kools are smoked in the yellow house.
+	member(kools:H3, S),
+	member(yellow:H3, C),
+% The man who smokes Chesterfields lives in the house
+% next to the man with the fox.
+	member(chesterfields:H4, S),
+	next(H4, H5),
+	member(fox:H5, P),
+% The Norwegian lives next to the blue house
+	member(norwegian:H6, N),
+	next(H6, H7),
+	member(blue:H7, C),
+% The Winston smoker owns snails.
+	member(winston:H8, S),
+	member(snails:H8, P),
+% The lucky strike smoker drinks orange juice
+	member(lucky_strike:H9, S),
+	member(orange_juice:H9, D),
+% The Ukrainian drinks tea
+	member(ukrainian:H10, N),
+	member(tea:H10, D),
+% The Japanese smokes parliaments
+	member(japanese:H11, N),
+	member(parliaments:H11, S),
+% Kools are smoked in the house next to the house where the horse is kept.
+	member(kools:H12, S),
+	next(H12, H13),
+	member(horse:H13, P),
+% Coffee is drunk in the green house
+	member(coffee:H14, D),
+	member(green:H14, C),
+% The green house is immediately to the right (your right) of the ivory house
+	member(green:H15, C),
+	left(H16, H15),
+	member(ivory:H16, C),
+% Milk is drunk in the middle house.
+	member(milk:3, D).
+
+	/*  ---  Utility Predicates  ---  */
+
+permutation([],[]).
+permutation([A|X],Y) :- delete(A,Y,Y1), permutation(X,Y1).
+
+delete(A,[A|X],X).
+delete(A,[B|X],[B|Y]) :- delete(A,X,Y).
+
+member(A,[A|X]) :- !.
+member(A1:A2,[B1:B2|X]) :-
+   atomic(A2), atomic(B2),
+   ( A1 == B1,  A2 \== B2  ;  A2 == B2, A1 \== B1 ),
+   !, fail.
+member(A,[B|X]) :- member(A,X).
+
+
+
+next(X,Y) :- left(X,Y).
+next(X,Y) :- left(Y,X).
+
+left(1,2).
+left(2,3).
+left(3,4).
+left(4,5).
+
+write_solution([Colours,Drinks,Nationalities,Cigarettes,Pets]) :-
+    Lists = lists(L1,L2,L3,L4,L5),
+    houselists(Colours, Lists),
+    houselists(Nationalities, Lists),
+    houselists(Drinks, Lists),
+    houselists(Cigarettes, Lists),
+    houselists(Pets, Lists),
+    {
+	(Ptr1,Ptr2,Ptr3,Ptr4,Ptr5) : pchar;
+	Ptr1 is achZhouse1;
+	Ptr2 is achZhouse2;
+	Ptr3 is achZhouse3;
+	Ptr4 is achZhouse4;
+	Ptr5 is achZhouse5
+    },
+    writelist(1, L1, Ptr1),
+    writelist(2, L2, Ptr2),
+    writelist(3, L3, Ptr3),
+    writelist(4, L4, Ptr4),
+    writelist(5, L5, Ptr5).
+
+houselists([], _).
+houselists([Item:N|More], Lists) :-
+    arg(N, Lists, List),
+    member(Item, List),
+    houselists(More, Lists).
+
+writelist(N, [X1,X2,X3,X4,X5], Ptr) :-
+    int_text(N, Text),
+    concat([$House #$,Text,$: $,X1,`,,X2,`,,X3,`,,X4,`,,X5], String),
+    make_c_string(Ptr, 80, String, _).

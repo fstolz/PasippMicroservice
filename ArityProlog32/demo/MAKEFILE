@@ -1,0 +1,34 @@
+# Demo.Exe uses SREVERSE.DLL
+
+all: sreverse.dll demo.exe
+
+.SUFFIXES: .ARI
+
+.ari.obj:
+    apc32 -Fo$@ $<
+
+.c.obj:
+    cl -c -DTARG_WIN32 -Fo$@ $<
+
+demo.res: demo.rc demo.dlg demo.h
+    rc -r demo.rc
+
+demo.exe: demo.obj nrev.obj zebra.obj demoaux.obj demo.res
+    link @<<
+demo.obj nrev.obj zebra.obj demoaux.obj demo.res
+sreverse.lib arity32i.lib user32.lib gdi32.lib kernel32.lib
+/out:demo.exe /map:demo.map
+<<
+
+sreverse.dll: sreverse.obj sreverse.def
+    link @<<
+sreverse.obj arity32i.lib
+/def:sreverse.def /out:sreverse.dll /map:sreverse.map
+<<
+
+cleanup:
+    !del *.obj
+    !del *.res
+    !del *.map
+    !del *.lib
+    !del *.exp

@@ -1,0 +1,450 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:og="http://ogp.me/ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:sioct="http://rdfs.org/sioc/types#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="http://peter-gabel.com/sites/default/files/photos1%20tight-307_0.jpg" type="image/jpeg">
+<meta name="HandheldFriendly" content="true">
+<link rel="next" href="installing-arityprolog32.html">
+<link rel="canonical" href="arityprolog32.html">
+<link rel="shortlink" href="/node/12">
+<meta name="MobileOptimized" content="width">
+  <title>Arity/Prolog32 | Peter Gabel</title>
+  <style type="text/css" media="all">
+@import url("http://peter-gabel.com/modules/system/system.base.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.menus.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.messages.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.theme.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/modules/book/book.css?np0twq");
+@import url("http://peter-gabel.com/modules/comment/comment.css?np0twq");
+@import url("http://peter-gabel.com/modules/field/theme/field.css?np0twq");
+@import url("http://peter-gabel.com/modules/node/node.css?np0twq");
+@import url("http://peter-gabel.com/modules/search/search.css?np0twq");
+@import url("http://peter-gabel.com/modules/user/user.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/modules/ckeditor/css/ckeditor.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/sites/all/modules/ctools/css/ctools.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/skeleton.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/style.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/buttons.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/layout.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/color/colors.css?np0twq");
+</style>
+  <script type="text/javascript" src="http://peter-gabel.com/misc/jquery.js?v=1.4.4"></script>
+<script type="text/javascript" src="http://peter-gabel.com/misc/jquery.once.js?v=1.2"></script>
+<script type="text/javascript" src="http://peter-gabel.com/misc/drupal.js?np0twq"></script>
+<script type="text/javascript" src="http://peter-gabel.com/sites/all/themes/skeletontheme/js/jquery.mobilemenu.js?np0twq"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery(document).ready(function($) { 
+	
+	$("#navigation .content > ul").mobileMenu({
+		prependTo: "#navigation",
+		combine: false,
+        switchWidth: 760,
+        topOptionText: Drupal.settings.skeletontheme['topoptiontext']
+	});
+	
+	});
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","skeletontheme":{"topoptiontext":"Select a page"},"ajaxPageState":{"theme":"skeletontheme","theme_token":"VshYIIZjxGMbzeMi09G7jhji_GVvt3jG-2oFHjT1TVw","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/themes\/skeletontheme\/js\/jquery.mobilemenu.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/book\/book.css":1,"modules\/comment\/comment.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/themes\/skeletontheme\/css\/skeleton.css":1,"sites\/all\/themes\/skeletontheme\/css\/style.css":1,"sites\/all\/themes\/skeletontheme\/css\/buttons.css":1,"sites\/all\/themes\/skeletontheme\/css\/layout.css":1,"sites\/all\/themes\/skeletontheme\/color\/colors.css":1}}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-first page-node page-node- page-node-12 node-type-book">
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="wrap">
+    <div class="container">
+        
+                
+        <div class="clear"></div>
+        
+        <!-- #header -->
+                <div id="header" class="sixteen columns clearfix">   
+                
+            <div class="inner">
+    
+                                
+                                <div id="name-and-slogan">
+                
+                                        <div id="site-name">
+                    <a href="/" title="Home" rel="home">Peter Gabel</a>
+                    </div>
+                                        
+                                        <div id="site-slogan">
+                    Interdisciplinary investigations into applied cognitive science                    </div>
+                                    
+                </div>
+                            </div>
+        </div><!-- /#header -->
+        
+                
+        <div class="clear"></div>
+        
+        <!-- #navigation -->
+        <div id="navigation" class="sixteen columns clearfix">
+        
+            <div class="menu-header">
+                            				<div class="content">
+				<ul class="menu"><li class="first leaf"><a href="/">Home</a></li>
+<li class="leaf"><a href="/blog" title="">Blog</a></li>
+<li class="expanded active-trail"><a href="/content/notebooks" class="active-trail">Notebooks</a><ul class="menu"><li class="first leaf"><a href="/content/annotated-references">Annotated References</a></li>
+<li class="leaf active-trail"><a href="arityprolog32.html" class="active-trail active">Arity/Prolog32</a></li>
+<li class="leaf"><a href="/content/cognitive-science">Cognitive Science</a></li>
+<li class="leaf"><a href="/content/natural-language-processing">Natural Language Processing</a></li>
+<li class="leaf"><a href="/content/ontologies-and-logics">Ontologies and Logics</a></li>
+<li class="leaf"><a href="/content/rich-data-machine-learning">Rich Data &amp; Machine Learning</a></li>
+<li class="last leaf"><a href="/content/software-development">Software Development</a></li>
+</ul></li>
+<li class="leaf"><a href="/content/selected-publications">Selected publications</a></li>
+<li class="leaf"><a href="/content/about-me">About me</a></li>
+<li class="leaf"><a href="/contact" title="">Contact me</a></li>
+<li class="last leaf"><a href="/content/join-my-team">Join my team</a></li>
+</ul>                </div>
+                        </div>
+            
+        </div><!-- /#navigation -->
+        
+                <!-- #sidebar-first -->
+        <div id="sidebar-first" class="five columns">
+              <div class="region region-sidebar-first">
+    <div id="block-block-6" class="block block-block">
+
+    
+  <div class="content">
+    
+Welcome Guest. <a href="/user">Login</a>/<a href="/user/register">Register</a>.
+        
+  </div>
+</div>
+<div id="block-blog-recent" class="block block-blog">
+
+    <h2>Recent blog posts</h2>
+  
+  <div class="content">
+    <div class="item-list"><ul><li class="first"><a href="/content/defeating-janitorial-challenges-big-data">Defeating the Janitorial Challenges of Big Data</a></li>
+<li><a href="/content/business-and-life-lessons-freshman-physics-problem">Business and life lessons from a freshman physics problem</a></li>
+<li><a href="/content/wee-bit-about-we">A wee bit about &quot;we&quot;</a></li>
+<li><a href="/content/category-theory">Category Theory</a></li>
+<li><a href="/content/how-many-monitors-are-enough">How many monitors are enough?</a></li>
+<li><a href="/content/words-words-words">Words, words, words!</a></li>
+<li><a href="/content/some-thoughts-about-javascript">Some thoughts about JavaScript</a></li>
+<li><a href="/content/eico-460">Eico 460</a></li>
+<li><a href="/content/raspberry-pi">Raspberry Pi</a></li>
+<li class="last"><a href="/content/arduino">Arduino</a></li>
+</ul></div><div class="more-link"><a href="/blog" title="Read the latest blog entries.">More</a></div>  </div>
+</div>
+<div id="block-book-navigation" class="block block-book">
+
+    <h2>Notebooks</h2>
+  
+  <div class="content">
+      <div id="book-block-menu-67" class="book-block-menu">
+    <ul class="menu"><li class="first last leaf"><a href="/content/annotated-references">Annotated References</a></li>
+</ul>  </div>
+  <div id="book-block-menu-12" class="book-block-menu">
+    <ul class="menu"><li class="first last expanded active-trail"><a href="arityprolog32.html" class="active-trail active">Arity/Prolog32</a><ul class="menu"><li class="first leaf"><a href="installing-arityprolog32.html">Installing Arity/Prolog32</a></li>
+<li class="collapsed"><a href="writing-arityprolog32-applications.html">Writing Arity/Prolog32 Applications</a></li>
+<li class="collapsed"><a href="arityprolog32-language.html">The Arity/Prolog32 Language</a></li>
+<li class="collapsed"><a href="arityprolog32-warning-and-error-messages.html">Arity/Prolog32 Warning and Error Messages</a></li>
+<li class="leaf"><a href="list-all-arityprolog32-predicates.html">List of all Arity/Prolog32 predicates</a></li>
+<li class="leaf"><a href="glossary.html">Glossary</a></li>
+<li class="last leaf"><a href="suggested-readings.html">Suggested Readings</a></li>
+</ul></li>
+</ul>  </div>
+  <div id="book-block-menu-15" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/cognitive-science">Cognitive Science</a></li>
+</ul>  </div>
+  <div id="book-block-menu-8" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/natural-language-processing">Natural Language Processing</a></li>
+</ul>  </div>
+  <div id="book-block-menu-14" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/ontologies-and-logics">Ontologies and Logics</a></li>
+</ul>  </div>
+  <div id="book-block-menu-13" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/rich-data-machine-learning">Rich Data &amp; Machine Learning</a></li>
+</ul>  </div>
+  <div id="book-block-menu-11" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/software-development">Software Development</a></li>
+</ul>  </div>
+  </div>
+</div>
+<div id="block-search-form" class="block block-search">
+
+    <h2>Search</h2>
+  
+  <div class="content">
+    <form action="/content/arityprolog32" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text">
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit"></div><input type="hidden" name="form_build_id" value="form-QJEzCBh3uGYvvhqFQ6TVlWBhdFkXfOOI033voeznB1k">
+<input type="hidden" name="form_id" value="search_block_form">
+</div>
+</div></form>  </div>
+</div>
+  </div>
+        </div><!-- /#sidebar-first -->
+                
+                <div id="content" class="eleven columns">
+		        
+                    
+                            <div id="breadcrumb"><h2 class="element-invisible">You are here</h2><div class="breadcrumb"><a href="/">Home</a><span class="sep">»</span><a href="/content/notebooks">Notebooks</a><span class="sep">»</span>Arity/Prolog32</div></div>
+                        
+            <div id="main">
+            
+                                
+                                
+                                <h1 class="title" id="page-title">
+                  Arity/Prolog32                </h1>
+                                
+                                
+                                <div class="tabs">
+                                  </div>
+                                
+                                
+                                
+                  <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div id="node-12" class="node node-book clearfix" about="/content/arityprolog32" typeof="sioc:Item foaf:Document">
+
+      <span property="dc:title" content="Arity/Prolog32" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>
+      <div class="meta submitted">
+            <span property="dc:date dc:created" content="2013-03-29T09:21:51-04:00" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" about="/user/2" typeof="sioc:UserAccount" property="foaf:name" datatype="">Peter Gabel</span> on Fri, 03/29/2013 - 09:21</span>    </div>
+  
+  <div class="content clearfix">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>This book documents <strong>Arity/Prolog32</strong>.</p>
+<p>Arity/Prolog32 was developed at Arity Corporation by Peter Gabel, Paul Weiss, and Jim Greene. For a number of years Arity provided binaries for Arity/Prolog32 at no charge.  Now, source code is available on <a href="https://github.com/Peter-Gabel" target="_blank">Github</a> as open software with the very liberal MIT license. This book page and the pages that are sub-sections of this page as defined by the Arity/Prolog32 book outline structure are licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/" rel="license">Creative Commons Attribution-NonCommercial-NoDerivs 3.0 United States License</a> with attribution to be given to Peter L. Gabel and to this site.  Some portions of this book are adapted from previous documentation created by Arity which was distributed as a part of the Arity/Prolog32 product.</p>
+<p>Zipped files containing Arity/Prolog32 source and Arity/Prolog32 executables are available at the <a href="installing-arityprolog32.html">Installing Arity/Prolog32</a> section of this book.</p>
+<h2>What Is Prolog?</h2>
+<p>Prolog is a “logic programming language” which was designed to balance procedural and declarative styles of expression of code.  Prolog programs are made up of a set of clauses that are either facts or rules.  A fact expresses something that holds true about the information you give it.  A rule, on the other hand, expresses how new facts may be inferred. Built-in procedures provide side-effects for performing operations such as I/O, arithmetic, and interaction with a database.</p>
+<p>Prolog is relevant today because it embodies many of the characteristics that are desired for the management of linked data and the semantic Web. The structure of Prolog data (“terms”) is more general than JSON or XML structures and very well suited to the representation and manipulation of JSON, XML, RDF, OWL and other complex data formats. The ability to store Prolog terms in a large, indexed database enables the construction of efficient and highly advanced knowledge discovery appliations.</p>
+<p>Prolog's ability to infer solutions to problems differs from the computational model that most programmers are familiar with.  In a procedural language such as C, for example, the programmer concentrates on specifying the process of the problem, building control constructs such as "for" and "while."  A procedural program may be readily visualized as a flowchart. Procedural thinking centers on describing <u>how</u> an algorithm is to be carried out.  An object oriented language such as C++ or Java extends this procedural style through better encapsulation of data and functions</p>
+<p>Prolog, on the other hand admits both a procedural reading and a declarative reading. The declarative style of Prolog allows the programmer to concentrate primarily on how data may be derived from other data by expressing programs as sets of conditions as rules.  Essentially, you as a Prolog programmer, can describe rules that generate true relationships when other relationships are found to be true. Declarative thinking centers on describing <u>what relationships hold true</u> under different patterns of input. This is why Prolog is considered to be a descriptive or relational programming language.</p>
+<p>The mathematical formalization of logical reasoning initiated the study of the relationship between computation and machine intelligence.  Many practical applications have been developed out of this tradition, often in Prolog and indeed, often in Arity/Prolog32.</p>
+<p>One area with a rich history of development and use of Prolog is natural language understanding. In fact, Prolog was originally designed to perform natural language experimentation.  The definite clause grammar formalism of Prolog parses simple natural language grammars easily and effectively. Current work in more sophisticated grammar formalisms continues to often use Prolog or be strongly influenced by Prolog technology. For example, Arity/Prolog32 is being successfully used commercially for large-scale construction grammar development based on feature logics and chart parsing technology.</p>
+<p>Prolog's formal precision and power of interpretation makes it particularly well suited for knowledge representation.  Some of the work being performed in this area includes semantic networks, frames and scripts, and production systems. Arity/Prolog32 has been used to create several description logic inference engines, including a sophisticated implementation of the description logic <em>EL++</em>.</p>
+<p>The logic-based computational model that underlies Prolog is an extension of the model that underlies relational databases. SQL can be viewed as a declarative language where queries are processed as rules for computing tables.  Prolog can be viewed, in part, as a declarative language where computation is initiated by a “goal” (akin to a query) which is processed by a set of rules for computing results.  Generally, a Prolog program’s most important output is produced through side-effects rather than the bindings created as an answer to the goal.  But much of what a Prolog program does may be viewed as a generalization of the operations within a relational database system. For this and other reasons, Prolog is useful for information management application.</p>
+<p>The intention of this book is not to teach you to program in Prolog.  For information on Prolog programming concepts, refer to the <strong>Suggested Readings</strong> section.</p>
+<h3>Prolog Implementations and Standards</h3>
+<p>Many implementations of Prolog have been created by developers worldwide for different hardware and software platforms. Each implementation has a different emphasis on features and targeted application areas.  Many implementations emphasize a particular set of features related to logic programming such as constraint handling or alternative control schemes (such as datalog).  Other implementations provide significant extensions for user interface, program structure, or other application support functions.</p>
+<p>As Prolog evolved, several informal and formal standards emerged. The core features of Prolog were most often identified as “Edinburgh Prolog” or “Clocksin-Mellish Prolog” (after the book, <u>Programming in Prolog</u>, by William F. Clocksin and Christopher S. Mellish, 3rd Edition. Berlin: Springer-Verlag, 1987).  The ISO Prolog standard ISO/IEC 13211-1 was first published in 1995. Most implementations of Prolog were faithful to the spirit of these standards but deviated from them in significant ways.</p>
+<p>Arity had a long history of implementing and using Prolog, releasing its first compiler and interpreter for Prolog for 16 bit MS-DOS.  Subsequent versions supported OS/2 (both 16 and 32 bit), Windows NT, and was ported to specific platforms that were common in Japan.  The version of Arity’s Prolog described in this book may be run on 32 and 64 bit versions of Microsoft Windows.  It has also been successfully used on Linux using WINE.</p>
+<h3>Arity/Prolog32</h3>
+<p>Arity/Prolog32 encompasses all of the predicates and functionality of Prolog associated with “Clocksin-Mellish Prolog”.  In addition, Arity/Prolog32 contains many predicates and features that make it ideal for constructing and deploying complex applications.</p>
+<p>These features include:</p>
+<ul><li>Expanded database support providing control over data persistence and including linked records, B-trees, hash tables and the ability to create specialized indexing structures;</li>
+<li>The ability of Arity/Prolog32 code to call and be called by code written in other  languages, including ‘C’;</li>
+<li>Text support including an integrated approach to atoms and strings;</li>
+<li>File management including input and output to file handles;</li>
+<li>Multi-threaded programming support;</li>
+<li>Run-time loadable dynamic linked library support;</li>
+<li>Sophisticated arithmetic operations including an integrated approach to integer and floating point numbers; and</li>
+<li>Many other extensions.</li>
+</ul><p>Arity/Prolog32 provides a compiler which creates highly efficient static code, an interpreter for dynamic (run-time modifiable) code, and an extended interpreter with features that aid in the debugging of Prolog programs.  The extended interpreter is itself extensible with the ability for compiled code to be added.</p>
+<p>Compiled code is packaged in the form of DLLs (Dynamically Linked Libraries) which can be used to build self-standing applications or be used as extensions of larger applications.</p>
+<p>Earlier versions of Arity/Prolog included a “DOS box” windowing system including menus and dialog boxes. This has now been deprecated.</p>
+<p> </p>
+<h2>The Arity/Prolog32 Interpreter</h2>
+<p>There are two primary uses for interpreting Prolog code.  First, Prolog has a different execution model than other languages which is complemented with a style of debugging called the “box model”.  Arity/Prolog32 contains an extended interpreter that provides this debugging support. Thus, a key use of the Arity/Prolog32 interpreter is for the development of new applications.</p>
+<p>Second, Arity/Prolog32 provides an interpreter that may be invoked from compiled code (and may call compiled code) for applications that require dynamically modifiable code or that load portions of an application as code that may be changed by users.</p>
+<p>Usually, when we refer to the interpreter, we are referring to the first sense of the word – the extended Arity/Prolog32 interpreter with its debugging support.</p>
+<p>The extended Arity/Prolog32 interpreter is an application called API32.exe.  It has two modes of execution.  The default mode provides a deprecated style of interaction that contains a small integrated development environment.  This includes edit buffers and menu items to common operations.  However, this mode depends on the old deprecated “DOS box” windowing system.  We do not suggest using this mode.</p>
+<p>The preferred mode of execution of API32.exe is called “vanilla”.  Vanilla mode allows you to execute Prolog code in a “Command Prompt” window.   You can use your favorite editor or IDE to create your application and to interact with the API32 window.</p>
+<p>Code (structured as “predicates” containing “clauses”) is stored within the internal database of Arity/Prolog32.  By default, the internal database of API32.exe is API.idb.</p>
+<p> </p>
+<h2>The Arity/Prolog32 Compiler</h2>
+<p>The Arity/Prolog32 compiler produces fast, efficient code as object modules. Object modules may be linked to produce executable images and to produce dynamic linked libraries.  Code produced by other compilers may be linked with Arity/Prolog32 object code.</p>
+<p>Typical application development begins with the Arity/Prolog32 interpreter since it allows you to run, debug, and change your program instantly. As selected portions of your program are completed, you can compile these portions and incorporate them into the interpreter by rebuilding the interpreter or by loading DLLs from interpreted code. When your application is complete the main entry point and associated code is compiled and the application is created as a new executable, independent of API32.exe.  Or, you may build applications where your compiled code becomes incorporated into a larger system written in another language, such as 'C'.</p>
+<p> </p>
+<h2>Notational Conventions</h2>
+<p>This manual describes the elements which make up the Arity/Prolog32 language.  The operators, data types, and built-in predicates provided by Arity/Prolog32 are described in detail.</p>
+<p>The description of each predicate includes a format indicating how the predicate is used.  A special notation is associated with each argument to the predicate.  A symbol appears before each argument indicating whether or not the argument must be instantiated at the time the predicate is invoked.  An instantiated argument is one in which the argument is bound to some value.  The symbols are:</p>
+<h3>+</h3>
+<p class="rteindent1">A plus sign in front of an argument indicates that it is used as an input argument.  Generally, the argument is required to be instantiated.  However, in a few cases, most notably the predicates used to classify terms such as nonvar/1, the argument may be uninstantiated upon input.  In these cases, the argument is never instantiated at output to a new value by the predicate.</p>
+<h3>-</h3>
+<p class="rteindent1">A minus sign in front of an argument indicates that it is used as an output argument.  The predicate generally returns an instantiated value which is unified with the value given when the predicate is called.  However, in a few cases, such as recorded/3 where the returned value from the database is a stored uninstantianted variable, the value returned is uninstantiated and will always unify with the value provided when the predicate is called.</p>
+<h3>?</h3>
+<p class="rteindent1">A question mark in front of an argument indicates that the argument may be used either for input or output, depending on the context in which it is used.  The predicate description will describe the effect of supplying both an instantiated and an uninstantiated argument.</p>
+<p><em>Note that these conventions are similar to but are not the same as mode declarations which can be used to inform the compiler of possible optimizations that may be made for individual predicates.</em></p>
+<p>The names of predicates are usually written in <strong>Functor/Arity</strong> notation.  For example, the predicate which reads Prolog terms from standard input is referred to in the documentation as read/1.</p>
+<p>Code examples in this documentation are written as they would be submitted to the interpreter or in a Prolog source file (as predicates formed from one or more clauses).  Examples of goals input to the interpreter for execution have a ‘<strong>?-</strong>‘ command prompt pre-pended.  This is meant to suggest the prompt for input used by the Arity/Prolog32 interpreter and not what you would enter.</p>
+<p> </p>
+</div></div></div>  <div id="book-navigation-12" class="book-navigation">
+    <ul class="menu"><li class="first leaf"><a href="installing-arityprolog32.html">Installing Arity/Prolog32</a></li>
+<li class="collapsed"><a href="writing-arityprolog32-applications.html">Writing Arity/Prolog32 Applications</a></li>
+<li class="collapsed"><a href="arityprolog32-language.html">The Arity/Prolog32 Language</a></li>
+<li class="collapsed"><a href="arityprolog32-warning-and-error-messages.html">Arity/Prolog32 Warning and Error Messages</a></li>
+<li class="leaf"><a href="list-all-arityprolog32-predicates.html">List of all Arity/Prolog32 predicates</a></li>
+<li class="leaf"><a href="glossary.html">Glossary</a></li>
+<li class="last leaf"><a href="suggested-readings.html">Suggested Readings</a></li>
+</ul>
+        <div class="page-links clearfix">
+                          <a href="installing-arityprolog32.html" class="page-next" title="Go to next page">Installing Arity/Prolog32 ›</a>
+          </div>
+    
+  </div>
+  </div>
+
+      <div class="link-wrapper">
+      <ul class="links inline"><li class="comment_forbidden first last"><span><a href="/user/login?destination=node/12%23comment-form">Log in</a> or <a href="/user/register?destination=node/12%23comment-form">register</a> to post comments</span></li>
+</ul>    </div>
+  
+  
+</div>
+  </div>
+</div>
+  </div>
+                                
+            </div>
+        
+        </div><!-- /#content -->
+        
+                
+        <div class="clear"></div>
+        
+                <!-- #featured -->
+        <div id="featured" class="sixteen columns clearfix">
+            
+                        <div class="one_half">
+              <div class="region region-featured-left">
+    <div id="block-block-2" class="block block-block">
+
+    
+  <div class="content">
+    <div class="cta clearfix" style="height:145px">
+<h3>Headspace Sprockets</h3>
+
+<p><img class="alignleft" alt="" src="/sites/default/files/small_iStock_000017030156_Small_1.jpg" style="height:48px; width:48px">Learn more about my company.
+</p>
+<div class="clear"></div>
+<br>
+<div class="button small right"><a class="button white" href="http://www.headspacesprockets.com" target="_blank">Visit Headspace Sprockets</a></div>
+</div>
+<p>  </div>
+</div>
+  </div>
+            </div>
+            
+            <div class="one_half last">
+              <div class="region region-featured-right">
+    <div id="block-block-1" class="block block-block">
+
+    
+  <div class="content">
+    <div class="cta clearfix" style="height:145px">
+<h3>GitHub</h3>
+<p><img class="alignleft" src="/sites/all/themes/skeletontheme/mockup/arrow.png" alt="">I have shared some projects on GitHub. Arity/Prolog32 distributions are <a href="installing-arityprolog32.html"><b>available here</b></a> in this site's Arity/Prolog32 notebook.</p>
+<div class="clear"></div>
+<div class="button small right"><a class="button white" href="https://github.com/Peter-Gabel" target="_blank">Fork me on GitHub</a></div>
+</div>  </div>
+</div>
+  </div>
+            </div>
+                        
+        </div><!-- /#featured -->
+                
+	</div>
+        
+	<div id="footer">
+        <div class="container">
+        	<div class="sixteen columns clearfix">
+        
+                <div class="one_third">
+                  <div class="region region-footer-first">
+    <div id="block-block-3" class="block block-block">
+
+    <h2>Privacy and Terms of Use</h2>
+  
+  <div class="content">
+    <p><a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/" rel="license"><img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/us/88x31.png" style="border-width:0"></a><br>
+<strong>©&nbsp;2017&nbsp;Peter L. Gabel</strong>. Except where designated as licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/" target="_blank" rel="license"><strong>Creative Commons Attribution-NonCommercial-NoDerivs 3.0 United States License</strong></a>, Peter L. Gabel reserves all rights associated with the materials on this site. Your use is subject to 
+<strong>
+<a href="/content/privacy-and-terms-use" target="_blank">Additional terms of use</a></strong></p>  </div>
+</div>
+  </div>
+                </div>
+                
+                <div class="one_third">
+                  <div class="region region-footer-second">
+    <div id="block-block-4" class="block block-block">
+
+    
+  <div class="content">
+    <p><a href="http://www.linkedin.com/pub/peter-gabel/0/18/428" target="_blank"><img alt="View Peter Gabel's profile on LinkedIn" src="http://www.linkedin.com/img/webpromo/btn_viewmy_160x33.png" style="height:33px; width:160px"></a></p>
+  </div>
+</div>
+<div id="block-user-login" class="block block-user">
+
+    <h2>User login</h2>
+  
+  <div class="content">
+    <form action="/content/arityprolog32?destination=node/12" method="post" id="user-login-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name">Username <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-name" name="name" value="" size="15" maxlength="60" class="form-text required">
+</div>
+<div class="form-item form-type-password form-item-pass">
+  <label for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" id="edit-pass" name="pass" size="15" maxlength="128" class="form-text required">
+</div>
+<div class="item-list"><ul><li class="first"><a href="/user/register" title="Create a new user account.">Create new account</a></li>
+<li class="last"><a href="/user/password" title="Request new password via e-mail.">Request new password</a></li>
+</ul></div><input type="hidden" name="form_build_id" value="form-kuwNUdCopmxI5muktCOH3h1czeA_RnWagb5K5jH58EA">
+<input type="hidden" name="form_id" value="user_login_block">
+<div class="form-item form-type-textfield form-item-captcha-questions-answer-given">
+  <label for="edit-captcha-questions-answer-given">What is the name of my company? Hint: you can find it below. <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-captcha-questions-answer-given" name="captcha_questions_answer_given" value="" size="60" maxlength="128" class="form-text required">
+<div class="description">Please answer the question. (We&#039;re keeping spam bots out!)</div>
+</div>
+<div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--2" name="op" value="Log in" class="form-submit"></div></div></form>  </div>
+</div>
+  </div>
+                </div>
+                
+                <div class="one_third last">
+                  <div class="region region-footer-third">
+    <div id="block-block-5" class="block block-block">
+
+    
+  <div class="content">
+    <p><em>The power of the unaided mind is highly overrated. Without external aids, memory, thought, and reasoning are all constrained. But human intelligence is highly flexible and adaptive, superb at inventing procedures and objects that overcome its own limits. The real powers come from devising external aids that enhance cognitive abilities. How have we increased memory, thought, and reasoning? By the inventions of external aids: It is things that make us smart.</em></p>
+<p>-- Donald Norman, <strong><a href="http://www.amazon.com/Things-That-Make-Smart-Attributes/dp/0201626950/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1368737063&amp;sr=1-1" target="_blank">Things that make us smart</a></strong></p>
+  </div>
+</div>
+  </div>
+                </div>
+        
+                <div class="clear"></div>
+                
+                                
+                <div class="clear"></div>
+                
+                <div id="credits">
+				<!--
+				&copy;
+                2018                                 Peter Gabel<br/>
+                				-->
+                Original theme by <a href="http://www.drupalizing.com" target="_blank">Drupalizing</a>, a project of <a href="http://www.morethanthemes.com" target="_blank">More than (just) Themes</a>. Original design by <a href="http://www.simplethemes.com/" target="_blank">Simple Themes</a>.
+                </div>
+        	</div>
+        </div>
+    </div>
+    
+</div> <!-- /#wrap -->  </body>
+</html>

@@ -1,0 +1,579 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:og="http://ogp.me/ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:sioct="http://rdfs.org/sioc/types#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta charset="utf-8">
+<meta name="HandheldFriendly" content="true">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="http://peter-gabel.com/sites/default/files/photos1%20tight-307_0.jpg" type="image/jpeg">
+<meta name="MobileOptimized" content="width">
+<link rel="up" href="arityprolog32-language.html">
+<link rel="canonical" href="prolog-compiler-directives.html">
+<link rel="shortlink" href="/node/58">
+<link rel="prev" href="source-code-processing-directives.html">
+<link rel="next" href="embedded-c-declarations.html">
+  <title>Prolog compiler directives | Peter Gabel</title>
+  <style type="text/css" media="all">
+@import url("http://peter-gabel.com/modules/system/system.base.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.menus.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.messages.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.theme.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/modules/book/book.css?np0twq");
+@import url("http://peter-gabel.com/modules/comment/comment.css?np0twq");
+@import url("http://peter-gabel.com/modules/field/theme/field.css?np0twq");
+@import url("http://peter-gabel.com/modules/node/node.css?np0twq");
+@import url("http://peter-gabel.com/modules/search/search.css?np0twq");
+@import url("http://peter-gabel.com/modules/user/user.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/modules/ckeditor/css/ckeditor.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/sites/all/modules/ctools/css/ctools.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/skeleton.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/style.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/buttons.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/layout.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/color/colors.css?np0twq");
+</style>
+  <script type="text/javascript" src="http://peter-gabel.com/misc/jquery.js?v=1.4.4"></script>
+<script type="text/javascript" src="http://peter-gabel.com/misc/jquery.once.js?v=1.2"></script>
+<script type="text/javascript" src="http://peter-gabel.com/misc/drupal.js?np0twq"></script>
+<script type="text/javascript" src="http://peter-gabel.com/sites/all/themes/skeletontheme/js/jquery.mobilemenu.js?np0twq"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery(document).ready(function($) { 
+	
+	$("#navigation .content > ul").mobileMenu({
+		prependTo: "#navigation",
+		combine: false,
+        switchWidth: 760,
+        topOptionText: Drupal.settings.skeletontheme['topoptiontext']
+	});
+	
+	});
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","skeletontheme":{"topoptiontext":"Select a page"},"ajaxPageState":{"theme":"skeletontheme","theme_token":"hNZthCtr75SfMljnksB08XfymXLtyMDJDf13asFTGvE","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/themes\/skeletontheme\/js\/jquery.mobilemenu.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/book\/book.css":1,"modules\/comment\/comment.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/themes\/skeletontheme\/css\/skeleton.css":1,"sites\/all\/themes\/skeletontheme\/css\/style.css":1,"sites\/all\/themes\/skeletontheme\/css\/buttons.css":1,"sites\/all\/themes\/skeletontheme\/css\/layout.css":1,"sites\/all\/themes\/skeletontheme\/color\/colors.css":1}}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-first page-node page-node- page-node-58 node-type-book">
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="wrap">
+    <div class="container">
+        
+                
+        <div class="clear"></div>
+        
+        <!-- #header -->
+                <div id="header" class="sixteen columns clearfix">   
+                
+            <div class="inner">
+    
+                                
+                                <div id="name-and-slogan">
+                
+                                        <div id="site-name">
+                    <a href="/" title="Home" rel="home">Peter Gabel</a>
+                    </div>
+                                        
+                                        <div id="site-slogan">
+                    Interdisciplinary investigations into applied cognitive science                    </div>
+                                    
+                </div>
+                            </div>
+        </div><!-- /#header -->
+        
+                
+        <div class="clear"></div>
+        
+        <!-- #navigation -->
+        <div id="navigation" class="sixteen columns clearfix">
+        
+            <div class="menu-header">
+                            				<div class="content">
+				<ul class="menu"><li class="first leaf"><a href="/">Home</a></li>
+<li class="leaf"><a href="/blog" title="">Blog</a></li>
+<li class="expanded"><a href="/content/notebooks">Notebooks</a><ul class="menu"><li class="first leaf"><a href="/content/annotated-references">Annotated References</a></li>
+<li class="leaf"><a href="arityprolog32.html">Arity/Prolog32</a></li>
+<li class="leaf"><a href="/content/cognitive-science">Cognitive Science</a></li>
+<li class="leaf"><a href="/content/natural-language-processing">Natural Language Processing</a></li>
+<li class="leaf"><a href="/content/ontologies-and-logics">Ontologies and Logics</a></li>
+<li class="leaf"><a href="/content/rich-data-machine-learning">Rich Data &amp; Machine Learning</a></li>
+<li class="last leaf"><a href="/content/software-development">Software Development</a></li>
+</ul></li>
+<li class="leaf"><a href="/content/selected-publications">Selected publications</a></li>
+<li class="leaf"><a href="/content/about-me">About me</a></li>
+<li class="leaf"><a href="/contact" title="">Contact me</a></li>
+<li class="last leaf"><a href="/content/join-my-team">Join my team</a></li>
+</ul>                </div>
+                        </div>
+            
+        </div><!-- /#navigation -->
+        
+                <!-- #sidebar-first -->
+        <div id="sidebar-first" class="five columns">
+              <div class="region region-sidebar-first">
+    <div id="block-block-6" class="block block-block">
+
+    
+  <div class="content">
+    
+Welcome Guest. <a href="/user">Login</a>/<a href="/user/register">Register</a>.
+        
+  </div>
+</div>
+<div id="block-blog-recent" class="block block-blog">
+
+    <h2>Recent blog posts</h2>
+  
+  <div class="content">
+    <div class="item-list"><ul><li class="first"><a href="/content/defeating-janitorial-challenges-big-data">Defeating the Janitorial Challenges of Big Data</a></li>
+<li><a href="/content/business-and-life-lessons-freshman-physics-problem">Business and life lessons from a freshman physics problem</a></li>
+<li><a href="/content/wee-bit-about-we">A wee bit about &quot;we&quot;</a></li>
+<li><a href="/content/category-theory">Category Theory</a></li>
+<li><a href="/content/how-many-monitors-are-enough">How many monitors are enough?</a></li>
+<li><a href="/content/words-words-words">Words, words, words!</a></li>
+<li><a href="/content/some-thoughts-about-javascript">Some thoughts about JavaScript</a></li>
+<li><a href="/content/eico-460">Eico 460</a></li>
+<li><a href="/content/raspberry-pi">Raspberry Pi</a></li>
+<li class="last"><a href="/content/arduino">Arduino</a></li>
+</ul></div><div class="more-link"><a href="/blog" title="Read the latest blog entries.">More</a></div>  </div>
+</div>
+<div id="block-book-navigation" class="block block-book">
+
+    <h2>Notebooks</h2>
+  
+  <div class="content">
+      <div id="book-block-menu-67" class="book-block-menu">
+    <ul class="menu"><li class="first last leaf"><a href="/content/annotated-references">Annotated References</a></li>
+</ul>  </div>
+  <div id="book-block-menu-12" class="book-block-menu">
+    <ul class="menu"><li class="first last expanded active-trail"><a href="arityprolog32.html" class="active-trail">Arity/Prolog32</a><ul class="menu"><li class="first leaf"><a href="installing-arityprolog32.html">Installing Arity/Prolog32</a></li>
+<li class="collapsed"><a href="writing-arityprolog32-applications.html">Writing Arity/Prolog32 Applications</a></li>
+<li class="expanded active-trail"><a href="arityprolog32-language.html" class="active-trail">The Arity/Prolog32 Language</a><ul class="menu"><li class="first leaf"><a href="program-structure-and-data-types.html">Program structure and data types</a></li>
+<li class="leaf"><a href="program-control.html">Program control</a></li>
+<li class="leaf"><a href="unify-terms.html">Unify terms</a></li>
+<li class="leaf"><a href="classify-compare-and-sort-terms.html">Classify, compare and sort terms</a></li>
+<li class="leaf"><a href="term-structure-conversions.html">Term structure conversions</a></li>
+<li class="leaf"><a href="arithmetic-and-arithmetic-expressions.html">Arithmetic and arithmetic expressions</a></li>
+<li class="leaf"><a href="text-predicates.html">Text predicates</a></li>
+<li class="collapsed"><a href="input-and-output-predicates.html">Input and output predicates</a></li>
+<li class="collapsed"><a href="database-predicates.html">Database predicates</a></li>
+<li class="leaf"><a href="dll-and-visibility-predicates.html">DLL and visibility predicates</a></li>
+<li class="leaf"><a href="system-function-predicates.html">System function predicates</a></li>
+<li class="leaf"><a href="definite-clause-grammars.html">Definite Clause Grammars</a></li>
+<li class="leaf"><a href="source-code-processing-directives.html">Source code processing directives</a></li>
+<li class="leaf active-trail"><a href="prolog-compiler-directives.html" class="active-trail active">Prolog compiler directives</a></li>
+<li class="leaf"><a href="embedded-c-declarations.html">Embedded C declarations</a></li>
+<li class="leaf"><a href="c-expressions-within-prolog-clauses.html">C expressions within Prolog clauses</a></li>
+<li class="last leaf"><a href="prolog-c-data-type-conversion.html">Prolog / C data type conversion</a></li>
+</ul></li>
+<li class="collapsed"><a href="arityprolog32-warning-and-error-messages.html">Arity/Prolog32 Warning and Error Messages</a></li>
+<li class="leaf"><a href="list-all-arityprolog32-predicates.html">List of all Arity/Prolog32 predicates</a></li>
+<li class="leaf"><a href="glossary.html">Glossary</a></li>
+<li class="last leaf"><a href="suggested-readings.html">Suggested Readings</a></li>
+</ul></li>
+</ul>  </div>
+  <div id="book-block-menu-15" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/cognitive-science">Cognitive Science</a></li>
+</ul>  </div>
+  <div id="book-block-menu-8" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/natural-language-processing">Natural Language Processing</a></li>
+</ul>  </div>
+  <div id="book-block-menu-14" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/ontologies-and-logics">Ontologies and Logics</a></li>
+</ul>  </div>
+  <div id="book-block-menu-13" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/rich-data-machine-learning">Rich Data &amp; Machine Learning</a></li>
+</ul>  </div>
+  <div id="book-block-menu-11" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/software-development">Software Development</a></li>
+</ul>  </div>
+  </div>
+</div>
+<div id="block-search-form" class="block block-search">
+
+    <h2>Search</h2>
+  
+  <div class="content">
+    <form action="/content/prolog-compiler-directives" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text">
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit"></div><input type="hidden" name="form_build_id" value="form-KADsVL4QaSKMZt8_c_oSvx2m-WVAFmdVJa42RBP74I4">
+<input type="hidden" name="form_id" value="search_block_form">
+</div>
+</div></form>  </div>
+</div>
+  </div>
+        </div><!-- /#sidebar-first -->
+                
+                <div id="content" class="eleven columns">
+		        
+                    
+                            <div id="breadcrumb"><h2 class="element-invisible">You are here</h2><div class="breadcrumb"><a href="/">Home</a><span class="sep">»</span><a href="arityprolog32.html">Arity/Prolog32</a><span class="sep">»</span><a href="arityprolog32-language.html">The Arity/Prolog32 Language</a><span class="sep">»</span>Prolog compiler directives</div></div>
+                        
+            <div id="main">
+            
+                                
+                                
+                                <h1 class="title" id="page-title">
+                  Prolog compiler directives                </h1>
+                                
+                                
+                                <div class="tabs">
+                                  </div>
+                                
+                                
+                                
+                  <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div id="node-58" class="node node-book clearfix" about="/content/prolog-compiler-directives" typeof="sioc:Item foaf:Document">
+
+      <span property="dc:title" content="Prolog compiler directives" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>
+      <div class="meta submitted">
+            <span property="dc:date dc:created" content="2013-04-02T13:41:53-04:00" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" about="/user/2" typeof="sioc:UserAccount" property="foaf:name" datatype="">Peter Gabel</span> on Tue, 04/02/2013 - 13:41</span>    </div>
+  
+  <div class="content clearfix">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Often, a program that runs successfully under control of the interpreter cannot be compiled without some modifications. This is because the interpreter handles many of the "bookkeeping" tasks that you must handle yourself when you compile the program. In a compiled program, these bookkeeping tasks are achieved through the use of code declarations.</p>
+<p>A few differences between Arity/Prolog32 compiled and interpreted code include:</p>
+<ul><li>A compiled programs must have a main entry point. The main entry point is specified through the definition and declaration of the main/0 predicate.</li>
+<li>If you want to specify an action to be taken if the user types Ctrl-Break while the application is running, you define and declare the restart/0 predicate.</li>
+<li>Compiled code may contain embedded C expressions.  The principal use for embedded C expressions is the ability to call functions that are written in C (or in other languages with compatible calling conventions).</li>
+<li>Compiled code provides a means of encapsulating functionality within source modules and within DLLs.  The model for encapsulation of interpreted code is very different; You can use code stored in different databases and use the Arity/Prolog32 workspace and world predicates to manage accessibilty.</li>
+</ul><p>Compiled code directives include the following:</p>
+<ul><li>module: The ability to explicitly name the compiled object file, with additional features associated with the module that contains the definition of main/0.</li>
+<li>public: The declaration of compiled code entry points.</li>
+<li>visible: The declaration of interpreted code entry points called directly by compiled code.</li>
+<li>extrn: The declaration of accessibilty of code and their calling convention. The extrn directives may be used in place of public directives.</li>
+<li>dllmodule: The association of a name for a DLL with its constituent compiled modules.</li>
+<li>mode: The optional declaration of how a compiled predicate's arguments will be instantiated and the predicate's determinacy.</li>
+<li>model: The memory model used for embedded C compilation.</li>
+<li>cseg and dseg: The default segments for embedded C code and data.</li>
+<li>pack: The assertion that structure packing should be used for embedded C data.</li>
+<li>name: The naming convention to be applied to embedded C code and data.</li>
+</ul><p>Related to compiled code directives are directives that apply to compiled and consulted Prolog source code described in the <a href="source-code-processing-directives.html"><strong>Source code processing directives</strong></a> section of the book. These directives are:</p>
+<ul><li>include: The ability to insert the contents of a file in the stream of compiled or consulted source code.</li>
+<li>macro: The definition of expansion rules to be applied to source code.</li>
+<li>Conditionals: The ability to enable or suppress the use of a portion of source file.</li>
+<li>op: The declaration of operators that affect the reading and writing of Prolog terms, including Prolog code. </li>
+</ul><p>In addition to these directives are those described in the <a href="embedded-c-declarations.html"><strong>Embedded C declarations</strong></a> section of the book.</p>
+<p> </p>
+<h2>module directives</h2>
+<p>Each source file is compiled to create an object module (.obj).  The name of the compiled object file is by default is the root of the source file name concatenated with the '.obj' extension..</p>
+<p>There are two ways that the object module name may be explicitly specified, overriding the default.  The first is to override using a module declaration within the source code.  The second, which can override the first, is to specify a module name as an option to the APC32 compiler.</p>
+<p>The format for the module declaration is as follows:</p>
+<pre>
+:- module(Name).</pre><p>In addition, the Name for the module, regardless of the method it is specified determines the name of the default database for the application for the module that contains the definition of the main/0 predicate.  This database name may be overriden by an environment parameter, either in the startup C code for the application or in an environment file.</p>
+<p> </p>
+<h2>public directives</h2>
+<p>Public declarations are used to allow a predicate to be called from code outside of the module where the predicate has been defined.  A public declaration can take one of the following forms:</p>
+<pre>
+:- public Name/Arity.</pre><pre>
+% more than one predicate may be made public with a single declaration
+:- public Name/Arity, Name/Arity, ..., Name/Arity.
+</pre><pre>
+% all predicates in the module may be made public
+:- public all.
+</pre><p> </p>
+<p>As an alternative to using the public declaration, if the compiler detects an extrn declaration for a predicate defined in the module, it will create a public declaration for the predicate.  This can be extremely useful for a complex application that contains an include file of all possible extrn predicates supplied in the application.  Each module would include the file, thereby declaring public the predicates contained in the module that are available for common use and receiving the appropriate extrn declarations for common predicates not defined in the module.</p>
+<p> </p>
+<h2>visible directives</h2>
+<p>Many applications execute both compiled and interpreted code.  Just as applications use a public declaration in compiled code to make a predicate accessible to compiled code in another compiled code, applications use a visible declaration to make compiled code accessible to interpreted code.</p>
+<p>The visible declaration can take one of the following forms:</p>
+<pre>
+:- visible Name/Arity.
+</pre><pre>
+% more than one predicate may be made public with a single declaration
+:- visible Name/Arity, Name/Arity, ..., Name/Arity.
+</pre><pre>
+% all public predicates in this module are made visible
+:- visible public.
+</pre><pre>
+% all predicates in this module are made visible
+:- visible all.
+</pre><pre>
+% all Arity/Prolog32 evaluable predicates are visible
+:- visible arity_builtins.</pre><p> </p>
+<p>There is an important circumstance where visible declarations are required <u>even if your application does not have interpreted code</u>.  If the compiled code of your program uses call/1, not/1, setof/3, bagof/3, findall/3, stdin/2, stdout/2, or stdinout/3 with goals that are compiled predicates or goals that are Arity/Prolog32 evaluable predicates,  then you must declare those predicates to be visible.  The reason for this is that these predicates always attempt to execute interpreted code.  Any compiled code is unavailable to the interpreter unless declared visible.</p>
+<p> </p>
+<h2>extrn directives</h2>
+<p>An extrn declaration asserts that a predicate should be accessible even if it was defined in another module (in the case of compiled code) or if it was defined in interpreted code.</p>
+<p>The visible declaration can take one of the following forms:</p>
+<pre>
+:- extrn Name/Arity.
+</pre><pre>
+% more than one predicate may be made public with a single declaration
+:- extrn Name/Arity, Name/Arity, ..., Name/Arity.
+</pre><pre>
+% Suffix determines the kind of extrn
+:- extrn Name/Arity:Suffix.
+</pre><pre>
+% Suffix can apply to a number of predicates
+:- extrn (Name/Arity, Name/Arity, ..., Name/Arity):Suffix.</pre><p> </p>
+<p>The extrn declaration can have the effect of being a public declaration. If a module contains the definition of a predicate and an extrn declaration for that predicate, then it is made public.</p>
+<p>Suffixes determine the calling convention of the declared predicate.  The default calling convention (used when no suffix is present) is <strong>prolog.</strong> The types of Suffix are:</p>
+<h3>prolog</h3>
+<p class="rteindent1">The prolog calling convention indicates that the extrn predicate is "near" to the caller, meaning one of:</p>
+<ol><li>The extrn predicate is within the same compiled file (and thus the extrn declaration is unneeded and ignored);</li>
+<li>The extrn predicate's module and this module are not in DLLs (both are in the linked .EXE); or</li>
+<li>The extern predicate's module and this module are in the same DLL.</li>
+</ol><h3>interp</h3>
+<p class="rteindent1">The interp calling convention indicates that the predicate's definition is in interpreted code (is located in the database). You do not need to explicitly declare a predicate as extrn interp if the only way the code is called is by using call/1, not/1, setof/3, bagof/3, findall/3, stdin/2, stdout/2, or stdinout/3. However, it is good documentation practice to declare all extrn interp predicates.</p>
+<h3>import</h3>
+<p class="rteindent1">The import calling convention designates that the extrn predicate is in a DLL different from the caller's DLL, or that the extrn predicate is in a DLL and the caller is in the linked .EXE.</p>
+<h3>module(Module)</h3>
+<p class="rteindent1">The module suffix explicitly names the module where the extrn predicate is located.  This declaration is preferable over the use of the prolog and import suffixes because it promotes a better source code documentation style.  It is typically used in combination with module and dllmodule declarations and the use of include files. An extended example is provided below.</p>
+<h3>eval</h3>
+<h3>evalpost</h3>
+<h3>lib</h3>
+<p class="rteindent1">The eval, evalpost, and lib suffixes are used to designate that the called predicate is included as a built-in evaluable predicate. These suffixes are generally not used except by the developers of the Arity/Prolog32 tools.</p>
+<p> </p>
+<h2>dllmodule directives</h2>
+<p class="rteindent1">The dllmodule declaration associates a name for a DLL with the Prolog modules that are to be included in the DLL.  The use of the dllmodule declaration can simplify your tracking of the organization of your application, particularly when used within an include file.</p>
+<p>The form of the dllmodule declaration is:</p>
+<pre>
+:- dllmodule(DLLName,ModuleNames).</pre><p>An extended example is provided below.</p>
+<p> </p>
+<h2>mode directives</h2>
+<p>Prolog is an unusual language in that you can write predicates that work differently depending on whether an argument is instantiated or uninstantiated. For example, the functor/3 predicate has three arguments which in normal use correspond upon success to a Term, an Atom, and the number of arguments (Arity). If the Term argument on call is instantiated to a structure, then Atom and Arity will be unified with the name of the principal functor and its arity, respectively.  If, on the other hand, the Term argument is uninstantianted on call, then the prediate expects that the Atom and Arity arguments will be instantiated to a string and an integer between 0 and 255, respectively.  If so, then functor/3 will succeed and will unify Term with the most general term with the principal functor Atom/N.</p>
+<p>This behavior of many Prolog predicates seems "directional" and, to some Prolog beginners is a source of some confusion.  However, it can be readily understood both procedurally (as the functor/3 predicate above was explained) or declaratively by recognizing that each Prolog predicate expresses a true relationship whenever it succeeds in operating on the arguments as provided upon call or redo.</p>
+<p>There are many Prolog predicates that work in both directions, as functor/3 does. However, there are many that do not. The sort predicate, for instance, will not scramble a sorted list. This predicate, to name just one, works in only one direction. </p>
+<p>A predicate can use mode declarations to instruct the compiler that only one use of the predicate is allowed. As a result, the compiler does not have to produce as much object code. In some cases, the resulting object code is faster. Mode declarations can also influence the program's use of memory at runtime.</p>
+<p>In the mode declaration, you give the predicate name and a parenthesized list of argument types -- one for each argument. The argument types can contain any of the following symbols:</p>
+<h3>+</h3>
+<p class="rteindent1">A plus sign states that the argument must be instantiated when the predicate is called.</p>
+<h3>-</h3>
+<p class="rteindent1">A minus sign states that the argument must be uninstantiated when the predicate is called.</p>
+<h3>?</h3>
+<p class="rteindent1">A question mark states that the argument may be either instantiated or uninstantiated when the predicate is called.</p>
+<h3>-/+</h3>
+<p class="rteindent1">This symbol indicates that the value for the argument must be uninstantiated when the predicate is called, and must be instantiated when the predicate is completed.</p>
+<h3>?/+</h3>
+<p class="rteindent1">This symbol indicates that the value for the argument can be instantiated or uninstantiated when the predicate is called, but must be instantiated when the predicate is completed.</p>
+<p> </p>
+<p>For example, a predicate named in_or_out that can both accept and return an argument value can be declared like this:</p>
+<pre>
+:- mode in_or_out(?,?).</pre><p>In addition, a mode declaration may indicate whether a predicate is deterministic (can succeed at most once) or non-deterministic.  Non-deterministic mode is the default. The indication of determinacy for the above example is as follows:</p>
+<pre>
+:- mode in_or_out(?, ?):det.</pre><p>The use of 'nondet' in the place of 'det' would indicate nondeterminacy, the default.</p>
+<p>Once a mode declaration is made, you must be careful to use the predicate in the way that you have declared. You must not supply an uninstantiated variable for an argument that is declared with the plus sign and you must always supply an uninstantiated variable for an argument that is declared with the minus sign.</p>
+<p>You should always write and test your code without mode declarations. Then if your program behaves differently after the mode declarations are added, check that you are using the predicates in the way that you have declared. You can easily tell the compiler to recompile your file ignoring mode declarations by using the -m compiler switch.</p>
+<p>It is a good documentation style to use mode declarations, even for interpreted code that does not exploit mode declarations for any efficiency gains.  However, it is common practice to either comment out the mode declarations or to use the -m compiler switch.</p>
+<p> </p>
+<h2>Compilation model directives</h2>
+<p>The model declaration can be used to specify the memory model used in compilation.  There are two forms of the model directive:</p>
+<pre>
+:- model(Model).
+:- model(Model,Specifier).</pre><p> </p>
+<p>The Model argument can be small, compact, medium, or large. If your program does not include a model directive, then the small model is used.  The Specifier can be one of the following:</p>
+<h4>d</h4>
+<p class="rteindent1">Assumes DS = SS, SS==DS (default).</p>
+<h4>u</h4>
+<p class="rteindent1">Assumes DS \= SS, DS is reloaded on function entry</p>
+<h4>w</h4>
+<p class="rteindent1">Assumes DS \= SS, DS is not reloaded on function entry</p>
+<p> </p>
+<p>The following are example model directives:</p>
+<pre>
+:- model(large).
+:- model(compact,d).
+:- model(medium,w).</pre><p>If you are calling Pascal routines, use either the medium or large model.  If you are using embedded C specifically for compiled arithmetic rather than for calling C, Pascal, or Fortran routines, use the small model.</p>
+<p> </p>
+<h2>Code and data segment directives</h2>
+<p>You can use the cseg and dseg declarations to specify the default segments for the C code and data in your Prolog module. The format for these declarations are:</p>
+<pre>
+:- cseg(CodeSegment).</pre><p class="rteindent1">Places C code in segment CodeSegment</p>
+<pre>
+:- dseg(DataSegment).</pre><p class="rteindent1">Places initialized data in segment DataSegment.  Uninitialized data is placed in the segment DataSegment_BSS.  In addition, the segments are placed in the group DataSegment_GROUP.</p>
+<p>If the segments are not specified, the C code is placed in segment _TEXT.  Initialized data is placed in the segment DATA and unitialized data is placed within the segment BSS.  These segments are placed in with the DGROUP.</p>
+<p> </p>
+<h2>Structure packing directives</h2>
+<p>If your program uses structures, data storage is assigned to the structures according to the data type sizes of the members of the structure.  In the case of structures that contain byte data, the structure members may be padded by the system with a filler byte to ensure that each member is aligned on a word boundary. You can bypass this automatic byte padding through the use of the pack declaration. The format for the pack declaration is:</p>
+<pre>
+:- pack.</pre><p>When the pack directive is used, storage allocation is packed in a method similar to that used by Microsoft C.</p>
+<p>Note:  The pack directive is similar to the /Zp directive used with the Microsoft C compiler.</p>
+<p> </p>
+<h2>Naming convention directives</h2>
+<p>The names directive is used to cause a naming convention to be applied to all C routines in embedded C expressions and declarations. The format of the name directive is:</p>
+<p>:- name(Type).</p>
+<p>Where Type may be one of the following atoms:</p>
+<h4>pascal</h4>
+<p class="rteindent1">The Pascal naming convention which causes all routine names to be in uppercase will be used.</p>
+<h4>c</h4>
+<p class="rteindent1">The C naming convention to add an underscore to the beginning of routine names will be used.</p>
+<h4>notrans</h4>
+<p class="rteindent1">No translations will be applied to the names which will be accepted as written.</p>
+<p>Note: if you explicitly include a cdecl or pascal specifier that naming convention will override the one specified with the names directive.</p>
+<p> </p>
+<p> </p>
+</div></div></div>  <div id="book-navigation-12" class="book-navigation">
+    
+        <div class="page-links clearfix">
+              <a href="source-code-processing-directives.html" class="page-previous" title="Go to previous page">‹ Source code processing directives</a>
+                    <a href="arityprolog32-language.html" class="page-up" title="Go to parent page">up</a>
+                    <a href="embedded-c-declarations.html" class="page-next" title="Go to next page">Embedded C declarations ›</a>
+          </div>
+    
+  </div>
+  </div>
+
+      <div class="link-wrapper">
+      <ul class="links inline"><li class="comment_forbidden first last"><span><a href="/user/login?destination=node/58%23comment-form">Log in</a> or <a href="/user/register?destination=node/58%23comment-form">register</a> to post comments</span></li>
+</ul>    </div>
+  
+  
+</div>
+  </div>
+</div>
+  </div>
+                                
+            </div>
+        
+        </div><!-- /#content -->
+        
+                
+        <div class="clear"></div>
+        
+                <!-- #featured -->
+        <div id="featured" class="sixteen columns clearfix">
+            
+                        <div class="one_half">
+              <div class="region region-featured-left">
+    <div id="block-block-2" class="block block-block">
+
+    
+  <div class="content">
+    <div class="cta clearfix" style="height:145px">
+<h3>Headspace Sprockets</h3>
+
+<p><img class="alignleft" alt="" src="/sites/default/files/small_iStock_000017030156_Small_1.jpg" style="height:48px; width:48px">Learn more about my company.
+</p>
+<div class="clear"></div>
+<br>
+<div class="button small right"><a class="button white" href="http://www.headspacesprockets.com" target="_blank">Visit Headspace Sprockets</a></div>
+</div>
+<p>  </div>
+</div>
+  </div>
+            </div>
+            
+            <div class="one_half last">
+              <div class="region region-featured-right">
+    <div id="block-block-1" class="block block-block">
+
+    
+  <div class="content">
+    <div class="cta clearfix" style="height:145px">
+<h3>GitHub</h3>
+<p><img class="alignleft" src="/sites/all/themes/skeletontheme/mockup/arrow.png" alt="">I have shared some projects on GitHub. Arity/Prolog32 distributions are <a href="installing-arityprolog32.html"><b>available here</b></a> in this site's Arity/Prolog32 notebook.</p>
+<div class="clear"></div>
+<div class="button small right"><a class="button white" href="https://github.com/Peter-Gabel" target="_blank">Fork me on GitHub</a></div>
+</div>  </div>
+</div>
+  </div>
+            </div>
+                        
+        </div><!-- /#featured -->
+                
+	</div>
+        
+	<div id="footer">
+        <div class="container">
+        	<div class="sixteen columns clearfix">
+        
+                <div class="one_third">
+                  <div class="region region-footer-first">
+    <div id="block-block-3" class="block block-block">
+
+    <h2>Privacy and Terms of Use</h2>
+  
+  <div class="content">
+    <p><a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/" rel="license"><img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/us/88x31.png" style="border-width:0"></a><br>
+<strong>©&nbsp;2017&nbsp;Peter L. Gabel</strong>. Except where designated as licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/" target="_blank" rel="license"><strong>Creative Commons Attribution-NonCommercial-NoDerivs 3.0 United States License</strong></a>, Peter L. Gabel reserves all rights associated with the materials on this site. Your use is subject to 
+<strong>
+<a href="/content/privacy-and-terms-use" target="_blank">Additional terms of use</a></strong></p>  </div>
+</div>
+  </div>
+                </div>
+                
+                <div class="one_third">
+                  <div class="region region-footer-second">
+    <div id="block-block-4" class="block block-block">
+
+    
+  <div class="content">
+    <p><a href="http://www.linkedin.com/pub/peter-gabel/0/18/428" target="_blank"><img alt="View Peter Gabel's profile on LinkedIn" src="http://www.linkedin.com/img/webpromo/btn_viewmy_160x33.png" style="height:33px; width:160px"></a></p>
+  </div>
+</div>
+<div id="block-user-login" class="block block-user">
+
+    <h2>User login</h2>
+  
+  <div class="content">
+    <form action="/content/prolog-compiler-directives?destination=node/58" method="post" id="user-login-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name">Username <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-name" name="name" value="" size="15" maxlength="60" class="form-text required">
+</div>
+<div class="form-item form-type-password form-item-pass">
+  <label for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" id="edit-pass" name="pass" size="15" maxlength="128" class="form-text required">
+</div>
+<div class="item-list"><ul><li class="first"><a href="/user/register" title="Create a new user account.">Create new account</a></li>
+<li class="last"><a href="/user/password" title="Request new password via e-mail.">Request new password</a></li>
+</ul></div><input type="hidden" name="form_build_id" value="form-DbT6t_DzQKFwZl9YnX3PKOrlXcAMXFLaoWtGLXDRa9M">
+<input type="hidden" name="form_id" value="user_login_block">
+<div class="form-item form-type-textfield form-item-captcha-questions-answer-given">
+  <label for="edit-captcha-questions-answer-given">What is the name of my company? Hint: you can find it below. <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-captcha-questions-answer-given" name="captcha_questions_answer_given" value="" size="60" maxlength="128" class="form-text required">
+<div class="description">Please answer the question. (We&#039;re keeping spam bots out!)</div>
+</div>
+<div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--2" name="op" value="Log in" class="form-submit"></div></div></form>  </div>
+</div>
+  </div>
+                </div>
+                
+                <div class="one_third last">
+                  <div class="region region-footer-third">
+    <div id="block-block-5" class="block block-block">
+
+    
+  <div class="content">
+    <p><em>The power of the unaided mind is highly overrated. Without external aids, memory, thought, and reasoning are all constrained. But human intelligence is highly flexible and adaptive, superb at inventing procedures and objects that overcome its own limits. The real powers come from devising external aids that enhance cognitive abilities. How have we increased memory, thought, and reasoning? By the inventions of external aids: It is things that make us smart.</em></p>
+<p>-- Donald Norman, <strong><a href="http://www.amazon.com/Things-That-Make-Smart-Attributes/dp/0201626950/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1368737063&amp;sr=1-1" target="_blank">Things that make us smart</a></strong></p>
+  </div>
+</div>
+  </div>
+                </div>
+        
+                <div class="clear"></div>
+                
+                                
+                <div class="clear"></div>
+                
+                <div id="credits">
+				<!--
+				&copy;
+                2018                                 Peter Gabel<br/>
+                				-->
+                Original theme by <a href="http://www.drupalizing.com" target="_blank">Drupalizing</a>, a project of <a href="http://www.morethanthemes.com" target="_blank">More than (just) Themes</a>. Original design by <a href="http://www.simplethemes.com/" target="_blank">Simple Themes</a>.
+                </div>
+        	</div>
+        </div>
+    </div>
+    
+</div> <!-- /#wrap -->  </body>
+</html>

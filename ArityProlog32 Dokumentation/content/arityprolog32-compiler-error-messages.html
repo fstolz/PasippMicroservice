@@ -1,0 +1,502 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:og="http://ogp.me/ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:sioct="http://rdfs.org/sioc/types#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta charset="utf-8">
+<meta name="HandheldFriendly" content="true">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="http://peter-gabel.com/sites/default/files/photos1%20tight-307_0.jpg" type="image/jpeg">
+<meta name="MobileOptimized" content="width">
+<link rel="up" href="arityprolog32-warning-and-error-messages.html">
+<link rel="canonical" href="arityprolog32-compiler-error-messages.html">
+<link rel="shortlink" href="/node/43">
+<link rel="prev" href="system-error-messages.html">
+<link rel="next" href="list-all-arityprolog32-predicates.html">
+  <title>Arity/Prolog32 Compiler error messages | Peter Gabel</title>
+  <style type="text/css" media="all">
+@import url("http://peter-gabel.com/modules/system/system.base.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.menus.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.messages.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.theme.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/modules/book/book.css?np0twq");
+@import url("http://peter-gabel.com/modules/comment/comment.css?np0twq");
+@import url("http://peter-gabel.com/modules/field/theme/field.css?np0twq");
+@import url("http://peter-gabel.com/modules/node/node.css?np0twq");
+@import url("http://peter-gabel.com/modules/search/search.css?np0twq");
+@import url("http://peter-gabel.com/modules/user/user.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/modules/ckeditor/css/ckeditor.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/sites/all/modules/ctools/css/ctools.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/skeleton.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/style.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/buttons.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/layout.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/color/colors.css?np0twq");
+</style>
+  <script type="text/javascript" src="http://peter-gabel.com/misc/jquery.js?v=1.4.4"></script>
+<script type="text/javascript" src="http://peter-gabel.com/misc/jquery.once.js?v=1.2"></script>
+<script type="text/javascript" src="http://peter-gabel.com/misc/drupal.js?np0twq"></script>
+<script type="text/javascript" src="http://peter-gabel.com/sites/all/themes/skeletontheme/js/jquery.mobilemenu.js?np0twq"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery(document).ready(function($) { 
+	
+	$("#navigation .content > ul").mobileMenu({
+		prependTo: "#navigation",
+		combine: false,
+        switchWidth: 760,
+        topOptionText: Drupal.settings.skeletontheme['topoptiontext']
+	});
+	
+	});
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","skeletontheme":{"topoptiontext":"Select a page"},"ajaxPageState":{"theme":"skeletontheme","theme_token":"tUTrKYMfxG_TPf3gplIZomsde7DuwOPRwG0nbAhz0_E","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/themes\/skeletontheme\/js\/jquery.mobilemenu.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/book\/book.css":1,"modules\/comment\/comment.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/themes\/skeletontheme\/css\/skeleton.css":1,"sites\/all\/themes\/skeletontheme\/css\/style.css":1,"sites\/all\/themes\/skeletontheme\/css\/buttons.css":1,"sites\/all\/themes\/skeletontheme\/css\/layout.css":1,"sites\/all\/themes\/skeletontheme\/color\/colors.css":1}}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-first page-node page-node- page-node-43 node-type-book">
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="wrap">
+    <div class="container">
+        
+                
+        <div class="clear"></div>
+        
+        <!-- #header -->
+                <div id="header" class="sixteen columns clearfix">   
+                
+            <div class="inner">
+    
+                                
+                                <div id="name-and-slogan">
+                
+                                        <div id="site-name">
+                    <a href="/" title="Home" rel="home">Peter Gabel</a>
+                    </div>
+                                        
+                                        <div id="site-slogan">
+                    Interdisciplinary investigations into applied cognitive science                    </div>
+                                    
+                </div>
+                            </div>
+        </div><!-- /#header -->
+        
+                
+        <div class="clear"></div>
+        
+        <!-- #navigation -->
+        <div id="navigation" class="sixteen columns clearfix">
+        
+            <div class="menu-header">
+                            				<div class="content">
+				<ul class="menu"><li class="first leaf"><a href="/">Home</a></li>
+<li class="leaf"><a href="/blog" title="">Blog</a></li>
+<li class="expanded"><a href="/content/notebooks">Notebooks</a><ul class="menu"><li class="first leaf"><a href="/content/annotated-references">Annotated References</a></li>
+<li class="leaf"><a href="arityprolog32.html">Arity/Prolog32</a></li>
+<li class="leaf"><a href="/content/cognitive-science">Cognitive Science</a></li>
+<li class="leaf"><a href="/content/natural-language-processing">Natural Language Processing</a></li>
+<li class="leaf"><a href="/content/ontologies-and-logics">Ontologies and Logics</a></li>
+<li class="leaf"><a href="/content/rich-data-machine-learning">Rich Data &amp; Machine Learning</a></li>
+<li class="last leaf"><a href="/content/software-development">Software Development</a></li>
+</ul></li>
+<li class="leaf"><a href="/content/selected-publications">Selected publications</a></li>
+<li class="leaf"><a href="/content/about-me">About me</a></li>
+<li class="leaf"><a href="/contact" title="">Contact me</a></li>
+<li class="last leaf"><a href="/content/join-my-team">Join my team</a></li>
+</ul>                </div>
+                        </div>
+            
+        </div><!-- /#navigation -->
+        
+                <!-- #sidebar-first -->
+        <div id="sidebar-first" class="five columns">
+              <div class="region region-sidebar-first">
+    <div id="block-block-6" class="block block-block">
+
+    
+  <div class="content">
+    
+Welcome Guest. <a href="/user">Login</a>/<a href="/user/register">Register</a>.
+        
+  </div>
+</div>
+<div id="block-blog-recent" class="block block-blog">
+
+    <h2>Recent blog posts</h2>
+  
+  <div class="content">
+    <div class="item-list"><ul><li class="first"><a href="/content/defeating-janitorial-challenges-big-data">Defeating the Janitorial Challenges of Big Data</a></li>
+<li><a href="/content/business-and-life-lessons-freshman-physics-problem">Business and life lessons from a freshman physics problem</a></li>
+<li><a href="/content/wee-bit-about-we">A wee bit about &quot;we&quot;</a></li>
+<li><a href="/content/category-theory">Category Theory</a></li>
+<li><a href="/content/how-many-monitors-are-enough">How many monitors are enough?</a></li>
+<li><a href="/content/words-words-words">Words, words, words!</a></li>
+<li><a href="/content/some-thoughts-about-javascript">Some thoughts about JavaScript</a></li>
+<li><a href="/content/eico-460">Eico 460</a></li>
+<li><a href="/content/raspberry-pi">Raspberry Pi</a></li>
+<li class="last"><a href="/content/arduino">Arduino</a></li>
+</ul></div><div class="more-link"><a href="/blog" title="Read the latest blog entries.">More</a></div>  </div>
+</div>
+<div id="block-book-navigation" class="block block-book">
+
+    <h2>Notebooks</h2>
+  
+  <div class="content">
+      <div id="book-block-menu-67" class="book-block-menu">
+    <ul class="menu"><li class="first last leaf"><a href="/content/annotated-references">Annotated References</a></li>
+</ul>  </div>
+  <div id="book-block-menu-12" class="book-block-menu">
+    <ul class="menu"><li class="first last expanded active-trail"><a href="arityprolog32.html" class="active-trail">Arity/Prolog32</a><ul class="menu"><li class="first leaf"><a href="installing-arityprolog32.html">Installing Arity/Prolog32</a></li>
+<li class="collapsed"><a href="writing-arityprolog32-applications.html">Writing Arity/Prolog32 Applications</a></li>
+<li class="collapsed"><a href="arityprolog32-language.html">The Arity/Prolog32 Language</a></li>
+<li class="expanded active-trail"><a href="arityprolog32-warning-and-error-messages.html" class="active-trail">Arity/Prolog32 Warning and Error Messages</a><ul class="menu"><li class="first leaf"><a href="file-error-messages.html">File error messages</a></li>
+<li class="leaf"><a href="syntax-error-messages.html">Syntax error messages</a></li>
+<li class="leaf"><a href="system-error-messages.html">System error messages</a></li>
+<li class="last leaf active-trail"><a href="arityprolog32-compiler-error-messages.html" class="active-trail active">Arity/Prolog32 Compiler error messages</a></li>
+</ul></li>
+<li class="leaf"><a href="list-all-arityprolog32-predicates.html">List of all Arity/Prolog32 predicates</a></li>
+<li class="leaf"><a href="glossary.html">Glossary</a></li>
+<li class="last leaf"><a href="suggested-readings.html">Suggested Readings</a></li>
+</ul></li>
+</ul>  </div>
+  <div id="book-block-menu-15" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/cognitive-science">Cognitive Science</a></li>
+</ul>  </div>
+  <div id="book-block-menu-8" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/natural-language-processing">Natural Language Processing</a></li>
+</ul>  </div>
+  <div id="book-block-menu-14" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/ontologies-and-logics">Ontologies and Logics</a></li>
+</ul>  </div>
+  <div id="book-block-menu-13" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/rich-data-machine-learning">Rich Data &amp; Machine Learning</a></li>
+</ul>  </div>
+  <div id="book-block-menu-11" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/software-development">Software Development</a></li>
+</ul>  </div>
+  </div>
+</div>
+<div id="block-search-form" class="block block-search">
+
+    <h2>Search</h2>
+  
+  <div class="content">
+    <form action="/content/arityprolog32-compiler-error-messages" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text">
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit"></div><input type="hidden" name="form_build_id" value="form-E7zURddXUcFFiwRtnWV3LJw5mBQ-sv3M05_Aep8pzTA">
+<input type="hidden" name="form_id" value="search_block_form">
+</div>
+</div></form>  </div>
+</div>
+  </div>
+        </div><!-- /#sidebar-first -->
+                
+                <div id="content" class="eleven columns">
+		        
+                    
+                            <div id="breadcrumb"><h2 class="element-invisible">You are here</h2><div class="breadcrumb"><a href="/">Home</a><span class="sep">»</span><a href="arityprolog32.html">Arity/Prolog32</a><span class="sep">»</span><a href="arityprolog32-warning-and-error-messages.html">Arity/Prolog32 Warning and Error Messages</a><span class="sep">»</span>Arity/Prolog32 Compiler error messages</div></div>
+                        
+            <div id="main">
+            
+                                
+                                
+                                <h1 class="title" id="page-title">
+                  Arity/Prolog32 Compiler error messages                </h1>
+                                
+                                
+                                <div class="tabs">
+                                  </div>
+                                
+                                
+                                
+                  <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div id="node-43" class="node node-book clearfix" about="/content/arityprolog32-compiler-error-messages" typeof="sioc:Item foaf:Document">
+
+      <span property="dc:title" content="Arity/Prolog32 Compiler error messages" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>
+      <div class="meta submitted">
+            <span property="dc:date dc:created" content="2013-03-31T12:38:56-04:00" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" about="/user/2" typeof="sioc:UserAccount" property="foaf:name" datatype="">Peter Gabel</span> on Sun, 03/31/2013 - 12:38</span>    </div>
+  
+  <div class="content clearfix">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><h3>APC1503: Error creating object file -- &lt;filename&gt;</h3>
+<p class="rteindent1">A file error occurred while writing an object file, such as an incorrect path was specified, or there is not enough room on the disk.</p>
+<h3>APC1505: Illegal atomic goal -- &lt;goal&gt;</h3>
+<p class="rteindent1">The goal is not executable.  For example, the following predicate would cause this message since 4 is not a satisfiable goal: try :- 4.</p>
+<h3>APC1506: Illegal syntax in case expression -- &lt;term&gt;</h3>
+<p class="rteindent1">You have incorrectly use the case construct. The correct form is case([A1-&gt; B1, A2 -&gt; B2 , ... | C]). That is,  "If A1, then B1; if A2, then B2; and so on, or else C." Correct the construct and recompile.</p>
+<h3>APC1507: Illegal directive -- &lt;directive&gt;</h3>
+<p class="rteindent1">There is an error in a compiler directive. The directive is indicated. Correct the directive and recompile.</p>
+<h3>APC1508: No definition for public predicate -- &lt;name/arity&gt;<br>
+APC1509: No definition for predicate -- &lt;name/arity&gt;<br>
+APC1510: No definition for visible predicate -- &lt;name/arity&gt;</h3>
+<p class="rteindent1">A program references a clause that is not found in the current program file and that is not declared as extrn. Check that you have defined all the necessary predicates and recompile.</p>
+<h3>APC1511: Input file not found -- &lt;filename&gt;</h3>
+<p class="rteindent1">The specified input file could not be found. Check for spelling errors or invalid path specifications.</p>
+<h3>APC1512: Module size exceeds system limit - break into smaller modules</h3>
+<p class="rteindent1">The module has overflowed the compilers internal limit on the size of object code. You will need to create more than one module from this one.</p>
+<h3>APC1513: No compiled arithmetic can be interpreted</h3>
+<p class="rteindent1">Embedded C expressions must be compiled and therefor can not be passed as an argument to a predicate to be "called", such as setof/3, stdinout/3 or call/1.</p>
+<h3>APC1521: Tokenization Error</h3>
+<p class="rteindent1">Unable to tokenize a C declaration. Correct your code.</p>
+<h3>APC1522: Pragma not defined</h3>
+<p class="rteindent1">The pragma was ignored by the compiler. Correct your code.</p>
+<h3>APC1523: Include File Not Found: &lt;File&gt;</h3>
+<p class="rteindent1">Arity/Prolog32 cannot find the include file. Check for the correct spelling and path specification.</p>
+<h3>APC1524: Warning: redefinition of symbol &lt;symbol&gt;</h3>
+<p class="rteindent1">Preprocessor symbol was already defined. Second definition is ignored by  the compiler. Correct your code.</p>
+<h3>APC1525: Auto declaration not supported</h3>
+<p class="rteindent1">Auto declaration totally ignored by the compiler. Correct your code.</p>
+<h3>APC1526: Register declaration not supported</h3>
+<p class="rteindent1">Register declaration completely ignored by the compiler. Correct your code.</p>
+<h3>APC1527: Struc/Enum/Tag  tag&gt; is already defined</h3>
+<p class="rteindent1">Tag is already used, second definition is ignored. Correct your code.</p>
+<h3>APC1528: Void element of union or structure</h3>
+<p class="rteindent1">Elements of structures and unions can not be void. Correct your code.</p>
+<h3>APC1529: Function element of union or structure</h3>
+<p class="rteindent1">Elements of structures and unions can not be a function. Correct your code.</p>
+<h3>APC1530: Name &lt;identifier&gt; is already defined</h3>
+<p class="rteindent1">Second attempt to define identifier ignored by compiler. Correct your code.</p>
+<h3>APC1531: Extrn variable &lt;name&gt; cannot be inited</h3>
+<p class="rteindent1">Objects can only be intialized in declarations where they are defined. Correct your code.</p>
+<h3>APC1532: Invalid type &lt;type&gt;</h3>
+<p class="rteindent1">The type your have specified has not been defined. Use typedef to define this type.</p>
+<h3>APC1533: Warning: Type &lt;type&gt; ignored</h3>
+<p class="rteindent1">Arity/Prolog does not recognize the const or volatile types. The compiler will, however, process the rest of the declaration.</p>
+<h3>APC1534: Modifier &lt;modifier&gt; illegal in context:</h3>
+<p class="rteindent1">The object of the modifier should be an identifier or a pointer. Correct your code.</p>
+<h3>APC1535: Found &lt;token1 &gt;when looking for &lt;token2&gt;</h3>
+<p class="rteindent1">The wrong token was found during parsing, check your code for possible corrections.</p>
+<h3>APC1537: Syntax Error</h3>
+<p class="rteindent1">Syntax error parsing a C declaration. Correct your code to match ANSI C standard syntax.</p>
+<h3>APC1538: Declaration Error</h3>
+<p class="rteindent1">Although the compiler was able to parse this declaration, it was not able to determine the correct meaning. Correct your code.</p>
+<h3>APC1539: #endif, #elif, or #else without matching #if</h3>
+<p class="rteindent1">These pragmas need a corresponding #if, #ifdef or #ifndef.</p>
+<h3>APC1540: Undefined identifier &lt;identifier&gt;</h3>
+<p class="rteindent1">A valid C identifier used in a C expression without having been declared.  Correct your code.</p>
+<h3>APC1541: Warning: sizeof() returns 0</h3>
+<p class="rteindent1">The sizeof operation is returning a value of zero for a given identifier.</p>
+<h3>APC1542: Warning: Address of an array - ignored</h3>
+<p class="rteindent1">The &amp; operator was applied to an array identifier, which is already considered to be the address of the object. The operation is ignored.</p>
+<h3>APC1546: Warning: Subtraction of pointers with different types or distances</h3>
+<p class="rteindent1">Pointer subtraction is performed on the offset portion of the pointer, and based on the size of the object pointed at. Check your code to insure that this will not affect the result.</p>
+<h3>APC1547: General expression failure</h3>
+<p class="rteindent1">Syntax Error in an embedded C expression. Correct your code.</p>
+<h3>APC1548: Illegal arguments for operator &lt;operator&gt;</h3>
+<p class="rteindent1">The types of the arguments to operator are invalid.</p>
+<h3>APC1549: Illegal 'is' assignment</h3>
+<p class="rteindent1">The left-hand side of 'is' is either not a prolog variable or the type of the right-hand side cannot be assigned to a prolog var (such as a struct). Correct your code.</p>
+<h3>APC1550: Illegal assignment</h3>
+<p class="rteindent1">Result of right-hand side can not be cast to type of left-hand side or left-hand side is not a legal lvalue. Correct your code.</p>
+<h3>APC1551: Cannot compute address of argument (&amp;)</h3>
+<p class="rteindent1">Address of argument (such as constant) cannot be computed. Correct your code.</p>
+<h3>APC1552: Cannot dereference expression (*)</h3>
+<p class="rteindent1">The argument of '*' is not an address and therefore cannot be dereferenced.  Correct your code.</p>
+<h3>APC1553: Invalid pointer operation</h3>
+<p class="rteindent1">A pointer is being used incorrectly in an embedded C expression. Correct your code.</p>
+<h3>APC1554: Size of object is 0 in pointer arithmetic</h3>
+<p class="rteindent1">Pointer arithmetic depends on the size of objects pointed to. This size may not be zero. Correct your code.</p>
+<h3>APC1555: Divide by 0 error in expression</h3>
+<p class="rteindent1">Dividing by 0 can give undefined results and is therefore not allowed. Correct your code.</p>
+<h3>APC1556: Illegal declaration</h3>
+<p class="rteindent1">Right-hand side is an invalid type or left-hand side is not a variable or valid identifier in an embedded C expression. Correct your code.</p>
+<h3>APC1557: Attempt to redefine automatic identifier</h3>
+<p class="rteindent1">Attempt to define a variable twice within an embedded C expression. Correct your code.</p>
+<h3>APC1558: Error in selection of member of struct or union</h3>
+<p class="rteindent1">Identifier used to select member of structure or union is not a valid member selector. Correct your code.</p>
+<h3>APC1559: Illegal argument in sizeof()</h3>
+<p class="rteindent1">The argument was not an identifier or type name. Correct your program.</p>
+<h3>APC1560: Illegal function argument</h3>
+<p class="rteindent1">Argument can not be cast to type in function declaration. Correct your program.</p>
+<h3>APC1561: Illegal cast</h3>
+<p class="rteindent1">The type of the cast or the argument is invalid. Correct your program.</p>
+<h3>APC1562: Unknown error compiling C expression</h3>
+<p class="rteindent1">Invalid embedded C expression. Correct your code.</p>
+<h3>APC1563: Warning: Too many actual parameters<br>
+APC1564: Warning: Too few actual parameters</h3>
+<p class="rteindent1">The number of parameters in the function call does not match the number of arguments in the function declaration.</p>
+<h3>APC1565: Warning: Formal parameter ignored</h3>
+<p class="rteindent1">The unspecified parameter will not be type checked or coerced.</p>
+<h3>APC1566: Struc/Enum/Tag &lt;Tag&gt; is undefined</h3>
+<p class="rteindent1">An attempt to use Tag has been made without it previously being defined.</p>
+<h3>APC1567: Warning: Conflicting segmodule declarations for module: &lt;Module&gt;</h3>
+<p class="rteindent1">Module is used in more than one segmodule declaration which attempt to place it in more than one segment.</p>
+<h3>APC1568: Module &lt;Module&gt; used in extrn declaration without segmodule declaration</h3>
+<p class="rteindent1">Module is used in a module(Module) suffix without a corresponding segmodule declaration to determine which segment it is in.</p>
+<h3>APC1569: Predicate &lt;Pred1&gt; used undefined predicate &lt;Pred2&gt;</h3>
+<p class="rteindent1">Pred2 is neither declared in this module nor defined in this module and it is used by Pred1.</p>
+<p> </p>
+</div></div></div>  <div id="book-navigation-12" class="book-navigation">
+    
+        <div class="page-links clearfix">
+              <a href="system-error-messages.html" class="page-previous" title="Go to previous page">‹ System error messages</a>
+                    <a href="arityprolog32-warning-and-error-messages.html" class="page-up" title="Go to parent page">up</a>
+                    <a href="list-all-arityprolog32-predicates.html" class="page-next" title="Go to next page">List of all Arity/Prolog32 predicates ›</a>
+          </div>
+    
+  </div>
+  </div>
+
+      <div class="link-wrapper">
+      <ul class="links inline"><li class="comment_forbidden first last"><span><a href="/user/login?destination=node/43%23comment-form">Log in</a> or <a href="/user/register?destination=node/43%23comment-form">register</a> to post comments</span></li>
+</ul>    </div>
+  
+  
+</div>
+  </div>
+</div>
+  </div>
+                                
+            </div>
+        
+        </div><!-- /#content -->
+        
+                
+        <div class="clear"></div>
+        
+                <!-- #featured -->
+        <div id="featured" class="sixteen columns clearfix">
+            
+                        <div class="one_half">
+              <div class="region region-featured-left">
+    <div id="block-block-2" class="block block-block">
+
+    
+  <div class="content">
+    <div class="cta clearfix" style="height:145px">
+<h3>Headspace Sprockets</h3>
+
+<p><img class="alignleft" alt="" src="/sites/default/files/small_iStock_000017030156_Small_1.jpg" style="height:48px; width:48px">Learn more about my company.
+</p>
+<div class="clear"></div>
+<br>
+<div class="button small right"><a class="button white" href="http://www.headspacesprockets.com" target="_blank">Visit Headspace Sprockets</a></div>
+</div>
+<p>  </div>
+</div>
+  </div>
+            </div>
+            
+            <div class="one_half last">
+              <div class="region region-featured-right">
+    <div id="block-block-1" class="block block-block">
+
+    
+  <div class="content">
+    <div class="cta clearfix" style="height:145px">
+<h3>GitHub</h3>
+<p><img class="alignleft" src="/sites/all/themes/skeletontheme/mockup/arrow.png" alt="">I have shared some projects on GitHub. Arity/Prolog32 distributions are <a href="installing-arityprolog32.html"><b>available here</b></a> in this site's Arity/Prolog32 notebook.</p>
+<div class="clear"></div>
+<div class="button small right"><a class="button white" href="https://github.com/Peter-Gabel" target="_blank">Fork me on GitHub</a></div>
+</div>  </div>
+</div>
+  </div>
+            </div>
+                        
+        </div><!-- /#featured -->
+                
+	</div>
+        
+	<div id="footer">
+        <div class="container">
+        	<div class="sixteen columns clearfix">
+        
+                <div class="one_third">
+                  <div class="region region-footer-first">
+    <div id="block-block-3" class="block block-block">
+
+    <h2>Privacy and Terms of Use</h2>
+  
+  <div class="content">
+    <p><a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/" rel="license"><img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/us/88x31.png" style="border-width:0"></a><br>
+<strong>©&nbsp;2017&nbsp;Peter L. Gabel</strong>. Except where designated as licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/" target="_blank" rel="license"><strong>Creative Commons Attribution-NonCommercial-NoDerivs 3.0 United States License</strong></a>, Peter L. Gabel reserves all rights associated with the materials on this site. Your use is subject to 
+<strong>
+<a href="/content/privacy-and-terms-use" target="_blank">Additional terms of use</a></strong></p>  </div>
+</div>
+  </div>
+                </div>
+                
+                <div class="one_third">
+                  <div class="region region-footer-second">
+    <div id="block-block-4" class="block block-block">
+
+    
+  <div class="content">
+    <p><a href="http://www.linkedin.com/pub/peter-gabel/0/18/428" target="_blank"><img alt="View Peter Gabel's profile on LinkedIn" src="http://www.linkedin.com/img/webpromo/btn_viewmy_160x33.png" style="height:33px; width:160px"></a></p>
+  </div>
+</div>
+<div id="block-user-login" class="block block-user">
+
+    <h2>User login</h2>
+  
+  <div class="content">
+    <form action="/content/arityprolog32-compiler-error-messages?destination=node/43" method="post" id="user-login-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name">Username <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-name" name="name" value="" size="15" maxlength="60" class="form-text required">
+</div>
+<div class="form-item form-type-password form-item-pass">
+  <label for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" id="edit-pass" name="pass" size="15" maxlength="128" class="form-text required">
+</div>
+<div class="item-list"><ul><li class="first"><a href="/user/register" title="Create a new user account.">Create new account</a></li>
+<li class="last"><a href="/user/password" title="Request new password via e-mail.">Request new password</a></li>
+</ul></div><input type="hidden" name="form_build_id" value="form-X-ot6TkZiw-TMwr6_gaEUNz4F4bogEQYsmO_2e-njhA">
+<input type="hidden" name="form_id" value="user_login_block">
+<div class="form-item form-type-textfield form-item-captcha-questions-answer-given">
+  <label for="edit-captcha-questions-answer-given">What is the name of my company? Hint: you can find it below. <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-captcha-questions-answer-given" name="captcha_questions_answer_given" value="" size="60" maxlength="128" class="form-text required">
+<div class="description">Please answer the question. (We&#039;re keeping spam bots out!)</div>
+</div>
+<div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--2" name="op" value="Log in" class="form-submit"></div></div></form>  </div>
+</div>
+  </div>
+                </div>
+                
+                <div class="one_third last">
+                  <div class="region region-footer-third">
+    <div id="block-block-5" class="block block-block">
+
+    
+  <div class="content">
+    <p><em>The power of the unaided mind is highly overrated. Without external aids, memory, thought, and reasoning are all constrained. But human intelligence is highly flexible and adaptive, superb at inventing procedures and objects that overcome its own limits. The real powers come from devising external aids that enhance cognitive abilities. How have we increased memory, thought, and reasoning? By the inventions of external aids: It is things that make us smart.</em></p>
+<p>-- Donald Norman, <strong><a href="http://www.amazon.com/Things-That-Make-Smart-Attributes/dp/0201626950/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1368737063&amp;sr=1-1" target="_blank">Things that make us smart</a></strong></p>
+  </div>
+</div>
+  </div>
+                </div>
+        
+                <div class="clear"></div>
+                
+                                
+                <div class="clear"></div>
+                
+                <div id="credits">
+				<!--
+				&copy;
+                2018                                 Peter Gabel<br/>
+                				-->
+                Original theme by <a href="http://www.drupalizing.com" target="_blank">Drupalizing</a>, a project of <a href="http://www.morethanthemes.com" target="_blank">More than (just) Themes</a>. Original design by <a href="http://www.simplethemes.com/" target="_blank">Simple Themes</a>.
+                </div>
+        	</div>
+        </div>
+    </div>
+    
+</div> <!-- /#wrap -->  </body>
+</html>

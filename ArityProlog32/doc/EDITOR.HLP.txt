@@ -1,0 +1,150 @@
+EDITOR QUICK REFERENCE
+Arity/Prolog32 Version 1.0
+February 1993
+Copyright (c) 1993, Arity Corporation
+-------------------------------------
+
+
+EDITING MODES
+
+Ins           Toggle  for  switching   between   insert  and
+	      overwrite modes.
+
+Ctrl+I	      Toggle for switching between indenting and non-
+	      indenting modes.
+
+
+MOVING THE CURSOR
+
+Left arrow (<-)
+              One character to the left.
+
+Right arrow (->)
+              One character to the right.
+
+Up arrow      Up one line.
+
+Down arrow    Down one line.
+
+Ctrl-left arrow
+              Left one word.
+
+Ctrl-right arrow
+              Right one word.
+
+Home          Beginning of line.
+
+End           End of line.
+
+PgUp          Up one page.
+
+PgDn          Down one page.
+
+Ctrl-Home     Beginning of file.
+
+Ctrl-End      End of file.
+
+Ctrl-g        Goes to the line you specify.
+
+
+
+SELECTING, COPYING, DELETING, AND RETRIEVING TEXT
+
+Backspace     Deletes character to left of cursor. Character
+              not retrievable.
+
+Del           Deletes  character at cursor if no portion  of
+              text  is  currently  selected.  Character  not
+              retrievable.
+
+Shift-(direction keys)
+              Selects a portion  of text from current cursor
+              position.
+
+Undo
+Ctrl-r        Restores a line to  the  state  it was in when
+              cursor was moved to the line.
+
+Cut
+Shift-Del     Deletes  selected  text  and  places it in the
+              clipboard.
+
+Copy
+F2            Copies selected text.
+
+Paste
+Shift-Ins     Retrieves text from clipboard.
+
+Clear
+Del           Permanently deletes selected text.
+
+
+
+SEARCH AND REPLACE
+
+Find...
+F4            Searches for the string you specify.
+
+Find Selected
+Ctrl-\        Searches for the string currently  selected in
+              the file.
+
+Repeat Last Find
+F3            Repeats the last search command.
+
+Change...
+F5            Searches  for  the  string  you   specify  and
+              replaces it with the string you specify.
+
+
+
+USING BUFFERS
+
+
+"Go To .. F6"
+	      Goes to the buffer you select. Buffer 0 is the
+	      clipboard.
+
+"Go To Last F7"
+	      Goes to the previous active buffer.
+
+Erase Buffer  Erase the contents of the current buffer.
+
+Reconsult Buffer
+              Reconsult the contents of the current buffer.
+
+Save On Exit  Saves the contents  of the current buffer when
+              the buffer is exited.
+
+Reconsult On Exit
+              Reconsults the contents of the  current buffer
+              when the buffer is exited.
+
+Indent        Indents a new line to the same  indentation as
+              the previous  line.  Relevant  to  the current
+              buffer.
+
+Read only     Makes  the current buffer a read-only  buffer.
+              No changes can be made to a read-only buffer.
+
+
+FUNCTION KEYS
+
+
+F1	      Arity/Prolog32 predicate help file.
+
+F2	      Copy selected text.
+
+F3	      Repeat last "find" directive.
+
+F4	      Search for text
+
+F5	      Search for and replaces text.
+
+F6	      Switch to selected edit buffer.
+
+F7	      Switch to previous active edit buffer.
+
+F8	      Switch  from  main window to editor, or visa versa.
+
+F10	      Activate the menu.

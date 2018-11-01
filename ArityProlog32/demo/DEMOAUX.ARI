@@ -1,0 +1,64 @@
+:- c.
+typedef char * pchar;
+typedef pchar *ppchar;
+typedef long *plong;
+unsigned __declspec(dllimport) __stdcall LocalAlloc(unsigned, unsigned);
+int TortureDisplay (int, int, int);
+
+#prolog
+
+:- public main/0.
+:- public lbstrings/2:system(nondet='LBStrings'(ppchar,plong)).
+:- public storestring/2:system('#ref'='StoreString'(pchar)).
+:- public deletestring/1:system(det='DeleteString'('#ref')).
+:- public savedatabase/0:system(det='SaveDatabase'(void)).
+:- public torture/1:system(det='Torture'(int)).
+
+main.
+
+lbstrings(PString, PLong) :-
+    recorded(lbstrings, String, Ref),
+    string_length(String, Length),
+    {
+	PString:ppchar;
+	PLong:plong;
+	Ref:'#ref';
+	pc:pchar;
+	pc = 'LocalAlloc'(0, Length+1);
+	*PString = pc;
+	*PLong = Ref;
+	'MakeCString'(pc, Length+1, &String)
+    }.
+
+storestring(PChar, Ref) :-
+    make_prolog_string(PChar, String),
+    recordz(lbstrings, String, Ref).
+
+deletestring(Ref) :-
+    hard_erase(Ref).
+
+savedatabase :-
+    save,
+    !.
+savedatabase :-
+    save('demo.idb').
+
+torture(Hwnd) :-
+    torture(Hwnd, 0).
+
+torture(Hwnd, N) :-
+    recordz(torture, torture(N,N,[N,N,N]), _),
+    torturedisplay(Hwnd, N),
+    !,
+    inc(N, N1),
+    torture(Hwnd, N1).
+torture(_, _).
+
+torturedisplay(Hwnd, N) :-
+    0 is N mod 25,
+    !,
+    statistics(database, database(_,_,Cache,_)),
+    {
+	'APC$SUCCFAIL'('TortureDisplay'(Hwnd, N, Cache))
+    }.
+torturedisplay(_, _).

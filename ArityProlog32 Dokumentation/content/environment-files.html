@@ -1,0 +1,520 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:og="http://ogp.me/ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:sioct="http://rdfs.org/sioc/types#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta charset="utf-8">
+<meta name="HandheldFriendly" content="true">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="http://peter-gabel.com/sites/default/files/photos1%20tight-307_0.jpg" type="image/jpeg">
+<meta name="MobileOptimized" content="width">
+<link rel="up" href="writing-arityprolog32-applications.html">
+<link rel="canonical" href="environment-files.html">
+<link rel="shortlink" href="/node/56">
+<link rel="prev" href="building-dlls.html">
+<link rel="next" href="initializing-your-application.html">
+  <title>Environment files | Peter Gabel</title>
+  <style type="text/css" media="all">
+@import url("http://peter-gabel.com/modules/system/system.base.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.menus.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.messages.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.theme.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/modules/book/book.css?np0twq");
+@import url("http://peter-gabel.com/modules/comment/comment.css?np0twq");
+@import url("http://peter-gabel.com/modules/field/theme/field.css?np0twq");
+@import url("http://peter-gabel.com/modules/node/node.css?np0twq");
+@import url("http://peter-gabel.com/modules/search/search.css?np0twq");
+@import url("http://peter-gabel.com/modules/user/user.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/modules/ckeditor/css/ckeditor.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/sites/all/modules/ctools/css/ctools.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/skeleton.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/style.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/buttons.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/layout.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/color/colors.css?np0twq");
+</style>
+  <script type="text/javascript" src="http://peter-gabel.com/misc/jquery.js?v=1.4.4"></script>
+<script type="text/javascript" src="http://peter-gabel.com/misc/jquery.once.js?v=1.2"></script>
+<script type="text/javascript" src="http://peter-gabel.com/misc/drupal.js?np0twq"></script>
+<script type="text/javascript" src="http://peter-gabel.com/sites/all/themes/skeletontheme/js/jquery.mobilemenu.js?np0twq"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery(document).ready(function($) { 
+	
+	$("#navigation .content > ul").mobileMenu({
+		prependTo: "#navigation",
+		combine: false,
+        switchWidth: 760,
+        topOptionText: Drupal.settings.skeletontheme['topoptiontext']
+	});
+	
+	});
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","skeletontheme":{"topoptiontext":"Select a page"},"ajaxPageState":{"theme":"skeletontheme","theme_token":"eAh5PkfM_NikTb_SxiogdwMg9EmS2yUaPnYr2SYXXz0","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/themes\/skeletontheme\/js\/jquery.mobilemenu.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/book\/book.css":1,"modules\/comment\/comment.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/themes\/skeletontheme\/css\/skeleton.css":1,"sites\/all\/themes\/skeletontheme\/css\/style.css":1,"sites\/all\/themes\/skeletontheme\/css\/buttons.css":1,"sites\/all\/themes\/skeletontheme\/css\/layout.css":1,"sites\/all\/themes\/skeletontheme\/color\/colors.css":1}}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-first page-node page-node- page-node-56 node-type-book">
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="wrap">
+    <div class="container">
+        
+                
+        <div class="clear"></div>
+        
+        <!-- #header -->
+                <div id="header" class="sixteen columns clearfix">   
+                
+            <div class="inner">
+    
+                                
+                                <div id="name-and-slogan">
+                
+                                        <div id="site-name">
+                    <a href="/" title="Home" rel="home">Peter Gabel</a>
+                    </div>
+                                        
+                                        <div id="site-slogan">
+                    Interdisciplinary investigations into applied cognitive science                    </div>
+                                    
+                </div>
+                            </div>
+        </div><!-- /#header -->
+        
+                
+        <div class="clear"></div>
+        
+        <!-- #navigation -->
+        <div id="navigation" class="sixteen columns clearfix">
+        
+            <div class="menu-header">
+                            				<div class="content">
+				<ul class="menu"><li class="first leaf"><a href="/">Home</a></li>
+<li class="leaf"><a href="/blog" title="">Blog</a></li>
+<li class="expanded"><a href="/content/notebooks">Notebooks</a><ul class="menu"><li class="first leaf"><a href="/content/annotated-references">Annotated References</a></li>
+<li class="leaf"><a href="arityprolog32.html">Arity/Prolog32</a></li>
+<li class="leaf"><a href="/content/cognitive-science">Cognitive Science</a></li>
+<li class="leaf"><a href="/content/natural-language-processing">Natural Language Processing</a></li>
+<li class="leaf"><a href="/content/ontologies-and-logics">Ontologies and Logics</a></li>
+<li class="leaf"><a href="/content/rich-data-machine-learning">Rich Data &amp; Machine Learning</a></li>
+<li class="last leaf"><a href="/content/software-development">Software Development</a></li>
+</ul></li>
+<li class="leaf"><a href="/content/selected-publications">Selected publications</a></li>
+<li class="leaf"><a href="/content/about-me">About me</a></li>
+<li class="leaf"><a href="/contact" title="">Contact me</a></li>
+<li class="last leaf"><a href="/content/join-my-team">Join my team</a></li>
+</ul>                </div>
+                        </div>
+            
+        </div><!-- /#navigation -->
+        
+                <!-- #sidebar-first -->
+        <div id="sidebar-first" class="five columns">
+              <div class="region region-sidebar-first">
+    <div id="block-block-6" class="block block-block">
+
+    
+  <div class="content">
+    
+Welcome Guest. <a href="/user">Login</a>/<a href="/user/register">Register</a>.
+        
+  </div>
+</div>
+<div id="block-blog-recent" class="block block-blog">
+
+    <h2>Recent blog posts</h2>
+  
+  <div class="content">
+    <div class="item-list"><ul><li class="first"><a href="/content/defeating-janitorial-challenges-big-data">Defeating the Janitorial Challenges of Big Data</a></li>
+<li><a href="/content/business-and-life-lessons-freshman-physics-problem">Business and life lessons from a freshman physics problem</a></li>
+<li><a href="/content/wee-bit-about-we">A wee bit about &quot;we&quot;</a></li>
+<li><a href="/content/category-theory">Category Theory</a></li>
+<li><a href="/content/how-many-monitors-are-enough">How many monitors are enough?</a></li>
+<li><a href="/content/words-words-words">Words, words, words!</a></li>
+<li><a href="/content/some-thoughts-about-javascript">Some thoughts about JavaScript</a></li>
+<li><a href="/content/eico-460">Eico 460</a></li>
+<li><a href="/content/raspberry-pi">Raspberry Pi</a></li>
+<li class="last"><a href="/content/arduino">Arduino</a></li>
+</ul></div><div class="more-link"><a href="/blog" title="Read the latest blog entries.">More</a></div>  </div>
+</div>
+<div id="block-book-navigation" class="block block-book">
+
+    <h2>Notebooks</h2>
+  
+  <div class="content">
+      <div id="book-block-menu-67" class="book-block-menu">
+    <ul class="menu"><li class="first last leaf"><a href="/content/annotated-references">Annotated References</a></li>
+</ul>  </div>
+  <div id="book-block-menu-12" class="book-block-menu">
+    <ul class="menu"><li class="first last expanded active-trail"><a href="arityprolog32.html" class="active-trail">Arity/Prolog32</a><ul class="menu"><li class="first leaf"><a href="installing-arityprolog32.html">Installing Arity/Prolog32</a></li>
+<li class="expanded active-trail"><a href="writing-arityprolog32-applications.html" class="active-trail">Writing Arity/Prolog32 Applications</a><ul class="menu"><li class="first leaf"><a href="arityprolog32-interpreter.html">The Arity/Prolog32 Interpreter</a></li>
+<li class="leaf"><a href="debugging-arityprolog32-code.html">Debugging Arity/Prolog32 code</a></li>
+<li class="leaf"><a href="arityprolog32-alint-utility.html">The Arity/Prolog32 Alint Utility</a></li>
+<li class="leaf"><a href="compiling-and-linking-overview.html">Compiling and linking overview</a></li>
+<li class="leaf"><a href="arityprolog32-compiler-options.html">Arity/Prolog32 compiler options</a></li>
+<li class="leaf"><a href="linking-executables.html">Linking executables</a></li>
+<li class="leaf"><a href="building-dlls.html">Building DLLs</a></li>
+<li class="leaf active-trail"><a href="environment-files.html" class="active-trail active">Environment files</a></li>
+<li class="leaf"><a href="initializing-your-application.html">Initializing your application</a></li>
+<li class="last collapsed"><a href="recipes-and-examples.html">Recipes and examples</a></li>
+</ul></li>
+<li class="collapsed"><a href="arityprolog32-language.html">The Arity/Prolog32 Language</a></li>
+<li class="collapsed"><a href="arityprolog32-warning-and-error-messages.html">Arity/Prolog32 Warning and Error Messages</a></li>
+<li class="leaf"><a href="list-all-arityprolog32-predicates.html">List of all Arity/Prolog32 predicates</a></li>
+<li class="leaf"><a href="glossary.html">Glossary</a></li>
+<li class="last leaf"><a href="suggested-readings.html">Suggested Readings</a></li>
+</ul></li>
+</ul>  </div>
+  <div id="book-block-menu-15" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/cognitive-science">Cognitive Science</a></li>
+</ul>  </div>
+  <div id="book-block-menu-8" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/natural-language-processing">Natural Language Processing</a></li>
+</ul>  </div>
+  <div id="book-block-menu-14" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/ontologies-and-logics">Ontologies and Logics</a></li>
+</ul>  </div>
+  <div id="book-block-menu-13" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/rich-data-machine-learning">Rich Data &amp; Machine Learning</a></li>
+</ul>  </div>
+  <div id="book-block-menu-11" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/software-development">Software Development</a></li>
+</ul>  </div>
+  </div>
+</div>
+<div id="block-search-form" class="block block-search">
+
+    <h2>Search</h2>
+  
+  <div class="content">
+    <form action="/content/environment-files" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text">
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit"></div><input type="hidden" name="form_build_id" value="form-1sYlPjoOFoy5Vjs42fDrmz1FaLCb95cbgcD1TBhTaOs">
+<input type="hidden" name="form_id" value="search_block_form">
+</div>
+</div></form>  </div>
+</div>
+  </div>
+        </div><!-- /#sidebar-first -->
+                
+                <div id="content" class="eleven columns">
+		        
+                    
+                            <div id="breadcrumb"><h2 class="element-invisible">You are here</h2><div class="breadcrumb"><a href="/">Home</a><span class="sep">»</span><a href="arityprolog32.html">Arity/Prolog32</a><span class="sep">»</span><a href="writing-arityprolog32-applications.html">Writing Arity/Prolog32 Applications</a><span class="sep">»</span>Environment files</div></div>
+                        
+            <div id="main">
+            
+                                
+                                
+                                <h1 class="title" id="page-title">
+                  Environment files                </h1>
+                                
+                                
+                                <div class="tabs">
+                                  </div>
+                                
+                                
+                                
+                  <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div id="node-56" class="node node-book clearfix" about="/content/environment-files" typeof="sioc:Item foaf:Document">
+
+      <span property="dc:title" content="Environment files" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>
+      <div class="meta submitted">
+            <span property="dc:date dc:created" content="2013-04-02T12:24:53-04:00" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" about="/user/2" typeof="sioc:UserAccount" property="foaf:name" datatype="">Peter Gabel</span> on Tue, 04/02/2013 - 12:24</span>    </div>
+  
+  <div class="content clearfix">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Environment files are used to set initialization parameters for Arity/Prolog32 applications. These parameters are set to default values if no environment file exists for an application. Most applications will not require environment files, but you should understand what an environment file can specify and whether the default values are appropriate for your application.</p>
+<p>If you want your program to run in the smallest amount of memory possible, you must first determine how much space the program requires. There is no sure way to determine the best settings ahead of time. However, there are ways to estimate how much space to allow. This is done by running the program with the default settings and then using the statistics/2 predicate to determine how much space was used at runtime. To determine how your program uses memory, add calls to the statistics/2 predicate at the end of your program (and other points as appropriate for understanding). Among the information that the statistics predicate returns is the maximum amount of stack space used by the program at runtime. Make note of this information. Once memory requirements are known, you can trim the sizes specified in the environment file closer to the amounts returned by statistics/2.</p>
+<p>After determining the settings for your environment file, remove the call to statistics, recompile, and relink the application.</p>
+<p>Note that the Arity/Prolog32 interpreter is itself an application which has its own environment file. Normally, you should run the interpreter with an environment file that contains only one parameter (VANILLA=YES), overriding a historical but largely obsolete default.</p>
+<p>The environment file is accessed by your program at start-up. Therefore, you do not need to recompile your application if you create or change its environment file.</p>
+<p> </p>
+<h2>Creating an environment file</h2>
+<p>An environment file is simply a text file that specifies one parameter setting per line. If a parameter does not appear in the file, then the default value is used. If the file does not exist then all defaults are used. In addition to the environment file parameter settings, you can override defaults in the applications compiled startup code. The value in the environment file is the</p>
+<p>You must follow these naming conventions:</p>
+<ul><li>An environment file must have the file name extension <strong>.env</strong>.</li>
+<li>If your application does not include a module declaration, then the name of your environment file must be the same as the name of the file which includes the main entry point of your program. If your application includes a module declaration in the main module, then the environment file must have the same name as the name specified in the module declaration.</li>
+</ul><p>Each parameter has the format:</p>
+<pre>
+PARAMETER=value</pre><p>The parameter specification must be uppercase. There cannot be any spaces between the equal sign and the parameter and value specifications. With the exception of the VANILLA and KBDRIVER parameters, the value may be typed in either uppercase or lowercase. These parameters must be uppercase.</p>
+<p>Each of the parameters is explained in the sections that follow. For reference, a quick summary of values is provided here.</p>
+<h4>LOCAL=<em>kilobytes</em></h4>
+<p class="rteindent1">Local stack size in kilobytes; default = 1024</p>
+<h4>GLOBAL=<em>kilobytes</em></h4>
+<p class="rteindent1">Global stack size in kilobytes; default = 1024</p>
+<h4>LALARM=<em>bytes</em></h4>
+<p class="rteindent1">Local alarm level in bytes for gc; default = 2048</p>
+<h4>GALARM=<em>bytes</em></h4>
+<p class="rteindent1">Global alarm level in bytes for gc; default = 2048</p>
+<h4>DBMODE=never/always/maybe</h4>
+<p class="rteindent1">Database loading type, choices are never, always, maybe; default = maybe</p>
+<h4>DATABASE=<em>Filepath</em></h4>
+<p class="rteindent1">Database file name; default is "application name".IDB</p>
+<h4>MINPAGES=<em>pages</em></h4>
+<p class="rteindent1">Minimum number of 4 kilobyte database cache pages; default = 4</p>
+<h4>MAXPAGES=<em>pages</em></h4>
+<p class="rteindent1">Maximum number of 4 kilobyte database cache pages; default = 1024</p>
+<h4>OVERFLOW=<em>Dirpath</em></h4>
+<p class="rteindent1">Overflow file directory; default is system TMP directory or current directory</p>
+<h4>KBDRIVER=<em>YES/NO</em></h4>
+<p class="rteindent1">Keyboard driver enable; default = YES</p>
+<h4>BUFSIZE=<em>bytes</em></h4>
+<p class="rteindent1">I/O buffer size in bytes; default = 2048</p>
+<h4>OPDEFSIZE=<em>kilobytes</em></h4>
+<p class="rteindent1">Operator space size in kilobytes, default = 3</p>
+<h4>VANILLA=<em>YES/NO</em></h4>
+<p class="rteindent1">Mode of Arity/Prolog32 interpreter; default  = NO; <strong>recommended value = YES</strong></p>
+<p> </p>
+<h2>Environment file parameters</h2>
+<h3>Local stack size</h3>
+<p>The local stack is a memory area that actually has two kinds of stack which grow from the top and the bottom toward the middle. The local stack is used for call frames which roughly correspond to the stack of a conventional language. The "trail" is a list of entries that represent pointers to memory that must be reset upon backtracking.  Neither the call frames nor trail entries can be recovered by garbage collection.  Both can be reclaimed during backtracking.  The proper use of cuts (!) can have a dramatic impact on local stack consumption because an important effect of a cut (beside the elimination of unneeded choices and wasted execution time upon backtracking) is the re-use of local stack space.</p>
+<p>Local stack size is given in kilobytes.  The default number of kilobytes is <strong>1024 </strong>which is probably far more than required by your program. (Earlier versions of Arity/Prolog set the default at only 64 which was often more than required!)</p>
+<p>You should be aware that the interpreter is somewhat less efficient in its use of local stack space than compile code.  The process of debugging consumes substantially more local stack space than ordinary interpretation.</p>
+<p>The local stack size is specified using the following format:</p>
+<pre>
+LOCAL=<em>kilobytes</em></pre><p> </p>
+<h3>Global stack size</h3>
+<p>The global stack is used as a kind of heap for instantiations of structures, including lists, as well as strings and floating-point numbers, and in some cases uninstantiated variables. If your application includes extensive use of lists or other large structures, then you will want to maintain a large global stack size.</p>
+<p>Global stack space can be reclaimed whenever backtracking occurs.  A garbage collector is used to reclaim no longer needed allocated space by marking what is actively referenced (directly or indirectly) and then compacting.  You should be aware that like the local stack, interpreted code, particularly while debugging, may use substantially more global stack space than compiled code.</p>
+<p>Global stack size is given in kilobytes with a default of <strong>1024</strong>.  Again, this is probably more than you require, particularly for compiled applications. (Earlier versions of Arity/Prolog set the default at 64.)</p>
+<p>The global stack size is specified using the following format:</p>
+<pre>
+GLOBAL=<em>kilobytes</em></pre><p> </p>
+<h3>Local and global alarm thresholds</h3>
+<p>If the amount of free local or global stack space falls below a specified threshold, garbage collection will be invoked.  The thresholds are specified in bytes and for each threshold the default is <strong>2048</strong>.  If the threshold is set too low your program may crash.  There is no downside to raising the alarm levels other than less effective use of the stacks and potentially more time spent by the application in garbage collection.  Most well-written Prolog programs never or rarely need to garbage collect.</p>
+<p>The local and global alarm thresholds are specified using the following formats:</p>
+<pre>
+LALARM=<em>bytes</em>
+GALARM=<em>bytes</em></pre><p> </p>
+<h3>The internal database file</h3>
+<p>Applications may be designed to run and may be deployed without any IDB file, even if those applications use database predicates.  An environment file variable specifies the load behavior at startup for the application's internal database which can have one of three forms:</p>
+<pre>
+DBMODE=maybe</pre><p class="rteindent1">Load database if present (DEFAULT)</p>
+<pre>
+DBMODE=never</pre><p class="rteindent1">Never load database</p>
+<pre>
+DBMODE=always</pre><p class="rteindent1">Always load database - fail startup if not found</p>
+<p> </p>
+<p>The IDB file name that is used at startup defaults to the name of the application with the .IDB extension.  This name may be overridden by the DATABASE environment file variable.  Thus, the default startup behavior for an application foo.exe is to search for a file foo.idb which is restored if found, or if not found, to start the application with an unnamed empty</p>
+<p>The DATABASE file parameter indicates the name of the idb file and where the idb file can be found. Normally, the name given for this file is by convention the same as the main module name. If you use a module directive, then the idb name should be the same as that in the module directive.</p>
+<p>The format for specifying the name and location of the internal database file is:</p>
+<pre>
+DATABASE=<em>path_name</em>.idb</pre><p>The path indicates the directory in which the .idb file is stored. If you do not include the path then the system checks the directories specified in the PATH operating system environment variable.</p>
+<p>For example, if the main module of your program is named mortgage and the application resides in the \prolog\apps directory, then your idb file parameter should be:</p>
+<pre>
+DATABASE=\prolog\apps\mortgage.idb</pre><p>If you supply an .idb file name other than the name of the main module, then the system will look for the database with the name you supply.</p>
+<p> </p>
+<h3>Cache page allocation</h3>
+<p>The database used for term and interpreted code storage uses an area of memory which caches pages.  Each page is 4 Kb in size, with a minimum of 4 required.  All workspaces share the same cache.</p>
+<p>When an application is started, the system allocates a certain number of pages (each 4K in size) for the internal database cache. The number of pages that the system attempts to allocate is determined by the MINPAGES and MAXPAGES parameters:</p>
+<h4>MINPAGES</h4>
+<p>This parameter indicates the fewest number of database cache pages that will be allocated for your application. Depending on your application, system performance may suffer if you set this parameter too low because extensive paging may occur between memory and disk. Therefore, you need to determine a reasonable setting for MINPAGES which results in acceptable performance but does not use large amounts of memory. Since such a setting is dependent on your application, you will need to try different settings to determine the optimum MINPAGES setting. The default setting for MINPAGES is <strong>4</strong>. If the system cannot allocate the amount of pages indicated by MINPAGES, then the application will not run and you will receive an error message. However, the MINPAGES setting must be less than or equal to the MAXPAGES setting.</p>
+<p>The format for the MINPAGES parameter is:</p>
+<pre>
+MINPAGES=<em>number of 4 Kb pages</em></pre><p> </p>
+<h4>MAXPAGES</h4>
+<p>This parameter indicates the maximum number of database cache pages that can be allocated. The default setting for MAXPAGES is <strong>1024</strong>. There is no minimum limit for the MAXPAGES parameter, but it must be greater than or equal to the MINPAGES setting. The best performance setting for MAXPAGES depends on a number of factors, including memory availability of the executing hardware and application database usage.</p>
+<p>The format for the  MAXPAGES parameter is:</p>
+<pre>
+MAXPAGES=<em>number of 4 Kb pages</em></pre><p> </p>
+<h3>The overflow file</h3>
+<p>The overflow file is used to swap database pages in and out of memory. This file is created at startup and is used when your database grows larger than cache memory can hold.</p>
+<p>You may specify the directory in which the overflow file for the application will be created. The default specification for the overflow file is to create the file in the directory specified by the TMP environment variable or if one does not exist, then in the current directory. The format for specifying the directory is:</p>
+<pre>
+OVERFLOW=<em>directory_pathname</em></pre><p>The directory pathname is the full pathname of the directory in which the overflow file will reside. This must be an existing directory. For example, the following parameter indicates that the overflow file will be placed in the \prolog\apps directory:</p>
+<pre>
+OVERFLOW=\prolog\apps</pre><p> </p>
+<h3>I/O buffer size and keyboard driver usage</h3>
+<p>The input and output routines in Arity/Prolog32 use buffering techniques for greater efficiency.  Likewise, the handling of keyboard input uses techniques that act on certain key presses, particularly for facilitating line-edit operations.</p>
+<p>When using C I/O routines in conjunction with Arity/Prolog32 input and output predicates you may need to do one or both of the following:</p>
+<ul><li>Set the environment variable KBDRIVER to NO so that C input routines will not conflict with Arity/Prolog's keyboard driver.</li>
+<li>Use the C flushall() routine prior to using the C printf() and related routines to avoid problems between C and Prolog buffered I/O routines.</li>
+</ul><p>To disable the use of the Arity/Prolog32 keyboard driver, add the following to the application's environment file"</p>
+<pre>
+KBDRIVER=NO</pre><p>The default value for the KBDRIVER parameter is YES.</p>
+<p>A program may benefit from changes to the size of the I/O buffer. The size is specified in bytes, with a default of 2048.  The format for specifying a different value is:</p>
+<pre>
+BUFSIZE=<em>bytes</em></pre><p> </p>
+<h3>Operator definition area</h3>
+<p>Operator definitions may be dynamically modified.  The memory area for operator definitions may be increased in size if your application has a large number of operators.  The specified space is provided in kilobytes with a default of 3. The format is:</p>
+<pre>
+OPDEFSIZE=<em>kilobytes</em></pre><p> </p>
+<h3>Arity/Prolog32 Interpreter configuration</h3>
+<p>The interpreter has as a default a setting of <strong>NO</strong> which enables a traditional, but largely obsolete, "DOS window" user interface.  Generally, overriding this setting to <strong>YES</strong> is much more convenient for modern programming, and particularly for debugging.  You will find that you will wish to modify your command prompt layout properties to increase screen buffer size and window size, if you have not already. The format of this parameter is:</p>
+<pre>
+VANILLA=<em>YES/NO</em></pre><p> </p>
+</div></div></div>  <div id="book-navigation-12" class="book-navigation">
+    
+        <div class="page-links clearfix">
+              <a href="building-dlls.html" class="page-previous" title="Go to previous page">‹ Building DLLs</a>
+                    <a href="writing-arityprolog32-applications.html" class="page-up" title="Go to parent page">up</a>
+                    <a href="initializing-your-application.html" class="page-next" title="Go to next page">Initializing your application ›</a>
+          </div>
+    
+  </div>
+  </div>
+
+      <div class="link-wrapper">
+      <ul class="links inline"><li class="comment_forbidden first last"><span><a href="/user/login?destination=node/56%23comment-form">Log in</a> or <a href="/user/register?destination=node/56%23comment-form">register</a> to post comments</span></li>
+</ul>    </div>
+  
+  
+</div>
+  </div>
+</div>
+  </div>
+                                
+            </div>
+        
+        </div><!-- /#content -->
+        
+                
+        <div class="clear"></div>
+        
+                <!-- #featured -->
+        <div id="featured" class="sixteen columns clearfix">
+            
+                        <div class="one_half">
+              <div class="region region-featured-left">
+    <div id="block-block-2" class="block block-block">
+
+    
+  <div class="content">
+    <div class="cta clearfix" style="height:145px">
+<h3>Headspace Sprockets</h3>
+
+<p><img class="alignleft" alt="" src="/sites/default/files/small_iStock_000017030156_Small_1.jpg" style="height:48px; width:48px">Learn more about my company.
+</p>
+<div class="clear"></div>
+<br>
+<div class="button small right"><a class="button white" href="http://www.headspacesprockets.com" target="_blank">Visit Headspace Sprockets</a></div>
+</div>
+<p>  </div>
+</div>
+  </div>
+            </div>
+            
+            <div class="one_half last">
+              <div class="region region-featured-right">
+    <div id="block-block-1" class="block block-block">
+
+    
+  <div class="content">
+    <div class="cta clearfix" style="height:145px">
+<h3>GitHub</h3>
+<p><img class="alignleft" src="/sites/all/themes/skeletontheme/mockup/arrow.png" alt="">I have shared some projects on GitHub. Arity/Prolog32 distributions are <a href="installing-arityprolog32.html"><b>available here</b></a> in this site's Arity/Prolog32 notebook.</p>
+<div class="clear"></div>
+<div class="button small right"><a class="button white" href="https://github.com/Peter-Gabel" target="_blank">Fork me on GitHub</a></div>
+</div>  </div>
+</div>
+  </div>
+            </div>
+                        
+        </div><!-- /#featured -->
+                
+	</div>
+        
+	<div id="footer">
+        <div class="container">
+        	<div class="sixteen columns clearfix">
+        
+                <div class="one_third">
+                  <div class="region region-footer-first">
+    <div id="block-block-3" class="block block-block">
+
+    <h2>Privacy and Terms of Use</h2>
+  
+  <div class="content">
+    <p><a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/" rel="license"><img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/us/88x31.png" style="border-width:0"></a><br>
+<strong>©&nbsp;2017&nbsp;Peter L. Gabel</strong>. Except where designated as licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/" target="_blank" rel="license"><strong>Creative Commons Attribution-NonCommercial-NoDerivs 3.0 United States License</strong></a>, Peter L. Gabel reserves all rights associated with the materials on this site. Your use is subject to 
+<strong>
+<a href="/content/privacy-and-terms-use" target="_blank">Additional terms of use</a></strong></p>  </div>
+</div>
+  </div>
+                </div>
+                
+                <div class="one_third">
+                  <div class="region region-footer-second">
+    <div id="block-block-4" class="block block-block">
+
+    
+  <div class="content">
+    <p><a href="http://www.linkedin.com/pub/peter-gabel/0/18/428" target="_blank"><img alt="View Peter Gabel's profile on LinkedIn" src="http://www.linkedin.com/img/webpromo/btn_viewmy_160x33.png" style="height:33px; width:160px"></a></p>
+  </div>
+</div>
+<div id="block-user-login" class="block block-user">
+
+    <h2>User login</h2>
+  
+  <div class="content">
+    <form action="/content/environment-files?destination=node/56" method="post" id="user-login-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name">Username <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-name" name="name" value="" size="15" maxlength="60" class="form-text required">
+</div>
+<div class="form-item form-type-password form-item-pass">
+  <label for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" id="edit-pass" name="pass" size="15" maxlength="128" class="form-text required">
+</div>
+<div class="item-list"><ul><li class="first"><a href="/user/register" title="Create a new user account.">Create new account</a></li>
+<li class="last"><a href="/user/password" title="Request new password via e-mail.">Request new password</a></li>
+</ul></div><input type="hidden" name="form_build_id" value="form-VyuhgY2uGUKRcQdZrngTe_pbdfuttp25ajTSxoo5qMk">
+<input type="hidden" name="form_id" value="user_login_block">
+<div class="form-item form-type-textfield form-item-captcha-questions-answer-given">
+  <label for="edit-captcha-questions-answer-given">What is the name of my company? Hint: you can find it below. <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-captcha-questions-answer-given" name="captcha_questions_answer_given" value="" size="60" maxlength="128" class="form-text required">
+<div class="description">Please answer the question. (We&#039;re keeping spam bots out!)</div>
+</div>
+<div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--2" name="op" value="Log in" class="form-submit"></div></div></form>  </div>
+</div>
+  </div>
+                </div>
+                
+                <div class="one_third last">
+                  <div class="region region-footer-third">
+    <div id="block-block-5" class="block block-block">
+
+    
+  <div class="content">
+    <p><em>The power of the unaided mind is highly overrated. Without external aids, memory, thought, and reasoning are all constrained. But human intelligence is highly flexible and adaptive, superb at inventing procedures and objects that overcome its own limits. The real powers come from devising external aids that enhance cognitive abilities. How have we increased memory, thought, and reasoning? By the inventions of external aids: It is things that make us smart.</em></p>
+<p>-- Donald Norman, <strong><a href="http://www.amazon.com/Things-That-Make-Smart-Attributes/dp/0201626950/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1368737063&amp;sr=1-1" target="_blank">Things that make us smart</a></strong></p>
+  </div>
+</div>
+  </div>
+                </div>
+        
+                <div class="clear"></div>
+                
+                                
+                <div class="clear"></div>
+                
+                <div id="credits">
+				<!--
+				&copy;
+                2018                                 Peter Gabel<br/>
+                				-->
+                Original theme by <a href="http://www.drupalizing.com" target="_blank">Drupalizing</a>, a project of <a href="http://www.morethanthemes.com" target="_blank">More than (just) Themes</a>. Original design by <a href="http://www.simplethemes.com/" target="_blank">Simple Themes</a>.
+                </div>
+        	</div>
+        </div>
+    </div>
+    
+</div> <!-- /#wrap -->  </body>
+</html>

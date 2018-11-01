@@ -1,0 +1,436 @@
+ARITY/PROLOG32 ERROR MESSAGES
+Arity/Prolog32 Version 1.0
+February 1993
+Copyright (c) 1993, Arity Corporation
+-------------------------------------
+
+
+FILE ERROR MESSAGES
+-------------------
+
+ERR 1001 File not found
+The file as typed does not exist.
+
+ERR 1002 Path not found
+The path specified is not a valid path.
+
+ERR 1003 Too many open files
+You have exceeded the OS/2 open file limit. The default is 20.	You
+can adjust this will the FILES environment parameter.
+
+ERR 1004 Access denied
+Attempt to use a file which is restricted in use. For example,
+attempting to write to a read-only file.
+
+ERR 1005 Invalid handle
+The handle specified does not exist.
+
+ERR 1006 Attempted to remove the current directory
+You cannot remove the current directory.
+
+ERR 1007 Cannot rename to different device
+When renaming a file, drive specifications must be identical.
+
+ERR 1008 Disk full
+A write operation was unsuccessful because of lack of space.
+
+
+SYNTAX ERROR MESSAGES
+---------------------
+
+SYNTAX 1 Error using operators.
+The term you have typed does not conform to the Prolog language
+syntax. Check for spelling errors or incomplete or invalid terms.
+
+SYNTAX 2 Atom or variable name too long.
+The length of an atom or variable name exceeds 255 characters.
+Shorten the name of the atom or variable in your program.
+
+SYNTAX 3 Error in list syntax.
+There is missing or inappropriate punctuation for a list.  Correctly
+enter the list.
+
+SYNTAX 4 Error in database ref token.
+You have made an error in entering a database reference.  Database
+references are entered using a tilde (~) followed by eight
+hexadecimal digits.
+
+SYNTAX 5 Right snip (!]) not found where expected.
+You have entered a term that contains a left snip ([!) without a
+matching right snip (!]).
+
+SYNTAX 6 Invalid punctuation character.
+You have entered a punctuation character that is inappropriate and
+cannot be translated. Correctly enter the term.
+
+SYNTAX 7 Precedence error using operators.
+The Prolog reader is not able to determine the precedence of
+operators within a clause. Use parentheses to disambiguate the
+expression.
+
+SYNTAX 8 Right brace not found where expected.
+The term has a left brace ({) without a corresponding right
+brace (}). Correct the term.
+
+SYNTAX 9 Right paren not found where expected.
+The term has a left parenthesis "(" without a corresponding right
+parenthesis ")". Correct the term.
+
+SYNTAX 10 Invalid numeric entry.
+A number has been entered in an invalid format. For instance,
+specifying 12E1099 would cause this error message since 1099 is
+beyond the upper limit for scientific notation format.
+
+
+ARITY/PROLOG32 SYSTEM ERROR MESSAGES
+------------------------------------
+ERR 101 Unexpected system error
+Error Code passed to prologerrmsg was invalid.
+
+ERR 102 Unexpected fileerror
+An unknown error occurred during a file access.
+
+ERR 103 Database error
+An error occurred during a database access.  Often this error
+will occur if an attempt is made to store a term larger than
+the 4K page size. Alternatively, check for bad database reference
+or malfunctioning disk.
+
+ERR 104 Not enough memory for startup
+Prolog cannot allocate memory for the stacks during start-up.  Try
+removing memory-resident software. Try using overlays.
+
+ERR 106 Internal windows driver error
+You should never see this message. Call the Arity/Support Hotline
+at (508) 371-1243.
+
+ERR 107 Error while restoring database
+The database for the application could not be found/or was found to
+be corrupt.
+
+ERR 108 Error writing a page to disk - disk probably full
+The disk to which writing is attempted is full.
+
+ERR 109 Could not create overflow file
+Arity/Prolog cannot create the database overflow file. Check the
+overflow file specification in the environment file.  Remember that
+Arity/Prolog tries to place teh overflow file in the directory
+specified by the TMP variable and this directory must exist.
+
+ERR 110 Maximum number of Prolog threads exceeded
+A Prolog prolog can have a maximum of 64 threads.  If your program
+has more than this, you're probably doing something wrong.
+
+ERR 200 Illegal use of an erased ref or key
+The instance or replace predicates cannot be used with erased
+database reference numbers or keys. Correct your program.
+
+ERR 201 Attempt to erase something that has already been erased
+You have already erased the term you are attempting to erase.
+Correct your program.
+
+ERR 202 Attempt to hard_erase something that has already been hard_erased
+You have already hard_erased the term you are attempting to hard_erase.
+Correct your program.
+
+ERR 203 Invalid database access
+The database reference you are using is invalid. Correct your program
+
+ERR 204 A non-existent page or page-table was accessed
+The database reference looks valid, but in fact references a part of
+the database that has not yet been created.
+
+ERR 205 Illegal format for database file
+The database file is not in a format compatible with Arity32/Prolog
+Version 1.0.
+
+ERR 206 Database file not found
+Arity32/Prolog cannot find the database file. Check the overflow file
+specification in the environment file.
+
+ERR 208 Database full
+The virtual database size has grown beyond the 2 gigabyte limit.
+
+ERR 211 Not enough local stack
+Your program requires more local stack space than the system can
+provide. You can increase the size of the local stack in the
+environment file.  The default size is 1Mb.
+
+ERR 212 Not enough global stack
+Your program requires more global stack space than the system can
+provide. You can increase the size of the global stack in the
+environment file up to 64K. The default size is 1Mb.
+
+ERR 214 Error while saving database
+Not enough room to complete save. Since save does not remove the old
+database until a new one is created (hence a "safe save"), there must
+be twice the size of the database available on diskette.
+
+ERR 215 Prolog predicate called as a C function failed.
+A predicate used as a function should not fail. Correct your program.
+
+ERR 216 Invalid return type of function
+Return type of function can not be cast to expected value. Correct
+your program.
+
+ERR 217 Run-time type error in embedded C expression
+Prolog variable instantiated to a value that can not be cast to type
+defined in embedded C expression. Correct your program.
+
+ERR 217 Thread not initialized for Prolog
+An attempt to execute prolog code was made without first
+calling PrologInitThread.
+
+ERR 503 Attempt to redefine built-in predicate -- <name/arity>
+You have consulted a predicate which has the same name as an
+Arity/Prolog32 built-in predicate. Rename the predicate.
+
+ERR 504 Begin without End in resource definition -- <name>
+You did not include an end_dialog, end_choices or end_menu specifier
+for a corresponding "begin" specifier in your definitions file. The
+name of the dialog, menu, or choices key is listed. Check the
+definitions file for inconsistencies.
+
+ERR 505 Error in dialog control definition -- <Dialog:Control>
+There is an error in a control definition for the specified dialog
+box. Check the definition of the control.
+
+ERR 506 Illegal menu item definition -- <Menu:Item>
+There is an error in a menu item definition for the specified menu.
+Check the definition of the menu item.
+
+ERR 507 Include File not fount -- <File>
+The file specified in the include directive could not be found.
+
+ERR 508 Error in macro expansion -- <<Term is Expression>>
+An attempt to evaluate Expression to substitute for Term was made,
+but Expression evaluated to 'err'.
+
+ERR 509 :- elif without corresponding :- if
+An elif declaration was found without a preceding if declaration.
+
+ERR 510 :- endif without corresponding :- if
+An endif directive was found without a preceding if directive.
+
+ERR 511 Warning, redefining macro -- <<Macro>>
+An additional define declaration was found for Macro. The latest
+definition is used.
+
+
+C.4 Arity/Prolog32 Compiler error messages
+
+APC1503: Error creating object file -- <filename>
+An OS/2 file error occurred while writing an object file, such as
+an incorrect path was specified, or there is not enough room on the
+disk.
+
+APC1505: Illegal atomic goal -- <goal>
+The goal is not executable.  For example, the following predicate
+would cause this message since 4 is not a satisfiable goal: try :- 4.
+
+APC1506: Illegal syntax in case expression -- <term>
+You have incorrectly use the case construct. The correct form is
+case([A1-> B1, A2 -> B2 , ... | C]). That is,  "If A1, then B1;
+if A2, then B2; and so on, or else C." Correct the construct and
+recompile.
+
+APC1507: Illegal directive -- <directive>
+There is an error in a compiler directive. The directive is
+indicated. Correct the directive and recompile.
+
+APC1508: No definition for public predicate -- <name/arity>
+APC1509: No definition for predicate -- <name/arity>
+APC1510: No definition for visible predicate -- <name/arity>
+A program references a clause that is not found in the current
+program file and that is not declared as extrn. Check that you have
+defined all the necessary predicates and recompile.
+
+APC1511: Input file not found -- <filename>
+The specified input file could not be found. Check for spelling
+errors or invalid path specifications.
+
+APC1512: Module size exceeds system limit - break into smaller modules
+The module has overflowed the compilers internal limit on the size
+of object code. You will need to create more than one module from
+this one.
+
+APC1513: No compiled arithmetic can be interpreted
+Embedded C expressions must be compiled and therefor can not be
+passed as an argument to a predicate to be "called", such as
+setof/3, stdinout/3 or call/1.
+
+APC1521: Tokenization Error
+Unable to tokenize a C declaration. Correct your code.
+
+APC1522: Pragma not defined
+The pragma was ignored by the compiler. Correct your code.
+
+APC1523: Include File Not Found: <<File>>
+Arity/Prolog32 cannot find the include file. Check for the correct
+spelling and path specification
+
+APC1524: Warning: redefinition of symbol <symbol>
+Preprocessor symbol was already defined. Second definition is
+ignored by  the compiler. Correct your code.
+
+APC1525: Auto declaration not supported
+Auto declaration totally ignored by the compiler. Correct your code.
+
+APC1526: Register declaration not supported
+Register declaration completely ignored by the compiler. Correct
+your code.
+
+APC1527: Struc/Enum/Tag  tag> is already defined
+Tag is already used, second definition is ignored.
+Correct your code.
+
+APC1528: Void element of union or structure
+Elements of structures and unions can not be void.
+Correct your code.
+
+APC1529: Function element of union or structure
+Elements of structures and unions can not be a function.
+Correct your code.
+
+APC1530: Name <identifier> is already defined
+Second attempt to define identifier ignored by compiler.
+Correct your code.
+
+APC1531: Extrn variable <name> cannot be inited:
+Objects can only be intialized in declarations where they are
+defined. Correct your code.
+
+APC1532: Invalid type <type>
+The type your have specified has not been defined. Use typedef to
+define this type.
+
+APC1533: Warning: Type <type> ignored
+Arity/Prolog does not recognize the const or volatile types. The
+compiler will, however, process the rest of the declaration.
+
+APC1534: Modifier <modifier> illegal in context:
+The object of the modifier should be an identifier or a pointer.
+Correct your code.
+
+APC1535: Found <token1 >when looking for <token2>
+The wrong token was found during parsing, check your code for
+possible corrections.
+
+APC1536: Warning: Huge declaration  treated as farignored
+Arity/Prolog will process the huge declration as a far.
+
+APC1537: Syntax Error
+Syntax error parsing a C declaration. Correct your code to match
+ANSI C standard syntax.
+
+APC1538: Declaration Error
+Although the compiler was able to parse this declaration, it was
+not able to determine the correct meaning. Correct your code.
+
+APC1539: #endif, #elif, or #else without matching #if
+These pragmas need a corresponding #if, #ifdef or #ifndef.
+
+APC1540: Undefined identifier <identifier>
+A valid C identifier used in a C expression without having been
+declared.  Correct your code.
+
+APC1541: Warning: sizeof() returns 0
+The sizeof operation is returning a value of zero for a given
+identifier.
+
+APC1542: Warning: Address of an array - ignored
+The & operator was applied to an array identifier, which
+is already considered to be the address of the object. The operation
+is ignored.
+
+APC1546: Warning: Subtraction of pointers with different types ordistances
+Pointer subtraction is performed on the offset portion of the
+pointer, and based on the size of the object pointed at. Check your
+code to insure that this will not affect the result.
+
+APC1547: General expression failure
+Syntax Error in an embedded C expression. Correct your code.
+
+APC1548: Illegal arguments for operator <operator>
+The types of the arguments to operator are invalid.
+
+APC1549: Illegal 'is' assignment
+The left-hand side of 'is' is either not a prolog variable or the
+type of the right-hand side cannot be assigned to a prolog var
+(such as a struct). Correct your code.
+
+APC1550: Illegal assignment
+Result of right-hand side can not be cast to type of left-hand side
+or left-hand side is not a legal lvalue. Correct your code
+
+APC1551: Cannot compute address of argument (&)
+Address of argument (such as constant) cannot be computed.
+Correct your code.
+
+APC1552: Cannot dereference expression (*)
+The argument of '*' is not an address and therefore cannot be
+dereferenced.  Correct your code.
+
+APC1553: Invalid pointer operation
+A pointer is being used incorrectly in an embedded C expression.
+Correct your code.
+
+APC1554: Size of object is 0 in pointer arithmetic
+Pointer arithmetic depends on the size of objects pointed to. This
+size may not be zero. Correct your code.
+
+APC1555: Divide by 0 error in expression
+Dividing by 0 can give undefined results and is therefore not
+allowed. Correct your code.
+
+APC1556: Illegal declaration
+Right-hand side is an invalid type or left-hand side is not a
+variable or valid identifier in an embedded C expression. Correct
+your code.
+
+APC1557: Attempt to redefine automatic identifier
+Attempt to define a variable twice within an embedded C expression.
+Correct your code.
+
+APC1558: Error in selection of member of struct or union
+Identifier used to select member of structure or union is not a
+valid member selector. Correct your code.
+
+APC1559: Illegal argument in sizeof()
+The argument was not an identifier or type name.
+Correct your program.
+
+APC1560: Illegal function argument
+Argument can not be cast to type in function declaration.
+Correct your program.
+
+APC1561: Illegal cast
+The type of the cast or the argument is invalid.
+Correct your program.
+
+APC1562: Unknown error compiling C expression
+Invalid embedded C expression. Correct your code.
+
+APC1563: Warning: Too many actual parameters
+APC1564: Warning: Too few actual parameters
+The number of parameters in the function call does not match the
+number of arguments in the function declaration.
+
+APC1565: Warning: Formal parameter ignored
+The unspecified parameter will not be typechecked or coerced.
+
+APC1566: Struc/Enum/Tag <Tag> is undefined
+An attempt to use Tag has been made without it previously
+being defined.
+
+APC1567: Warning: Conflicting segmodule declarations for module: <Module>
+Module is used in more than one segmodule declaration which attempt
+to place it in more than one segment.
+
+APC1568: Module <Module> used in extrn declaration without segmodule declaration
+Module is used in a module(Module) suffix without a corresponding
+segmodule declaration to determine which segment it is in.
+
+APC1569: Predicate <Pred1> used undefined predicate <Pred2>
+Pred2 is neither declared in this module nor defined in this module and
+it is used by Pred1.

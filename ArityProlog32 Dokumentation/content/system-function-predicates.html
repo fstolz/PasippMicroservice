@@ -1,0 +1,708 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:og="http://ogp.me/ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:sioct="http://rdfs.org/sioc/types#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta charset="utf-8">
+<meta name="HandheldFriendly" content="true">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="http://peter-gabel.com/sites/default/files/photos1%20tight-307_0.jpg" type="image/jpeg">
+<meta name="MobileOptimized" content="width">
+<link rel="up" href="arityprolog32-language.html">
+<link rel="canonical" href="system-function-predicates.html">
+<link rel="shortlink" href="/node/37">
+<link rel="prev" href="dll-and-visibility-predicates.html">
+<link rel="next" href="definite-clause-grammars.html">
+  <title>System function predicates | Peter Gabel</title>
+  <style type="text/css" media="all">
+@import url("http://peter-gabel.com/modules/system/system.base.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.menus.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.messages.css?np0twq");
+@import url("http://peter-gabel.com/modules/system/system.theme.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/modules/book/book.css?np0twq");
+@import url("http://peter-gabel.com/modules/comment/comment.css?np0twq");
+@import url("http://peter-gabel.com/modules/field/theme/field.css?np0twq");
+@import url("http://peter-gabel.com/modules/node/node.css?np0twq");
+@import url("http://peter-gabel.com/modules/search/search.css?np0twq");
+@import url("http://peter-gabel.com/modules/user/user.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/modules/ckeditor/css/ckeditor.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/sites/all/modules/ctools/css/ctools.css?np0twq");
+</style>
+<style type="text/css" media="all">
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/skeleton.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/style.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/buttons.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/css/layout.css?np0twq");
+@import url("http://peter-gabel.com/sites/all/themes/skeletontheme/color/colors.css?np0twq");
+</style>
+  <script type="text/javascript" src="http://peter-gabel.com/misc/jquery.js?v=1.4.4"></script>
+<script type="text/javascript" src="http://peter-gabel.com/misc/jquery.once.js?v=1.2"></script>
+<script type="text/javascript" src="http://peter-gabel.com/misc/drupal.js?np0twq"></script>
+<script type="text/javascript" src="http://peter-gabel.com/sites/all/themes/skeletontheme/js/jquery.mobilemenu.js?np0twq"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery(document).ready(function($) { 
+	
+	$("#navigation .content > ul").mobileMenu({
+		prependTo: "#navigation",
+		combine: false,
+        switchWidth: 760,
+        topOptionText: Drupal.settings.skeletontheme['topoptiontext']
+	});
+	
+	});
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","skeletontheme":{"topoptiontext":"Select a page"},"ajaxPageState":{"theme":"skeletontheme","theme_token":"i5D4_7gKWK6EcDK7GuUGsud64wgSnxliMFbuF2xJN-0","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/themes\/skeletontheme\/js\/jquery.mobilemenu.js":1,"0":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/book\/book.css":1,"modules\/comment\/comment.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/themes\/skeletontheme\/css\/skeleton.css":1,"sites\/all\/themes\/skeletontheme\/css\/style.css":1,"sites\/all\/themes\/skeletontheme\/css\/buttons.css":1,"sites\/all\/themes\/skeletontheme\/css\/layout.css":1,"sites\/all\/themes\/skeletontheme\/color\/colors.css":1}}});
+//--><!]]>
+</script>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-first page-node page-node- page-node-37 node-type-book">
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div id="wrap">
+    <div class="container">
+        
+                
+        <div class="clear"></div>
+        
+        <!-- #header -->
+                <div id="header" class="sixteen columns clearfix">   
+                
+            <div class="inner">
+    
+                                
+                                <div id="name-and-slogan">
+                
+                                        <div id="site-name">
+                    <a href="/" title="Home" rel="home">Peter Gabel</a>
+                    </div>
+                                        
+                                        <div id="site-slogan">
+                    Interdisciplinary investigations into applied cognitive science                    </div>
+                                    
+                </div>
+                            </div>
+        </div><!-- /#header -->
+        
+                
+        <div class="clear"></div>
+        
+        <!-- #navigation -->
+        <div id="navigation" class="sixteen columns clearfix">
+        
+            <div class="menu-header">
+                            				<div class="content">
+				<ul class="menu"><li class="first leaf"><a href="/">Home</a></li>
+<li class="leaf"><a href="/blog" title="">Blog</a></li>
+<li class="expanded"><a href="/content/notebooks">Notebooks</a><ul class="menu"><li class="first leaf"><a href="/content/annotated-references">Annotated References</a></li>
+<li class="leaf"><a href="arityprolog32.html">Arity/Prolog32</a></li>
+<li class="leaf"><a href="/content/cognitive-science">Cognitive Science</a></li>
+<li class="leaf"><a href="/content/natural-language-processing">Natural Language Processing</a></li>
+<li class="leaf"><a href="/content/ontologies-and-logics">Ontologies and Logics</a></li>
+<li class="leaf"><a href="/content/rich-data-machine-learning">Rich Data &amp; Machine Learning</a></li>
+<li class="last leaf"><a href="/content/software-development">Software Development</a></li>
+</ul></li>
+<li class="leaf"><a href="/content/selected-publications">Selected publications</a></li>
+<li class="leaf"><a href="/content/about-me">About me</a></li>
+<li class="leaf"><a href="/contact" title="">Contact me</a></li>
+<li class="last leaf"><a href="/content/join-my-team">Join my team</a></li>
+</ul>                </div>
+                        </div>
+            
+        </div><!-- /#navigation -->
+        
+                <!-- #sidebar-first -->
+        <div id="sidebar-first" class="five columns">
+              <div class="region region-sidebar-first">
+    <div id="block-block-6" class="block block-block">
+
+    
+  <div class="content">
+    
+Welcome Guest. <a href="/user">Login</a>/<a href="/user/register">Register</a>.
+        
+  </div>
+</div>
+<div id="block-blog-recent" class="block block-blog">
+
+    <h2>Recent blog posts</h2>
+  
+  <div class="content">
+    <div class="item-list"><ul><li class="first"><a href="/content/defeating-janitorial-challenges-big-data">Defeating the Janitorial Challenges of Big Data</a></li>
+<li><a href="/content/business-and-life-lessons-freshman-physics-problem">Business and life lessons from a freshman physics problem</a></li>
+<li><a href="/content/wee-bit-about-we">A wee bit about &quot;we&quot;</a></li>
+<li><a href="/content/category-theory">Category Theory</a></li>
+<li><a href="/content/how-many-monitors-are-enough">How many monitors are enough?</a></li>
+<li><a href="/content/words-words-words">Words, words, words!</a></li>
+<li><a href="/content/some-thoughts-about-javascript">Some thoughts about JavaScript</a></li>
+<li><a href="/content/eico-460">Eico 460</a></li>
+<li><a href="/content/raspberry-pi">Raspberry Pi</a></li>
+<li class="last"><a href="/content/arduino">Arduino</a></li>
+</ul></div><div class="more-link"><a href="/blog" title="Read the latest blog entries.">More</a></div>  </div>
+</div>
+<div id="block-book-navigation" class="block block-book">
+
+    <h2>Notebooks</h2>
+  
+  <div class="content">
+      <div id="book-block-menu-67" class="book-block-menu">
+    <ul class="menu"><li class="first last leaf"><a href="/content/annotated-references">Annotated References</a></li>
+</ul>  </div>
+  <div id="book-block-menu-12" class="book-block-menu">
+    <ul class="menu"><li class="first last expanded active-trail"><a href="arityprolog32.html" class="active-trail">Arity/Prolog32</a><ul class="menu"><li class="first leaf"><a href="installing-arityprolog32.html">Installing Arity/Prolog32</a></li>
+<li class="collapsed"><a href="writing-arityprolog32-applications.html">Writing Arity/Prolog32 Applications</a></li>
+<li class="expanded active-trail"><a href="arityprolog32-language.html" class="active-trail">The Arity/Prolog32 Language</a><ul class="menu"><li class="first leaf"><a href="program-structure-and-data-types.html">Program structure and data types</a></li>
+<li class="leaf"><a href="program-control.html">Program control</a></li>
+<li class="leaf"><a href="unify-terms.html">Unify terms</a></li>
+<li class="leaf"><a href="classify-compare-and-sort-terms.html">Classify, compare and sort terms</a></li>
+<li class="leaf"><a href="term-structure-conversions.html">Term structure conversions</a></li>
+<li class="leaf"><a href="arithmetic-and-arithmetic-expressions.html">Arithmetic and arithmetic expressions</a></li>
+<li class="leaf"><a href="text-predicates.html">Text predicates</a></li>
+<li class="collapsed"><a href="input-and-output-predicates.html">Input and output predicates</a></li>
+<li class="collapsed"><a href="database-predicates.html">Database predicates</a></li>
+<li class="leaf"><a href="dll-and-visibility-predicates.html">DLL and visibility predicates</a></li>
+<li class="leaf active-trail"><a href="system-function-predicates.html" class="active-trail active">System function predicates</a></li>
+<li class="leaf"><a href="definite-clause-grammars.html">Definite Clause Grammars</a></li>
+<li class="leaf"><a href="source-code-processing-directives.html">Source code processing directives</a></li>
+<li class="leaf"><a href="prolog-compiler-directives.html">Prolog compiler directives</a></li>
+<li class="leaf"><a href="embedded-c-declarations.html">Embedded C declarations</a></li>
+<li class="leaf"><a href="c-expressions-within-prolog-clauses.html">C expressions within Prolog clauses</a></li>
+<li class="last leaf"><a href="prolog-c-data-type-conversion.html">Prolog / C data type conversion</a></li>
+</ul></li>
+<li class="collapsed"><a href="arityprolog32-warning-and-error-messages.html">Arity/Prolog32 Warning and Error Messages</a></li>
+<li class="leaf"><a href="list-all-arityprolog32-predicates.html">List of all Arity/Prolog32 predicates</a></li>
+<li class="leaf"><a href="glossary.html">Glossary</a></li>
+<li class="last leaf"><a href="suggested-readings.html">Suggested Readings</a></li>
+</ul></li>
+</ul>  </div>
+  <div id="book-block-menu-15" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/cognitive-science">Cognitive Science</a></li>
+</ul>  </div>
+  <div id="book-block-menu-8" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/natural-language-processing">Natural Language Processing</a></li>
+</ul>  </div>
+  <div id="book-block-menu-14" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/ontologies-and-logics">Ontologies and Logics</a></li>
+</ul>  </div>
+  <div id="book-block-menu-13" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/rich-data-machine-learning">Rich Data &amp; Machine Learning</a></li>
+</ul>  </div>
+  <div id="book-block-menu-11" class="book-block-menu">
+    <ul class="menu"><li class="first last collapsed"><a href="/content/software-development">Software Development</a></li>
+</ul>  </div>
+  </div>
+</div>
+<div id="block-search-form" class="block block-search">
+
+    <h2>Search</h2>
+  
+  <div class="content">
+    <form action="/content/system-function-predicates" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text">
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit"></div><input type="hidden" name="form_build_id" value="form-YFb0leIemMFuIpodhXsQgT6qW-xmtCI71tyJiO2LFnY">
+<input type="hidden" name="form_id" value="search_block_form">
+</div>
+</div></form>  </div>
+</div>
+  </div>
+        </div><!-- /#sidebar-first -->
+                
+                <div id="content" class="eleven columns">
+		        
+                    
+                            <div id="breadcrumb"><h2 class="element-invisible">You are here</h2><div class="breadcrumb"><a href="/">Home</a><span class="sep">»</span><a href="arityprolog32.html">Arity/Prolog32</a><span class="sep">»</span><a href="arityprolog32-language.html">The Arity/Prolog32 Language</a><span class="sep">»</span>System function predicates</div></div>
+                        
+            <div id="main">
+            
+                                
+                                
+                                <h1 class="title" id="page-title">
+                  System function predicates                </h1>
+                                
+                                
+                                <div class="tabs">
+                                  </div>
+                                
+                                
+                                
+                  <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div id="node-37" class="node node-book clearfix" about="/content/system-function-predicates" typeof="sioc:Item foaf:Document">
+
+      <span property="dc:title" content="System function predicates" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>
+      <div class="meta submitted">
+            <span property="dc:date dc:created" content="2013-03-31T08:30:53-04:00" datatype="xsd:dateTime" rel="sioc:has_creator">Submitted by <span class="username" xml:lang="" about="/user/2" typeof="sioc:UserAccount" property="foaf:name" datatype="">Peter Gabel</span> on Sun, 03/31/2013 - 08:30</span>    </div>
+  
+  <div class="content clearfix">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Arity/Prolog32 supplies predicates to perform operating system functions for managing files and directories and for accessing the system clock. You can use these predicates rather than issuing similar commands through the Arity/Prolog32 shell/1 predicate.</p>
+<p>Arity/Prolog32 also includes predicates for performing a variety of Arity/Prolog32-related functions. For example, there are predicates which report on Arity/Prolog32 system resources, such as stack sizes, page sizes, and atom heap size. There are also a number of predicates available for dealing with error situations.</p>
+<p> </p>
+<h2>Performing file maintenance</h2>
+<p>The predicates in this section perform routine file maintenance: deleting and renaming files, or changing the attributes of files.</p>
+<h3>delete(+Filename)</h3>
+<p class="rteindent1">You use the delete predicate to delete a file. You supply the file specification as an argument. You cannot use wildcard characters in the file specification.</p>
+<p> </p>
+<h3>rename(+Filename, +Newname)</h3>
+<p class="rteindent1">The rename predicate changes the name of a file.</p>
+<p> </p>
+<p>For example, the following query renames the file, file.dat (which resides in the current directory) to the new name file.dat (which resides in the subdirectory, test):</p>
+<pre>
+?- rename('file.dat', 'test\file.dat').
+yes</pre><p>You cannot use rename to move files from one disk drive to another but you can use rename to move files from one directory to another on the same disk.</p>
+<p> </p>
+<h3>chmod(+Filename, ?Attributes)</h3>
+<p class="rteindent1">The chmod predicate sets or returns the attribute byte for a file. You can supply a file specification and a variable as arguments to the predicate. The Attributes argument can be either an instantiated or an uninstantiated variable. If the Attributes argument is uninstantiated, Arity/Prolog32 returns the value of the attribute byte to the variable. If the Attributes argument is instantiated, chmod sets the attribute byte to the value that you specify.</p>
+<p> </p>
+<p>The attribute values recognized and returned by chmod are given as integers and can be one of the following or any combination of the following:</p>
+<h4>0</h4>
+<p class="rteindent1">Read, write, not a hidden file, and not a system file. This is the default. Use the 0 attribute to return a file to its original attributes.</p>
+<p> </p>
+<h4>1</h4>
+<p class="rteindent1">Read-only. If you try to open the file for output, Arity/Prolog32 issues an error message.</p>
+<p> </p>
+<h4>2</h4>
+<p class="rteindent1">Hidden file. The file is excluded from normal directory searches.</p>
+<p> </p>
+<h4>4</h4>
+<p class="rteindent1">System file. The file is excluded from normal directory searches.</p>
+<p> </p>
+<h4>16</h4>
+<p class="rteindent1">Directory. The file is a directory.</p>
+<p> </p>
+<h4>32</h4>
+<p class="rteindent1">Archive. The file has been modified since the last backup.</p>
+<p> </p>
+<p>You specify multiple attributes by adding the desired attribute values together. For example, the following clause changes the attributes of the file test.tst to read-only, hidden, and system:</p>
+<pre>
+?- chmod('test\test.tst',07).
+yes</pre><p> </p>
+<h2>Disks, Directories and File Names</h2>
+<p>The predicates in this section change the current disk device or directory. They create and remove directories, and they generate directory listings.</p>
+<h3>disk(?DiskName)</h3>
+<p class="rteindent1">The disk predicate sets the default disk drive to the letter you specify (a, b, c, etc.). You do not need to enclose the disk name in quotes or add a colon following the letter.</p>
+<p>For example:</p>
+<pre>
+?- disk(a).
+yes</pre><p> </p>
+<p>This call to the disk predicate is equivalent to the command prompt directive:</p>
+<pre>
+C&gt;a:</pre><p> </p>
+<p>If the DiskName is an uninstantiated variable, disk returns the current disk to the variable, as in:</p>
+<pre>
+?- disk(X).
+X = 'C'
+yes</pre><p> </p>
+<h3>mkdir(+Path)</h3>
+<p class="rteindent1">You use the mkdir predicate to create a directory. You specify the disk drive, path, and the name of the new directory with the Path argument. The path must not exceed 63 characters. </p>
+<p> </p>
+<p>For example, you can create a new directory called \TEST using the mkdir predicate like this:</p>
+<pre>
+?- mkdir('\test').
+yes</pre><p> </p>
+<p>This Prolog goal is equivalent to the following command prompt directive:</p>
+<pre>
+C&gt; mkdir \test</pre><p> </p>
+<h3>chdir(?Path)</h3>
+<p class="rteindent1">The chdir predicate allows you to see what directory you are currently working in or to change to another directory. You specify a backslash to move to your root directory. You supply the full root path to move to any other directory.</p>
+<p> </p>
+<p> For example:</p>
+<pre>
+?- chdir('test').
+yes</pre><p> </p>
+<p>This is the same as the command prompt directive:</p>
+<pre>
+C&gt; chdir test</pre><p> </p>
+<h3>rmdir(+Path)</h3>
+<p class="rteindent1">You use the rmdir predicate to remove, or delete, a directory. To remove a directory, you must first delete all of the files it contains, then change to a different directory. You cannot be in the directory you are removing.</p>
+<p> </p>
+<p>If you specify a path, rmdir removes only the last directory in the path. You cannot remove more than one directory at a time and you cannot remove the root directory. For example:</p>
+<pre>
+?- rmdir(test).
+yes</pre><p> </p>
+<p>This is the same as the command prompt directive:</p>
+<pre>
+C&gt; rmdir test</pre><p> </p>
+<h3>directory(+Path, -Name, -Mode, -Time, -Date, -Size)</h3>
+<p class="rteindent1">The directory predicate lists the files in a directory. The information you can access in the directory includes the file name, file attributes, the time and date the file was last accessed, and the size of the file in bytes. </p>
+<p>The Path argument selects the files you want to list. You can use the wildcard characters (? and *) in the Path argument. The Path argument must be instantiated. You supply uninstantiated variables for those parts of the directory entry that you want returned. You may supply anonymous variables for the information you do not want returned.</p>
+<p>The Mode (file attribute) can be any of the following or a combination of the following: 1 - read only; 2 - hidden; 4 - system file excluded from normal directory searches; 16 - directory; 32 - archive.</p>
+<p>If the size of the file is greater than 2^32-1 then the size is represented as a floating-point number. The accuracy of floating-point numbers is such that exact arithmetic may be performed.</p>
+<p>The following example uses directory to list the files in the current directory that were last updated on October 5, 2010.</p>
+<pre>
+?- directory('*.*',X,_,_,date(2010,10,5),_), write(X), nl, fail.
+'ARITY.LI    B'
+'API.LIB'
+'API.IDB'
+no</pre><p> </p>
+<h3>pfname(+Filename, -Prefix, -Name, -Extension, -HasExtension)</h3>
+<p class="rteindent1">The pfname predicate can be used to parse a Filename.  The Filename is provided as a string and the various components (Prefix,Name,Extension) are returned as strings.  If the returned Extension is the empty string, then the FileName may or may not have ended with a period (.).  If the Filename ended with a period, then HasExtension is returned as `y, otherwise HasExtension is returned as `n.</p>
+<p> </p>
+<h2>Operating system interaction predicates</h2>
+<h3>halt</h3>
+<h3>halt(+Exit_code)</h3>
+<p class="rteindent1">You use the halt predicate to exit from the Arity/Prolog32 Interpreter or a compiled program.</p>
+<p>For example:</p>
+<pre>
+?- halt.</pre><p> </p>
+<p>The halt/1 predicate allows you to specify an exit code to be returned when the program is halted. This is helpful in instances when you want to perform a specific action depending on how your Prolog application exits. For example, suppose you are running your Prolog application from within a batch file, and you want a message to be displayed indicating whether the program succeeds or fails. Normally, through the use of halt/0, there is no way to return an exit code indicating success or failure. Within your application, you could have two different calls to the halt/1 predicate. One use would be executed if the program succeeded and the other would be executed if the program failed.  The Exit_code is an integer. For example, to halt a program and return the exit code 3, you include the following in the program:</p>
+<pre>
+halt(3)</pre><p> </p>
+<p>The predicates in this section are used to run operating system commands from Arity/Prolog32, terminate the application, and produce statistics on system use.</p>
+<h3>abort(+HaltCode)</h3>
+<p class="rteindent1">The abort predicate simulates a Ctrl-C entered from the keyboard and is used for exception handling. When abort is encountered, it calls the restart predicate. If there is no restart predicate and the program is interpreted, program control returns to the interpreter. If there is no restart predicate and the program is compiled, the program will use HaltCode to halt the program.</p>
+<p> </p>
+<h3>shell</h3>
+<h3>shell(+Command)</h3>
+<p class="rteindent1">The shell predicate allows you to interact with the operating system from within the interpreter or a compiled Arity/Prolog32 program.</p>
+<p>If you do not supply a command as an argument, you are placed at the operating system prompt. You will remain there and can execute commands until you type exit at the command prompt:</p>
+<pre>
+C&gt; exit</pre><p>If you do supply a command as an argument, the shell predicate executes that command and returns you to the interpreter or compiled program as soon as the command has been executed. Note that if the command takes an argument, you must supply the command as an atom or string.</p>
+<p> </p>
+<h3>lock</h3>
+<h3>unlock</h3>
+<p class="rteindent1">The lock predicate adds 1 to a  counting semaphore that is associated to Ctrl-Break processing. The unlock predicate subtracts 1 from the counting semaphore.</p>
+<p>When Ctrl-Break is pressed to terminate a program, the system checks whether an associated counting semaphore is set to 0. The counting semaphore simply keeps track of whether a Ctrl-Break is permitted during a specific point in program execution. If the counting semaphore is set to 0, then the Ctrl-Break is executed. If the counting semaphore is not set to 0, then the Ctrl-Break is not executed but is remembered and is executed when the counting semaphore becomes 0.</p>
+<p>Thus, through the use of the lock predicate, you can make the counting semaphore something other than 0. This is useful in instances when you have a program in which a break in the program at a particular point would have undesirable consequences. You could use the lock predicate at the beginning of this segment of code to ensure that the user can not break out of the program during execution of this segment. You then include the unlock predicate at the end of the code segment in order to return the counting semaphore to 0 and allow the Ctrl-Break.</p>
+<p>Note: that each use of the lock predicate should include a corresponding call to the unlock predicate later in the program.</p>
+<p> </p>
+<h3>break</h3>
+<p class="rteindent1">This goal suspends execution of an interpreter break level and re-invokes the interpreter. A break ends when the user types Ctrl-Z or end_of_file. at the interpreter prompt.</p>
+<p> </p>
+<h2>Garbage Collection</h2>
+<h3>gc</h3>
+<p class="rteindent1">The gc predicate restores stack space no longer needed by the program. (gc stands for garbage collection.)</p>
+<p>You will seldom, if ever, need to use the garbage collection facility because Arity/Prolog32 automatically restores space when it is no longer needed. For example, stack space is automatically restored when a predicate backtracks.</p>
+<p>Garbage collection is invoked automatically if your program uses a high percentage of the global stack. You can tell if this is happening by calling the statistics predicate. If this is the case, you may want to restructure the program so that it backtracks to allow for recovery of space. If this is impractical or impossible, you may want to explicitly invoke the garbage collector with the gc predicate at convenient points in the program, such as when you are waiting for input from the user.</p>
+<p> </p>
+<h2>Statistics</h2>
+<h3>statistics(?Stat, -Struct)</h3>
+<p class="rteindent1">The statistics predicate returns information on Arity/Prolog32 system resources. You can use this predicate to return information on stack usage, database usage, and database page status.</p>
+<p>The information returned by statistics is useful for determining how an application uses system resources. You can use this information to create an environment file so that an application can make efficient use of system resources.</p>
+<p>Arity/Prolog32 defines a number of atoms used to specify the type of information that you want statistics to return, and data structures to hold the information.  If the Stat argument is unbound when statistics/2 is called then it will backtrack through all statistics results except for cache.</p>
+<p>The following is a list of the Stat atoms and the structures statistics/2 returns.</p>
+<h4>stacks</h4>
+<p class="rteindent1">If you specify stacks, the statistics predicate returns a structure giving the allocated sizes of the local and global stacks, as shown:</p>
+<pre>
+stacks(Local, Global, 0)</pre><p>These sizes are the same as the sizes that are set in the environment file. The trail stack is allocated as part of the local stack and does not have a separate value.</p>
+<h4>local</h4>
+<h4>global</h4>
+<h4>trail</h4>
+<p class="rteindent1">When you specify local, global, or trail, statistics returns a structure giving the current size of the specified stack and maximum size in bytes ever used by the stack.</p>
+<p>The information for the local, global and trail statistics are returned in a structure, as shown:</p>
+<pre>
+size(Current,Max)</pre><h4>garbage</h4>
+<p class="rteindent1">When you specify garbage, statistics returns a structure giving the number of times stack space has been recovered (this is referred to as garbage collection). It addition, it returns the number of global and the number of trail cells recovered during the most recent garbage collection.</p>
+<p>The structure has the form:</p>
+<pre>
+invoked(Collect,Global,Trail)</pre><h4>version</h4>
+<p class="rteindent1">When you specify version, statistics returns a structure of the form:</p>
+<pre>
+version(Version,Update,Revision)</pre><p>The Version, Update and Revision numbers correspond to the copy of arity32.lib you linked with or that your interpreter was linked with. These values are also displayed in the heralds of the Arity/Prolog32 Compiler and Interpreter.</p>
+<h4>database</h4>
+<p class="rteindent1">When you specify database, statistics returns a structure of the form:</p>
+<pre>
+database(0,MaxCachePages,CurrentCachePages,CurrentWorkspaceDatabaseName)</pre><p> </p>
+<h4>edb</h4>
+<p class="rteindent1">When you specify database, statistics returns a structure of the form:</p>
+<pre>
+s(WorkSpaceNo,OverflowFileName,OverFlowFileSize, CacheHits,CacheMisses)</pre><p>Note that the overflow statistics are dependent on the current workspace.</p>
+<h4>cache</h4>
+<p class="rteindent1">When you specify cache, statistics returns a structure of the form:</p>
+<pre>
+CacheStats = s(MaxCachePages,CurrentCachePages,CacheHits,CacheMisses)</pre><p>The predicate statistics(cache,X) has the side effect of setting CacheHits and CacheMisses to 0 after unifying the current values.</p>
+<p> </p>
+<h2>Error Handling</h2>
+<p>Error messages can indicate syntax errors, file Input / Output errors, or runtime errors.</p>
+<ul><li>Syntax errors are produced by errors in a term.</li>
+<li>File Input/Output errors are issued by the operating system to indicate problems in accessing a file that your program requires.</li>
+<li>Runtime errors can occur if the program's database or memory requirements are too large.</li>
+</ul><p>Syntax and file Input / Output messages can be turned on or off. The settings are specified with the atoms on and off. When these errors are turned off, you can still check the error code using an error-checking predicate.</p>
+<p> </p>
+<h3>syntaxerrors(-Old, +New)</h3>
+<p class="rteindent1">The syntaxerrors predicate turns syntax error messages on or off. You can also use syntaxerrors to check the current setting of these messages.  When syntax messages are on, Arity/Prolog32 displays all messages as they occur and continues to the next term.  Syntax messages are turned on by default.</p>
+<p>You can turn them off by typing:</p>
+<pre>
+?- syntaxerrors(_, off).
+yes</pre><p> </p>
+<p>When they are disabled and an error condition exists, Arity/Prolog32 posts an error code and the Input/Output predicate fails. You can check the error code with the error-checking predicate.</p>
+<p>You can re-enable syntax error messages by typing:</p>
+<pre>
+?- syntaxerrors(_, on).</pre><p>You can check the current setting in this way:</p>
+<pre>
+?- syntaxerrors(X, X).
+X = on
+yes</pre><p> </p>
+<h3>fileerrors(-Old,+New)</h3>
+<p class="rteindent1">The fileerrors predicate turns file Input/Output error messages on or off. You can also use fileerrors to check the current setting of these messages.  File Input/Output error messages are enabled by default. When a file error occurs, a message is displayed and Arity/Prolog32 aborts the program.</p>
+<p>You can disable file Input/Output error messages by typing:</p>
+<pre>
+?- fileerrors(_, off).
+yes</pre><p>When disabled, no message is displayed and the goal which invokes the Input/Output operation fails. However, like syntaxerrors, Arity/Prolog32 posts the error code which you can check. The fileerrors predicate is often turned off in instances where you want your program to perform some specified action when a file can not be opened. If fileerrors is left on in this instance, a message is displayed and the program aborts. If fileerrors is turned off, the goal which attempts to open the file fails, but no message is displayed and you can write predicates to handle the failure.</p>
+<p>To check the current fileerrors setting, type:</p>
+<pre>
+?- fileerrors(X, X).
+X = on
+yes</pre><p> </p>
+<h3>errcode(-OldCode, +NewCode)</h3>
+<p class="rteindent1">The errcode predicate returns the error code for the most recent error message and resets the error code to new a code provided. If syntax or file Input/Output errors are turned off and an error occurs, you would need to use this predicate to determine the cause of the error.  You may specify 0 a the new error code to indicate that an error condition does not exist any longer.</p>
+<p> </p>
+<h2>Accessing the system clock</h2>
+<p>The predicates in this section change or return the date and time of the system clock. An additional predicate is provided to determine the day of the week on which a date falls.</p>
+<h3>date(?date(Year, Month, Day))</h3>
+<p class="rteindent1">Arity/Prolog32 defines a structure for handling dates.</p>
+<p>All dates are expressed in the format:</p>
+<pre>
+date(Year, Month, Day)</pre><p>The date predicate takes a date structure as its argument. If the structure is uninstantiated, the predicate returns the current date. If the structure is instantiated, date sets the system clock to the date you specify or will fail if the instantiated date is invalid.</p>
+<p>For example, the first call to date, below, returns the current date (here, May 8, 2010). The second call sets the date to July 14, 2010.</p>
+<pre>
+?- date(X).
+X = date(2010,5,8)
+yes
+
+?- date(date(2010,7,14)).
+yes</pre><p> </p>
+<h3>time(?time(Hour, Minute, Second, Hundredth))</h3>
+<p class="rteindent1">Arity/Prolog32 defines a structure for representing time.</p>
+<p>The time structure has the format:</p>
+<pre>
+time(Hour, Minute, Second, Hundredth)</pre><p> </p>
+<p>The time predicate takes a time structure as its argument. If the structure is uninstantiated, time returns the current time of day. If the structure is instantiated, time sets the system clock to that value or will fail if the instantiated time is invalid.</p>
+<p>In the following example, 11:02:40.82 is the current time:</p>
+<pre>
+?- time(X).
+X = time(11,2,40,82)
+yes</pre><p> </p>
+<h3>date_day(+date(Y,M,D), -WeekDay)</h3>
+<p class="rteindent1">The date_day predicate returns the day of the week for a given date. The date cannot fall before January 1, 1900 or after December 31, 2079.</p>
+<p>The day of the week is returned as an integer between 0 and 6, where 0 is equal to Sunday and 6 is equal to Saturday.</p>
+<p>The following example returns Saturday (6) as the weekday of January 1, 2011:</p>
+<pre>
+?- date_day(date(2011,1,1), X).
+X = 5
+yes</pre><p> </p>
+<p>The following example shows how you can use date, date_day/2, and time to display the current day of the week, date, and time. To display this information in non-numeric form, you must define two predicates, day and month, to translate the numbers returned from date_day/2 to the correct day and month names. The predicate, today, formats and displays the information.</p>
+<pre>
+day(0,'Sunday').
+day(1,'Monday').
+day(2,'Tuesday').
+day(3,'Wednesday').
+day(4,'Thursday').
+day(5,'Friday').
+day(6,'Saturday').
+
+month(1,'January').
+month(2,'February').
+month(3,'March').
+month(4,'April').
+month(5,'May').
+month(6,'June').
+month(7,'July').
+month(8,'August').
+month(9,'September').
+month(10,'October').
+month(11,'November').
+month(12,'December').
+
+
+today :-    
+    date(date(X,Y,Z)),
+    date_day(date(X,Y,Z),A),    
+    day(A,B), 
+    write('Today is '),   
+    write(B), tab(1),
+    month(Y,C),     
+    write(C), tab(1),
+    write(Z), write(','), tab(1),     
+    write(X), nl,   
+    write('The time is '),
+    time(time(H,M,_,_)),
+    write(H), 
+    write(':'),
+    write(M).</pre><p>To execute this program, you type:</p>
+<pre>
+?- today.
+Today is Thursday April 30, 1992The time is 12:10
+yes</pre><p> </p>
+<h2>Including arguments in application programs</h2>
+<p>If you write your own Arity/Prolog32 applications, the command_string/1 predicate allows you to include arguments in the command line that invokes your application program. For example, suppose you have written an application program named <strong>struct </strong>which takes a single command line argument. The program is invoked by typing struct and the name of a file containing the sentences, as in the following:</p>
+<pre>
+C&gt; struct file1</pre><p> </p>
+<h3>command_string(X)</h3>
+<p class="rteindent1">The command_string/1 predicate returns the command line arguments as a string. It can be included in your application program to return the command line arguments so that they can be used by the application program.</p>
+<p>For the above example, the command_string/1 predicate would return ' file1' bound to X. (Note that the leading space is included). The application can then include further instructions for processing the string so that it is useful to the application. If no argument is included in the command line, command_string will return a null string.</p>
+<p> </p>
+<h2>Accessing System Environment Variables</h2>
+<h3>getEnvVar(+Variable, -Value)</h3>
+<p class="rteindent1">If you wish to examine the current value for an environment variable, such as 'PATH', 'TEMP' or 'EDITOR', you may use the predicate getEnvVar/2.  The environment value is returned as an atom.  If the environment variable is not found, then getEnvVar will fail.</p>
+<p> </p>
+</div></div></div>  <div id="book-navigation-12" class="book-navigation">
+    
+        <div class="page-links clearfix">
+              <a href="dll-and-visibility-predicates.html" class="page-previous" title="Go to previous page">‹ DLL and visibility predicates</a>
+                    <a href="arityprolog32-language.html" class="page-up" title="Go to parent page">up</a>
+                    <a href="definite-clause-grammars.html" class="page-next" title="Go to next page">Definite Clause Grammars ›</a>
+          </div>
+    
+  </div>
+  </div>
+
+      <div class="link-wrapper">
+      <ul class="links inline"><li class="comment_forbidden first last"><span><a href="/user/login?destination=node/37%23comment-form">Log in</a> or <a href="/user/register?destination=node/37%23comment-form">register</a> to post comments</span></li>
+</ul>    </div>
+  
+  
+</div>
+  </div>
+</div>
+  </div>
+                                
+            </div>
+        
+        </div><!-- /#content -->
+        
+                
+        <div class="clear"></div>
+        
+                <!-- #featured -->
+        <div id="featured" class="sixteen columns clearfix">
+            
+                        <div class="one_half">
+              <div class="region region-featured-left">
+    <div id="block-block-2" class="block block-block">
+
+    
+  <div class="content">
+    <div class="cta clearfix" style="height:145px">
+<h3>Headspace Sprockets</h3>
+
+<p><img class="alignleft" alt="" src="/sites/default/files/small_iStock_000017030156_Small_1.jpg" style="height:48px; width:48px">Learn more about my company.
+</p>
+<div class="clear"></div>
+<br>
+<div class="button small right"><a class="button white" href="http://www.headspacesprockets.com" target="_blank">Visit Headspace Sprockets</a></div>
+</div>
+<p>  </div>
+</div>
+  </div>
+            </div>
+            
+            <div class="one_half last">
+              <div class="region region-featured-right">
+    <div id="block-block-1" class="block block-block">
+
+    
+  <div class="content">
+    <div class="cta clearfix" style="height:145px">
+<h3>GitHub</h3>
+<p><img class="alignleft" src="/sites/all/themes/skeletontheme/mockup/arrow.png" alt="">I have shared some projects on GitHub. Arity/Prolog32 distributions are <a href="installing-arityprolog32.html"><b>available here</b></a> in this site's Arity/Prolog32 notebook.</p>
+<div class="clear"></div>
+<div class="button small right"><a class="button white" href="https://github.com/Peter-Gabel" target="_blank">Fork me on GitHub</a></div>
+</div>  </div>
+</div>
+  </div>
+            </div>
+                        
+        </div><!-- /#featured -->
+                
+	</div>
+        
+	<div id="footer">
+        <div class="container">
+        	<div class="sixteen columns clearfix">
+        
+                <div class="one_third">
+                  <div class="region region-footer-first">
+    <div id="block-block-3" class="block block-block">
+
+    <h2>Privacy and Terms of Use</h2>
+  
+  <div class="content">
+    <p><a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/" rel="license"><img alt="Creative Commons License" src="http://i.creativecommons.org/l/by-nc-nd/3.0/us/88x31.png" style="border-width:0"></a><br>
+<strong>©&nbsp;2017&nbsp;Peter L. Gabel</strong>. Except where designated as licensed under a <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/" target="_blank" rel="license"><strong>Creative Commons Attribution-NonCommercial-NoDerivs 3.0 United States License</strong></a>, Peter L. Gabel reserves all rights associated with the materials on this site. Your use is subject to 
+<strong>
+<a href="/content/privacy-and-terms-use" target="_blank">Additional terms of use</a></strong></p>  </div>
+</div>
+  </div>
+                </div>
+                
+                <div class="one_third">
+                  <div class="region region-footer-second">
+    <div id="block-block-4" class="block block-block">
+
+    
+  <div class="content">
+    <p><a href="http://www.linkedin.com/pub/peter-gabel/0/18/428" target="_blank"><img alt="View Peter Gabel's profile on LinkedIn" src="http://www.linkedin.com/img/webpromo/btn_viewmy_160x33.png" style="height:33px; width:160px"></a></p>
+  </div>
+</div>
+<div id="block-user-login" class="block block-user">
+
+    <h2>User login</h2>
+  
+  <div class="content">
+    <form action="/content/system-function-predicates?destination=node/37" method="post" id="user-login-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name">Username <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-name" name="name" value="" size="15" maxlength="60" class="form-text required">
+</div>
+<div class="form-item form-type-password form-item-pass">
+  <label for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label>
+ <input type="password" id="edit-pass" name="pass" size="15" maxlength="128" class="form-text required">
+</div>
+<div class="item-list"><ul><li class="first"><a href="/user/register" title="Create a new user account.">Create new account</a></li>
+<li class="last"><a href="/user/password" title="Request new password via e-mail.">Request new password</a></li>
+</ul></div><input type="hidden" name="form_build_id" value="form-MXe7_ykGskdNWPDrMfE2aydQAA7d-DDGo79-8AMeyAI">
+<input type="hidden" name="form_id" value="user_login_block">
+<div class="form-item form-type-textfield form-item-captcha-questions-answer-given">
+  <label for="edit-captcha-questions-answer-given">What is the name of my company? Hint: you can find it below. <span class="form-required" title="This field is required.">*</span></label>
+ <input type="text" id="edit-captcha-questions-answer-given" name="captcha_questions_answer_given" value="" size="60" maxlength="128" class="form-text required">
+<div class="description">Please answer the question. (We&#039;re keeping spam bots out!)</div>
+</div>
+<div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--2" name="op" value="Log in" class="form-submit"></div></div></form>  </div>
+</div>
+  </div>
+                </div>
+                
+                <div class="one_third last">
+                  <div class="region region-footer-third">
+    <div id="block-block-5" class="block block-block">
+
+    
+  <div class="content">
+    <p><em>The power of the unaided mind is highly overrated. Without external aids, memory, thought, and reasoning are all constrained. But human intelligence is highly flexible and adaptive, superb at inventing procedures and objects that overcome its own limits. The real powers come from devising external aids that enhance cognitive abilities. How have we increased memory, thought, and reasoning? By the inventions of external aids: It is things that make us smart.</em></p>
+<p>-- Donald Norman, <strong><a href="http://www.amazon.com/Things-That-Make-Smart-Attributes/dp/0201626950/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1368737063&amp;sr=1-1" target="_blank">Things that make us smart</a></strong></p>
+  </div>
+</div>
+  </div>
+                </div>
+        
+                <div class="clear"></div>
+                
+                                
+                <div class="clear"></div>
+                
+                <div id="credits">
+				<!--
+				&copy;
+                2018                                 Peter Gabel<br/>
+                				-->
+                Original theme by <a href="http://www.drupalizing.com" target="_blank">Drupalizing</a>, a project of <a href="http://www.morethanthemes.com" target="_blank">More than (just) Themes</a>. Original design by <a href="http://www.simplethemes.com/" target="_blank">Simple Themes</a>.
+                </div>
+        	</div>
+        </div>
+    </div>
+    
+</div> <!-- /#wrap -->  </body>
+</html>

@@ -1,0 +1,24 @@
+mongo:
+  host:     localhost
+  port:     27017
+  db:       katharsis
+  user:
+  password:
+
+server:
+  type: simple
+  rootPath: /api/*
+  applicationContextPath: /
+  adminContextPath: /admin
+  connector:
+    type: http
+    port: 8090
+
+logging:
+  level: WARN
+  loggers:
+    io.dropwizard.jersey.DropwizardResourceConfig: INFO
+    org.glassfish.jersey.server.ServerRuntime$Responder: ALL
+
+  appenders:
+    - type: console

@@ -1,0 +1,109 @@
+DEBUG COMMAND QUICK SUMMARY
+Arity/Prolog32 Version 1.0
+February 1993
+Copyright (c) 1993, Arity Corporation
+-------------------------------------
+
+a: abort	       b: break 	      c: creep
+d: display goal        e: exit interpreter    f: fail goal
+h: help                l: leap                n: notrace
+q: quasi-skip          s: skip                w: write goal
+x: back to choice pt   z: zip		      @: accept goal
+;: redo 	       ~: write refs	      ]: non-det leap
+<enter> : creep    <esc>: skip		<space>: toggle windows
+
+	Note that reconsulting a file while debugging
+            may produce unpredictable results.
+
+
+DEBUG COMMAND DESCRIPTIONS:
+Space bar     Toggles  between	the  debugger window and the
+              application window.
+
+;             Used at an exit port, this command  causes the
+              debugger to proceed to the  redo  port  of the
+              current goal.
+
+@             Allows you to call any Prolog goal  and return
+              immediately to the  debugger when the goal has
+              completed.
+
+a             Aborts  the  program and returns  you  to  the
+              interpreter  prompt.  You   should   use  this
+              command rather than Ctrl-C.
+
+b             Places  you at the interpreter prompt  without
+              terminating the program. You can end the break
+              and  continue debugging the program by  typing
+              Control-Z.   For each break that is in effect,
+              the interpreter adds another question  mark to
+              its prompt. For example,  if  there  are three
+              breaks in effect, the interpreter prompt would
+              look like this:
+
+                   ????-
+
+c or <enter>  Causes  the  debugger  to  "creep" to the next
+              port. With this  command, you can proceed from
+              port to port of the procedure  boxes  for each
+              of the  predicates'  goals.  If  the  port  is
+              leashed,   the   debugger  stops   to   accept
+              commands.  If  the port is  not  leashed,  the
+              debugger simply prints a message and continues
+              to the next port.
+
+d             Displays  the current goal, using the  display
+              predicate.
+
+e             Exits  the interpreter and returns you to  the
+              DOS monitor prompt.
+
+f             Causes the debugger to proceed directly to the
+              fail port.  This  command  is  useful  if  you
+              already know that the goal is going to fail.
+
+h             Provides help on the debugging commands.
+
+l             Causes  the debugger to "leap" from spy  point
+              to spy point.
+
+n             Turns  the  debugger  off.  This   command  is
+              equivalent to the notrace predicate.
+
+q             Skips  to the exit or fail  port  of  a  goal.
+              However, if there is a  spy  point  set within
+              the goal, execution stops  at  the  spy point.
+              You can use this command only from a  call  or
+              redo port.  (See also the s and z commands.)
+
+s or <esc>    Skips  to  the  exit or fail port  of  a  goal
+              regardless of whether other spy points are set
+              within the goal. You can use this command only
+              from  a call or redo port.  (See  also  the  q
+              and z commands.)
+
+w             Writes  the  current  goal,  using  the  write
+              predicate.
+
+x             This command can be used  at  a  fail  or redo
+              port.  It  causes  the  debugger  to  continue
+              failing until a call or exit port  is reached.
+              Although it does  not stop to accept commands,
+              the  debugger  issues  a  message at each port
+              that it passes through.
+
+z             Skips  to  the  exit or fail port  of  a  goal
+              regardless of whether other spy points are set
+              within the goal.   Execution  does  not retain
+              debugging information on  backtracking  points
+              within goal,  thus it is faster and more space
+              efficient.  You can use this command only from
+              a call or redo port.  (See  also  the  q and s
+              commands.)
+
+
+]	      Causes  the debugger  to leap to the next non-
+	      deterministic exit port.
+
+~	      Writes  each term	 associated with  a database
+	      reference in the current goal.

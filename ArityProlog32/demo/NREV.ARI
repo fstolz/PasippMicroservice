@@ -1,0 +1,79 @@
+:- public
+    nrevbch/2:system(det='NrevBenchmark'(int,int)),
+    abstime/1.
+
+:- mode
+    nrev(+,-/+):det,
+    append(+,+,-/+):det,
+    for(+,+,-),
+    genlst(+,-).
+
+:- c.
+typedef char *pchar;
+extern unsigned long ulNRlips;
+extern char achNRtime[10];
+#prolog
+
+nrevbch(Length, Iters) :-
+    do_nrev(Length, Iters, Lips, Time),
+    float_text(Time, String, fixed(2)),
+    {
+	Lips:long,
+	ulNRlips = Lips;
+	'MakeCString'(achNRtime, sizeof(achNRtime), &String)
+    }.
+
+do_nrev(Length, Iters, Lips, Time) :-
+	genlst(Length, List),
+	abstime(StartTime),
+	runtest(Iters, List),
+	abstime(MidTime),
+	runcontrol(Iters, List),
+	abstime(EndTime),
+	nrev(List, List1),
+	computeavgtime(EndTime, MidTime, StartTime, Iters, Ave, Time),
+	LI is ((Length+1) * (Length+2)) / 2 + 1,
+	Lips is integer(LI/Ave).
+	
+
+
+runtest(N, List) :-
+	for(1, N, _),
+	runtestonce(List),
+	fail.
+runtest(_, _).
+
+
+runcontrol(N, List) :-
+	for(1, N, _),
+	runcontrolonce(List),
+	fail.
+runcontrol(_, _).	
+
+runtestonce(List) :- nrev(List, _), !.
+
+runcontrolonce(List) :- control(List, _), !.
+
+nrev([], []).
+nrev([H|T], L) :- nrev(T, L1), append(L1, [H], L).
+
+append([], X, X).
+append([H|T], X, [H|T1]) :- append(T, X, T1).
+
+control(_, _).
+
+
+computeavgtime(EA, MA, SA, Iters, AveTime, Time) :-
+	Time is ((MA-SA) - (EA-MA)),
+	AveTime is Time / Iters.
+
+abstime(AbsTime) :-
+	time(time(Hr,Min,Sec,Hun)),
+	AbsTime is Hr*3600 + Min*60 + Sec + Hun/float(100).
+
+for(I, I, I) :- !.
+for(I, J, I).
+for(I, J, K) :- inc(I, I1), for(I1, J, K).
+
+genlst(0, []) :- !.
+genlst(N, [N|X]) :- dec(N, N1), genlst(N1, X).
