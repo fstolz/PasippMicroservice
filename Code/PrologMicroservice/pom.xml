@@ -1,0 +1,264 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>de.fzi.pna</groupId>
+    <artifactId>prolog-service</artifactId>
+    <packaging>jar</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>prolog-service</name>
+
+    <dependencyManagement>
+        <dependencies>
+    <dependency>
+      <groupId>org.apache.maven.plugin-testing</groupId>
+      <artifactId>maven-plugin-testing-harness</artifactId>
+      <version>3.3.0</version>
+      <scope>test</scope>
+    </dependency>
+            <dependency>
+                <groupId>org.glassfish.jersey</groupId>
+                <artifactId>jersey-bom</artifactId>
+                <version>${jersey.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-grizzly2-http</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-hk2</artifactId>
+        </dependency>
+        <dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+    		<artifactId>jersey-media-multipart</artifactId>
+    	</dependency>
+
+        <!-- uncomment this to get JSON support:
+         <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-binding</artifactId>
+        </dependency>
+        -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.9</version>
+            <scope>test</scope>
+        </dependency>
+    	
+    	<dependency>
+        	<groupId>org.apache.commons</groupId>
+        	<artifactId>commons-collections4</artifactId>
+        	<version>4.2</version>
+    	</dependency>
+		
+		<dependency>
+			<groupId>fr.lip6.pnml</groupId>
+			<artifactId>fr.lip6.pnml.framework.3rdpartimports</artifactId>
+			<version>${pnml.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.lip6.pnml</groupId>
+			<artifactId>fr.lip6.pnml.framework.utils</artifactId>
+			<version>${pnml.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.lip6.pnml</groupId>
+			<artifactId>fr.lip6.pnml.framework.coremodel</artifactId>
+			<version>${pnml.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.lip6.pnml</groupId>
+			<artifactId>fr.lip6.pnml.framework.hlpn</artifactId>
+			<version>${pnml.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.lip6.pnml</groupId>
+			<artifactId>fr.lip6.pnml.nupn.toolinfo</artifactId>
+			<version>${pnml.version}</version>
+		</dependency>
+ 		<dependency>
+        	<groupId>fr.lip6.pnml</groupId>
+			<artifactId>fr.lip6.pnml.framework.ptnet</artifactId>
+			<version>${pnml.version}</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>org.eclipse.emf</groupId>
+    		<artifactId>org.eclipse.emf.ecore</artifactId>
+    		<version>2.12.0</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.eclipse.emf</groupId>
+    		<artifactId>org.eclipse.emf.common</artifactId>
+    		<version>2.12.0</version>
+		</dependency>
+        
+		<!-- Java 6 = JAX-B Version 2.0   -->
+		<!-- Java 7 = JAX-B Version 2.2.3 -->
+		<!-- Java 8 = JAX-B Version 2.2.8 -->
+		<dependency>
+    		<groupId>javax.xml.bind</groupId>
+    		<artifactId>jaxb-api</artifactId>
+    		<version>2.2.11</version>
+		</dependency>
+		<!--dependency>
+    		<groupId>com.sun.xml.bind</groupId>
+    		<artifactId>jaxb-core</artifactId>
+    		<version>2.2.11</version>
+		</dependency>
+		<dependency>
+    		<groupId>com.sun.xml.bind</groupId>
+    		<artifactId>jaxb-impl</artifactId>
+    	<version>2.2.11</version>
+		</dependency-->
+		<dependency>
+    		<groupId>javax.activation</groupId>
+    		<artifactId>activation</artifactId>
+    		<version>1.1.1</version>
+		</dependency>
+		<dependency>
+    		<groupId>com.sun.activation</groupId>
+    		<artifactId>javax.activation</artifactId>
+    		<version>1.2.0</version>
+		</dependency>
+        
+        <dependency>
+        	<groupId>org.junit.jupiter</groupId>
+        	<artifactId>junit-jupiter-engine</artifactId>
+        	<version>5.2.0</version>
+        	<scope>test</scope>
+    	</dependency>
+		<dependency>
+    		<groupId>org.junit.jupiter</groupId>
+    		<artifactId>junit-jupiter-api</artifactId>
+    		<version>5.3.1</version>
+    		<scope>test</scope>
+		</dependency>
+    	<dependency>
+        	<groupId>org.junit.vintage</groupId>
+        	<artifactId>junit-vintage-engine</artifactId>
+        	<version>5.2.0</version>
+        	<scope>test</scope>
+    	</dependency>
+    	<!-- dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>${junit.jupiter.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-params</artifactId>
+			<version>${junit.jupiter.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>${junit.jupiter.version}</version>
+			<scope>test</scope>
+		</dependency-->
+		
+		<dependency>
+		    <groupId>org.glassfish.jersey.test-framework.providers</groupId>
+    		<artifactId>jersey-test-framework-provider-bundle</artifactId>
+    		<type>pom</type>
+    		<scope>test</scope>
+		</dependency>
+    </dependencies>
+
+    <build>
+      <pluginManagement>
+        <plugins>
+
+			<plugin>
+    			<groupId>org.apache.maven.plugins</groupId>
+    			<artifactId>maven-surefire-plugin</artifactId>
+    			<version>2.19.1</version>
+    			<dependencies>
+        			<dependency>
+            			<groupId>org.junit.platform</groupId>
+            			<artifactId>junit-platform-surefire-provider</artifactId>
+            			<version>1.1.0</version>
+        			</dependency>
+        			<dependency>
+            			<groupId>org.junit.jupiter</groupId>
+            			<artifactId>junit-jupiter-engine</artifactId>
+            			<version>5.1.0</version>
+        			</dependency>
+    			</dependencies>
+			</plugin>
+
+			<!-- JUnit 5 requires Surefire version 2.22.0 or higher -->
+			<!--plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.0</version>
+			</plugin-->
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>de.fzi.pna.prolog.server.Main</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <inherited>true</inherited>
+                <!-- executions>
+                	<execution>
+                		<phase>test</phase>
+                		<goals>
+                			<goal>java</goal>
+                		</goals>
+                	</execution>
+                </executions-->
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <!-- mainClass>de.fzi.pna.prolog.server.Main</mainClass-->
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <executions>
+                    <execution>
+                    	<!-- phase>test</phase-->
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <mainClass>de.fzi.pna.prolog.server.Main</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+      </pluginManagement>
+    </build>
+
+    <properties>
+        <jersey.version>2.27</jersey.version>
+        <pnml.version>2.2.12</pnml.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <junit.jupiter.version>5.3.1</junit.jupiter.version>
+    </properties>
+</project>

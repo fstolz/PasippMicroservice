@@ -1,0 +1,33 @@
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+  <net id="net0" type="http://www.pnml.org/version-2009/grammar/ptnet">
+    <page id="page0">
+      <place id="place1">
+        <initialMarking><text>1</text></initialMarking>
+      </place>
+      <place id="place2">
+        <initialMarking><text>1</text></initialMarking>
+      </place>
+      <place id="place3">
+        <initialMarking><text>1</text></initialMarking>
+      </place>
+      <place id="rome">
+        <initialMarking><text>0</text></initialMarking>
+      </place>
+      <transition id="transitionA"/>
+      <transition id="transitionB"/>
+      <transition id="transitionC"/>
+      <transition id="transitionD"/>
+      <transition id="transitionE"/>
+      <arc id="arc01" source="place1" target="transitionA"/>
+      <arc id="arc02" source="transitionA" target="place2"/>
+      <arc id="arc03" source="place1" target="transitionB"/>
+      <arc id="arc04" source="transitionB" target="place3"/>
+      <arc id="arc05" source="place1" target="transitionC"/>
+      <arc id="arc06" source="transitionC" target="rome"/>
+      <arc id="arc07" source="place2" target="transitionD"/>
+      <arc id="arc08" source="transitionD" target="rome"/>
+      <arc id="arc09" source="place3" target="transitionE"/>
+      <arc id="arc10" source="transitionE" target="rome"/>
+    </page>
+  </net>
+</pnml>

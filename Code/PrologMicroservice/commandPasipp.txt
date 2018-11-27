@@ -1,0 +1,23 @@
+consult('pasipp.ari').
+consult('build.ari').
+consult('simulat.ari').
+consult('help1.ari').
+consult('network.ari').
+consult('net_ana.ari').
+consult('static.ari').
+consult('dynamic.ari').
+consult('help.ari').
+consult('options.ari').
+consult('operat.ari').
+consult('tree.ari').
+consult('init.ari').
+consult('special.ari').
+consult('analyse.ari').
+init.
+lade('plNet.net','das Netz').
+
+
+lade('plMark.dat','die Startmarkierung').
+
+reachtree_menue(a).
+plMark.dat
